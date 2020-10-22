@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </include>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+    <TextView
+        android:id="@+id/txt_signUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:textSize="@dimen/_18sdp"
+        android:text="@string/txt_sign_up">
+    </TextView>
+
+
+    <TextView
+        android:id="@+id/txt_personal_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_signUp"
+        android:text="@string/txt_please_enter_your_personal_detail">
+
+    </TextView>
+
+    <EditText
+        android:id="@+id/ed_first_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/txt_personal_details"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:padding="@dimen/_10sdp"
+        android:elevation="@dimen/_5sdp"
+        android:hint="@string/txt_enter_first_name"
+        android:background="@drawable/edittext_rounded_rect"
+        />
+
+    <EditText
+        android:id="@+id/ed_last_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ed_first_name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:padding="@dimen/_10sdp"
+        android:elevation="@dimen/_5sdp"
+        android:hint="@string/txt_enter_last_name"
+        android:background="@drawable/edittext_rounded_rect" />
+
+    <EditText
+        android:id="@+id/ed_mobile_number"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ed_last_name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:padding="@dimen/_10sdp"
+        android:elevation="@dimen/_5sdp"
+        android:hint="@string/txt_enter_mobile_number"
+        android:background="@drawable/edittext_rounded_rect" />
+
+    <EditText
+        android:id="@+id/ed_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ed_mobile_number"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:padding="@dimen/_10sdp"
+        android:elevation="@dimen/_5sdp"
+        android:hint="Enter Email"
+        android:background="@drawable/edittext_rounded_rect" />
+
+    <EditText
+        android:id="@+id/ed_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ed_email"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:padding="@dimen/_10sdp"
+        android:elevation="@dimen/_5sdp"
+        android:hint="Enter Password"
+        android:background="@drawable/edittext_rounded_rect"
+        />
+
+    <ImageView
+        android:id="@+id/iv_password_toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/ed_password"
+        app:layout_constraintBottom_toBottomOf="@+id/ed_password"
+        app:layout_constraintRight_toRightOf="@+id/ed_password"
+        android:src="@drawable/ic_back_white"
+        android:padding="12dp"
+        />
+
+    <EditText
+        android:id="@+id/ed_confirm_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ed_password"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:padding="@dimen/_10sdp"
+        android:elevation="@dimen/_5sdp"
+        android:hint="Enter Confirm Password"
+        android:background="@drawable/edittext_rounded_rect"
+        />
+
+    <ImageView
+        android:id="@+id/iv_confirm_password_toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/ed_confirm_password"
+        app:layout_constraintBottom_toBottomOf="@+id/ed_confirm_password"
+        app:layout_constraintRight_toRightOf="@+id/ed_confirm_password"
+        android:src="@drawable/ic_back_white"
+        android:padding="12dp"
+        />
+
+    <EditText
+        android:id="@+id/ed_referral_code"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ed_confirm_password"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:padding="@dimen/_10sdp"
+        android:elevation="@dimen/_5sdp"
+        android:hint="Enter Referral Code"
+        android:background="@drawable/edittext_rounded_rect"
+        />
+
+    <TextView
+        android:id="@+id/tv_signUp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ed_referral_code"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/_14sdp"
+        android:gravity="center"
+        android:padding="@dimen/_8sdp"
+        android:elevation="@dimen/_5sdp"
+        android:background="@drawable/login_rounded_rect"
+        android:text="SignUp"
+        />
+
+    <TextView
+        android:id="@+id/txt_by_clicking_signUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_signUp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tv_privacy_policy"
+        android:gravity="bottom"
+        android:layout_marginBottom="@dimen/_20sdp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:textSize="@dimen/_10sdp"
+        android:text="By clicking SignUp you are agree to the "/>
+
+    <TextView
+        android:id="@+id/tv_privacy_policy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_by_clicking_signUp"
+        app:layout_constraintLeft_toRightOf="@+id/txt_by_clicking_signUp"
+        app:layout_constraintRight_toLeftOf="@+id/tv_terms_condition"
+        android:layout_marginLeft="@dimen/_2sdp"
+        android:gravity="bottom"
+        android:textSize="@dimen/_10sdp"
+        android:text="@string/txt_privacy_policy"/>
+
+    <TextView
+        android:id="@+id/tv_terms_condition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_by_clicking_signUp"
+        app:layout_constraintLeft_toRightOf="@+id/tv_privacy_policy"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="@dimen/_2sdp"
+        android:gravity="bottom"
+        android:textSize="@dimen/_10sdp"
+        android:text="@string/txt_and_terms_condition"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

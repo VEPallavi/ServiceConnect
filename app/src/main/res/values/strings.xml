@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ServiceConnect</string>
+    <string name="txt_log_in">Log In</string>
+    <string name="txt_welcome_to_serviceconnect">Welcome To Serviceconnect</string>
+    <string name="txt_forgot_password">Forgot Password?</string>
+    <string name="txt_create_account">Create account</string>
+    <string name="txt_sign_up">Sign Up</string>
+    <string name="txt_please_enter_your_personal_detail">Please enter your personal detail.</string>
+    <string name="txt_enter_first_name">Enter First Name</string>
+    <string name="txt_enter_last_name">Enter Last Name</string>
+    <string name="txt_enter_mobile_number">Enter Mobile Number</string>
+    <string name="txt_and_terms_condition"><![CDATA[and Terms & Condition]]></string>
+    <string name="txt_privacy_policy">Privacy Policy</string>
+</resources>

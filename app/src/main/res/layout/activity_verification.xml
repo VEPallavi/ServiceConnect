@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </include>
+
+    <TextView
+        android:id="@+id/txt_verfication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:textSize="@dimen/_18sdp"
+        android:text="Verification">
+    </TextView>
+
+    <TextView
+        android:id="@+id/txt_enter_verification_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_verfication"
+        android:text="We have sent your verification code on your email id.">
+
+    </TextView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_verification_code"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/txt_enter_verification_code"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:paddingBottom="@dimen/_25sdp"
+        android:paddingTop="@dimen/_25sdp">
+
+        <EditText
+            android:id="@+id/et_otp_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/et_otp_2"
+            android:layout_marginLeft="@dimen/_16sdp"
+            android:layout_marginRight="@dimen/_16sdp"
+            android:maxLength="1"
+            android:hint="0"
+            android:background="@drawable/edittext_rounded_rect_blue"
+            android:padding="12dp"
+            android:gravity="center" />
+
+        <EditText
+            android:id="@+id/et_otp_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/et_otp_1"
+            app:layout_constraintLeft_toRightOf="@+id/et_otp_1"
+            app:layout_constraintRight_toLeftOf="@+id/et_otp_3"
+            android:layout_marginLeft="@dimen/_16sdp"
+            android:layout_marginRight="@dimen/_16sdp"
+            android:background="@drawable/edittext_rounded_rect_blue"
+            android:padding="12dp"
+            android:gravity="center"
+            android:hint="0"
+            android:maxLength="1" />
+
+        <EditText
+            android:id="@+id/et_otp_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/et_otp_1"
+            app:layout_constraintLeft_toRightOf="@+id/et_otp_2"
+            app:layout_constraintRight_toLeftOf="@+id/et_otp_4"
+            android:layout_marginLeft="@dimen/_16sdp"
+            android:layout_marginRight="@dimen/_16sdp"
+            android:gravity="center"
+            android:background="@drawable/edittext_rounded_rect_blue"
+            android:padding="12dp"
+            android:hint="0"
+            android:maxLength="1" />
+
+        <EditText
+            android:id="@+id/et_otp_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/et_otp_1"
+            app:layout_constraintLeft_toRightOf="@+id/et_otp_3"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginLeft="@dimen/_16sdp"
+            android:layout_marginRight="@dimen/_16sdp"
+            android:background="@drawable/edittext_rounded_rect_blue"
+            android:padding="12dp"
+            android:hint="0"
+            android:maxLength="1"
+            android:gravity="center" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/tv_verifyOtp"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_margin="@dimen/_20sdp"
+        android:background="@drawable/login_rounded_rect"
+        android:gravity="center"
+        android:text="Verify"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_verification_code">
+
+    </Button>
+
+    <TextView
+        android:id="@+id/tv_reSendOTP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_verifyOtp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="@dimen/_12sdp"
+        android:text="Resend OTP">
+
+    </TextView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
