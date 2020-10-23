@@ -48,7 +48,6 @@ class ForgotPasswordActivity : AppCompatActivity(), View.OnClickListener{
             R.id.tv_send_otp->{
 
             }
-
         }
     }
 

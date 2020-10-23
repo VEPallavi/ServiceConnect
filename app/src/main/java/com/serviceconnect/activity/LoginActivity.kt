@@ -8,6 +8,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.serviceconnect.R
 import com.serviceconnect.activity.customer.HomeActivity
+import com.serviceconnect.helper.Utils
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener{
@@ -32,28 +33,22 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
 
     private fun getEditTextData() {
 
-        ed_login.addTextChangedListener (object : TextWatcher {
-
+        ed_email.addTextChangedListener (object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                if(ed_login.text.toString().length != 0){
-                    ed_login.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
+                if(ed_email.text.toString().length != 0){
+                    ed_email.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
                 }
                 else{
-                    ed_login.setBackgroundResource(R.drawable.edittext_rounded_rect)
+                    ed_email.setBackgroundResource(R.drawable.edittext_rounded_rect)
                 }
             }
-
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             }
         })
 
-
-
         ed_password.addTextChangedListener(object : TextWatcher {
-
             override fun afterTextChanged(s: Editable?) {
                 if(ed_password.text.toString().length != 0){
                     ed_password.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
@@ -61,16 +56,14 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
                 else{
                     ed_password.setBackgroundResource(R.drawable.edittext_rounded_rect)
                 }
-
             }
-
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             }
-
         })
+
+
 
     }
 
@@ -88,10 +81,36 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
                 startActivity(intent)
             }
             R.id.tv_login ->{
-                var intent = Intent(this, HomeActivity::class.java)
-                startActivity(intent)
+                loginInUser()
             }
         }
+    }
+
+    private fun loginInUser() {
+        if(checkValidation()){
+            var intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+
+    private fun checkValidation(): Boolean {
+
+        if (!Utils.isInternetAvailable(this)) {
+            Utils.showToast(this, resources.getString(R.string.msg_no_internet))
+            return false
+        }
+        else if (!Utils.isEmailValid(ed_email.text.toString())) {
+            Utils.showToast(this, resources.getString(R.string.msg_invalid_email))
+            return false
+        } else if (ed_password.text!!.toString().length == 0) {
+            Utils.showToast(this, resources.getString(R.string.msg_empty_pass))
+            return false
+        } else if (ed_password.text!!.toString().length < 6) {
+            Utils.showToast(this, resources.getString(R.string.msg_invalid_pass))
+            return false
+        }
+        return true
     }
 
 

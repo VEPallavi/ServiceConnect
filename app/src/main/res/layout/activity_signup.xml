@@ -100,7 +100,7 @@
         android:background="@drawable/edittext_rounded_rect" />
 
     <EditText
-        android:id="@+id/ed_email"
+        android:id="@+id/ed_emailID"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/ed_mobile_number"
@@ -118,7 +118,7 @@
         android:id="@+id/ed_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/ed_email"
+        app:layout_constraintTop_toBottomOf="@+id/ed_emailID"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="@dimen/_20sdp"

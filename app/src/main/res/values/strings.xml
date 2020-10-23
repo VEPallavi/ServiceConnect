@@ -11,4 +11,30 @@
     <string name="txt_enter_mobile_number">Enter Mobile Number</string>
     <string name="txt_and_terms_condition"><![CDATA[and Terms & Condition]]></string>
     <string name="txt_privacy_policy">Privacy Policy</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <string name="msg_no_internet">Please check your internet connection and try again.</string>
+    <string name="msg_invalid_email">Please enter a valid email id.</string>
+    <string name="msg_empty_pass">Please enter your password.</string>
+    <string name="msg_invalid_pass">Password must be at least 6 characters.</string>
+    <string name="msg_invalid_first_name">Please enter a valid first name.</string>
+    <string name="msg_invalid_last_name">Please enter a valid last name.</string>
+    <string name="msg_empty_mobile_no">Please enter your mobile number.</string>
+    <string name="msg_invalid_mobile_no">Please enter a valid mobile number.</string>
+    <string name="msg_not_same_pass">Password does not match.</string>
+    <string name="msg_empty_referral_code">Please enter a valid referral code.</string>
+
+
+
 </resources>
