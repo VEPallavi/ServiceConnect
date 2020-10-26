@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/nav_salon_beauty"
+        android:icon="@drawable/ic_bell"
+        android:title="@string/menu_salon_beauty"/>
+    <item
+        android:id="@+id/nav_ride_product_pick_up_auto_repair"
+        android:icon="@drawable/ic_bell"
+        android:title="@string/menu_ride_product_pick_up_auto_repair" />
+    <item
+        android:id="@+id/nav_homecare"
+        android:icon="@drawable/ic_bell"
+        android:title="@string/menu_homecare" />
+    <item
+        android:id="@+id/nav_home_maintenance_upgrade"
+        android:icon="@drawable/ic_bell"
+        android:title="@string/menu_home_maintenance_upgrade" />
+    <item
+        android:id="@+id/nav_speciality"
+        android:icon="@drawable/ic_bell"
+        android:title="@string/menu_speciality" />
+    <item
+        android:id="@+id/nav_track_service_man"
+        android:icon="@drawable/ic_bell"
+        android:title="@string/menu_track_service_man" />
+    <item
+        android:id="@+id/nav_my_service"
+        android:icon="@drawable/ic_bell"
+        android:title="@string/menu_my_service" />
+
+    <item
+        android:id="@+id/nav_my_rating_comment"
+        android:icon="@drawable/ic_bell"
+        android:title="@string/menu_my_rating_comment" />
+
+    <item
+        android:id="@+id/nav_refer_friends"
+        android:icon="@drawable/ic_bell"
+        android:title="@string/menu_refer_friends" />
+
+    <item
+        android:id="@+id/nav_notification"
+        android:icon="@drawable/ic_bell"
+        android:title="@string/menu_notification" />
+
+    <item
+        android:id="@+id/nav_support"
+        android:icon="@drawable/ic_bell"
+        android:title="@string/menu_supports" />
+
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/ic_bell"
+        android:title="@string/menu_settings" />
+
+</menu>

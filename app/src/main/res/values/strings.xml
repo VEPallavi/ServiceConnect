@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">ServiceConnect</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
     <string name="txt_log_in">Log In</string>
     <string name="txt_welcome_to_serviceconnect">Welcome To Serviceconnect</string>
     <string name="txt_forgot_password">Forgot Password?</string>
@@ -34,7 +37,20 @@
     <string name="msg_invalid_mobile_no">Please enter a valid mobile number.</string>
     <string name="msg_not_same_pass">Password does not match.</string>
     <string name="msg_empty_referral_code">Please enter a valid referral code.</string>
-
+    <string name="menu_salon_beauty"><![CDATA[Salon & Beauty]]></string>
+    <string name="menu_ride_product_pick_up_auto_repair">Ride/Product pick up/Auto Repair</string>
+    <string name="menu_homecare">HomeCare</string>
+    <string name="menu_home_maintenance_upgrade">Home Maintenance/Upgrade</string>
+    <string name="menu_speciality">Speciality</string>
+    <string name="menu_track_service_man">Track Service Man</string>
+    <string name="menu_my_service">My Service</string>
+    <string name="menu_my_rating_comment"><![CDATA[My Rating & Comment]]></string>
+    <string name="menu_refer_friends">Refer Friends</string>
+    <string name="menu_notification">Notification</string>
+    <string name="menu_supports">Supports</string>
+    <string name="menu_settings">Settings</string>
+    <string name="txt_categories">Categories</string>
+    <string name="txt_salon_beauty"><![CDATA[Salon & Beauty]]></string>
 
 
 </resources>

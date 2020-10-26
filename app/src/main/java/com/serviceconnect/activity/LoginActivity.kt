@@ -87,10 +87,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
     }
 
     private fun loginInUser() {
-        if(checkValidation()){
+       // if(checkValidation()){
             var intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
-        }
+      //d  }
     }
 
 
