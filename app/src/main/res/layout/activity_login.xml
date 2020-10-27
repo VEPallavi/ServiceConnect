@@ -7,13 +7,13 @@
 
     <ImageView
         android:id="@+id/iv_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="@dimen/_30sdp"
         android:layout_marginLeft="@dimen/_20sdp"
-        android:src="@drawable/ic_launcher_background"
+        android:src="@drawable/logo_two"
         />
 
     <TextView
@@ -25,6 +25,7 @@
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:textSize="@dimen/_16sdp"
+        android:textColor="@color/colorBlack"
         android:text="@string/txt_log_in"/>
 
     <TextView
@@ -35,7 +36,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="@dimen/_3sdp"
         android:layout_marginLeft="@dimen/_20sdp"
-        android:textSize="@dimen/_12sdp"
+        android:textColor="@color/light_grey"
+        android:textSize="@dimen/_10sdp"
         android:text="@string/txt_welcome_to_serviceconnect"/>
 
     <EditText
@@ -45,14 +47,18 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_welcome_to_serviceconnect"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:drawableLeft="@drawable/ic_back_white"
+        android:drawableLeft="@drawable/email_icon_off"
         android:drawablePadding="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_30sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
         android:padding="@dimen/_10sdp"
+        android:singleLine="true"
         android:elevation="@dimen/_5sdp"
-        android:background="@drawable/edittext_rounded_rect"
+        android:textSize="@dimen/_12sdp"
+        android:textColor="@color/dark_grey"
+        android:textColorHint="@color/dark_grey"
+        android:background="@drawable/edittext_rounded_rect_border"
         android:hint="Email"
         />
 
@@ -63,14 +69,18 @@
         app:layout_constraintTop_toBottomOf="@+id/ed_email"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:drawableLeft="@drawable/ic_back_white"
+        android:drawableLeft="@drawable/password_icon_off"
         android:drawablePadding="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
         android:padding="@dimen/_10sdp"
+        android:singleLine="true"
+        android:textSize="@dimen/_12sdp"
         android:elevation="@dimen/_5sdp"
-        android:background="@drawable/edittext_rounded_rect"
+        android:textColor="@color/dark_grey"
+        android:textColorHint="@color/dark_grey"
+        android:background="@drawable/edittext_rounded_rect_border"
         android:hint="Password"
         />
 
@@ -95,7 +105,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ed_password"
         android:textSize="@dimen/_12sdp"
         android:padding="@dimen/_8sdp"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorPrimary"
         android:text="@string/txt_forgot_password"/>
 
     <TextView

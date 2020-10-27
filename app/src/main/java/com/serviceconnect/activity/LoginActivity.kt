@@ -39,7 +39,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
                     ed_email.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
                 }
                 else{
-                    ed_email.setBackgroundResource(R.drawable.edittext_rounded_rect)
+                    ed_email.setBackgroundResource(R.drawable.edittext_rounded_rect_border)
                 }
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -54,7 +54,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
                     ed_password.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
                 }
                 else{
-                    ed_password.setBackgroundResource(R.drawable.edittext_rounded_rect)
+                    ed_password.setBackgroundResource(R.drawable.edittext_rounded_rect_border)
                 }
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -62,8 +62,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             }
         })
-
-
 
     }
 

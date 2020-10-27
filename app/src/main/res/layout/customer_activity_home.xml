@@ -14,7 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
@@ -22,8 +21,8 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         android:scrollbars="vertical"
-        app:itemTextColor="@color/grey"
-        app:itemIconTint="@color/grey"
+        app:itemTextColor="@color/light_grey"
+        app:itemIconTint="@color/light_grey"
         app:headerLayout="@layout/customer_nav_header_main"
         android:background="@color/colorWhite"
         app:menu="@menu/activity_main_drawer" />

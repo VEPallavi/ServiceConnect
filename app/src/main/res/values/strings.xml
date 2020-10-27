@@ -12,7 +12,7 @@
     <string name="txt_enter_first_name">Enter First Name</string>
     <string name="txt_enter_last_name">Enter Last Name</string>
     <string name="txt_enter_mobile_number">Enter Mobile Number</string>
-    <string name="txt_and_terms_condition"><![CDATA[and Terms & Condition]]></string>
+    <string name="txt_and_terms_condition"><![CDATA[ Terms & Condition]]></string>
     <string name="txt_privacy_policy">Privacy Policy</string>
 
 
@@ -38,9 +38,7 @@
     <string name="msg_not_same_pass">Password does not match.</string>
     <string name="msg_empty_referral_code">Please enter a valid referral code.</string>
     <string name="menu_salon_beauty"><![CDATA[Salon & Beauty]]></string>
-    <string name="menu_ride_product_pick_up_auto_repair">Ride/Product pick up/Auto Repair</string>
-    <string name="menu_homecare">HomeCare</string>
-    <string name="menu_home_maintenance_upgrade">Home Maintenance/Upgrade</string>
+    <string name="menu_home_maintenance_remodeling">Home Maintenance/Remodeling</string>
     <string name="menu_speciality">Speciality</string>
     <string name="menu_track_service_man">Track Service Man</string>
     <string name="menu_my_service">My Service</string>
@@ -51,6 +49,10 @@
     <string name="menu_settings">Settings</string>
     <string name="txt_categories">Categories</string>
     <string name="txt_salon_beauty"><![CDATA[Salon & Beauty]]></string>
+    <string name="txt_verify">Verify</string>
+    <string name="txt_verification">Verification</string>
+    <string name="txt_we_have_sent_your_verification_code_on_your_email_id">We have sent your verification code on your email id.</string>
+    <string name="menu_automative_autorepair">Automative/Autorepair</string>
 
 
 </resources>

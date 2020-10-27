@@ -37,5 +37,7 @@ dependencies {
     implementation 'com.intuit.sdp:sdp-android:1.0.6'  // for dimen
     implementation 'com.google.android.material:material:1.2.0-alpha05'  // for design
 
+    implementation 'com.github.joielechong:countrycodepicker:2.4.2'
+
 
 }

@@ -23,8 +23,9 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_20sdp"
-        android:textSize="@dimen/_18sdp"
-        android:text="Verification">
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_16sdp"
+        android:text="@string/txt_verification">
     </TextView>
 
     <TextView
@@ -33,10 +34,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_20sdp"
-        android:textSize="@dimen/_12sdp"
+        android:textSize="@dimen/_10sdp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_verfication"
-        android:text="We have sent your verification code on your email id.">
+        android:text="@string/txt_we_have_sent_your_verification_code_on_your_email_id">
 
     </TextView>
 
@@ -120,7 +121,7 @@
         android:layout_margin="@dimen/_20sdp"
         android:background="@drawable/login_rounded_rect"
         android:gravity="center"
-        android:text="Verify"
+        android:text="@string/txt_verify"
         android:textAllCaps="true"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/_12sdp"

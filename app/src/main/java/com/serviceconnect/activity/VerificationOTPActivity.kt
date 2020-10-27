@@ -7,7 +7,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.serviceconnect.R
 import kotlinx.android.synthetic.main.activity_verification.*
-
+import kotlinx.android.synthetic.main.toolbar_layout.*
 
 
 class VerificationOTPActivity : AppCompatActivity(), View.OnClickListener{
@@ -29,6 +29,7 @@ class VerificationOTPActivity : AppCompatActivity(), View.OnClickListener{
 
     private fun setOnClickListener() {
         tv_verifyOtp.setOnClickListener(this)
+        iv_back.setOnClickListener(this)
     }
 
     private fun getEditText() {
@@ -117,6 +118,9 @@ class VerificationOTPActivity : AppCompatActivity(), View.OnClickListener{
        when(v?.id){
            R.id.tv_verifyOtp ->{
 
+           }
+           R.id.iv_back ->{
+               finish()
            }
        }
     }

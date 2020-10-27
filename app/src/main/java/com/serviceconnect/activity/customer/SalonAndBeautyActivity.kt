@@ -11,8 +11,6 @@ class SalonAndBeautyActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.customer_activity_salon_beauty)
 
-
-
     }
 
 

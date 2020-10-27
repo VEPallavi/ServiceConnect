@@ -13,7 +13,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:padding="@dimen/_10sdp"
-        app:srcCompat="@drawable/ic_back_white" />
+        app:srcCompat="@drawable/back_icon_on" />
 
     <TextView
         android:id="@+id/tv_title"

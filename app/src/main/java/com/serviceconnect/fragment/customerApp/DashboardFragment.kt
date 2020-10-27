@@ -1,11 +1,13 @@
 package com.serviceconnect.fragment.customerApp
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.serviceconnect.R
+import com.serviceconnect.activity.customer.SalonAndBeautyActivity
 import kotlinx.android.synthetic.main.customer_fragment_dashboard.*
 
 
@@ -30,7 +32,8 @@ class DashboardFragment : Fragment(), View.OnClickListener{
     override fun onClick(v: View?) {
         when(v?.id){
             R.id.cl_salon_beauty ->{
-
+                var intent = Intent(activity!!, SalonAndBeautyActivity::class.java)
+                startActivity(intent)
             }
 
         }

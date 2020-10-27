@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_forgot_password.*
 import kotlinx.android.synthetic.main.activity_forgot_password.ed_emailID
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_signup.*
+import kotlinx.android.synthetic.main.toolbar_layout.*
 
 
 class ForgotPasswordActivity : AppCompatActivity(), View.OnClickListener{
@@ -27,6 +28,7 @@ class ForgotPasswordActivity : AppCompatActivity(), View.OnClickListener{
 
     private fun setOnClickListener() {
         tv_send_otp.setOnClickListener(this)
+        iv_back.setOnClickListener(this)
     }
 
 
@@ -54,6 +56,9 @@ class ForgotPasswordActivity : AppCompatActivity(), View.OnClickListener{
                     var intent = Intent(this, VerificationOTPActivity::class.java)
                     startActivity(intent)
                 }
+            }
+            R.id.iv_back->{
+                finish()
             }
         }
     }

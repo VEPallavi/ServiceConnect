@@ -35,7 +35,8 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_20sdp"
-        android:textSize="@dimen/_18sdp"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_16sdp"
         android:text="@string/txt_sign_up">
     </TextView>
 
@@ -44,30 +45,40 @@
         android:id="@+id/txt_personal_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_3sdp"
         android:layout_marginLeft="@dimen/_20sdp"
-        android:textSize="@dimen/_12sdp"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/light_grey"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_signUp"
         android:text="@string/txt_please_enter_your_personal_detail">
 
     </TextView>
 
-    <EditText
-        android:id="@+id/ed_first_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/txt_personal_details"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginLeft="@dimen/_20sdp"
-        android:layout_marginRight="@dimen/_20sdp"
-        android:padding="@dimen/_10sdp"
-        android:elevation="@dimen/_5sdp"
-        android:hint="@string/txt_enter_first_name"
-        android:background="@drawable/edittext_rounded_rect"
-        />
+            <EditText
+                android:id="@+id/ed_first_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                app:layout_constraintTop_toBottomOf="@+id/txt_personal_details"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:background="@drawable/edittext_rounded_rect_border"
+                android:backgroundTint="@null"
+                android:textCursorDrawable="@drawable/cursor_drawable"
+                android:drawableLeft="@drawable/user_icon_off"
+                android:drawablePadding="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:elevation="@dimen/_5sdp"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/dark_grey"
+                android:singleLine="true"
+                android:maxLength="30"
+                android:hint="@string/txt_enter_first_name"
+                android:textColorHint="@color/dark_grey"
+                />
 
     <EditText
         android:id="@+id/ed_last_name"
@@ -79,40 +90,100 @@
         android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
+        android:drawableLeft="@drawable/user_icon_off"
+        android:singleLine="true"
+        android:maxLength="30"
+        android:backgroundTint="@null"
+        android:textCursorDrawable="@drawable/cursor_drawable"
+        android:drawablePadding="@dimen/_10sdp"
+        android:textSize="@dimen/_12sdp"
         android:padding="@dimen/_10sdp"
         android:elevation="@dimen/_5sdp"
         android:hint="@string/txt_enter_last_name"
-        android:background="@drawable/edittext_rounded_rect" />
+        android:textColor="@color/dark_grey"
+        android:textColorHint="@color/dark_grey"
+        android:background="@drawable/edittext_rounded_rect_border" />
 
-    <EditText
-        android:id="@+id/ed_mobile_number"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/ed_last_name"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginLeft="@dimen/_20sdp"
-        android:layout_marginRight="@dimen/_20sdp"
-        android:padding="@dimen/_10sdp"
-        android:elevation="@dimen/_5sdp"
-        android:hint="@string/txt_enter_mobile_number"
-        android:background="@drawable/edittext_rounded_rect" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_mobileNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:elevation="@dimen/_5sdp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_last_name"
+            android:background="@drawable/edittext_rounded_rect_border">
+
+            <ImageView
+                android:id="@+id/iv_phone"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/phone_icon_off"
+                android:padding="@dimen/_10sdp"
+                />
+            
+            <com.rilixtech.widget.countrycodepicker.CountryCodePicker
+                android:id="@+id/ccp_signUp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/iv_phone"
+                app:ccp_hideNameCode="true"/>
+
+            <EditText
+                android:id="@+id/ed_mobile_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@+id/ccp_signUp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:backgroundTint="@null"
+                android:textCursorDrawable="@drawable/cursor_drawable"
+                android:background="@android:color/transparent"
+                android:singleLine="true"
+                android:maxLength="12"
+                android:textSize="@dimen/_12sdp"
+                android:inputType="number"
+                android:padding="@dimen/_10sdp"
+                android:hint="@string/txt_enter_mobile_number"
+                android:textColor="@color/dark_grey"
+                android:textColorHint="@color/dark_grey"
+               />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <EditText
         android:id="@+id/ed_emailID"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/ed_mobile_number"
+        app:layout_constraintTop_toBottomOf="@+id/cl_mobileNumber"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
+        android:backgroundTint="@null"
+        android:textCursorDrawable="@drawable/cursor_drawable"
+        android:drawableLeft="@drawable/email_icon_off"
+        android:drawablePadding="@dimen/_10sdp"
         android:padding="@dimen/_10sdp"
+        android:textSize="@dimen/_12sdp"
         android:elevation="@dimen/_5sdp"
         android:hint="Enter Email"
-        android:background="@drawable/edittext_rounded_rect" />
+        android:singleLine="true"
+        android:maxLength="35"
+        android:textColor="@color/dark_grey"
+        android:textColorHint="@color/dark_grey"
+        android:background="@drawable/edittext_rounded_rect_border" />
 
     <EditText
         android:id="@+id/ed_password"
@@ -124,20 +195,29 @@
         android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
+        android:backgroundTint="@null"
+        android:textCursorDrawable="@drawable/cursor_drawable"
+        android:drawableLeft="@drawable/password_icon_off"
+        android:drawablePadding="@dimen/_10sdp"
         android:padding="@dimen/_10sdp"
+        android:textSize="@dimen/_12sdp"
+        android:singleLine="true"
+        android:maxLength="30"
         android:elevation="@dimen/_5sdp"
         android:hint="Enter Password"
-        android:background="@drawable/edittext_rounded_rect"
+        android:background="@drawable/edittext_rounded_rect_border"
+        android:textColor="@color/dark_grey"
+        android:textColorHint="@color/dark_grey"
         />
 
     <ImageView
         android:id="@+id/iv_password_toggle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
         app:layout_constraintTop_toTopOf="@+id/ed_password"
         app:layout_constraintBottom_toBottomOf="@+id/ed_password"
         app:layout_constraintRight_toRightOf="@+id/ed_password"
-        android:src="@drawable/ic_back_white"
+        android:src="@drawable/eye_icon_off"
         android:padding="12dp"
         />
 
@@ -151,20 +231,29 @@
         android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
+        android:backgroundTint="@null"
+        android:textCursorDrawable="@drawable/cursor_drawable"
+        android:drawableLeft="@drawable/password_icon_off"
+        android:drawablePadding="@dimen/_10sdp"
         android:padding="@dimen/_10sdp"
+        android:textSize="@dimen/_12sdp"
         android:elevation="@dimen/_5sdp"
+        android:singleLine="true"
+        android:maxLength="30"
+        android:textColor="@color/dark_grey"
+        android:textColorHint="@color/dark_grey"
         android:hint="Enter Confirm Password"
-        android:background="@drawable/edittext_rounded_rect"
+        android:background="@drawable/edittext_rounded_rect_border"
         />
 
     <ImageView
         android:id="@+id/iv_confirm_password_toggle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
         app:layout_constraintTop_toTopOf="@+id/ed_confirm_password"
         app:layout_constraintBottom_toBottomOf="@+id/ed_confirm_password"
         app:layout_constraintRight_toRightOf="@+id/ed_confirm_password"
-        android:src="@drawable/ic_back_white"
+        android:src="@drawable/eye_icon_off"
         android:padding="12dp"
         />
 
@@ -178,10 +267,19 @@
         android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
+        android:backgroundTint="@null"
+        android:textCursorDrawable="@drawable/cursor_drawable"
+        android:drawableLeft="@drawable/refferl_icon_off"
+        android:drawablePadding="@dimen/_10sdp"
         android:padding="@dimen/_10sdp"
         android:elevation="@dimen/_5sdp"
+        android:singleLine="true"
+        android:textSize="@dimen/_12sdp"
+        android:maxLength="30"
+        android:textColor="@color/dark_grey"
         android:hint="Enter Referral Code"
-        android:background="@drawable/edittext_rounded_rect"
+        android:textColorHint="@color/dark_grey"
+        android:background="@drawable/edittext_rounded_rect_border"
         />
 
     <TextView
@@ -203,44 +301,51 @@
         android:text="SignUp"
         />
 
-    <TextView
-        android:id="@+id/txt_by_clicking_signUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_signUp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/tv_privacy_policy"
-        android:gravity="bottom"
-        android:layout_marginBottom="@dimen/_20sdp"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        android:textSize="@dimen/_10sdp"
-        android:text="By clicking SignUp you are agree to the "/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_signUp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/tv_privacy_policy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_by_clicking_signUp"
-        app:layout_constraintLeft_toRightOf="@+id/txt_by_clicking_signUp"
-        app:layout_constraintRight_toLeftOf="@+id/tv_terms_condition"
-        android:layout_marginLeft="@dimen/_2sdp"
-        android:gravity="bottom"
-        android:textSize="@dimen/_10sdp"
-        android:text="@string/txt_privacy_policy"/>
+            <TextView
+                android:id="@+id/txt_by_clicking_signUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_8sdp"
+                android:text="By clicking you are agree to the "/>
 
-    <TextView
-        android:id="@+id/tv_terms_condition"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_by_clicking_signUp"
-        app:layout_constraintLeft_toRightOf="@+id/tv_privacy_policy"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="@dimen/_2sdp"
-        android:gravity="bottom"
-        android:textSize="@dimen/_10sdp"
-        android:text="@string/txt_and_terms_condition"/>
+            <TextView
+                android:id="@+id/tv_privacy_policy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_8sdp"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/txt_privacy_policy"/>
+
+            <TextView
+                android:id="@+id/tv_and"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_8sdp"
+                android:textColor="@color/colorBlack"
+                android:text=" and "/>
+
+            <TextView
+                android:id="@+id/tv_terms_condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_8sdp"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/txt_and_terms_condition"/>
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

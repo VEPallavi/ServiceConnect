@@ -23,7 +23,6 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
         }
         setOnClickListener()
         getEditTextData()
-
     }
 
     private fun setOnClickListener() {
@@ -38,9 +37,11 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
             override fun afterTextChanged(s: Editable?) {
                 if(ed_first_name.text.toString().length != 0){
                     ed_first_name.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
+                    ed_first_name.setCompoundDrawablesWithIntrinsicBounds(R.drawable.user_icon_on, 0, 0, 0)
                 }
                 else{
-                    ed_first_name.setBackgroundResource(R.drawable.edittext_rounded_rect)
+                    ed_first_name.setBackgroundResource(R.drawable.edittext_rounded_rect_border)
+                    ed_first_name.setCompoundDrawablesWithIntrinsicBounds(R.drawable.user_icon_off, 0, 0, 0)
                 }
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -53,9 +54,11 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
             override fun afterTextChanged(s: Editable?) {
                 if(ed_last_name.text.toString().length != 0){
                     ed_last_name.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
+                    ed_last_name.setCompoundDrawablesWithIntrinsicBounds(R.drawable.user_icon_on, 0, 0, 0)
                 }
                 else{
-                    ed_last_name.setBackgroundResource(R.drawable.edittext_rounded_rect)
+                    ed_last_name.setBackgroundResource(R.drawable.edittext_rounded_rect_border)
+                    ed_last_name.setCompoundDrawablesWithIntrinsicBounds(R.drawable.user_icon_off, 0, 0, 0)
                 }
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -67,10 +70,14 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
         ed_mobile_number.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if(ed_mobile_number.text.toString().length != 0){
-                    ed_mobile_number.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
+                    cl_mobileNumber.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
+                    iv_phone.setImageResource(R.drawable.phone_icon_on)
+                    iv_phone.setPadding(20,20,20,20)
                 }
                 else{
-                    ed_mobile_number.setBackgroundResource(R.drawable.edittext_rounded_rect)
+                    cl_mobileNumber.setBackgroundResource(R.drawable.edittext_rounded_rect_border)
+                    iv_phone.setImageResource(R.drawable.phone_icon_off)
+                    iv_phone.setPadding(20,20,20,20)
                 }
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -84,9 +91,11 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
             override fun afterTextChanged(s: Editable?) {
                 if(ed_emailID.text.toString().length != 0){
                     ed_emailID.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
+                    ed_emailID.setCompoundDrawablesWithIntrinsicBounds(R.drawable.email_icon_on, 0, 0, 0)
                 }
                 else{
-                    ed_emailID.setBackgroundResource(R.drawable.edittext_rounded_rect)
+                    ed_emailID.setBackgroundResource(R.drawable.edittext_rounded_rect_border)
+                    ed_emailID.setCompoundDrawablesWithIntrinsicBounds(R.drawable.email_icon_off, 0, 0, 0)
                 }
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -99,9 +108,11 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
             override fun afterTextChanged(s: Editable?) {
                 if(ed_password.text.toString().length != 0){
                     ed_password.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
+                    ed_password.setCompoundDrawablesWithIntrinsicBounds(R.drawable.password_icon_on, 0, 0, 0)
                 }
                 else{
-                    ed_password.setBackgroundResource(R.drawable.edittext_rounded_rect)
+                    ed_password.setBackgroundResource(R.drawable.edittext_rounded_rect_border)
+                    ed_password.setCompoundDrawablesWithIntrinsicBounds(R.drawable.password_icon_off, 0, 0, 0)
                 }
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -114,9 +125,12 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
             override fun afterTextChanged(s: Editable?) {
                 if(ed_confirm_password.text.toString().length != 0){
                     ed_confirm_password.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
+                    ed_confirm_password.setCompoundDrawablesWithIntrinsicBounds(R.drawable.password_icon_on, 0, 0, 0)
                 }
                 else{
-                    ed_confirm_password.setBackgroundResource(R.drawable.edittext_rounded_rect)
+                    ed_confirm_password.setBackgroundResource(R.drawable.edittext_rounded_rect_border)
+                    ed_confirm_password.setCompoundDrawablesWithIntrinsicBounds(R.drawable.password_icon_off, 0, 0, 0)
+
                 }
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -129,9 +143,11 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
             override fun afterTextChanged(s: Editable?) {
                 if(ed_referral_code.text.toString().length != 0){
                     ed_referral_code.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
+                    ed_referral_code.setCompoundDrawablesWithIntrinsicBounds(R.drawable.refferl_icon_on, 0, 0, 0)
                 }
                 else{
-                    ed_referral_code.setBackgroundResource(R.drawable.edittext_rounded_rect)
+                    ed_referral_code.setBackgroundResource(R.drawable.edittext_rounded_rect_border)
+                    ed_referral_code.setCompoundDrawablesWithIntrinsicBounds(R.drawable.refferl_icon_off, 0, 0, 0)
                 }
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -139,8 +155,6 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             }
         })
-
-
 
     }
 

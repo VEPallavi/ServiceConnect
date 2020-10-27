@@ -78,18 +78,18 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_salon_beauty -> setDisplayFragment(1)
-            R.id.nav_ride_product_pick_up_auto_repair -> setDisplayFragment(2)
-            R.id.nav_homecare -> setDisplayFragment(3)
-            R.id.nav_home_maintenance_upgrade -> setDisplayFragment(4)
-            R.id.nav_speciality -> setDisplayFragment(5)
-            R.id.nav_track_service_man -> setDisplayFragment(6)
-            R.id.nav_my_service -> setDisplayFragment(7)
-            R.id.nav_my_rating_comment -> setDisplayFragment(1)
-            R.id.nav_refer_friends -> setDisplayFragment(2)
-            R.id.nav_notification -> setDisplayFragment(3)
-            R.id.nav_support -> setDisplayFragment(4)
-            R.id.nav_settings -> setDisplayFragment(5)
+//            R.id.nav_salon_beauty -> setDisplayFragment(1)
+//            R.id.nav_automative_autorepair -> setDisplayFragment(2)
+//            R.id.nav_homecare_product_pickup_ride -> setDisplayFragment(3)
+//            R.id.nav_home_maintenance_remodeling -> setDisplayFragment(4)
+//            R.id.nav_speciality -> setDisplayFragment(5)
+//            R.id.nav_track_service_man -> setDisplayFragment(6)
+//            R.id.nav_my_service -> setDisplayFragment(7)
+//            R.id.nav_my_rating_comment -> setDisplayFragment(1)
+//            R.id.nav_refer_friends -> setDisplayFragment(2)
+//            R.id.nav_notification -> setDisplayFragment(3)
+//            R.id.nav_support -> setDisplayFragment(4)
+//            R.id.nav_settings -> setDisplayFragment(5)
         }
 
         val drawer = findViewById(R.id.drawer_layout) as DrawerLayout
@@ -115,8 +115,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         var mFragment: Fragment? = null
         when (id) {
             1 -> {
-                mFragment = DashboardFragment()
-                replaceFragment(mFragment)
+             //   mFragment = DashboardFragment()
+            //    replaceFragment(mFragment)
             }
             2 -> {
 
