@@ -2,10 +2,247 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout_subcategories"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </include>
+
+
+    <TextView
+        android:id="@+id/txt_select_service"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_12sdp"
+        android:text="@string/txt_select_service" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_salon_and_beauty"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="@dimen/_10sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:elevation="@dimen/_5sdp"
+        android:background="@drawable/white_background_rounded_rect"
+        app:layout_constraintTop_toBottomOf="@+id/txt_select_service"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 
+
+    <!--<androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="@dimen/_10sdp"
+        android:elevation="@dimen/_5sdp"
+        android:background="@drawable/white_background_rounded_rect"
+        app:layout_constraintTop_toBottomOf="@+id/txt_select_service">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_hair_and_salon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintRight_toLeftOf="@+id/cl_barber_shop_and_hair_removal"
+            app:layout_constraintHorizontal_weight="1"
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_salon_beauty"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:src="@drawable/ic_launcher_background"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/iv_salon_beauty"
+                app:layout_constraintLeft_toLeftOf="@+id/iv_salon_beauty"
+                app:layout_constraintRight_toRightOf="@+id/iv_salon_beauty"
+                android:textSize="@dimen/_8sdp"
+                android:textColor="@color/colorBlack"
+                android:text="@string/txt_hair_beauty_salon"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <view
+            android:id="@+id/view_one"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@color/dark_grey"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/view_two"
+            app:layout_constraintLeft_toRightOf="@+id/cl_hair_and_salon"
+            app:layout_constraintRight_toLeftOf="@+id/cl_barber_shop_and_hair_removal"
+            />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_barber_shop_and_hair_removal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintLeft_toRightOf="@+id/cl_hair_and_salon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_barber_shop_and_hair_removal"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:src="@drawable/ic_launcher_background"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/iv_barber_shop_and_hair_removal"
+                app:layout_constraintLeft_toLeftOf="@+id/iv_barber_shop_and_hair_removal"
+                app:layout_constraintRight_toRightOf="@+id/iv_barber_shop_and_hair_removal"
+                android:text="Barber shop & Hair Removal"
+                android:textSize="@dimen/_8sdp"
+                android:textColor="@color/colorBlack"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <view
+            android:id="@+id/view_two"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/dark_grey"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintTop_toBottomOf="@+id/cl_hair_and_salon"
+            app:layout_constraintLeft_toLeftOf="@+id/cl_hair_and_salon"
+            app:layout_constraintRight_toRightOf="@+id/cl_barber_shop_and_hair_removal"
+            />
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_nail_salon_eyebrows_lashes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_two"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintRight_toLeftOf="@+id/cl_barber_shop_and_hair_removal"
+            app:layout_constraintHorizontal_weight="1"
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_nail_salon_eyebrows_lashes"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:src="@drawable/ic_launcher_background"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/iv_nail_salon_eyebrows_lashes"
+                app:layout_constraintLeft_toLeftOf="@+id/iv_nail_salon_eyebrows_lashes"
+                app:layout_constraintRight_toRightOf="@+id/iv_nail_salon_eyebrows_lashes"
+                android:text="Nail,Salon,Eyebrows & Lashes"
+                android:textSize="@dimen/_8sdp"
+                android:textColor="@color/colorBlack" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <view
+            android:id="@+id/view_three"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@color/dark_grey"
+            app:layout_constraintTop_toBottomOf="@+id/view_two"
+            app:layout_constraintBottom_toTopOf="@+id/view_four"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_tatooShop_piercing"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_two"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintLeft_toRightOf="@+id/cl_nail_salon_eyebrows_lashes"
+            app:layout_constraintHorizontal_weight="1"
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_tatooShop_piercing"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:src="@drawable/ic_launcher_background"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/iv_tatooShop_piercing"
+                app:layout_constraintLeft_toLeftOf="@+id/iv_tatooShop_piercing"
+                app:layout_constraintRight_toRightOf="@+id/iv_tatooShop_piercing"
+                android:text="Tattoo Shop & Piercing"
+                android:textSize="@dimen/_8sdp"
+                android:textColor="@color/colorBlack" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <view
+            android:id="@+id/view_four"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/dark_grey"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintTop_toBottomOf="@+id/cl_nail_salon_eyebrows_lashes"
+            app:layout_constraintLeft_toLeftOf="@+id/cl_nail_salon_eyebrows_lashes"
+            app:layout_constraintRight_toRightOf="@+id/cl_tatooShop_piercing"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 
 

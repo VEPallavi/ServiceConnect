@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimary">
+
 
     <ImageView
         android:id="@+id/iv_back"
@@ -13,19 +14,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:padding="@dimen/_10sdp"
-        app:srcCompat="@drawable/back_icon_on" />
+        app:srcCompat="@drawable/ic_back_white" />
 
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_15sdp"
-        android:text="Title"
-        android:textSize="@dimen/_16sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:text=""
+        android:textSize="@dimen/_14sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iv_back"
         app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone"/>
+        android:textColor="@color/colorWhite"
+        android:visibility="visible"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

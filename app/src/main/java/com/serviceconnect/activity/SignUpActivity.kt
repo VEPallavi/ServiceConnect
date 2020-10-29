@@ -1,10 +1,13 @@
 package com.serviceconnect.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.serviceconnect.R
 import com.serviceconnect.helper.Utils
@@ -34,13 +37,19 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
     private fun getEditTextData() {
 
         ed_first_name.addTextChangedListener (object : TextWatcher {
+            @SuppressLint("ResourceAsColor")
+            @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
             override fun afterTextChanged(s: Editable?) {
                 if(ed_first_name.text.toString().length != 0){
                     ed_first_name.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
+                    cv_firstName.setCardElevation(10F)
+                    cv_firstName.radius = 37F
                     ed_first_name.setCompoundDrawablesWithIntrinsicBounds(R.drawable.user_icon_on, 0, 0, 0)
                 }
                 else{
                     ed_first_name.setBackgroundResource(R.drawable.edittext_rounded_rect_border)
+                    cv_firstName.setCardElevation(15F)
+                    cv_firstName.radius = 37F
                     ed_first_name.setCompoundDrawablesWithIntrinsicBounds(R.drawable.user_icon_off, 0, 0, 0)
                 }
             }
@@ -54,10 +63,14 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
             override fun afterTextChanged(s: Editable?) {
                 if(ed_last_name.text.toString().length != 0){
                     ed_last_name.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
+                    cv_lastName.setCardElevation(10F)
+                    cv_lastName.radius = 37F
                     ed_last_name.setCompoundDrawablesWithIntrinsicBounds(R.drawable.user_icon_on, 0, 0, 0)
                 }
                 else{
                     ed_last_name.setBackgroundResource(R.drawable.edittext_rounded_rect_border)
+                    cv_lastName.setCardElevation(15F)
+                    cv_lastName.radius = 37F
                     ed_last_name.setCompoundDrawablesWithIntrinsicBounds(R.drawable.user_icon_off, 0, 0, 0)
                 }
             }
@@ -66,6 +79,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             }
         })
+
 
         ed_mobile_number.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -91,10 +105,14 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
             override fun afterTextChanged(s: Editable?) {
                 if(ed_emailID.text.toString().length != 0){
                     ed_emailID.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
+                    cv_emailId.setCardElevation(10F)
+                    cv_emailId.radius = 37F
                     ed_emailID.setCompoundDrawablesWithIntrinsicBounds(R.drawable.email_icon_on, 0, 0, 0)
                 }
                 else{
                     ed_emailID.setBackgroundResource(R.drawable.edittext_rounded_rect_border)
+                    cv_emailId.setCardElevation(15F)
+                    cv_emailId.radius = 37F
                     ed_emailID.setCompoundDrawablesWithIntrinsicBounds(R.drawable.email_icon_off, 0, 0, 0)
                 }
             }
@@ -108,10 +126,14 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
             override fun afterTextChanged(s: Editable?) {
                 if(ed_password.text.toString().length != 0){
                     ed_password.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
+                    cv_password.setCardElevation(10F)
+                    cv_password.radius = 37F
                     ed_password.setCompoundDrawablesWithIntrinsicBounds(R.drawable.password_icon_on, 0, 0, 0)
                 }
                 else{
                     ed_password.setBackgroundResource(R.drawable.edittext_rounded_rect_border)
+                    cv_password.setCardElevation(15F)
+                    cv_password.radius = 37F
                     ed_password.setCompoundDrawablesWithIntrinsicBounds(R.drawable.password_icon_off, 0, 0, 0)
                 }
             }
@@ -125,10 +147,14 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
             override fun afterTextChanged(s: Editable?) {
                 if(ed_confirm_password.text.toString().length != 0){
                     ed_confirm_password.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
+                    cv_confirm_password.setCardElevation(10F)
+                    cv_confirm_password.radius = 37F
                     ed_confirm_password.setCompoundDrawablesWithIntrinsicBounds(R.drawable.password_icon_on, 0, 0, 0)
                 }
                 else{
                     ed_confirm_password.setBackgroundResource(R.drawable.edittext_rounded_rect_border)
+                    cv_confirm_password.setCardElevation(15F)
+                    cv_confirm_password.radius = 37F
                     ed_confirm_password.setCompoundDrawablesWithIntrinsicBounds(R.drawable.password_icon_off, 0, 0, 0)
 
                 }
@@ -143,10 +169,14 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
             override fun afterTextChanged(s: Editable?) {
                 if(ed_referral_code.text.toString().length != 0){
                     ed_referral_code.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
+                    cv_referral_code.setCardElevation(10F)
+                    cv_referral_code.radius = 37F
                     ed_referral_code.setCompoundDrawablesWithIntrinsicBounds(R.drawable.refferl_icon_on, 0, 0, 0)
                 }
                 else{
                     ed_referral_code.setBackgroundResource(R.drawable.edittext_rounded_rect_border)
+                    cv_referral_code.setCardElevation(15F)
+                    cv_referral_code.radius = 37F
                     ed_referral_code.setCompoundDrawablesWithIntrinsicBounds(R.drawable.refferl_icon_off, 0, 0, 0)
                 }
             }

@@ -53,6 +53,23 @@
     <string name="txt_verification">Verification</string>
     <string name="txt_we_have_sent_your_verification_code_on_your_email_id">We have sent your verification code on your email id.</string>
     <string name="menu_automative_autorepair">Automative/Autorepair</string>
+    <string name="txt_hair_beauty_salon"><![CDATA[Hair & Beauty salon]]></string>
+    <string name="txt_barber_shop_hair_removal"><![CDATA[Barber shop & Hair Removal]]></string>
+    <string name="txt_nail_salon_eyebrows_lashes"><![CDATA[Nail Salon, Eyebrows & Lashes]]></string>
+    <string name="txt_tattoo_shop_piercing"><![CDATA[Tattoo Shop & Piercing]]></string>
+    <string name="txt_makeup_wedding_makeup_artist"><![CDATA[Makeup & Wedding makeup artist]]></string>
+
+
+    <string name="txt_dentist_and_physical_therapy"><![CDATA[Dentist & Physical therapy]]></string>
+    <string name="txt_day_spa_and_massage"><![CDATA[Day Spa & Massage]]></string>
+    <string name="txt_pet_services"><![CDATA[Pet Services]]></string>
+    <string name="txt_braiding_hair_style"><![CDATA[Braiding Hair Style]]></string>
+
+    <string name="txt_select_service">Select Service</string>
+    <string name="txt_new_user">New User?</string>
+    <string name="txt_home_care_product_pickup_ride">Home Care/Product pickup/Ride</string>
+    <string name="txt_home_maintenance_remodeling">Home Maintenance/Remodeling</string>
+    <string name="txt_speciality">Speciality</string>
 
 
 </resources>

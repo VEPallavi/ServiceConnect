@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
 import com.serviceconnect.R
 import com.serviceconnect.fragment.customerApp.DashboardFragment
+import com.serviceconnect.fragment.customerApp.NotificationFragment
 import kotlinx.android.synthetic.main.customer_app_bar_main.*
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
@@ -78,7 +79,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-//            R.id.nav_salon_beauty -> setDisplayFragment(1)
+            R.id.nav_salon_beauty -> setDisplayFragment(1)
 //            R.id.nav_automative_autorepair -> setDisplayFragment(2)
 //            R.id.nav_homecare_product_pickup_ride -> setDisplayFragment(3)
 //            R.id.nav_home_maintenance_remodeling -> setDisplayFragment(4)
@@ -105,7 +106,11 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.iv_toolbarBack ->
             {
-               // handleBackPress()
+                handleBackPress()
+            }
+            R.id.iv_notification ->
+            {
+                setDisplayFragment(9)
             }
 
         }
@@ -115,8 +120,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         var mFragment: Fragment? = null
         when (id) {
             1 -> {
-             //   mFragment = DashboardFragment()
-            //    replaceFragment(mFragment)
+                mFragment = DashboardFragment()
+                replaceFragment(mFragment)
             }
             2 -> {
 
@@ -140,7 +145,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
             9 -> {
-
+                mFragment = NotificationFragment()
+                replaceFragment(mFragment)
             }
             10 -> {
 
@@ -150,6 +156,65 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
         }
     }
+
+
+    fun handleBackPress() {
+        if (mManager!!.findFragmentById(R.id.container) is DashboardFragment)
+        {
+            finish()
+        }
+        else if (mManager!!.findFragmentById(R.id.container) is NotificationFragment)
+        {
+            mManager!!.popBackStackImmediate()
+        }
+        else
+        {
+            mManager!!.popBackStackImmediate()
+        }
+    }
+
+
+    override fun onBackPressed() {
+        if (mDrawerLayout!!.isDrawerOpen(GravityCompat.START))
+        {
+            mDrawerLayout!!.closeDrawer(GravityCompat.START)
+        } else
+        {
+            handleBackPress()
+        }
+    }
+
+    fun setToolbarTitle(title: String)
+    {
+        toolbarTitle!!.text = title
+    }
+
+    fun setToolbarMenuVisibility(isVisible: Boolean) {
+        if (isVisible) {
+            iv_toolbarMenu!!.setVisibility(View.VISIBLE)
+        } else {
+            iv_toolbarMenu!!.setVisibility(View.GONE)
+        }
+    }
+
+    fun setToolbarBackVisibility(isVisible: Boolean) {
+        if (isVisible) {
+            iv_toolbarBack!!.setVisibility(View.VISIBLE)
+        } else {
+            iv_toolbarBack!!.setVisibility(View.GONE)
+        }
+    }
+
+    fun setToolbarNotificationVisibility(isVisible: Boolean) {
+        if (isVisible) {
+            iv_notification!!.setVisibility(View.VISIBLE)
+        } else {
+            iv_notification!!.setVisibility(View.GONE)
+        }
+    }
+
+
+
 
     private fun openOrCloseDrawerLayout() {
         if (mDrawerLayout!!.isDrawerOpen(Gravity.LEFT)) {
