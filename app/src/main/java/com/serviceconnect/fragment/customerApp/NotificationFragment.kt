@@ -41,10 +41,10 @@ class NotificationFragment : Fragment(){
 
 
     private fun initView() {
-        notificationRecyclerView.setHasFixedSize(true)
-        notificationRecyclerView.layoutManager = LinearLayoutManager(activity!!)
-        adapter = NotificationListAdapter(activity!!)
-        notificationRecyclerView.adapter = adapter
+//        notificationRecyclerView.setHasFixedSize(true)
+//        notificationRecyclerView.layoutManager = LinearLayoutManager(activity!!)
+//        adapter = NotificationListAdapter(activity!!)
+//        notificationRecyclerView.adapter = adapter
     }
 
 

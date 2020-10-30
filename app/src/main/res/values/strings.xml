@@ -70,6 +70,28 @@
     <string name="txt_home_care_product_pickup_ride">Home Care/Product pickup/Ride</string>
     <string name="txt_home_maintenance_remodeling">Home Maintenance/Remodeling</string>
     <string name="txt_speciality">Speciality</string>
+    <string name="txt_auto_repair">Auto Repair</string>
+    <string name="txt_auto_body_work">Auto Body work</string>
+    <string name="txt_lube_auto_car">Lube Auto Car</string>
+    <string name="txt_tyre_reapir">Tyre Repair</string>
+    <string name="txt_towing">Towing</string>
+    <string name="txt_driving_school">Driving School</string>
+    
+    <string name="txt_tutoring">Tutoring</string>
+    <string name="txt_baby_sitter_child_care">Baby sitter/Child care</string>
+    <string name="txt_nanny">Nanny</string>
+    <string name="txt_petcare_petwalk">Pet Care/Pet Walk</string>
+    <string name="txt_senior_care">Senior Care</string>
+    <string name="txt_house_keeping">House Keeping</string>
+    <string name="txt_product_pickup">Product Pick up</string>
+    <string name="txt_ride">Ride</string>
+    <string name="txt_personal_driver">Personal Driver</string>
+    <string name="txt_cleaning_service">Cleaning Service</string>
+    <string name="txt_wine">Wine</string>
+    <string name="txt_grocery">Grocery</string>
+    <string name="txt_restaurants">Restaurants</string>
+    <string name="txt_product_store">Product Store</string>
+    <string name="menu_my_invoice">My Invoice</string>
 
 
 </resources>

@@ -33,9 +33,20 @@
         android:title="@string/menu_my_service" />
 
     <item
+        android:id="@+id/nav_my_invoice"
+        android:icon="@drawable/my_service_icon"
+        android:title="@string/menu_my_invoice" />
+
+    <item
         android:id="@+id/nav_my_rating_comment"
         android:icon="@drawable/rating_comment_icon"
         android:title="@string/menu_my_rating_comment" />
+
+    <item
+        android:id="@+id/nav_reschedule_service"
+        android:icon="@drawable/rating_comment_icon"
+        android:title="Rescheduled Service" />
+
 
     <item
         android:id="@+id/nav_refer_friends"

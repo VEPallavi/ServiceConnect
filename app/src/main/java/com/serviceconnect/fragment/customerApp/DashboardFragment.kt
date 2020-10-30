@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.serviceconnect.R
-import com.serviceconnect.activity.customer.Automative_AutoRepairActivity
-import com.serviceconnect.activity.customer.HomeActivity
-import com.serviceconnect.activity.customer.SalonAndBeautyActivity
+import com.serviceconnect.activity.customer.*
 import com.serviceconnect.helper.customer.ConstantFragmentName
 import kotlinx.android.synthetic.main.customer_fragment_dashboard.*
 
@@ -26,6 +24,9 @@ class DashboardFragment : Fragment(), View.OnClickListener{
     private fun setupClickListener() {
         cl_salon_beauty.setOnClickListener(this)
         cl_automative_autorepair.setOnClickListener(this)
+        cl_homeCare.setOnClickListener(this)
+        cl_homeMaintenance_upgrade.setOnClickListener(this)
+        cl_speciality.setOnClickListener(this)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -51,6 +52,18 @@ class DashboardFragment : Fragment(), View.OnClickListener{
             R.id.cl_automative_autorepair ->{
                 var intent = Intent(activity!!, Automative_AutoRepairActivity::class.java)
                 startActivity(intent)
+            }
+            R.id.cl_homeCare->{
+                var intent = Intent(activity!!, HomeCareProductPickUpRideActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.cl_homeMaintenance_upgrade ->{
+                var intent = Intent(activity!!, HomeMaintenance_RemodelingActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.cl_speciality ->{
+               // var intent = Intent(activity!!, SpecialityActivity::class.java)
+              //  startActivity(intent)
             }
         }
     }

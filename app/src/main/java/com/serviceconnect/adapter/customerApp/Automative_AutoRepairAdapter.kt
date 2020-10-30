@@ -8,9 +8,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.serviceconnect.R
+import com.serviceconnect.modal.customer.SubCategoriesModal
 
 
-class Automative_AutoRepairAdapter(var mContext: Context) : RecyclerView.Adapter<Automative_AutoRepairAdapter.MyViewHolder>(){
+class Automative_AutoRepairAdapter(var mContext: Context, var automativeAutorepairList: ArrayList<SubCategoriesModal>) : RecyclerView.Adapter<Automative_AutoRepairAdapter.MyViewHolder>(){
 
 
 
@@ -20,13 +21,14 @@ class Automative_AutoRepairAdapter(var mContext: Context) : RecyclerView.Adapter
     }
 
     override fun getItemCount(): Int {
-        return 10
+        return automativeAutorepairList.size
     }
 
     override fun onBindViewHolder(holder: Automative_AutoRepairAdapter.MyViewHolder, position: Int) {
+        var dataList= automativeAutorepairList.get(position)
 
+        holder.bindItems(dataList)
     }
-
 
 
     inner class MyViewHolder(view: View): RecyclerView.ViewHolder(view){
@@ -36,6 +38,11 @@ class Automative_AutoRepairAdapter(var mContext: Context) : RecyclerView.Adapter
         init {
             iv_service_pic = view.findViewById(R.id.iv_service_pic)
             txt_service_name = view.findViewById(R.id.txt_service_name)
+        }
+
+        fun bindItems(dataModal: SubCategoriesModal){
+            iv_service_pic.setImageResource(dataModal.servicePic)
+            txt_service_name.text = dataModal.serviceName
         }
     }
 

@@ -49,6 +49,15 @@
         <activity android:name=".activity.customer.Automative_AutoRepairActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".activity.customer.HomeCareProductPickUpRideActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.customer.HomeMaintenance_RemodelingActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.customer.SpecialityActivity"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>
