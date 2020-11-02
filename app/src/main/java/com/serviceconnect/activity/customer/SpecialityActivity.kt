@@ -56,6 +56,12 @@ class SpecialityActivity : AppCompatActivity(), View.OnClickListener{
         dataList.add(list8)
         dataList.add(list9)
         dataList.add(list10)
+
+
+
+        iv_back.setOnClickListener(this)
+
+
     }
 
     override fun onClick(v: View?) {

@@ -43,6 +43,7 @@
         android:hint="enter location"
         android:paddingBottom="@dimen/_10sdp"
         android:drawableLeft="@drawable/search"
+        android:visibility="gone"
         />
 
     <TextView
@@ -61,7 +62,8 @@
         android:padding="@dimen/_8sdp"
         android:elevation="@dimen/_5sdp"
         android:background="@drawable/login_rounded_rect"
-        android:text="Select Location" />
+        android:text="Select Location"
+        android:visibility="gone"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

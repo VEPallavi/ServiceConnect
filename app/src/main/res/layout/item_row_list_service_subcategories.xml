@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <ImageView
+        android:id="@+id/iv_business_pic"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_170sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/dummy"
+        />
+
+    <TextView
+        android:id="@+id/tv_professionName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_business_pic"
+        android:textSize="@dimen/_12sdp"
+        android:textColor="@color/colorBlack"
+        android:text="Profession Name"
+        />
+
+    <TextView
+        android:id="@+id/tv_businessName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_professionName"
+        android:textSize="@dimen/_12sdp"
+        android:textColor="@color/colorBlack"
+        android:text="Business Name"
+        />
+
+    <TextView
+        android:id="@+id/tv_ratingValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tv_ratingCount"
+        app:layout_constraintTop_toBottomOf="@+id/tv_businessName"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/colorBlack"
+        android:text="4.5"
+        />
+
+    <TextView
+        android:id="@+id/tv_ratingCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/tv_ratingValue"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_ratingValue"
+        android:textSize="@dimen/_8sdp"
+        android:textColor="@color/light_grey"
+        android:text=" (2.2k Ratings)"
+        />
+
+
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

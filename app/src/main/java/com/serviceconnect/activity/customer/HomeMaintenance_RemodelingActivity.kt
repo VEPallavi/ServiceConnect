@@ -28,17 +28,17 @@ class HomeMaintenance_RemodelingActivity : AppCompatActivity(), View.OnClickList
 
     private fun initViews() {
         tv_title.text = "Home Maintenance/Remodeling"
-        var list1 = SubCategoriesModal(R.drawable.hair_beautysalon_icon, "Roofing, Siding & Window")
-        var list2 = SubCategoriesModal(R.drawable.barbershop_and_hair_removal_icon,"Bathrooms & Kitchen")
-        var list3 = SubCategoriesModal(R.drawable.nail_slon, "Concrete, cabinets, ceiling & Carpenters")
-        var list4 = SubCategoriesModal(R.drawable.tattooshop_piercing_icon, "Cleaning & Maid Service")
-        var list5 = SubCategoriesModal(R.drawable.makeup_weddingmakupartis_icon,"Landscape, Lawn care, Sprinkling, Snow Removal")
-        var list6 = SubCategoriesModal(R.drawable.dentist_physicaltherapy_icon, "Plumbing, Power-coating, Heating & Air Conditioning")
-        var list7 = SubCategoriesModal(R.drawable.image_icon, "Painting & Staining")
-        var list8 = SubCategoriesModal(R.drawable.petservices_icon, "Carpet & upholstery cleaning")
-        var list9 = SubCategoriesModal(R.drawable.image_icon, "Labour & Junk Removal")
-        var list10 = SubCategoriesModal(R.drawable.image_icon, "Electrical, Fans, Wall Covering & Tile")
-        var list11 = SubCategoriesModal(R.drawable.image_icon, "Power Washing & Fences")
+        var list1 = SubCategoriesModal(R.drawable.roofing_siding_window_image, "Roofing, Siding & Window")
+        var list2 = SubCategoriesModal(R.drawable.bathroom_kitchen_image,"Bathrooms & Kitchen")
+        var list3 = SubCategoriesModal(R.drawable.concrete_cabinets_ceiling_carpenter_image, "Concrete, cabinets, ceiling & Carpenters")
+        var list4 = SubCategoriesModal(R.drawable.cleaning_maid_image, "Cleaning & Maid Service")
+        var list5 = SubCategoriesModal(R.drawable.landscaping_lawn_care_image,"Landscape, Lawn care, Sprinkling, Snow Removal")
+        var list6 = SubCategoriesModal(R.drawable.plumbing_power_image, "Plumbing, Power-coating, Heating & Air Conditioning")
+        var list7 = SubCategoriesModal(R.drawable.painting_staining_image, "Painting & Staining")
+        var list8 = SubCategoriesModal(R.drawable.carpet_upholstery_cleaning_image, "Carpet & upholstery cleaning")
+        var list9 = SubCategoriesModal(R.drawable.labor_junk_removal_image, "Labour & Junk Removal")
+        var list10 = SubCategoriesModal(R.drawable.electrical_fans_image, "Electrical, Fans, Wall Covering & Tile")
+        var list11 = SubCategoriesModal(R.drawable.power_washing_fences_image, "Power Washing & Fences")
 
         dataList.add(list1)
         dataList.add(list2)

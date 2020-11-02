@@ -1,5 +1,6 @@
 package com.serviceconnect.activity.customer
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -7,11 +8,12 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import com.serviceconnect.R
 import com.serviceconnect.adapter.customerApp.SalonAndBeautyAdapter
+import com.serviceconnect.callback.ItemListener
 import com.serviceconnect.modal.customer.SubCategoriesModal
 import kotlinx.android.synthetic.main.customer_activity_salon_beauty.*
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
 
-class SalonAndBeautyActivity : AppCompatActivity(), View.OnClickListener{
+class SalonAndBeautyActivity : AppCompatActivity(), View.OnClickListener, ItemListener {
     var adapter: SalonAndBeautyAdapter?= null
     var salonBeautyList = ArrayList<SubCategoriesModal>()
 
@@ -47,7 +49,7 @@ class SalonAndBeautyActivity : AppCompatActivity(), View.OnClickListener{
         rv_salon_and_beauty.layoutManager = GridLayoutManager(this, 2)
         rv_salon_and_beauty.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         rv_salon_and_beauty.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL))
-        adapter = SalonAndBeautyAdapter(this, salonBeautyList)
+        adapter = SalonAndBeautyAdapter(this, salonBeautyList, this)
         rv_salon_and_beauty.adapter = adapter
 
     }
@@ -62,6 +64,13 @@ class SalonAndBeautyActivity : AppCompatActivity(), View.OnClickListener{
                 finish()
             }
         }
+    }
+
+    override fun itemListener(dataModel: Any) {
+        var dataModel = dataModel as SubCategoriesModal
+
+        var intent = Intent(this, SetLocationActivity::class.java)
+        startActivity(intent)
     }
 
 

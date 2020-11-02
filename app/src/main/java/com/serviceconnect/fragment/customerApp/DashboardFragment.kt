@@ -62,8 +62,8 @@ class DashboardFragment : Fragment(), View.OnClickListener{
                 startActivity(intent)
             }
             R.id.cl_speciality ->{
-               // var intent = Intent(activity!!, SpecialityActivity::class.java)
-              //  startActivity(intent)
+                var intent = Intent(activity!!, SpecialityActivity::class.java)
+                startActivity(intent)
             }
         }
     }

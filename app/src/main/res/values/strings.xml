@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">ServiceConnect</string>
+    <string name="map_key" translatable="false">AIzaSyAq8L4mpVsRU0XYfdm4njQJ_Ntpi-KOvyc</string>
+
+
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
 
     <string name="txt_log_in">Log In</string>
     <string name="txt_welcome_to_serviceconnect">Welcome To Serviceconnect</string>
@@ -14,13 +19,6 @@
     <string name="txt_enter_mobile_number">Enter Mobile Number</string>
     <string name="txt_and_terms_condition"><![CDATA[ Terms & Condition]]></string>
     <string name="txt_privacy_policy">Privacy Policy</string>
-
-
-
-
-
-
-
 
 
 
@@ -67,7 +65,7 @@
 
     <string name="txt_select_service">Select Service</string>
     <string name="txt_new_user">New User?</string>
-    <string name="txt_home_care_product_pickup_ride">Home Care/Product pickup/Ride</string>
+    <string name="txt_home_care_product_pickup_ride">Home Care/Product pickup/Ride/Grocery/Restaurant</string>
     <string name="txt_home_maintenance_remodeling">Home Maintenance/Remodeling</string>
     <string name="txt_speciality">Speciality</string>
     <string name="txt_auto_repair">Auto Repair</string>

@@ -39,8 +39,8 @@ dependencies {
 
     implementation 'com.github.joielechong:countrycodepicker:2.4.2'
 
-    implementation 'com.google.android.gms:play-services-maps:11.8.0'
-    compile 'com.google.android.gms:play-services-location:11.8.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
 
 
 }

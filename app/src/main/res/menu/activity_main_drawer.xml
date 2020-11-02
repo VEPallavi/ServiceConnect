@@ -14,7 +14,7 @@
     <item
         android:id="@+id/nav_homecare_product_pickup_ride"
         android:icon="@drawable/home_care_product_pickup_ride_icon"
-        android:title="Home Care/Product pickup/Ride" />
+        android:title="Home Care/Product pickup/Ride/Grocery/Restaurant" />
     <item
         android:id="@+id/nav_home_maintenance_remodeling"
         android:icon="@drawable/home_maintenance_remodling_icon"
