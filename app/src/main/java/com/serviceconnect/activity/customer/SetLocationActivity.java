@@ -1,13 +1,19 @@
 package com.serviceconnect.activity.customer;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,14 +37,15 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.serviceconnect.R;
 
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
 
 public class SetLocationActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener {
-    ImageView iv_back, iv_fetchLocation;
-    TextView tv_title;
+    ImageView iv_back, iv_fetchLocation, iv_cancel;
+    TextView tv_title, tv_selectLocation;
     EditText ed_currentLocation;
 
     Location currentLocation;
@@ -46,6 +53,9 @@ public class SetLocationActivity extends FragmentActivity implements OnMapReadyC
     private static final int REQUEST_CODE = 101;
     Geocoder geocoder;
     List<Address> addresses;
+    Dialog addMoreDetailsDialog;
+    Dialog addOtherLocation;
+    String currentLocationAddress;
 
 
     @Override
@@ -62,10 +72,14 @@ public class SetLocationActivity extends FragmentActivity implements OnMapReadyC
         tv_title = findViewById(R.id.tv_title);
         iv_fetchLocation = findViewById(R.id.iv_fetchLocation);
         ed_currentLocation = findViewById(R.id.ed_currentLocation);
+        tv_selectLocation = findViewById(R.id.tv_selectLocation);
+        iv_cancel = findViewById(R.id.iv_cancel);
 
         tv_title.setText("Set Location");
         iv_back.setOnClickListener(this);
         iv_fetchLocation.setOnClickListener(this);
+        tv_selectLocation.setOnClickListener(this);
+        iv_cancel.setOnClickListener(this);
     }
 
     private void fetchLocation() {
@@ -84,20 +98,20 @@ public class SetLocationActivity extends FragmentActivity implements OnMapReadyC
                     geocoder=new Geocoder(SetLocationActivity.this, Locale.getDefault());
                     try {
                         addresses = geocoder.getFromLocation(currentLocation.getLatitude() , currentLocation.getLongitude(), 1);
-                        String address = addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
+                        currentLocationAddress = addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
                         String city = addresses.get(0).getLocality();
                         String state = addresses.get(0).getAdminArea();
                         String country = addresses.get(0).getCountryName();
                         String postalCode = addresses.get(0).getPostalCode();
                         String knownName = addresses.get(0).getFeatureName();
 
-                        Log.e("<<TAG>>", "address index=" + address);
+                        Log.e("<<TAG>>", "address index=" + currentLocationAddress);
                         Log.e("<<TAG>>", "city index=" + city);
                         Log.e("<<TAG>>", "state index=" + state);
                         Log.e("<<TAG>>", "country index=" + country);
                         Log.e("<<TAG>>", "postalCode index=" + postalCode);
                         Log.e("<<TAG>>", "knownName index=" + knownName);
-                        ed_currentLocation.setText(address);
+                        ed_currentLocation.setText(currentLocationAddress);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -147,7 +161,69 @@ public class SetLocationActivity extends FragmentActivity implements OnMapReadyC
             case R.id.iv_fetchLocation:
                 fetchLocation();
                 break;
+            case R.id.tv_selectLocation:
+                openAddMoreDetailsDialog();
+                break;
+            case R.id.iv_cancel:
+                if(!currentLocationAddress.equals("")){
+                    ed_currentLocation.setText("");
+                }
+                break;
         }
+    }
+
+    private void openAddMoreDetailsDialog() {
+        addMoreDetailsDialog = new Dialog(this);
+        addMoreDetailsDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        addMoreDetailsDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        addMoreDetailsDialog.setContentView(R.layout.customer_dialog_add_more_details);
+        addMoreDetailsDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        addMoreDetailsDialog.show();
+
+        TextView tv_done = addMoreDetailsDialog.findViewById(R.id.tv_done);
+        TextView tv_address = addMoreDetailsDialog.findViewById(R.id.tv_address);
+        EditText tv_address_with_suite_appartment = addMoreDetailsDialog.findViewById(R.id.tv_address_with_suite_appartment);
+
+        tv_address.setText(currentLocationAddress);
+
+        tv_done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addMoreDetailsDialog.dismiss();
+                openDialogOtherLocation();
+            }
+        });
+
+
+    }
+
+    private void openDialogOtherLocation() {
+        addOtherLocation = new Dialog(this);
+        addOtherLocation.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        addOtherLocation.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        addOtherLocation.setContentView(R.layout.customer_dialog_other_location);
+        addOtherLocation.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        addOtherLocation.show();
+
+
+        Button tv_no = addOtherLocation.findViewById(R.id.tv_no);
+        Button tv_yes = addOtherLocation.findViewById(R.id.tv_yes);
+
+        tv_no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addOtherLocation.dismiss();
+
+            }
+        });
+
+        tv_yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addOtherLocation.dismiss();
+            }
+        });
+
     }
 
 

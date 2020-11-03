@@ -67,6 +67,9 @@
         <activity android:name=".activity.customer.SetLocationActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".activity.customer.SalonAndBeautySubCategoriesServiceListActivity"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

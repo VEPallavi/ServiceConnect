@@ -2,6 +2,99 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:background="@drawable/white_background_rounded_rect"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_20sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+
+        <TextView
+            android:id="@+id/tv_add_more_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_14sdp"
+            android:textColor="@color/colorBlack"
+            android:text="@string/txt_add_more_details"
+            />
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_add_more_details"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/grey_background_rounded_rect"
+            android:textSize="@dimen/_10sdp"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_5sdp"
+            android:paddingRight="@dimen/_5sdp"
+            android:alpha=".9"
+            android:textColor="@color/colorBlack"
+            android:text=""
+            />
+
+        <EditText
+            android:id="@+id/tv_address_with_suite_appartment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_address"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textCursorDrawable="@drawable/cursor_drawable"
+            android:lines="4"
+            android:gravity="left"
+            android:background="@drawable/grey_background_rounded_rect"
+            android:textSize="@dimen/_10sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:paddingLeft="@dimen/_5sdp"
+            android:paddingRight="@dimen/_5sdp"
+            android:textColor="@color/light_grey"
+            android:hint="Enter address with Suite/Apartment number"
+            android:text=""
+            />
+
+        <Button
+            android:id="@+id/tv_done"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_address_with_suite_appartment"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:padding="@dimen/_8sdp"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/colorWhite"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/txt_done"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
