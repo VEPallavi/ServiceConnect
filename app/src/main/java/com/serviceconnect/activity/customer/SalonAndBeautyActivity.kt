@@ -55,12 +55,12 @@ class SalonAndBeautyActivity : AppCompatActivity(), View.OnClickListener, ItemLi
     }
 
     private fun setOnClickListener() {
-        iv_back.setOnClickListener(this)
+        ivBack.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when(v?.id){
-            R.id.iv_back->{
+            R.id.ivBack->{
                 finish()
             }
         }

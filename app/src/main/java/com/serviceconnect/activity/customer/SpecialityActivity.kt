@@ -59,14 +59,14 @@ class SpecialityActivity : AppCompatActivity(), View.OnClickListener{
 
 
 
-        iv_back.setOnClickListener(this)
+        ivBack.setOnClickListener(this)
 
 
     }
 
     override fun onClick(v: View?) {
         when(v?.id){
-            R.id.iv_back ->{
+            R.id.ivBack ->{
                 finish()
             }
         }

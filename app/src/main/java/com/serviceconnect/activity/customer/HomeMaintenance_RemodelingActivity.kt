@@ -64,12 +64,12 @@ class HomeMaintenance_RemodelingActivity : AppCompatActivity(), View.OnClickList
     }
 
     private fun setOnClickListener() {
-        iv_back.setOnClickListener(this)
+        ivBack.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when(v?.id){
-            R.id.iv_back ->{
+            R.id.ivBack ->{
                 finish()
             }
         }
