@@ -2,6 +2,7 @@ package com.serviceconnect.activity.customer
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -69,7 +70,9 @@ class SalonAndBeautyActivity : AppCompatActivity(), View.OnClickListener, ItemLi
     override fun itemListener(dataModel: Any) {
         var dataModel = dataModel as SubCategoriesModal
 
+        Log.e("<<< ", dataModel.serviceName)
         var intent = Intent(this, SetLocationActivity::class.java)
+        intent.putExtra("serviceName", dataModel.serviceName)
         startActivity(intent)
     }
 

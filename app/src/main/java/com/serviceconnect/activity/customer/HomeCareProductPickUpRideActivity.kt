@@ -29,7 +29,7 @@ class HomeCareProductPickUpRideActivity : AppCompatActivity(), View.OnClickListe
     }
 
     private fun initViews() {
-        tv_title.text = "Home Care/Product pick up/Ride"
+        tv_title.text = "Home Care/Product pick up/Ride/Restaurant/Grocery"
 
         var list1 = SubCategoriesModal(R.drawable.tutoring_image, this.resources.getString(R.string.txt_tutoring))
         var list2 = SubCategoriesModal(R.drawable.baby_sitter, this.resources.getString(R.string.txt_baby_sitter_child_care))

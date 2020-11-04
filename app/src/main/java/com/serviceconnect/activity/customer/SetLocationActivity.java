@@ -2,6 +2,7 @@ package com.serviceconnect.activity.customer;
 
 import android.Manifest;
 import android.app.Dialog;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -54,8 +55,9 @@ public class SetLocationActivity extends FragmentActivity implements OnMapReadyC
     Geocoder geocoder;
     List<Address> addresses;
     Dialog addMoreDetailsDialog;
-    Dialog addOtherLocation;
+    Dialog addOtherLocationDialog;
     String currentLocationAddress;
+    String serviceName;
 
 
     @Override
@@ -63,6 +65,7 @@ public class SetLocationActivity extends FragmentActivity implements OnMapReadyC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_activity_set_location);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        serviceName = getIntent().getStringExtra("serviceName");
         fetchLocation();
         initViews();
     }
@@ -178,6 +181,7 @@ public class SetLocationActivity extends FragmentActivity implements OnMapReadyC
         addMoreDetailsDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         addMoreDetailsDialog.setContentView(R.layout.customer_dialog_add_more_details);
         addMoreDetailsDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        addMoreDetailsDialog.setCanceledOnTouchOutside(false);
         addMoreDetailsDialog.show();
 
         TextView tv_done = addMoreDetailsDialog.findViewById(R.id.tv_done);
@@ -198,21 +202,27 @@ public class SetLocationActivity extends FragmentActivity implements OnMapReadyC
     }
 
     private void openDialogOtherLocation() {
-        addOtherLocation = new Dialog(this);
-        addOtherLocation.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        addOtherLocation.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        addOtherLocation.setContentView(R.layout.customer_dialog_other_location);
-        addOtherLocation.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        addOtherLocation.show();
+        addOtherLocationDialog = new Dialog(this);
+        addOtherLocationDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        addOtherLocationDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        addOtherLocationDialog.setContentView(R.layout.customer_dialog_other_location);
+        addOtherLocationDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        addOtherLocationDialog.setCanceledOnTouchOutside(false);
+        addOtherLocationDialog.show();
 
 
-        Button tv_no = addOtherLocation.findViewById(R.id.tv_no);
-        Button tv_yes = addOtherLocation.findViewById(R.id.tv_yes);
+        final Button tv_no = addOtherLocationDialog.findViewById(R.id.tv_no);
+        final Button tv_yes = addOtherLocationDialog.findViewById(R.id.tv_yes);
+        final TextView tv_other_address = addOtherLocationDialog.findViewById(R.id.tv_other_address);
+        final Button tv_done = addOtherLocationDialog.findViewById(R.id.tv_done);
 
         tv_no.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addOtherLocation.dismiss();
+                addOtherLocationDialog.dismiss();
+//                Intent intent = new Intent(SetLocationActivity.this, SalonAndBeautyBusinessListActivity.class);
+//                intent.putExtra("serviceName", serviceName);
+//                startActivity(intent);
 
             }
         });
@@ -220,7 +230,20 @@ public class SetLocationActivity extends FragmentActivity implements OnMapReadyC
         tv_yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addOtherLocation.dismiss();
+                tv_yes.setVisibility(View.GONE);
+                tv_no.setVisibility(View.GONE);
+                tv_other_address.setVisibility(View.VISIBLE);
+                tv_done.setVisibility(View.VISIBLE);
+            }
+        });
+
+        tv_done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addOtherLocationDialog.dismiss();
+//                Intent intent = new Intent(SetLocationActivity.this, SalonAndBeautyBusinessListActivity.class);
+//                intent.putExtra("serviceName", serviceName);
+//                startActivity(intent);
             }
         });
 

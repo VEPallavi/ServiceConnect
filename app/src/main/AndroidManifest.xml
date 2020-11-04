@@ -67,7 +67,7 @@
         <activity android:name=".activity.customer.SetLocationActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.SalonAndBeautySubCategoriesServiceListActivity"
+        <activity android:name=".activity.customer.SalonAndBeautyBusinessListActivity"
             android:screenOrientation="portrait"/>
 
     </application>
