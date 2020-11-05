@@ -70,6 +70,9 @@
         <activity android:name=".activity.customer.SalonAndBeautyBusinessListActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".activity.customer.OrderServiceActivity"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

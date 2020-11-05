@@ -1,16 +1,18 @@
 package com.serviceconnect.activity.customer
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.serviceconnect.R
 import com.serviceconnect.adapter.customerApp.SalonAndBeautyBusinessListAdapter
+import com.serviceconnect.callback.ItemListener
 import kotlinx.android.synthetic.main.customer_activity_salon_beauty_business_list.*
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
 
 
-class SalonAndBeautyBusinessListActivity : AppCompatActivity(), View.OnClickListener{
+class SalonAndBeautyBusinessListActivity : AppCompatActivity(), View.OnClickListener, ItemListener{
     var adapter: SalonAndBeautyBusinessListAdapter?= null
     var serviceName: String?= null
 
@@ -34,7 +36,7 @@ class SalonAndBeautyBusinessListActivity : AppCompatActivity(), View.OnClickList
 
         rv_service_ist.setHasFixedSize(true)
         rv_service_ist.layoutManager = LinearLayoutManager(this)
-        adapter = SalonAndBeautyBusinessListAdapter(this)
+        adapter = SalonAndBeautyBusinessListAdapter(this, this)
         rv_service_ist.adapter = adapter
     }
 
@@ -44,6 +46,11 @@ class SalonAndBeautyBusinessListActivity : AppCompatActivity(), View.OnClickList
                 finish()
             }
         }
+    }
+
+    override fun itemListener(dataModel: Any) {
+      //  var intent = Intent(this, OrderServiceActivity::class.java)
+      //  startActivity(intent)
     }
 
 

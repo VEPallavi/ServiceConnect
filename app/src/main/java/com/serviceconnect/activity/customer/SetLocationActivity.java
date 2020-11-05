@@ -220,9 +220,9 @@ public class SetLocationActivity extends FragmentActivity implements OnMapReadyC
             @Override
             public void onClick(View view) {
                 addOtherLocationDialog.dismiss();
-//                Intent intent = new Intent(SetLocationActivity.this, SalonAndBeautyBusinessListActivity.class);
-//                intent.putExtra("serviceName", serviceName);
-//                startActivity(intent);
+                Intent intent = new Intent(SetLocationActivity.this, SalonAndBeautyBusinessListActivity.class);
+                intent.putExtra("serviceName", serviceName);
+                startActivity(intent);
 
             }
         });
@@ -241,9 +241,9 @@ public class SetLocationActivity extends FragmentActivity implements OnMapReadyC
             @Override
             public void onClick(View view) {
                 addOtherLocationDialog.dismiss();
-//                Intent intent = new Intent(SetLocationActivity.this, SalonAndBeautyBusinessListActivity.class);
-//                intent.putExtra("serviceName", serviceName);
-//                startActivity(intent);
+                Intent intent = new Intent(SetLocationActivity.this, SalonAndBeautyBusinessListActivity.class);
+                intent.putExtra("serviceName", serviceName);
+                startActivity(intent);
             }
         });
 

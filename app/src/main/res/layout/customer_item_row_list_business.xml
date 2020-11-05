@@ -8,16 +8,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/_10sdp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:id="@+id/cl_main">
 
     <ImageView
         android:id="@+id/iv_business_pic"
         android:layout_width="0dp"
-        android:layout_height="@dimen/_170sdp"
+        android:layout_height="@dimen/_150sdp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -33,7 +32,8 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_business_pic"
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_5sdp"
-        android:textSize="@dimen/_12sdp"
+        android:alpha=".9"
+        android:textSize="@dimen/_10sdp"
         android:textColor="@color/colorBlack"
         android:text="Profession Name" />
 
@@ -45,8 +45,9 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="@dimen/_5sdp"
         app:layout_constraintTop_toBottomOf="@+id/tv_professionName"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:textSize="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:alpha=".9"
+        android:textSize="@dimen/_10sdp"
         android:textColor="@color/colorBlack"
         android:text="Business Name" />
 
@@ -57,8 +58,11 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/tv_ratingCount"
         app:layout_constraintTop_toBottomOf="@+id/tv_businessName"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:drawableLeft="@drawable/star_icon"
+        android:drawablePadding="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_5sdp"
-        android:textSize="@dimen/_12sdp"
+        android:textSize="@dimen/_10sdp"
         android:textColor="@color/colorBlack"
         android:text="4.5" />
 
@@ -66,9 +70,9 @@
         android:id="@+id/tv_ratingCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/tv_ratingValue"
         app:layout_constraintLeft_toRightOf="@+id/tv_ratingValue"
         app:layout_constraintBottom_toBottomOf="@+id/tv_ratingValue"
-        android:layout_marginTop="@dimen/_5sdp"
         android:textSize="@dimen/_9sdp"
         android:textColor="@color/light_grey"
         android:text=" (2.2k Ratings)" />
@@ -77,14 +81,18 @@
         android:id="@+id/tv_commentsCount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:drawableLeft="@drawable/comment_icon"
+        android:drawablePadding="@dimen/_5sdp"
+        android:alpha=".9"
+        android:text="2.3k Comments"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_10sdp"
+        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_ratingValue"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginLeft="@dimen/_5sdp"
-        android:textSize="@dimen/_12sdp"
-        android:textColor="@color/colorBlack"
-        android:text="2.3k Comments" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_ratingValue" />
 
     <ImageView
         android:id="@+id/iv_licence_icon"
@@ -125,12 +133,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_licence_pic"
+        android:drawableLeft="@drawable/location_icon"
+        android:drawablePadding="@dimen/_5sdp"
+        android:alpha=".9"
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_5sdp"
-        android:textSize="@dimen/_12sdp"
+        android:textSize="@dimen/_10sdp"
         android:textColor="@color/colorBlack"
-        android:text="Address"
-        />
+        android:text="Address" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
