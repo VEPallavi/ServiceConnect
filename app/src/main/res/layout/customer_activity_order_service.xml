@@ -286,7 +286,7 @@
                 android:layout_marginLeft="@dimen/_15sdp"
                 android:paddingTop="@dimen/_5sdp"
                 android:textColor="@color/colorWhite"
-                android:text="1 Product  |  $20.00"/>
+                android:text="1 Product  |  $00.00"/>
 
             <TextView
                 android:id="@+id/tv_service"
@@ -299,7 +299,7 @@
                 android:layout_marginLeft="@dimen/_15sdp"
                 android:textSize="@dimen/_10sdp"
                 android:textColor="@color/colorWhite"
-                android:text="1 Service     |  $20.00"/>
+                android:text="1 Service     |  $00.00"/>
 
             <TextView
                 android:id="@+id/tv_total_service_time"
@@ -313,7 +313,7 @@
                 android:paddingBottom="@dimen/_5sdp"
                 android:textSize="@dimen/_10sdp"
                 android:textColor="@color/colorWhite"
-                android:text="Total service time   |   30 min"/>
+                android:text="Total service time   |   00 min"/>
 
             <TextView
                 android:layout_width="wrap_content"

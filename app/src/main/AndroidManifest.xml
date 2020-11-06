@@ -73,6 +73,9 @@
         <activity android:name=".activity.customer.OrderServiceActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".activity.customer.LicenceListActivity"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

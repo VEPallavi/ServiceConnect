@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/_8sdp"
+    android:paddingRight="@dimen/_8sdp"
+    android:paddingTop="@dimen/_8sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <ImageView
+        android:id="@+id/iv_business_image"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_90sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/iv_business_image"
+        app:layout_constraintRight_toLeftOf="@+id/cl_add"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_10sdp"
+        android:text="Low cut" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name"
+        app:layout_constraintRight_toLeftOf="@+id/cl_add"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_10sdp"
+        android:text="$50.00 f4gu4ruyrebvyerbyrebfeybvyerbfe envehvbgvvebfyebrcjsvuefbrybre" />
+
+    <TextView
+        android:id="@+id/tv_descp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_price"
+        app:layout_constraintRight_toLeftOf="@+id/cl_add"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:textSize="@dimen/_8sdp"
+        android:text="snc dsgv sv gcbewytfvwdjvvfhv  bf vbf v dh hd hvndjvhdfvb bdfhvdhvbh"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/tv_add"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_30sdp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/button_rounded_rect_blue"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_12sdp"
+            android:text="Add"
+            android:visibility="gone" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_item_minus_count_plus"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_30sdp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:padding="@dimen/_2sdp"
+            android:background="@drawable/button_rounded_border_rect_blue"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/iv_minus"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:padding="@dimen/_3sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/tv_item_count"
+                android:background="@color/colorBackground"
+                android:src="@drawable/minus" />
+
+            <TextView
+                android:id="@+id/tv_item_count"
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/iv_minus"
+                app:layout_constraintRight_toLeftOf="@+id/iv_plus"
+                android:gravity="center"
+                android:textSize="@dimen/_10sdp"
+                android:text="10" />
+
+            <ImageView
+                android:id="@+id/iv_plus"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintLeft_toRightOf="@+id/tv_item_count"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:padding="@dimen/_3sdp"
+                android:background="@color/colorBackground"
+                android:src="@drawable/add_icon" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
