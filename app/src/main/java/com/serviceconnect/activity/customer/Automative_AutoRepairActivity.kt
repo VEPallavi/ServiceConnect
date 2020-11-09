@@ -7,12 +7,13 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import com.serviceconnect.R
 import com.serviceconnect.adapter.customerApp.Automative_AutoRepairAdapter
+import com.serviceconnect.callback.ItemListener
 import com.serviceconnect.modal.customer.SubCategoriesModal
 import kotlinx.android.synthetic.main.customer_activity_automative_autorepair.*
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
 
 
-class Automative_AutoRepairActivity : AppCompatActivity(), View.OnClickListener{
+class Automative_AutoRepairActivity : AppCompatActivity(), View.OnClickListener, ItemListener{
     var adapter: Automative_AutoRepairAdapter?= null
     var automativeAutorepairList = ArrayList<SubCategoriesModal>()
 
@@ -44,7 +45,7 @@ class Automative_AutoRepairActivity : AppCompatActivity(), View.OnClickListener{
         rv_automative_autorepair.layoutManager = GridLayoutManager(this, 2)
         rv_automative_autorepair.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         rv_automative_autorepair.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL))
-        adapter = Automative_AutoRepairAdapter(this, automativeAutorepairList)
+        adapter = Automative_AutoRepairAdapter(this, automativeAutorepairList, this)
         rv_automative_autorepair.adapter = adapter
 
     }
@@ -60,6 +61,10 @@ class Automative_AutoRepairActivity : AppCompatActivity(), View.OnClickListener{
                 finish()
             }
         }
+    }
+
+    override fun itemListener(dataModel: Any) {
+        var dataModal = dataModel as SubCategoriesModal
     }
 
 

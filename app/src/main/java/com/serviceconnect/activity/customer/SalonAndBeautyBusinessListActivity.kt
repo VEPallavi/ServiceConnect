@@ -49,7 +49,7 @@ class SalonAndBeautyBusinessListActivity : AppCompatActivity(), View.OnClickList
     }
 
     override fun itemListener(dataModel: Any) {
-        var intent = Intent(this, OrderServiceActivity::class.java)
+        var intent = Intent(this, ServiceDetailsAndOrderActivity::class.java)
         startActivity(intent)
     }
 

@@ -65,7 +65,7 @@
 
     <string name="txt_select_service">Select Service</string>
     <string name="txt_new_user">New User?</string>
-    <string name="txt_home_care_product_pickup_ride">Home Care/Product pickup/Ride/Grocery/Restaurant</string>
+    <string name="txt_home_care_product_pickup_ride">Home Care/Product PickUp/Wine/Ride/Grocery/Restaurant</string>
     <string name="txt_home_maintenance_remodeling">Home Maintenance/Remodeling</string>
     <string name="txt_speciality">Speciality</string>
     <string name="txt_auto_repair">Auto Repair</string>

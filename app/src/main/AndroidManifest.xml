@@ -70,10 +70,16 @@
         <activity android:name=".activity.customer.SalonAndBeautyBusinessListActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.OrderServiceActivity"
+        <activity android:name=".activity.customer.ServiceDetailsAndOrderActivity"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".activity.customer.LicenceListActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.customer.CommentListActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.customer.OrderPlaceActivity"
             android:screenOrientation="portrait"/>
 
     </application>
