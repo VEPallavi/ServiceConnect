@@ -95,6 +95,8 @@
     <string name="txt_select_location">Select Location</string>
     <string name="txt_enter_location">Enter location</string>
     <string name="txt_open_time">Open Time</string>
+    <string name="txt_profile">Profile</string>
+    <string name="payment_about">(A Cancellation Fee is assessed for any service that have been accepted by the restaurant. NO REFUND will be given if your service is an hour to be expected. Resion is because service man has cancelled app appointment and waiting for you.)</string>
 
 
 </resources>

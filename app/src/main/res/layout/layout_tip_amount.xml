@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite">
+
+
+    <TextView
+        android:id="@+id/txt_label_tip_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_13sdp"
+        android:textSize="14.4sp"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="normal"
+        android:textColor="@color/dark_grey"
+        android:text="Tip Amount"
+        android:textAllCaps="true"/>
+
+    <LinearLayout
+        android:id="@+id/ll_driver_tip_value"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_below="@+id/txt_label_tip_amount"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
+        android:background="@drawable/qty_bg"
+        android:orientation="horizontal"
+        android:weightSum="6">
+
+        <TextView
+            android:id="@+id/txt_tip_one_dollar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:layout_marginBottom="@dimen/_1sdp"
+            android:layout_weight="1.7"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/light_grey"
+            android:textSize="@dimen/_12sdp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rlt_layout_travel_location"
+            android:background="@color/colorBackground"/>
+
+
+        <TextView
+            android:id="@+id/txt_tip_two_dollar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:layout_marginBottom="@dimen/_1sdp"
+            android:layout_weight="1.7"
+            android:gravity="center"
+            android:text=""
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/light_grey"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rlt_layout_travel_location"
+            android:background="@color/colorBackground"/>
+
+
+        <TextView
+            android:id="@+id/txt_tip_three_dollar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:layout_marginBottom="@dimen/_1sdp"
+            android:layout_weight="1.7"
+            android:gravity="center"
+            android:text=""
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/light_grey"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rlt_layout_travel_location"
+            android:background="@color/colorBackground"/>
+
+
+        <EditText
+            android:id="@+id/et_custom_tip_amount"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:hint="Enter tip amount"
+            android:inputType="numberDecimal"
+            android:lines="1"
+            android:maxLength="3"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:textColor="@color/light_grey"
+            android:textColorHint="@color/light_grey"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/_12sdp"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

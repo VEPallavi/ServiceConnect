@@ -1,6 +1,7 @@
 package com.serviceconnect.activity.customer
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.MenuItem
@@ -86,13 +87,13 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //            R.id.nav_speciality -> setDisplayFragment(5)
 //            R.id.nav_track_service_man -> setDisplayFragment(6)
 //            R.id.nav_my_service -> setDisplayFragment(7)
-//              R.id.nav_reschedule_service -> setDisplayFragment(1)
-//            R.id.nav_my_rating_comment -> setDisplayFragment(1)
-//              R.id.nav_reschedule_service -> setDisplayFragment(1)
-//            R.id.nav_refer_friends -> setDisplayFragment(2)
-//            R.id.nav_notification -> setDisplayFragment(3)
-//            R.id.nav_support -> setDisplayFragment(4)
-//            R.id.nav_settings -> setDisplayFragment(5)
+//              R.id.nav_reschedule_service -> setDisplayFragment(8)
+//            R.id.nav_my_rating_comment -> setDisplayFragment(9)
+//              R.id.nav_reschedule_service -> setDisplayFragment(10)
+//            R.id.nav_refer_friends -> setDisplayFragment(11)
+//            R.id.nav_notification -> setDisplayFragment(12)
+//            R.id.nav_support -> setDisplayFragment(13)
+            R.id.nav_settings -> setDisplayFragment(14)
         }
 
         val drawer = findViewById(R.id.drawer_layout) as DrawerLayout
@@ -155,6 +156,16 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             11 -> {
 
+            }
+            12 -> {
+
+            }
+            12 -> {
+
+            }
+            14 -> {
+               var intent = Intent(this, SettingActivity::class.java)
+                startActivity(intent)
             }
         }
     }

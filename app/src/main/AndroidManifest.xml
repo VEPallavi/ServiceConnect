@@ -82,6 +82,9 @@
         <activity android:name=".activity.customer.OrderPlaceActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".activity.customer.SettingActivity"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>
