@@ -303,18 +303,41 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-          <!--  Tip Amount-->
-        <include
-            android:id="@+id/cl_tip_amount"
-            layout="@layout/layout_tip_amount"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cl_apply_coupon"
-            android:layout_marginTop="@dimen/_10sdp">
-        </include>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_tip_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintTop_toBottomOf="@+id/cl_apply_coupon">
 
+                <!--  Tip Amount-->
+                <include
+                    android:id="@+id/tip_amount"
+                    layout="@layout/layout_tip_amount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                   >
+                </include>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!--  Price Details-->
+            <include
+                android:id="@+id/cl_price_details"
+                layout="@layout/layout_price_detail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cl_tip_amount"
+                android:layout_marginTop="@dimen/_10sdp">
+            </include>
 
      <!-- Payment Option-->
     <RelativeLayout
@@ -323,8 +346,16 @@
         android:layout_height="wrap_content"
         android:background="@color/colorWhite"
         android:layout_marginTop="@dimen/_10sdp"
-        app:layout_constraintTop_toBottomOf="@+id/cl_tip_amount"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/cl_price_details"
+        >
+
+        <TextView
+            android:id="@+id/tv_payment_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="Payment Option"/>
 
 
         <RadioButton
@@ -333,6 +364,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_15sdp"
+            android:layout_below="@+id/tv_payment_option"
             android:button="@drawable/selector_radio_button"
             android:padding="@dimen/_10sdp"
             android:text="Card"
@@ -422,6 +454,77 @@
             android:textColor="@color/light_grey" />
 
     </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:id="@+id/rl_service_selection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintTop_toBottomOf="@+id/rl_make_payment"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_please_select"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:text="Please Select"/>
+
+                <RadioButton
+                    android:id="@+id/rb_yes"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_please_select"
+                    android:button="@drawable/selector_radio_button"
+                    android:padding="@dimen/_8sdp"
+                    android:text="YES"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:checked="false"
+                    android:layout_marginBottom="@dimen/_10sdp"/>
+
+                <RadioButton
+                    android:id="@+id/rb_done"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:button="@drawable/selector_radio_button"
+                    android:padding="@dimen/_8sdp"
+                    android:text="DONE"
+                    android:layout_below="@+id/rb_yes"
+                    android:checked="false"
+                    android:layout_marginBottom="@dimen/_10sdp"/>
+
+                <TextView
+                    android:id="@+id/tv_click_yes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Click YES if you will be picking up the product yourself from the business location or the service will be executed at the business location."
+                    android:layout_below="@+id/rb_done"
+                    android:padding="@dimen/_4sdp"
+                    android:background="@color/colorWhite"
+                    android:textSize="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:textColor="@color/light_grey" />
+
+                <TextView
+                    android:id="@+id/tv_good"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Click GOOD if the product will be delivered to your location or the service will be executed at your location(customer location)."
+                    android:layout_below="@+id/tv_click_yes"
+                    android:padding="@dimen/_4sdp"
+                    android:background="@color/colorWhite"
+                    android:textSize="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:textColor="@color/light_grey" />
+
+            </RelativeLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

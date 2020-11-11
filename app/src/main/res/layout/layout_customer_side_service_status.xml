@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite">
+
+    <TextView
+        android:id="@+id/txt_label_service_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textSize="@dimen/_12sdp"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="normal"
+        android:textColor="@color/light_grey"
+        android:text="Service Status"
+        android:textAllCaps="false"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/button_rounded_border_rect_red"
+        android:padding="@dimen/_8sdp"
+        android:text="Cancel Service"
+        android:textColor="@color/colorRed"
+        android:textSize="@dimen/_12sdp" />
+
+
+    <RelativeLayout
+        android:id="@+id/rl_service_placed"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_below="@+id/txt_label_service_status"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/img_service_status_service_placed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/service_staus_green"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_alignTop="@+id/rl_service_placed"
+        android:layout_marginLeft="@dimen/_13sdp"
+        android:layout_toRightOf="@+id/rl_service_placed"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/txt_service_status_order_placed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Service Placed"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="#262628"/>
+
+        <TextView
+            android:id="@+id/txt_order_placed_date_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/txt_service_status_order_placed"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="@color/light_grey"
+            android:text="(30 March 2018, 2:39 PM)"
+            android:textSize="12sp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_one"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_below="@+id/rl_service_placed"
+        android:gravity="center_horizontal">
+
+        <View
+            android:layout_width="@dimen/_2sdp"
+            android:layout_height="match_parent"
+            android:background="@color/light_grey" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_order_confirmed"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_below="@+id/rl_one"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/img_order_status_confirmed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/service_status_grey"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_alignTop="@+id/rl_order_confirmed"
+        android:layout_marginLeft="@dimen/_13sdp"
+        android:layout_toRightOf="@+id/rl_order_confirmed"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/txt_order_status_confirmed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Service accepted by service person"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif-medium"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_two"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_below="@+id/rl_order_confirmed"
+        android:gravity="center_horizontal">
+
+        <View
+            android:layout_width="@dimen/_2sdp"
+            android:layout_height="match_parent"
+            android:background="@color/light_grey" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_arrived"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_below="@+id/rl_two"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/img_order_status_arrived"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/service_status_grey"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_alignTop="@+id/rl_arrived"
+        android:layout_marginLeft="@dimen/_13sdp"
+        android:layout_toRightOf="@+id/rl_arrived"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/txt_order_status_arrived"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Service person on the way to customer location"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif-medium"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_three"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_below="@+id/rl_arrived"
+        android:gravity="center_horizontal">
+
+        <View
+            android:layout_width="@dimen/_2sdp"
+            android:layout_height="match_parent"
+            android:background="@color/light_grey" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_dispatched"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_below="@+id/rl_three"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/img_order_status_dispatched"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/service_status_grey"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_alignTop="@+id/rl_dispatched"
+        android:layout_marginLeft="@dimen/_13sdp"
+        android:layout_toRightOf="@+id/rl_dispatched"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="@dimen/_25sdp">
+
+        <TextView
+            android:id="@+id/txt_order_status_dispatched"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Service person has arrived at customer location"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif-medium"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_four"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_below="@+id/rl_dispatched"
+        android:gravity="center_horizontal">
+
+        <View
+            android:layout_width="@dimen/_2sdp"
+            android:layout_height="match_parent"
+            android:background="@color/colorBackground" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_delivered"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_below="@+id/rl_four"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/img_order_status_delivered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/service_status_grey"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/tv_project_started"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_alignTop="@+id/rl_delivered"
+        android:layout_marginLeft="@dimen/_13sdp"
+        android:layout_toRightOf="@+id/rl_delivered"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="@dimen/_25sdp">
+
+        <TextView
+            android:id="@+id/txt_order_status_delivered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Service person has started the project"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif-medium"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_five"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_below="@+id/rl_delivered"
+        android:gravity="center_horizontal">
+
+        <View
+            android:layout_width="@dimen/_2sdp"
+            android:layout_height="match_parent"
+            android:background="@color/colorBackground" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_project_completed"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_below="@+id/rl_five"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/img_service_status_project_completed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/service_status_grey"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/tv_project_completed"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_alignTop="@+id/rl_project_completed"
+        android:layout_marginLeft="@dimen/_13sdp"
+        android:layout_toRightOf="@+id/rl_project_completed"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="@dimen/_25sdp">
+
+        <TextView
+            android:id="@+id/txt_service_status_project_completed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Service person has started the project"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif-medium"/>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
