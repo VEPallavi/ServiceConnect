@@ -3,24 +3,34 @@ package com.serviceconnect.activity.customer
 import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.media.Image
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.serviceconnect.R
+import com.serviceconnect.adapter.customerApp.ProductItemsAdapter
+import com.serviceconnect.adapter.customerApp.ServiceItemsAdapter
 import com.serviceconnect.adapter.customerApp.TimeListAdapter
 import kotlinx.android.synthetic.main.customer_activity_order_place.*
+import kotlinx.android.synthetic.main.customer_activity_order_place.tv_apply_coupon
+import kotlinx.android.synthetic.main.customer_dialog_apply_coupon.*
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
 
 
 class OrderPlaceActivity : AppCompatActivity(), View.OnClickListener{
     var timeListAdapter : TimeListAdapter?= null
-    var dialog: Dialog ?= null
+    var successDialog: Dialog ?= null
+    var couponDialog: Dialog ?= null
+    var serviceItemsAdapter: ServiceItemsAdapter?= null
+    var productItemsAdapter: ProductItemsAdapter?= null
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +43,19 @@ class OrderPlaceActivity : AppCompatActivity(), View.OnClickListener{
         rv_time_list.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         timeListAdapter = TimeListAdapter()
         rv_time_list.adapter = timeListAdapter
+
+
+
+        rv_serviceList.setHasFixedSize(true)
+        rv_serviceList.layoutManager = LinearLayoutManager(this)
+        serviceItemsAdapter = ServiceItemsAdapter(this)
+        rv_serviceList.adapter = serviceItemsAdapter
+
+
+        rv_productList.setHasFixedSize(true)
+        rv_productList.layoutManager = LinearLayoutManager(this)
+        productItemsAdapter = ProductItemsAdapter(this)
+        rv_productList.adapter = productItemsAdapter
 
     }
 
@@ -52,7 +75,7 @@ class OrderPlaceActivity : AppCompatActivity(), View.OnClickListener{
                 finish()
             }
             R.id.tv_apply_coupon ->{
-
+                openCouponDialog()
             }
             R.id.tv_order_now ->{
                 openSuccessDialog()
@@ -61,19 +84,43 @@ class OrderPlaceActivity : AppCompatActivity(), View.OnClickListener{
         }
     }
 
-    private fun openSuccessDialog() {
-        dialog = Dialog(this)
-        dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog?.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog?.setContentView(R.layout.customer_dialog_order_successful)
-        dialog?.getWindow()?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        dialog?.setCanceledOnTouchOutside(false)
-        dialog?.show()
+    private fun openCouponDialog() {
+        couponDialog = Dialog(this)
+        couponDialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        couponDialog?.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        couponDialog?.setContentView(R.layout.customer_dialog_apply_coupon)
+        couponDialog?.getWindow()?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        couponDialog?.setCanceledOnTouchOutside(false)
+        couponDialog?.show()
 
-        val tv_ok: Button = dialog?.findViewById(R.id.tv_ok)!!
+        val tv_apply_code: Button = couponDialog?.findViewById(R.id.tv_apply_code)!!
+        val ivCancel : ImageView = couponDialog!!.findViewById(R.id.ivCancel)
+
+        tv_apply_code.setOnClickListener {
+            couponDialog?.dismiss()
+        }
+
+
+        ivCancel.setOnClickListener {
+            couponDialog?.dismiss()
+        }
+
+
+    }
+
+    private fun openSuccessDialog() {
+        successDialog = Dialog(this)
+        successDialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        successDialog?.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        successDialog?.setContentView(R.layout.customer_dialog_order_successful)
+        successDialog?.getWindow()?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        successDialog?.setCanceledOnTouchOutside(false)
+        successDialog?.show()
+
+        val tv_ok: Button = successDialog?.findViewById(R.id.tv_ok)!!
 
         tv_ok.setOnClickListener {
-            dialog?.dismiss()
+            successDialog?.dismiss()
         }
     }
 
