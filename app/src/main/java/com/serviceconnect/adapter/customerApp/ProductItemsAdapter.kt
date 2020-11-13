@@ -23,6 +23,7 @@ class ProductItemsAdapter(var mContext: Context) : RecyclerView.Adapter<ProductI
     }
 
     override fun onBindViewHolder(holder: ProductItemsAdapter.ProductItemViewHolder, position: Int) {
+        holder.tv_item_time.visibility = View.GONE
 
     }
 

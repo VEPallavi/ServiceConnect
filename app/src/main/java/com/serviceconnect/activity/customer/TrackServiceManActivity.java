@@ -13,6 +13,7 @@ import com.serviceconnect.R;
 public class TrackServiceManActivity extends AppCompatActivity implements View.OnClickListener {
     ImageView ivBack;
     TextView tv_title;
+    TextView txt_label_tip_amount;
 
 
     @Override
@@ -29,6 +30,9 @@ public class TrackServiceManActivity extends AppCompatActivity implements View.O
     private void initViews() {
         ivBack = findViewById(R.id.ivBack);
         tv_title = findViewById(R.id.tv_title);
+        txt_label_tip_amount = findViewById(R.id.txt_label_tip_amount);
+
+        txt_label_tip_amount.setText("Tip After Service");
 
     }
 

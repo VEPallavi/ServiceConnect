@@ -86,7 +86,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //            R.id.nav_home_maintenance_remodeling -> setDisplayFragment(4)
 //            R.id.nav_speciality -> setDisplayFragment(5)
            R.id.nav_track_service_man -> setDisplayFragment(6)
-//            R.id.nav_my_service -> setDisplayFragment(7)
+            R.id.nav_my_service -> setDisplayFragment(7)
 //              R.id.nav_reschedule_service -> setDisplayFragment(8)
 //            R.id.nav_my_rating_comment -> setDisplayFragment(9)
 //              R.id.nav_reschedule_service -> setDisplayFragment(10)
@@ -143,7 +143,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(intent)
             }
             7 -> {
-
+                var intent = Intent(this, MyServiceActivity::class.java)
+                startActivity(intent)
             }
             8 -> {
 

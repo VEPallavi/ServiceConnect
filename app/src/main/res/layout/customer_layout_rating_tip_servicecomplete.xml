@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_10sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <TextView
+        android:id="@+id/tv_rate_your_experience"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_10sdp"
+        android:text="How would you rate your experience the " />
+
+    <TextView
+        android:id="@+id/tv_service_person"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/tv_rate_your_experience"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/_10sdp"
+        android:text="service person."
+        />
+
+    <TextView
+        android:id="@+id/tv_rating_service_man"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_rate_your_experience"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_10sdp"
+        android:text="Rating Service Man"
+        />
+
+    <androidx.appcompat.widget.AppCompatRatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_rating_service_man"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:stepSize="1"
+        android:numStars="5"
+         />
+
+    <TextView
+        android:id="@+id/tv_customer_comment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_10sdp"
+        android:text="Customer Comment"
+        />
+
+
+
+    <EditText
+        android:id="@+id/ed_comment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_customer_comment"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textCursorDrawable="@drawable/cursor_drawable"
+        android:lines="6"
+        android:gravity="left"
+        android:background="@drawable/grey_background_rounded_rect"
+        android:textSize="@dimen/_10sdp"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_5sdp"
+        android:paddingLeft="@dimen/_5sdp"
+        android:paddingRight="@dimen/_5sdp"
+        android:textColor="@color/light_grey"
+        android:hint="Write here..."
+        android:text=""
+        />
+
+
+    <TextView
+        android:id="@+id/tv_submit_rating"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_comment"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingBottom="@dimen/_8sdp"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/button_rounded_border_rect_blue"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/_10sdp"
+        android:text="Submit Rating"
+        />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_submit_rating"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <include
+            android:id="@+id/tip_amount"
+            layout="@layout/layout_tip_amount"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tip_amount"
+            android:background="@drawable/button_rounded_rect_blue"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_12sdp"
+            android:text="Complete"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
