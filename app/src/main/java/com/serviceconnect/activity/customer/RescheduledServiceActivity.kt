@@ -18,7 +18,7 @@ class RescheduledServiceActivity : AppCompatActivity(), View.OnClickListener{
     }
 
     private fun initViews() {
-        tv_title.text = "My Invoice"
+        tv_title.text = "Rescheduled Service"
     }
 
     private fun setOnClickListener() {
