@@ -14,6 +14,8 @@ public class TrackServiceManActivity extends AppCompatActivity implements View.O
     ImageView ivBack;
     TextView tv_title;
     TextView txt_label_tip_amount;
+    TextView payment_method, tv_payment_method, date, tv_date, tv_status;
+    View divider_3;
 
 
     @Override
@@ -31,8 +33,21 @@ public class TrackServiceManActivity extends AppCompatActivity implements View.O
         ivBack = findViewById(R.id.ivBack);
         tv_title = findViewById(R.id.tv_title);
         txt_label_tip_amount = findViewById(R.id.txt_label_tip_amount);
-
+        payment_method = findViewById(R.id.payment_method);
+        tv_payment_method = findViewById(R.id.tv_payment_method);
+        divider_3 = findViewById(R.id.divider_3);
+        tv_date = findViewById(R.id.tv_date);
+        tv_status = findViewById(R.id.tv_status);
         txt_label_tip_amount.setText("Tip After Service");
+
+
+        payment_method.setVisibility(View.GONE);
+        tv_payment_method.setVisibility(View.GONE);
+        divider_3.setVisibility(View.GONE);
+        date.setVisibility(View.GONE);
+        tv_date.setVisibility(View.GONE);
+        tv_status.setVisibility(View.GONE);
+
 
     }
 

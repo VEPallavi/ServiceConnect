@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/nav_upcoming_service"
+        android:icon="@drawable/my_service_icon"
+        android:title="Upcoming Service"/>
+    <item
+        android:id="@+id/nav_current_service"
+        android:icon="@drawable/my_service_icon"
+        android:title="Current Service" />
+
+    <item
+        android:id="@+id/nav_reschedule_service"
+        android:icon="@drawable/my_service_icon"
+        android:title="Rescheduled Service" />
+    <item
+        android:id="@+id/nav_my_service"
+        android:icon="@drawable/my_service_icon"
+        android:title="@string/menu_my_service" />
+    <item
+        android:id="@+id/nav_my_invoice"
+        android:icon="@drawable/my_service_icon"
+        android:title="@string/menu_my_invoice" />
+    <item
+        android:id="@+id/nav_my_income"
+        android:icon="@drawable/my_service_icon"
+        android:title="My Income" />
+
+    <item
+        android:id="@+id/nav_cashout"
+        android:icon="@drawable/my_service_icon"
+        android:title="Cash Out" />
+
+    <item
+        android:id="@+id/nav_track_customer"
+        android:icon="@drawable/track_service_man_icon"
+        android:title="Tracking Customer" />
+
+    <item
+        android:id="@+id/nav_my_rating_comment"
+        android:icon="@drawable/rating_comment_icon"
+        android:title="@string/menu_my_rating_comment" />
+
+    <item
+        android:id="@+id/nav_notification"
+        android:icon="@drawable/notification_icon"
+        android:title="@string/menu_notification" />
+
+    <item
+        android:id="@+id/nav_support"
+        android:icon="@drawable/support_icon"
+        android:title="@string/menu_supports" />
+
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/setting_icon"
+        android:title="@string/menu_settings" />
+
+</menu>

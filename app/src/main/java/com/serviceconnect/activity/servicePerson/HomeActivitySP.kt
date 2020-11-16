@@ -1,4 +1,4 @@
-package com.serviceconnect.activity.customer
+package com.serviceconnect.activity.servicePerson
 
 import android.content.Context
 import android.content.Intent
@@ -20,7 +20,7 @@ import com.serviceconnect.fragment.customerApp.DashboardFragment
 import com.serviceconnect.fragment.customerApp.NotificationFragment
 import kotlinx.android.synthetic.main.customer_app_bar_main.*
 
-class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
+class HomeActivitySP: AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
     private var mContext: Context? = null
     private var toolbar: Toolbar? = null
     private var mDrawerLayout: DrawerLayout? = null
@@ -31,23 +31,22 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.customer_activity_home)
+        setContentView(R.layout.sp_activity_home)
+
 
         initializeView()
         setUpDrawerLayout()
         setUpClickListener()
-
     }
 
-
-
     private fun initializeView() {
-        mContext = this@HomeActivity
+        mContext = this@HomeActivitySP
         toolbar = findViewById(R.id.toolbar_main) as Toolbar
 
         val navigationView = findViewById(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
     }
+
 
     private fun setUpDrawerLayout() {
         mDrawerLayout = findViewById(R.id.drawer_layout) as DrawerLayout
@@ -67,33 +66,26 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
 
-    override fun onResume() {
-        super.onResume()
-        setDisplayFragment(1)
-    }
-
     private fun setUpClickListener() {
         iv_toolbarMenu!!.setOnClickListener(this)
         iv_toolbarBack!!.setOnClickListener(this)
-        iv_notification!!.setOnClickListener(this)
     }
+
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_salon_beauty -> setDisplayFragment(1)
-            R.id.nav_automative_autorepair -> setDisplayFragment(2)
-            R.id.nav_homecare_product_pickup_ride -> setDisplayFragment(3)
-            R.id.nav_home_maintenance_remodeling -> setDisplayFragment(4)
-            R.id.nav_speciality -> setDisplayFragment(5)
-            R.id.nav_track_service_man -> setDisplayFragment(6)
-            R.id.nav_my_service -> setDisplayFragment(7)
-            R.id.nav_my_invoice -> setDisplayFragment(8)
+            R.id.nav_upcoming_service -> setDisplayFragment(1)
+            R.id.nav_current_service -> setDisplayFragment(2)
+            R.id.nav_reschedule_service -> setDisplayFragment(3)
+            R.id.nav_my_service -> setDisplayFragment(4)
+            R.id.nav_my_invoice -> setDisplayFragment(5)
+            R.id.nav_my_income -> setDisplayFragment(6)
+            R.id.nav_cashout -> setDisplayFragment(7)
+            R.id.nav_track_customer -> setDisplayFragment(8)
             R.id.nav_my_rating_comment -> setDisplayFragment(9)
-            R.id.nav_reschedule_service -> setDisplayFragment(10)
-            R.id.nav_refer_friends -> setDisplayFragment(11)
-            R.id.nav_notification -> setDisplayFragment(12)
-            R.id.nav_support -> setDisplayFragment(13)
-            R.id.nav_settings -> setDisplayFragment(14)
+            R.id.nav_notification -> setDisplayFragment(10)
+            R.id.nav_support -> setDisplayFragment(11)
+            R.id.nav_settings -> setDisplayFragment(12)
         }
 
         val drawer = findViewById(R.id.drawer_layout) as DrawerLayout
@@ -123,60 +115,55 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         var mFragment: Fragment? = null
         when (id) {
             1 -> {
-                mFragment = DashboardFragment()
-                replaceFragment(mFragment)
+//                mFragment = DashboardFragment()
+//                replaceFragment(mFragment)
             }
             2 -> {
-                var intent = Intent(this, Automative_AutoRepairActivity::class.java)
-                startActivity(intent)
-            }
-            3 -> {
-                var intent = Intent(this, HomeCareProductPickUpRideActivity::class.java)
-                startActivity(intent)
-            }
-            4 -> {
-                var intent = Intent(this, HomeMaintenance_RemodelingActivity::class.java)
-                startActivity(intent)
-            }
-            5 -> {
-                var intent = Intent(this, SpecialityActivity::class.java)
-                startActivity(intent)
-            }
-            6 -> {
-                var intent = Intent(this, TrackServiceManActivity::class.java)
-                startActivity(intent)
-            }
-            7 -> {
-                var intent = Intent(this, MyServiceActivity::class.java)
-                startActivity(intent)
-            }
-            8 -> {
-                var intent = Intent(this, MyInvoiceActivity::class.java)
-                startActivity(intent)
-            }
-            9 -> {
 
             }
+            3 -> {
+
+            }
+            4 -> {
+
+            }
+            5 -> {
+
+            }
+            6 -> {
+//                var intent = Intent(this, TrackServiceManActivity::class.java)
+//                startActivity(intent)
+            }
+            7 -> {
+//                var intent = Intent(this, MyServiceActivity::class.java)
+//                startActivity(intent)
+            }
+            8 -> {
+
+            }
+            9 -> {
+//                mFragment = NotificationFragment()
+//                replaceFragment(mFragment)
+            }
             10 -> {
-                var intent = Intent(this, RescheduledServiceActivity::class.java)
-                startActivity(intent)
+
             }
             11 -> {
 
             }
             12 -> {
-                mFragment = NotificationFragment()
-                replaceFragment(mFragment)
+
             }
             12 -> {
 
             }
             14 -> {
-               var intent = Intent(this, SettingActivity::class.java)
-                startActivity(intent)
+//                var intent = Intent(this, SettingActivity::class.java)
+//                startActivity(intent)
             }
         }
     }
+
 
 
 
@@ -255,6 +242,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         mTransaction!!.addToBackStack(null)
         mTransaction!!.commit()
     }
+
 
 
 }

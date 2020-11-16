@@ -10,7 +10,7 @@
     tools:openDrawer="start">
 
     <include
-        layout="@layout/customer_app_bar_main"
+        layout="@layout/sp_app_bar_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -23,9 +23,9 @@
         android:scrollbars="vertical"
         app:itemTextColor="@color/light_grey"
         app:itemIconTint="@color/light_grey"
-        app:headerLayout="@layout/customer_nav_header_main"
+        app:headerLayout="@layout/sp_nav_header_main"
         android:background="@color/colorWhite"
-        app:menu="@menu/customer_activity_main_drawer"
+        app:menu="@menu/sp_activity_main_drawer"
         />
 
 </androidx.drawerlayout.widget.DrawerLayout>

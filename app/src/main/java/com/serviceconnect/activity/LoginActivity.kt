@@ -8,6 +8,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.serviceconnect.R
 import com.serviceconnect.activity.customer.HomeActivity
+import com.serviceconnect.activity.servicePerson.HomeActivitySP
 import com.serviceconnect.helper.Utils
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -28,6 +29,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
         tv_signUp.setOnClickListener(this)
         tv_login.setOnClickListener(this)
         tv_forgot_password.setOnClickListener(this)
+        iv_logo.setOnClickListener {
+            var intent = Intent(this, HomeActivitySP::class.java)
+            startActivity(intent)
+        }
     }
 
 

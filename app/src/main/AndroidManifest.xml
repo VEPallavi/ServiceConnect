@@ -91,6 +91,16 @@
         <activity android:name=".activity.customer.MyServiceActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".activity.customer.MyInvoiceActivity"
+            android:screenOrientation="portrait"
+            />
+
+        <activity android:name=".activity.customer.RescheduledServiceActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.servicePerson.HomeActivitySP"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>
