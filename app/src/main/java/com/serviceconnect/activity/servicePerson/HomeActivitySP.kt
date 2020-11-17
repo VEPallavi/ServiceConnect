@@ -1,7 +1,6 @@
 package com.serviceconnect.activity.servicePerson
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.MenuItem
@@ -16,9 +15,9 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
 import com.serviceconnect.R
-import com.serviceconnect.fragment.customerApp.DashboardFragment
-import com.serviceconnect.fragment.customerApp.NotificationFragment
-import kotlinx.android.synthetic.main.customer_app_bar_main.*
+import com.serviceconnect.fragment.ServicePerson.DashboardFragmentSP
+import kotlinx.android.synthetic.main.sp_app_bar_main.*
+
 
 class HomeActivitySP: AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
     private var mContext: Context? = null
@@ -45,6 +44,11 @@ class HomeActivitySP: AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
         val navigationView = findViewById(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setDisplayFragment(1)
     }
 
 
@@ -105,7 +109,7 @@ class HomeActivitySP: AppCompatActivity(), NavigationView.OnNavigationItemSelect
             }
             R.id.iv_notification ->
             {
-                setDisplayFragment(9)
+
             }
 
         }
@@ -115,8 +119,8 @@ class HomeActivitySP: AppCompatActivity(), NavigationView.OnNavigationItemSelect
         var mFragment: Fragment? = null
         when (id) {
             1 -> {
-//                mFragment = DashboardFragment()
-//                replaceFragment(mFragment)
+                mFragment = DashboardFragmentSP()
+                replaceFragment(mFragment)
             }
             2 -> {
 
@@ -131,19 +135,16 @@ class HomeActivitySP: AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
             }
             6 -> {
-//                var intent = Intent(this, TrackServiceManActivity::class.java)
-//                startActivity(intent)
+
             }
             7 -> {
-//                var intent = Intent(this, MyServiceActivity::class.java)
-//                startActivity(intent)
+
             }
             8 -> {
 
             }
             9 -> {
-//                mFragment = NotificationFragment()
-//                replaceFragment(mFragment)
+
             }
             10 -> {
 
@@ -154,13 +155,6 @@ class HomeActivitySP: AppCompatActivity(), NavigationView.OnNavigationItemSelect
             12 -> {
 
             }
-            12 -> {
-
-            }
-            14 -> {
-//                var intent = Intent(this, SettingActivity::class.java)
-//                startActivity(intent)
-            }
         }
     }
 
@@ -169,13 +163,9 @@ class HomeActivitySP: AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
 
     fun handleBackPress() {
-        if (mManager!!.findFragmentById(R.id.container) is DashboardFragment)
+        if (mManager!!.findFragmentById(R.id.container) is DashboardFragmentSP)
         {
             finish()
-        }
-        else if (mManager!!.findFragmentById(R.id.container) is NotificationFragment)
-        {
-            mManager!!.popBackStackImmediate()
         }
         else
         {
@@ -214,16 +204,6 @@ class HomeActivitySP: AppCompatActivity(), NavigationView.OnNavigationItemSelect
             iv_toolbarBack!!.setVisibility(View.GONE)
         }
     }
-
-    fun setToolbarNotificationVisibility(isVisible: Boolean) {
-        if (isVisible) {
-            iv_notification!!.setVisibility(View.VISIBLE)
-        } else {
-            iv_notification!!.setVisibility(View.GONE)
-        }
-    }
-
-
 
 
     private fun openOrCloseDrawerLayout() {

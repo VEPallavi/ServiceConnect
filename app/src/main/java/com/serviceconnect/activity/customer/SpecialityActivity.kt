@@ -43,7 +43,7 @@ class SpecialityActivity : AppCompatActivity(), View.OnClickListener{
         var list6 = SubCategoriesModal(R.drawable.dentist_physicaltherapy_icon, "Event Planner")
         var list7 = SubCategoriesModal(R.drawable.image_icon, "Wedding Planner")
         var list8 = SubCategoriesModal(R.drawable.petservices_icon, "Party Planner")
-        var list9 = SubCategoriesModal(R.drawable.image_icon, "Alteration/Tailoring")
+        var list9 = SubCategoriesModal(R.drawable.image_icon, "Alteration/Tailoring/Dry Cleaner")
         var list10 = SubCategoriesModal(R.drawable.image_icon, "Shoe Repair")
 
         dataList.add(list1)

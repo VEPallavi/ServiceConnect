@@ -63,7 +63,6 @@
         android:text="$ 00.00"
         />
 
-
     <TextView
         android:id="@+id/service_fee"
         android:layout_width="0dp"
@@ -73,6 +72,16 @@
         android:padding="@dimen/_10sdp"
         android:textColor="@color/colorBlack"
         android:text="Service Fee"
+        />
+
+    <ImageView
+        android:id="@+id/iv_serviceFee"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:padding="@dimen/_10sdp"
+        app:layout_constraintLeft_toRightOf="@+id/service_fee"
+        app:layout_constraintTop_toBottomOf="@+id/promo_code_discount"
+        android:src="@drawable/rating_comment_icon"
         />
 
     <TextView

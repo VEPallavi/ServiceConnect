@@ -155,7 +155,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(intent)
             }
             9 -> {
-
+                var intent = Intent(this, MyRatingAndCommentActivity::class.java)
+                startActivity(intent)
             }
             10 -> {
                 var intent = Intent(this, RescheduledServiceActivity::class.java)

@@ -98,6 +98,9 @@
         <activity android:name=".activity.customer.RescheduledServiceActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".activity.customer.MyRatingAndCommentActivity"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".activity.servicePerson.HomeActivitySP"
             android:screenOrientation="portrait"/>
 

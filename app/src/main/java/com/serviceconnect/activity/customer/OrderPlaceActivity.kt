@@ -21,12 +21,14 @@ import com.serviceconnect.adapter.customerApp.TimeListAdapter
 import kotlinx.android.synthetic.main.customer_activity_order_place.*
 import kotlinx.android.synthetic.main.customer_activity_order_place.tv_apply_coupon
 import kotlinx.android.synthetic.main.customer_dialog_apply_coupon.*
+import kotlinx.android.synthetic.main.layout_price_detail.*
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
 
 
 class OrderPlaceActivity : AppCompatActivity(), View.OnClickListener{
     var timeListAdapter : TimeListAdapter?= null
     var successDialog: Dialog ?= null
+    var serviceFeeDialog: Dialog ?= null
     var couponDialog: Dialog ?= null
     var serviceItemsAdapter: ServiceItemsAdapter?= null
     var productItemsAdapter: ProductItemsAdapter?= null
@@ -63,6 +65,7 @@ class OrderPlaceActivity : AppCompatActivity(), View.OnClickListener{
         ivBack.setOnClickListener(this)
         tv_order_now.setOnClickListener(this)
         tv_apply_coupon.setOnClickListener(this)
+        iv_serviceFee.setOnClickListener(this)
     }
 
     private fun initViews() {
@@ -80,7 +83,26 @@ class OrderPlaceActivity : AppCompatActivity(), View.OnClickListener{
             R.id.tv_order_now ->{
                 openSuccessDialog()
             }
+            R.id.iv_serviceFee ->{
+                serviceFeeDialog()
+            }
 
+        }
+    }
+
+    private fun serviceFeeDialog() {
+        serviceFeeDialog = Dialog(this)
+        serviceFeeDialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        serviceFeeDialog?.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        serviceFeeDialog?.setContentView(R.layout.customer_dialog_service_fee)
+        serviceFeeDialog?.getWindow()?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        serviceFeeDialog?.setCanceledOnTouchOutside(false)
+        serviceFeeDialog?.show()
+
+        val ivCancel: ImageView = serviceFeeDialog?.findViewById(R.id.ivCancel)!!
+
+        ivCancel.setOnClickListener {
+            serviceFeeDialog?.dismiss()
         }
     }
 

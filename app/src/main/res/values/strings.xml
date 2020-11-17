@@ -98,6 +98,8 @@
     <string name="txt_profile">Profile</string>
     <string name="payment_about">(A Cancellation Fee is assessed for any service that have been accepted by the restaurant. NO REFUND will be given if your service is an hour to be expected. Resion is because service man has cancelled app appointment and waiting for you.)</string>
     <string name="txt_apply_code">Apply Code</string>
+    <string name="txt_to_help_serviceconnect_run_smoothly_and_to_cover_the_cost_of_the_products_and_services_serviceconnect_provide_we_charges_a_service_fee_when_the_order_is_completed">To help Serviceconnect run smoothly and to cover the cost of the products and services Serviceconnect provide. We charges a service fee when the order is completed.</string>
+    <string name="txt_refer_your_friend_and_get_discount_voucher_of_10_and_your_friend_and_will_get_discount_voucher_of_10">Refer your friend and get discount voucher of 10% and your friend and will get discount voucher of 10%</string>
 
 
 </resources>

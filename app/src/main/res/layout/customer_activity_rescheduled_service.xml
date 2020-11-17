@@ -92,6 +92,7 @@
                     android:layout_marginRight="@dimen/_8sdp"
                     android:drawableLeft="@drawable/location_icon"
                     android:textSize="@dimen/_10sdp"
+                    android:textColor="@color/light_grey"
                     android:text="ffbtyuj7kjhtnytjyt" />
 
                 <View
@@ -111,7 +112,8 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divider_1"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_12sdp"
+                    android:textSize="@dimen/_10sdp"
+                    android:textColor="@color/light_grey"
                     android:text="Contact Sales Person"/>
 
                 <View
@@ -131,7 +133,8 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divider_2"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_12sdp"
+                    android:textSize="@dimen/_10sdp"
+                    android:textColor="@color/light_grey"
                     android:text="Date :" />
 
                 <TextView
@@ -142,7 +145,7 @@
                     app:layout_constraintLeft_toRightOf="@+id/totalCost"
                     app:layout_constraintTop_toBottomOf="@+id/divider_2"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_12sdp"
+                    android:textSize="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_5sdp"
                     android:textColor="@color/colorBlack"
                     android:text=" 28 Oct, 2020" />
@@ -164,7 +167,8 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divider_3"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_12sdp"
+                    android:textSize="@dimen/_10sdp"
+                    android:textColor="@color/light_grey"
                     android:text="Time: " />
 
                 <TextView
@@ -175,7 +179,7 @@
                     app:layout_constraintLeft_toRightOf="@+id/date"
                     app:layout_constraintTop_toBottomOf="@+id/divider_3"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_12sdp"
+                    android:textSize="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_5sdp"
                     android:textColor="@color/colorBlack"
                     android:text=" 11:00 AM - 12:00 AM" />

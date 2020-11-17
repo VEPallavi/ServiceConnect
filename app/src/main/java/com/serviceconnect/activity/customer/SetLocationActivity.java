@@ -158,7 +158,7 @@ public class SetLocationActivity extends FragmentActivity implements OnMapReadyC
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.iv_back:
+            case R.id.ivBack:
                 finish();
                 break;
             case R.id.iv_fetchLocation:
