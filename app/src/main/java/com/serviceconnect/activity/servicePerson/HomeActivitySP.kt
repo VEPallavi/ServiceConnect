@@ -1,6 +1,7 @@
 package com.serviceconnect.activity.servicePerson
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.MenuItem
@@ -123,7 +124,8 @@ class HomeActivitySP: AppCompatActivity(), NavigationView.OnNavigationItemSelect
                 replaceFragment(mFragment)
             }
             2 -> {
-
+                var intent = Intent(this, CurrentServiceActivitySp::class.java)
+                startActivity(intent)
             }
             3 -> {
 

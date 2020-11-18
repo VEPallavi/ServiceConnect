@@ -34,7 +34,7 @@
 
     <item
         android:id="@+id/nav_my_invoice"
-        android:icon="@drawable/my_service_icon"
+        android:icon="@drawable/my_invoice_icon"
         android:title="@string/menu_my_invoice" />
 
     <item
@@ -44,7 +44,7 @@
 
     <item
         android:id="@+id/nav_reschedule_service"
-        android:icon="@drawable/rating_comment_icon"
+        android:icon="@drawable/rescheduled_service_icon"
         android:title="Rescheduled Service" />
 
 

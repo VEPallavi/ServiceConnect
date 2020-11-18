@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
 class RescheduledServiceActivity : AppCompatActivity(), View.OnClickListener{
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.customer_activity_rescheduled_service)

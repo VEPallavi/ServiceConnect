@@ -5,16 +5,16 @@
 
     <item
         android:id="@+id/nav_upcoming_service"
-        android:icon="@drawable/my_service_icon"
+        android:icon="@drawable/upcoming_service_icon"
         android:title="Upcoming Service"/>
     <item
         android:id="@+id/nav_current_service"
-        android:icon="@drawable/my_service_icon"
+        android:icon="@drawable/upcoming_service_icon"
         android:title="Current Service" />
 
     <item
         android:id="@+id/nav_reschedule_service"
-        android:icon="@drawable/my_service_icon"
+        android:icon="@drawable/rescheduled_service_icon"
         android:title="Rescheduled Service" />
     <item
         android:id="@+id/nav_my_service"
@@ -22,16 +22,16 @@
         android:title="@string/menu_my_service" />
     <item
         android:id="@+id/nav_my_invoice"
-        android:icon="@drawable/my_service_icon"
+        android:icon="@drawable/my_invoice_icon"
         android:title="@string/menu_my_invoice" />
     <item
         android:id="@+id/nav_my_income"
-        android:icon="@drawable/my_service_icon"
+        android:icon="@drawable/my_income_icon"
         android:title="My Income" />
 
     <item
         android:id="@+id/nav_cashout"
-        android:icon="@drawable/my_service_icon"
+        android:icon="@drawable/cash_out_icon"
         android:title="Cash Out" />
 
     <item
