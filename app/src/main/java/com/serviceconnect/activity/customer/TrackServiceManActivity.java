@@ -36,11 +36,12 @@ public class TrackServiceManActivity extends AppCompatActivity implements View.O
         payment_method = findViewById(R.id.payment_method);
         tv_payment_method = findViewById(R.id.tv_payment_method);
         divider_3 = findViewById(R.id.divider_3);
+        date = findViewById(R.id.date);
         tv_date = findViewById(R.id.tv_date);
         tv_status = findViewById(R.id.tv_status);
         txt_label_tip_amount.setText("Tip After Service");
 
-
+        tv_title.setText("Track Service Man");
         payment_method.setVisibility(View.GONE);
         tv_payment_method.setVisibility(View.GONE);
         divider_3.setVisibility(View.GONE);

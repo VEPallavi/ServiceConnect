@@ -32,6 +32,7 @@ class Automative_AutoRepairActivity : AppCompatActivity(), View.OnClickListener,
         var list5 = SubCategoriesModal(R.drawable.tow_image, this.resources.getString(R.string.txt_towing))
         var list6 = SubCategoriesModal(R.drawable.image_icon, this.resources.getString(R.string.txt_driving_school))
         var list7 = SubCategoriesModal(R.drawable.image_icon, "Car Rental")
+        var list8 = SubCategoriesModal(R.drawable.image_icon, "Car Pick up and drop off at auto shop")
 
         automativeAutorepairList.add(list1)
         automativeAutorepairList.add(list2)
@@ -40,6 +41,7 @@ class Automative_AutoRepairActivity : AppCompatActivity(), View.OnClickListener,
         automativeAutorepairList.add(list5)
         automativeAutorepairList.add(list6)
         automativeAutorepairList.add(list7)
+        automativeAutorepairList.add(list8)
 
         rv_automative_autorepair.setHasFixedSize(true)
         rv_automative_autorepair.layoutManager = GridLayoutManager(this, 2)

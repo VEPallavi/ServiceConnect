@@ -26,6 +26,9 @@
                 app:layout_constraintLeft_toLeftOf="@+id/iv_service_pic"
                 app:layout_constraintRight_toRightOf="@+id/iv_service_pic"
                 android:layout_marginTop="@dimen/_5sdp"
+                android:paddingLeft="@dimen/_5sdp"
+                android:paddingRight="@dimen/_5sdp"
+                android:gravity="center"
                 android:textSize="@dimen/_8sdp"
                 android:textColor="@color/colorBlack"
                 android:text="service name" />

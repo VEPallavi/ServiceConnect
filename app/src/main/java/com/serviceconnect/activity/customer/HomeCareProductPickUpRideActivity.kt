@@ -42,9 +42,10 @@ class HomeCareProductPickUpRideActivity : AppCompatActivity(), View.OnClickListe
         var list9 = SubCategoriesModal(R.drawable.personal_driver, this.resources.getString(R.string.txt_personal_driver))
         var list10 = SubCategoriesModal(R.drawable.cleaning_service, this.resources.getString(R.string.txt_cleaning_service))
         var list11 = SubCategoriesModal(R.drawable.wine_image, this.resources.getString(R.string.txt_wine))
-        var list12 = SubCategoriesModal(R.drawable.grocery, this.resources.getString(R.string.txt_grocery))
-        var list13 = SubCategoriesModal(R.drawable.restaurant, this.resources.getString(R.string.txt_restaurants))
+        var list12 = SubCategoriesModal(R.drawable.grocery, "Grocery Delivery/Pick Up")
+        var list13 = SubCategoriesModal(R.drawable.restaurant, "Restaurants Delivery/Pick Up/Dine-In")
         var list14 = SubCategoriesModal(R.drawable.product_store, this.resources.getString(R.string.txt_product_store))
+        var list15 = SubCategoriesModal(R.drawable.product_store,"Bodyguard/Security Guard")
 
         dataList.add(list1)
         dataList.add(list2)
@@ -60,6 +61,7 @@ class HomeCareProductPickUpRideActivity : AppCompatActivity(), View.OnClickListe
         dataList.add(list12)
         dataList.add(list13)
         dataList.add(list14)
+        dataList.add(list15)
 
 
         rv_homeCare_productPickup_ride.setHasFixedSize(true)

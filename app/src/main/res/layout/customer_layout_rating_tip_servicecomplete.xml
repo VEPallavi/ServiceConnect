@@ -29,6 +29,7 @@
         android:text="service person."
         />
 
+
     <TextView
         android:id="@+id/tv_rating_service_man"
         android:layout_width="0dp"
