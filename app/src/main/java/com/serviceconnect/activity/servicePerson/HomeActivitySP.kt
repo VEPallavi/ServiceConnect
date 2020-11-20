@@ -128,7 +128,8 @@ class HomeActivitySP: AppCompatActivity(), NavigationView.OnNavigationItemSelect
                 startActivity(intent)
             }
             3 -> {
-
+                var intent = Intent(this, RescheduledServiceActivitySP::class.java)
+                startActivity(intent)
             }
             4 -> {
 

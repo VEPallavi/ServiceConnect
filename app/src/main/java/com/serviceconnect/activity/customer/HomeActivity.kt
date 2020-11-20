@@ -69,7 +69,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onResume() {
         super.onResume()
-        setDisplayFragment(1)
+        setDisplayFragment(0)
     }
 
     private fun setUpClickListener() {
@@ -113,7 +113,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.iv_notification ->
             {
-                setDisplayFragment(9)
+                setDisplayFragment(12)
             }
 
         }
@@ -122,9 +122,13 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     fun setDisplayFragment(id: Int) {
         var mFragment: Fragment? = null
         when (id) {
-            1 -> {
+            0 ->{
                 mFragment = DashboardFragment()
                 replaceFragment(mFragment)
+            }
+            1 -> {
+                var intent = Intent(this, SalonAndBeautyActivity::class.java)
+                startActivity(intent)
             }
             2 -> {
                 var intent = Intent(this, Automative_AutoRepairActivity::class.java)
@@ -163,14 +167,16 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(intent)
             }
             11 -> {
-
+                var intent = Intent(this, ReferFriendsActivity::class.java)
+                startActivity(intent)
             }
             12 -> {
                 mFragment = NotificationFragment()
                 replaceFragment(mFragment)
             }
-            12 -> {
-
+            13 -> {
+                var intent = Intent(this, SupportActivity::class.java)
+                startActivity(intent)
             }
             14 -> {
                var intent = Intent(this, SettingActivity::class.java)

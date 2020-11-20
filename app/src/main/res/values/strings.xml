@@ -101,6 +101,7 @@
     <string name="txt_to_help_serviceconnect_run_smoothly_and_to_cover_the_cost_of_the_products_and_services_serviceconnect_provide_we_charges_a_service_fee_when_the_order_is_completed">To help Serviceconnect run smoothly and to cover the cost of the products and services Serviceconnect provide. We charges a service fee when the order is completed.</string>
     <string name="txt_refer_your_friend_and_get_discount_voucher_of_10_and_your_friend_and_will_get_discount_voucher_of_10">Refer your friend and get discount voucher of 10% and your friend and will get discount voucher of 10%</string>
     <string name="txt_finish_work">Finish Work</string>
+    <string name="txt_service_product_details"><![CDATA[Service & Product Details]]></string>
 
 
 </resources>

@@ -7,20 +7,16 @@ import com.serviceconnect.R
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
 
 
-class ProfileActivity : AppCompatActivity(), View.OnClickListener{
+class SupportActivity : AppCompatActivity(), View.OnClickListener{
 
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.customer_activity_profile)
+        setContentView(R.layout.customer_activity_support)
 
-        setOnClickListener()
-    }
-
-    private fun setOnClickListener() {
-        tv_title.text = "Profile"
+        tv_title.text = "Support"
         ivBack.setOnClickListener(this)
     }
 

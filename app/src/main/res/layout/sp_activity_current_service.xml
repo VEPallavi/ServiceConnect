@@ -257,9 +257,10 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:background="@drawable/button_rounded_border_rect_grey"
                 android:gravity="left"
+                android:textSize="@dimen/_10sdp"
                 android:padding="@dimen/_8sdp"
                 android:hint="Write here..."
-                android:lines="4" />
+                android:lines="5" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -284,7 +285,7 @@
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:text="Product Service Details" />
+                    android:text="@string/txt_service_product_details" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_product_service_list"

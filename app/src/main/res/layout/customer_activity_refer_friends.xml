@@ -37,7 +37,8 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 android:layout_marginTop="@dimen/_40sdp"
-                android:src="@drawable/ic_launcher_background"
+                android:scaleType="fitXY"
+                android:src="@drawable/dummy"
                 />
 
             <TextView
@@ -49,7 +50,8 @@
                 app:layout_constraintRight_toRightOf="parent"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/_16sdp"
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold"
                 android:text="Earn Discount"/>
 
             <TextView
