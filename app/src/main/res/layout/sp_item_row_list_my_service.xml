@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/_10sdp"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:background="@color/colorWhite"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+        android:id="@+id/serviceID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/light_grey"
+        android:text="Service ID :-" />
+
+    <TextView
+        android:id="@+id/tv_serviceID"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/serviceID"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="@dimen/_3sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/colorBlack"
+        android:text="2r356475" />
+
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        app:layout_constraintTop_toBottomOf="@+id/serviceID"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/colorBackground" />
+
+    <ImageView
+        android:id="@+id/iv_pic"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_90sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider1"
+        android:src="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/tv_profession_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/iv_pic"
+        app:layout_constraintRight_toLeftOf="@+id/cl_add"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginRight="@dimen/_8sdp"
+        app:layout_constraintTop_toTopOf="@+id/iv_pic"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_12sdp"
+        android:text="Professio Name" />
+
+    <TextView
+        android:id="@+id/tv_business_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_profession_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_profession_name"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_10sdp"
+        android:text="Salon Business" />
+
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_profession_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_business_name"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_8sdp"
+        android:drawableLeft="@drawable/location_icon"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/light_grey"
+        android:text="Address adrdress address" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        app:layout_constraintTop_toBottomOf="@+id/iv_pic"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/colorBackground" />
+
+    <TextView
+        android:id="@+id/datee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/divider2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/light_grey"
+        android:text="Date :-" />
+
+    <TextView
+        android:id="@+id/tv_datee"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/divider2"
+        app:layout_constraintLeft_toRightOf="@+id/datee"
+        app:layout_constraintRight_toLeftOf="@+id/timee"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_3sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/colorBlack"
+        android:text=" 11 Nov 2020" />
+
+    <TextView
+        android:id="@+id/timee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/divider2"
+        app:layout_constraintRight_toLeftOf="@+id/tv_time"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="Time"/>
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/divider2"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_10sdp"
+        android:text="11:00Am-12:00Am" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        app:layout_constraintTop_toBottomOf="@+id/datee"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/colorBackground" />
+
+    <TextView
+        android:id="@+id/totalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/divider3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/light_grey"
+        android:text="Total Amount :-" />
+
+    <TextView
+        android:id="@+id/tv_totalAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/divider3"
+        app:layout_constraintLeft_toRightOf="@+id/totalAmount"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_3sdp"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/colorBlack"
+        android:text=" $ 60.00 Cash"
+        />
+
+    <TextView
+        android:id="@+id/tv_stattus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalAmount"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/colorGreen"
+        android:text="Completed"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

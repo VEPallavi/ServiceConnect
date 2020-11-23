@@ -65,7 +65,7 @@
 
     <string name="txt_select_service">Select Service</string>
     <string name="txt_new_user">New User?</string>
-    <string name="txt_home_care_product_pickup_ride">Home Care/Product PickUp/Wine/Ride/Grocery/Restaurant</string>
+    <string name="txt_home_care">Home Care</string>
     <string name="txt_home_maintenance_remodeling">Home Maintenance/Remodeling</string>
     <string name="txt_speciality">Speciality</string>
     <string name="txt_auto_repair">Auto Repair</string>
@@ -102,6 +102,8 @@
     <string name="txt_refer_your_friend_and_get_discount_voucher_of_10_and_your_friend_and_will_get_discount_voucher_of_10">Refer your friend and get discount voucher of 10% and your friend and will get discount voucher of 10%</string>
     <string name="txt_finish_work">Finish Work</string>
     <string name="txt_service_product_details"><![CDATA[Service & Product Details]]></string>
+    <string name="txt_restaurant_wine">Restaurant/Wine</string>
+   
 
 
 </resources>

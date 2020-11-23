@@ -25,6 +25,8 @@ class DashboardFragment : Fragment(), View.OnClickListener{
         cl_salon_beauty.setOnClickListener(this)
         cl_automative_autorepair.setOnClickListener(this)
         cl_homeCare.setOnClickListener(this)
+        cl_restaurant_wine.setOnClickListener(this)
+        cl_grocery_productStore.setOnClickListener(this)
         cl_homeMaintenance_upgrade.setOnClickListener(this)
         cl_speciality.setOnClickListener(this)
     }

@@ -132,7 +132,8 @@ class HomeActivitySP: AppCompatActivity(), NavigationView.OnNavigationItemSelect
                 startActivity(intent)
             }
             4 -> {
-
+                var intent = Intent(this, MyServiceActivitySP::class.java)
+                startActivity(intent)
             }
             5 -> {
 
