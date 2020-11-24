@@ -121,6 +121,12 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".activity.servicePerson.RescheduledServiceActivitySP"
             android:screenOrientation="portrait"/>
+        <activity android:name=".activity.servicePerson.TrackingCustomerActivitySP"
+            android:screenOrientation="portrait"
+            />
+
+        <activity android:name=".activity.servicePerson.MyInvoiceActivitySP"
+            android:screenOrientation="portrait"/>
 
     </application>
 

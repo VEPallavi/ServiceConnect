@@ -39,6 +39,7 @@ class HomeMaintenance_RemodelingActivity : AppCompatActivity(), View.OnClickList
         var list9 = SubCategoriesModal(R.drawable.labor_junk_removal_image, "Labour & Junk Removal")
         var list10 = SubCategoriesModal(R.drawable.electrical_fans_image, "Electrical, Fans, Wall Covering & Tile")
         var list11 = SubCategoriesModal(R.drawable.power_washing_fences_image, "Power Washing & Fences")
+        var list12 = SubCategoriesModal(R.drawable.ic_launcher_background, "Handyman")
 
         dataList.add(list1)
         dataList.add(list2)
@@ -51,6 +52,7 @@ class HomeMaintenance_RemodelingActivity : AppCompatActivity(), View.OnClickList
         dataList.add(list9)
         dataList.add(list10)
         dataList.add(list11)
+        dataList.add(list12)
 
 
 

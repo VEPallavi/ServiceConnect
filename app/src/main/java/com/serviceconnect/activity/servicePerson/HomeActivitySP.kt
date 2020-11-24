@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
 import com.serviceconnect.R
+import com.serviceconnect.activity.customer.TrackServiceManActivity
 import com.serviceconnect.fragment.ServicePerson.DashboardFragmentSP
 import kotlinx.android.synthetic.main.sp_app_bar_main.*
 
@@ -136,7 +137,8 @@ class HomeActivitySP: AppCompatActivity(), NavigationView.OnNavigationItemSelect
                 startActivity(intent)
             }
             5 -> {
-
+                var intent = Intent(this, MyInvoiceActivitySP::class.java)
+                startActivity(intent)
             }
             6 -> {
 
@@ -145,7 +147,8 @@ class HomeActivitySP: AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
             }
             8 -> {
-
+                var intent = Intent(this, TrackingCustomerActivitySP::class.java)
+                startActivity(intent)
             }
             9 -> {
 

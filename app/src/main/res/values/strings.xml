@@ -103,7 +103,7 @@
     <string name="txt_finish_work">Finish Work</string>
     <string name="txt_service_product_details"><![CDATA[Service & Product Details]]></string>
     <string name="txt_restaurant_wine">Restaurant/Wine</string>
-   
+    <string name="txt_tracking">Tracking</string>
 
 
 </resources>
