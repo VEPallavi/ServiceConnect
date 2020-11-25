@@ -6,7 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorBackground">
 
-
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar_layout_subcategories"
@@ -27,8 +26,7 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:textSize="@dimen/_14sdp"
         android:textColor="@color/colorBlack"
-        android:text="Account"
-        />
+        android:text="Account" />
 
     <TextView
         android:id="@+id/tv_profile"
@@ -39,14 +37,13 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/edittext_rounded_rect_white"
-        android:drawableLeft="@drawable/salon_beauty_icon"
+        android:drawableLeft="@drawable/profile_icon"
         android:drawablePadding="@dimen/_10sdp"
         android:padding="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
         android:textSize="@dimen/_12sdp"
-        android:text="@string/txt_profile"
-        />
+        android:text="@string/txt_profile" />
 
     <TextView
         android:id="@+id/tv_share"
@@ -57,14 +54,13 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/edittext_rounded_rect_white"
-        android:drawableLeft="@drawable/salon_beauty_icon"
+        android:drawableLeft="@drawable/share_icon"
         android:drawablePadding="@dimen/_10sdp"
         android:padding="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
         android:textSize="@dimen/_12sdp"
-        android:text="Share"
-        />
+        android:text="Share" />
 
     <TextView
         android:id="@+id/tv_change_password"
@@ -75,14 +71,13 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/edittext_rounded_rect_white"
-        android:drawableLeft="@drawable/salon_beauty_icon"
+        android:drawableLeft="@drawable/change_password_icon"
         android:drawablePadding="@dimen/_10sdp"
         android:padding="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
         android:textSize="@dimen/_12sdp"
-        android:text="Change Password"
-        />
+        android:text="Change Password" />
 
     <TextView
         android:id="@+id/tv_sign_out"
@@ -93,14 +88,13 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/edittext_rounded_rect_white"
-        android:drawableLeft="@drawable/salon_beauty_icon"
+        android:drawableLeft="@drawable/logout_icon"
         android:drawablePadding="@dimen/_10sdp"
         android:padding="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
         android:textSize="@dimen/_12sdp"
-        android:text="Sign Out"
-        />
+        android:text="Sign Out" />
 
     <TextView
         android:id="@+id/tv_help"
@@ -114,9 +108,7 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:textSize="@dimen/_14sdp"
         android:textColor="@color/colorBlack"
-        android:text="Help"
-        />
-
+        android:text="Help" />
 
     <TextView
         android:id="@+id/tv_aboutUs"
@@ -127,14 +119,13 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/edittext_rounded_rect_white"
-        android:drawableLeft="@drawable/salon_beauty_icon"
+        android:drawableLeft="@drawable/about_us_icon"
         android:drawablePadding="@dimen/_10sdp"
         android:padding="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
         android:textSize="@dimen/_12sdp"
-        android:text="About US"
-        />
+        android:text="About US" />
 
     <TextView
         android:id="@+id/tv_contact_support"
@@ -145,14 +136,13 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/edittext_rounded_rect_white"
-        android:drawableLeft="@drawable/salon_beauty_icon"
+        android:drawableLeft="@drawable/contect_support_icon"
         android:drawablePadding="@dimen/_10sdp"
         android:padding="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
         android:textSize="@dimen/_12sdp"
-        android:text="Contact Support"
-        />
+        android:text="Contact Support" />
 
     <TextView
         android:id="@+id/tv_privacy_policy"
@@ -163,15 +153,13 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/edittext_rounded_rect_white"
-        android:drawableLeft="@drawable/salon_beauty_icon"
+        android:drawableLeft="@drawable/privacy_policy_icon"
         android:drawablePadding="@dimen/_10sdp"
         android:padding="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
         android:textSize="@dimen/_12sdp"
-        android:text="Privacy Policy"
-        />
-
+        android:text="Privacy Policy" />
 
     <TextView
         android:id="@+id/tv_term_condition"
@@ -182,14 +170,13 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/edittext_rounded_rect_white"
-        android:drawableLeft="@drawable/salon_beauty_icon"
+        android:drawableLeft="@drawable/term_condition_icon"
         android:drawablePadding="@dimen/_10sdp"
         android:padding="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
         android:textSize="@dimen/_12sdp"
-        android:text="Term and Condition"
-        />
+        android:text="Term and Condition" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

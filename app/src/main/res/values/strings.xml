@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ServiceConnect</string>
+    <string name="app_name">Servicehubconnect</string>
     <string name="map_key" translatable="false">AIzaSyAq8L4mpVsRU0XYfdm4njQJ_Ntpi-KOvyc</string>
 
 
@@ -104,6 +104,7 @@
     <string name="txt_service_product_details"><![CDATA[Service & Product Details]]></string>
     <string name="txt_restaurant_wine">Restaurant/Wine</string>
     <string name="txt_tracking">Tracking</string>
+    <string name="txt_settings">Settings</string>
 
 
 </resources>

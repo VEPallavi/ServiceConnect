@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.serviceconnect">
+    package="com.Servicehubconnect">
     
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.SplashActivity">
+        <activity android:name="com.Servicehubconnect.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,101 +31,101 @@
 <!--            android:value="@string/google_maps_key" />-->
 
 
-        <activity android:name=".activity.SignUpActivity"
+        <activity android:name="com.Servicehubconnect.activity.SignUpActivity"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".activity.LoginActivity"
+        <activity android:name="com.Servicehubconnect.activity.LoginActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.HomeActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.HomeActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.ForgotPasswordActivity"
+        <activity android:name="com.Servicehubconnect.activity.ForgotPasswordActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.VerificationOTPActivity"
+        <activity android:name="com.Servicehubconnect.activity.VerificationOTPActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.ResetPasswordActivity"
+        <activity android:name="com.Servicehubconnect.activity.ResetPasswordActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".activity.customer.SalonAndBeautyActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.SalonAndBeautyActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.Automative_AutoRepairActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.Automative_AutoRepairActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.HomeCareProductPickUpRideActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.HomeCareProductPickUpRideActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.HomeMaintenance_RemodelingActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.HomeMaintenance_RemodelingActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.SpecialityActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.SpecialityActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.SetLocationActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.SetLocationActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.SalonAndBeautyBusinessListActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.SalonAndBeautyBusinessListActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.ServiceDetailsAndOrderActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.ServiceDetailsAndOrderActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.LicenceListActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.LicenceListActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.CommentListActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.CommentListActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.OrderPlaceActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.OrderPlaceActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.SettingActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.SettingActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.TrackServiceManActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.TrackServiceManActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.MyServiceActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.MyServiceActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.MyInvoiceActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.MyInvoiceActivity"
             android:screenOrientation="portrait"
             />
 
-        <activity android:name=".activity.customer.RescheduledServiceActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.RescheduledServiceActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.MyRatingAndCommentActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.MyRatingAndCommentActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.ReferFriendsActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.ReferFriendsActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.SupportActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.SupportActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.ProfileActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.ProfileActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.servicePerson.MyServiceActivitySP"
+        <activity android:name="com.Servicehubconnect.activity.servicePerson.MyServiceActivitySP"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".activity.servicePerson.HomeActivitySP"
+        <activity android:name="com.Servicehubconnect.activity.servicePerson.HomeActivitySP"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.servicePerson.CurrentServiceActivitySp"
+        <activity android:name="com.Servicehubconnect.activity.servicePerson.CurrentServiceActivitySp"
             android:screenOrientation="portrait"/>
-        <activity android:name=".activity.servicePerson.RescheduledServiceActivitySP"
+        <activity android:name="com.Servicehubconnect.activity.servicePerson.RescheduledServiceActivitySP"
             android:screenOrientation="portrait"/>
-        <activity android:name=".activity.servicePerson.TrackingCustomerActivitySP"
+        <activity android:name="com.Servicehubconnect.activity.servicePerson.TrackingCustomerActivitySP"
             android:screenOrientation="portrait"
             />
 
-        <activity android:name=".activity.servicePerson.MyInvoiceActivitySP"
+        <activity android:name="com.Servicehubconnect.activity.servicePerson.MyInvoiceActivitySP"
             android:screenOrientation="portrait"/>
 
     </application>
