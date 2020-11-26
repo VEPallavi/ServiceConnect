@@ -167,16 +167,16 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(intent)
             }
             11 -> {
-                var intent = Intent(this, ReferFriendsActivity::class.java)
-                startActivity(intent)
+//                var intent = Intent(this, ReferFriendsActivity::class.java)
+//                startActivity(intent)
             }
             12 -> {
                 mFragment = NotificationFragment()
                 replaceFragment(mFragment)
             }
             13 -> {
-                var intent = Intent(this, SupportActivity::class.java)
-                startActivity(intent)
+//                var intent = Intent(this, SupportActivity::class.java)
+//                startActivity(intent)
             }
             14 -> {
                var intent = Intent(this, SettingActivity::class.java)
