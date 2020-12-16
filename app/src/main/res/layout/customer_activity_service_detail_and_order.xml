@@ -104,6 +104,7 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginLeft="@dimen/_5sdp"
             android:drawableLeft="@drawable/star_icon"
+            android:gravity="bottom"
             android:drawablePadding="@dimen/_5sdp"
             android:textSize="@dimen/_10sdp"
             android:textColor="@color/colorPrimary"
@@ -115,8 +116,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toRightOf="@+id/tv_ratingValue"
             app:layout_constraintBottom_toBottomOf="@+id/tv_ratingValue"
-            app:layout_constraintTop_toTopOf="@+id/tv_ratingValue"
-            android:textSize="@dimen/_9sdp"
+            android:textSize="@dimen/_8sdp"
             android:textColor="@color/light_grey"
             android:text=" (2.2k Ratings)" />
 
@@ -249,17 +249,18 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_viewPager"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="@dimen/_40sdp"
             app:layout_constraintTop_toBottomOf="@+id/activities_tabs"
             app:layout_constraintBottom_toTopOf="@+id/cl_product_service_count"
             android:visibility="visible">
 
             <androidx.viewpager.widget.ViewPager
-                android:id="@+id/vp_projects"
+                android:id="@+id/viewPager"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -274,6 +275,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="visible"
             android:background="@drawable/login_rounded_rect">
 
             <TextView
@@ -283,8 +285,8 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginLeft="@dimen/_15sdp"
-                android:paddingTop="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:paddingTop="@dimen/_3sdp"
                 android:textColor="@color/colorWhite"
                 android:text="1 Product  |  $00.00"/>
 
@@ -295,11 +297,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_product"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:paddingTop="@dimen/_5sdp"
-                android:layout_marginLeft="@dimen/_15sdp"
+                android:paddingTop="@dimen/_3sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
                 android:textSize="@dimen/_10sdp"
                 android:textColor="@color/colorWhite"
-                android:text="1 Service     |  $00.00"/>
+                android:text="1 Service  |  $00.00"/>
 
             <TextView
                 android:id="@+id/tv_total_service_time"
@@ -308,12 +310,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_service"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginLeft="@dimen/_15sdp"
-                android:paddingTop="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:paddingTop="@dimen/_3sdp"
                 android:paddingBottom="@dimen/_5sdp"
                 android:textSize="@dimen/_10sdp"
                 android:textColor="@color/colorWhite"
-                android:text="Total service time   |   00 min"/>
+                android:text="Total service time  |  00 min"/>
 
             <TextView
                 android:id="@+id/tv_order"
@@ -333,8 +335,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
