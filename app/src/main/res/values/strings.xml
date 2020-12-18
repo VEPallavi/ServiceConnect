@@ -105,6 +105,8 @@
     <string name="txt_restaurant_wine">Restaurant/Wine</string>
     <string name="txt_tracking">Tracking</string>
     <string name="txt_settings">Settings</string>
+    <string name="txt_update_profile">Update Profile</string>
+
 
 
 </resources>

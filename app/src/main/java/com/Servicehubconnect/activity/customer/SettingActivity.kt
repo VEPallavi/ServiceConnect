@@ -27,6 +27,8 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener{
     private fun setOnClickListener() {
         ivBack.setOnClickListener(this)
         tv_profile.setOnClickListener(this)
+        tv_change_password.setOnClickListener(this)
+        tv_contact_support.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -35,8 +37,16 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener{
                 finish()
             }
             R.id.tv_profile ->{
-              //  var intent = Intent(this, ProfileActivity::class.java)
-              //  startActivity(intent)
+                var intent = Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.tv_change_password ->{
+                var intent = Intent(this, ChangePasswordActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.tv_contact_support ->{
+                var intent = Intent(this, ContactSupportActivity::class.java)
+                startActivity(intent)
             }
         }
     }

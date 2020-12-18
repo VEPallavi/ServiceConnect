@@ -111,6 +111,17 @@
         <activity android:name="com.Servicehubconnect.activity.customer.ProfileActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".activity.customer.ChangePasswordActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.customer.ContactSupportActivity"
+            android:screenOrientation="portrait"/>
+
+
+
+
+
+
         <activity android:name="com.Servicehubconnect.activity.servicePerson.MyServiceActivitySP"
             android:screenOrientation="portrait" />
 

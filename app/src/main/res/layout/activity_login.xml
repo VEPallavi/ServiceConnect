@@ -116,7 +116,7 @@
                 app:layout_constraintTop_toTopOf="@+id/ed_password"
                 app:layout_constraintBottom_toBottomOf="@+id/ed_password"
                 app:layout_constraintRight_toRightOf="@+id/ed_password"
-                android:src="@drawable/ic_back_white"
+                android:src="@drawable/eye_icon_off"
                 android:padding="@dimen/_10sdp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
