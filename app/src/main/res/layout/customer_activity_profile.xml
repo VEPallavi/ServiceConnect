@@ -59,6 +59,7 @@
         android:layout_marginLeft="@dimen/_50sdp"
         android:layout_marginRight="@dimen/_40sdp"
         android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_10sdp"
         android:text="John Doe"
         />
 
@@ -107,6 +108,7 @@
         android:layout_marginLeft="@dimen/_50sdp"
         android:layout_marginRight="@dimen/_40sdp"
         android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_10sdp"
         android:text="323545657865"
         />
 
@@ -156,11 +158,12 @@
         android:layout_marginLeft="@dimen/_50sdp"
         android:layout_marginRight="@dimen/_40sdp"
         android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_10sdp"
         android:text="john23e3@gmail.com"
         />
 
     <TextView
-        android:id="@+id/tv_login"
+        android:id="@+id/tv_update_profile"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tv_emailId"
@@ -170,7 +173,7 @@
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/_14sdp"
+        android:textSize="@dimen/_12sdp"
         android:gravity="center"
         android:padding="@dimen/_8sdp"
         android:elevation="@dimen/_5sdp"

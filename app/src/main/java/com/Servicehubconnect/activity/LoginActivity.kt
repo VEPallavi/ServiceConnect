@@ -4,7 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.Servicehubconnect.R
 import com.Servicehubconnect.activity.customer.HomeActivity
@@ -12,7 +15,9 @@ import com.Servicehubconnect.activity.servicePerson.HomeActivitySP
 import com.Servicehubconnect.helper.Utils
 import kotlinx.android.synthetic.main.activity_login.*
 
+
 class LoginActivity : AppCompatActivity(), View.OnClickListener{
+    var showPassword: Boolean = false
 
 
 
@@ -29,6 +34,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
         tv_signUp.setOnClickListener(this)
         tv_login.setOnClickListener(this)
         tv_forgot_password.setOnClickListener(this)
+        iv_password_toggle.setOnClickListener(this)
         iv_logo.setOnClickListener {
             var intent = Intent(this, HomeActivitySP::class.java)
             startActivity(intent)
@@ -56,10 +62,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
         ed_password.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if(ed_password.text.toString().length != 0){
-                    ed_password.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
+                    cl_password.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
                 }
                 else{
-                    ed_password.setBackgroundResource(R.drawable.edittext_rounded_rect_border)
+                    cl_password.setBackgroundResource(R.drawable.edittext_rounded_rect_border)
                 }
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -78,6 +84,17 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
             R.id.tv_signUp->{
                 var intent = Intent(this, SignUpActivity::class.java)
                 startActivity(intent)
+            }
+            R.id.iv_password_toggle ->{
+                if (showPassword) {
+                    ed_password.transformationMethod = PasswordTransformationMethod.getInstance()
+                    iv_password_toggle.setImageResource(R.drawable.eye_icon_off)
+                } else {
+                    ed_password.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                    iv_password_toggle.setImageResource(R.drawable.eye_icon_on)
+                }
+                ed_password.setSelection(ed_password.text!!.length)
+                showPassword = !showPassword
             }
             R.id.tv_forgot_password->{
                 var intent = Intent(this, ForgotPasswordActivity::class.java)

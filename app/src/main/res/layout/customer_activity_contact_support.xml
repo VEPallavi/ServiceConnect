@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -13,17 +14,28 @@
         android:visibility="visible">
     </include>
 
-
     <TextView
-        android:id="@+id/to"
+        android:id="@+id/tv_to"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         android:padding="@dimen/_10sdp"
         android:textColor="@color/light_grey"
-        android:textSize="@dimen/_12sdp"
+        android:textSize="@dimen/_10sdp"
         android:text="To:"/>
+
+    <TextView
+        android:id="@+id/ed_to"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/tv_to"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:background="@android:color/transparent"
+        android:padding="@dimen/_10sdp"
+        android:textSize="@dimen/_10sdp"
+        />
 
     <View
         android:id="@+id/dividerFirst"
@@ -31,7 +43,7 @@
         android:layout_height="1dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/to"
+        app:layout_constraintTop_toBottomOf="@+id/ed_to"
         android:background="@color/grey_4"
         />
 
@@ -44,8 +56,21 @@
         app:layout_constraintTop_toBottomOf="@+id/dividerFirst"
         android:padding="@dimen/_10sdp"
         android:textColor="@color/light_grey"
-        android:textSize="@dimen/_12sdp"
+        android:textSize="@dimen/_10sdp"
         android:text="Subject:"/>
+
+    <EditText
+        android:id="@+id/ed_subject"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/subject"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dividerFirst"
+        android:background="@android:color/transparent"
+        android:maxLines="1"
+        android:padding="@dimen/_10sdp"
+        android:textSize="@dimen/_10sdp"
+        />
 
     <View
         android:id="@+id/dividerSecond"
@@ -53,7 +78,7 @@
         android:layout_height="1dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subject"
+        app:layout_constraintTop_toBottomOf="@+id/ed_subject"
         android:background="@color/grey_4"
         />
 
@@ -71,7 +96,7 @@
         android:gravity="left"
         android:background="@android:color/transparent"
         android:textColor="@color/light_grey"
-        android:textSize="@dimen/_12sdp"
+        android:textSize="@dimen/_10sdp"
         android:hint="Write your comment...."/>
 
     <TextView
@@ -86,7 +111,7 @@
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/_14sdp"
+        android:textSize="@dimen/_12sdp"
         android:gravity="center"
         android:padding="@dimen/_8sdp"
         android:elevation="@dimen/_5sdp"
@@ -106,7 +131,7 @@
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/_14sdp"
+        android:textSize="@dimen/_12sdp"
         android:gravity="center"
         android:padding="@dimen/_8sdp"
         android:elevation="@dimen/_5sdp"

@@ -29,7 +29,7 @@ class ChangePasswordActivity : AppCompatActivity(), View.OnClickListener{
     private fun setOnClickListener() {
         ivBack.setOnClickListener(this)
         iv_old_password_toggle.setOnClickListener(this)
-        iv_ed_new_password_toggle.setOnClickListener(this)
+        iv_new_password_toggle.setOnClickListener(this)
         iv_confirm_new_password_toggle.setOnClickListener(this)
     }
 
@@ -49,13 +49,13 @@ class ChangePasswordActivity : AppCompatActivity(), View.OnClickListener{
               ed_old_password.setSelection(ed_old_password.text!!.length)
               showOldPassword = !showOldPassword
           }
-          R.id.iv_ed_new_password_toggle ->{
+          R.id.iv_new_password_toggle ->{
               if (showNewPassword) {
                   ed_new_password.transformationMethod = PasswordTransformationMethod.getInstance()
-                  iv_ed_new_password_toggle.setImageResource(R.drawable.eye_icon_off)
+                  iv_new_password_toggle.setImageResource(R.drawable.eye_icon_off)
               } else {
                   ed_new_password.transformationMethod = HideReturnsTransformationMethod.getInstance()
-                  iv_ed_new_password_toggle.setImageResource(R.drawable.eye_icon_on)
+                  iv_new_password_toggle.setImageResource(R.drawable.eye_icon_on)
               }
               ed_new_password.setSelection(ed_new_password.text!!.length)
               showNewPassword = !showNewPassword
