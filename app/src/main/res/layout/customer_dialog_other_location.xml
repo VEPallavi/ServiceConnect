@@ -10,12 +10,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="25dp"
+        android:padding="@dimen/_20sdp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent">
-
 
         <TextView
             android:id="@+id/tv_other_location"
@@ -24,11 +23,9 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="@dimen/_10sdp"
             android:textSize="@dimen/_14sdp"
             android:textColor="@color/colorBlack"
-            android:text="Do he/she need a other location?"
-            />
+            android:text="@string/txt_do_he_she_need_a_other_location" />
 
         <TextView
             android:id="@+id/tv_optional"
@@ -40,9 +37,7 @@
             android:textSize="@dimen/_10sdp"
             android:alpha=".7"
             android:textColor="@color/light_grey"
-            android:text="(Optional)"
-            />
-
+            android:text="(Optional)" />
 
         <Button
             android:id="@+id/tv_no"
@@ -55,7 +50,7 @@
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/_12sdp"
             android:backgroundTint="@color/light_grey"
-            android:text="No"
+            android:text="@string/txt_no"
             />
 
         <Button
@@ -69,10 +64,7 @@
             android:textSize="@dimen/_12sdp"
             android:textColor="@color/colorWhite"
             android:backgroundTint="@color/colorPrimary"
-            android:text="Yes"
-            />
-
-
+            android:text="@string/txt_yes" />
 
         <EditText
             android:id="@+id/tv_other_address"
@@ -94,9 +86,7 @@
             android:textColor="@color/light_grey"
             android:hint="Enter other address"
             android:text=""
-
-            android:visibility="gone"
-            />
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/tv_done"
@@ -113,12 +103,8 @@
             android:textColor="@color/colorWhite"
             android:backgroundTint="@color/colorPrimary"
             android:text="@string/txt_done"
-            android:visibility="gone"
-            />
-
+            android:visibility="gone" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

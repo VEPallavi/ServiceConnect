@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.Servicehubconnect.R
+import kotlinx.android.synthetic.main.customer_activity_contact_support.*
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
 
 
@@ -22,11 +23,19 @@ class ContactSupportActivity: AppCompatActivity(), View.OnClickListener{
 
     private fun setOnClickListener() {
         ivBack.setOnClickListener(this)
+        tv_send.setOnClickListener(this)
+        tv_cancel.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when(v?.id){
             R.id.ivBack ->{
+                finish()
+            }
+            R.id.tv_send ->{
+
+            }
+            R.id.tv_cancel ->{
                 finish()
             }
         }

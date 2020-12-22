@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.Servicehubconnect.R
+import com.Servicehubconnect.activity.WebViewActivity
 import kotlinx.android.synthetic.main.customer_activity_setting.*
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
 
@@ -27,8 +28,12 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener{
     private fun setOnClickListener() {
         ivBack.setOnClickListener(this)
         tv_profile.setOnClickListener(this)
+        tv_share.setOnClickListener(this)
         tv_change_password.setOnClickListener(this)
         tv_contact_support.setOnClickListener(this)
+        tv_aboutUs.setOnClickListener(this)
+        tv_privacy_policy.setOnClickListener(this)
+        tv_term_condition.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -40,6 +45,9 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener{
                 var intent = Intent(this, ProfileActivity::class.java)
                 startActivity(intent)
             }
+            R.id.tv_share ->{
+                shareLink()
+            }
             R.id.tv_change_password ->{
                 var intent = Intent(this, ChangePasswordActivity::class.java)
                 startActivity(intent)
@@ -48,7 +56,33 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener{
                 var intent = Intent(this, ContactSupportActivity::class.java)
                 startActivity(intent)
             }
+            R.id.tv_aboutUs ->{
+                var intent = Intent(this, WebViewActivity::class.java)
+                intent.putExtra("screenType", "About Us")
+                intent.putExtra("url","https://www.google.com/")
+                startActivity(intent)
+            }
+            R.id.tv_privacy_policy ->{
+                var intent = Intent(this, WebViewActivity::class.java)
+                intent.putExtra("screenType", "Privacy Policy")
+                intent.putExtra("url","https://www.google.com/")
+                startActivity(intent)
+            }
+            R.id.tv_term_condition ->{
+                var intent = Intent(this, WebViewActivity::class.java)
+                intent.putExtra("screenType", "Term & Condition")
+                intent.putExtra("url","https://www.google.com/")
+                startActivity(intent)
+            }
         }
+    }
+
+    private fun shareLink() {
+        var urlToShare = this.resources.getString(R.string.share_text) + this.packageName
+        var intent = Intent(Intent.ACTION_SEND)
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, urlToShare)
+        startActivity(intent)
     }
 
 
