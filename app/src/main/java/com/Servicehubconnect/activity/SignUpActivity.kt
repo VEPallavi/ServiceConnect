@@ -9,18 +9,22 @@ import android.text.TextWatcher
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
 import com.Servicehubconnect.R
 import com.Servicehubconnect.helper.Utils
+import com.Servicehubconnect.viewModel.customer.SignUpViewModel
 import kotlinx.android.synthetic.main.activity_signup.*
 import kotlinx.android.synthetic.main.toolbar_layout.*
 
 class SignUpActivity : AppCompatActivity(), View.OnClickListener{
+    var viewModel: SignUpViewModel?= null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
-
+        viewModel = ViewModelProviders.of(this).get(SignUpViewModel::class.java)
+        getCountryCode()
         iv_back.setOnClickListener {
             finish()
         }
@@ -31,6 +35,10 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
     private fun setOnClickListener() {
         iv_back.setOnClickListener(this)
         tv_signUp.setOnClickListener(this)
+    }
+
+    fun getCountryCode() {
+        ccp_signUp.resetToDefaultCountry()
     }
 
 
@@ -200,7 +208,13 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
     }
 
     private fun signupUser() {
+
         if(checkValidations()){
+            var name = ed_first_name.text.toString() + ed_last_name.text.toString()
+            viewModel!!.signUpData(this, name, ed_emailID.text.toString()
+                    , ed_password.text.toString(), ed_mobile_number.text.toString()
+                    ,  ""+ccp_signUp.selectedCountryCode)
+
             var intent = Intent(this, VerificationOTPActivity::class.java)
             startActivity(intent)
         }

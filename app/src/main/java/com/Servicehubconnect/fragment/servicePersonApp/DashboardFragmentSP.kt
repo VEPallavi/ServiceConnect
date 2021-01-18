@@ -1,4 +1,4 @@
-package com.Servicehubconnect.fragment.ServicePerson
+package com.Servicehubconnect.fragment.servicePersonApp
 
 import android.os.Bundle
 import android.view.LayoutInflater

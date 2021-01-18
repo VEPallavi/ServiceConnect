@@ -16,7 +16,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
 import com.Servicehubconnect.R
-import com.Servicehubconnect.fragment.ServicePerson.DashboardFragmentSP
+import com.Servicehubconnect.fragment.servicePersonApp.DashboardFragmentSP
 import kotlinx.android.synthetic.main.sp_app_bar_main.*
 
 
