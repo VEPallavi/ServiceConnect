@@ -5,12 +5,15 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
 import com.Servicehubconnect.R
+import com.Servicehubconnect.viewModel.customer.VerificationOTPViewModel
 import kotlinx.android.synthetic.main.activity_verification.*
 import kotlinx.android.synthetic.main.toolbar_layout.*
 
 
 class VerificationOTPActivity : AppCompatActivity(), View.OnClickListener{
+    var viewModel: VerificationOTPViewModel?= null
 
 
 
@@ -18,6 +21,7 @@ class VerificationOTPActivity : AppCompatActivity(), View.OnClickListener{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_verification)
+        viewModel = ViewModelProviders.of(this).get(VerificationOTPViewModel::class.java)
 
         initViews()
     }

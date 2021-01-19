@@ -9,6 +9,7 @@ import android.text.TextWatcher
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.Servicehubconnect.R
 import com.Servicehubconnect.helper.Utils
@@ -173,6 +174,30 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
             }
         })
 
+
+
+        ed_local_city.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                if(ed_local_city.text.toString().length != 0){
+                    ed_local_city.setBackgroundResource(R.drawable.edittext_rounded_rect_blue)
+                    cv_local_city.setCardElevation(10F)
+                    cv_local_city.radius = 37F
+                    ed_local_city.setCompoundDrawablesWithIntrinsicBounds(R.drawable.refferl_icon_on, 0, 0, 0)
+                }
+                else{
+                    ed_local_city.setBackgroundResource(R.drawable.edittext_rounded_rect_border)
+                    cv_local_city.setCardElevation(15F)
+                    cv_local_city.radius = 37F
+                    ed_local_city.setCompoundDrawablesWithIntrinsicBounds(R.drawable.refferl_icon_off, 0, 0, 0)
+                }
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
+
+
         ed_referral_code.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if(ed_referral_code.text.toString().length != 0){
@@ -213,10 +238,35 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
             var name = ed_first_name.text.toString() + ed_last_name.text.toString()
             viewModel!!.signUpData(this, name, ed_emailID.text.toString()
                     , ed_password.text.toString(), ed_mobile_number.text.toString()
-                    ,  ""+ccp_signUp.selectedCountryCode)
+                    , ed_local_city.text.toString()
+                    , ed_referral_code.text.toString()
+                    , "+"+ccp_signUp.selectedCountryCode).observe(this, Observer {
 
-            var intent = Intent(this, VerificationOTPActivity::class.java)
-            startActivity(intent)
+                if(it!= null){
+                    if(it.has("status")){
+
+                        if(it.get("status").asString.equals("200")){
+                            if(it.has("message")){
+                                Utils.showToast(this, it.get("message").asString )
+                            }
+                            var intent = Intent(this, VerificationOTPActivity::class.java)
+                            startActivity(intent)
+                        }
+                        else if(it.get("status").asString.equals("1")){
+                            if(it.has("message")){
+                                Utils.showToast(this, it.get("message").asString )
+                            }
+                            var intent = Intent(this, VerificationOTPActivity::class.java)
+                            startActivity(intent)
+                        }
+                        else if(it.get("status").asString.equals("0")){
+                            if(it.has("message")){
+                                Utils.showToast(this, it.get("message").asString)
+                            }
+                        }
+                    }
+                }
+            })
         }
     }
 
@@ -254,8 +304,8 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
             Utils.showToast(this, resources.getString(R.string.msg_invalid_pass))
             return false
         }
-        else if(ed_referral_code.text.length == null){
-            Utils.showToast(this, resources.getString(R.string.msg_empty_referral_code))
+        else if(ed_local_city.text.length == null){
+            Utils.showToast(this, "Please enter your local city." )
             return false
         }
         else if(!(ed_confirm_password.text.toString()).equals(ed_password.text.toString())){

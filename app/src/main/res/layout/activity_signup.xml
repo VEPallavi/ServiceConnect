@@ -325,6 +325,45 @@
 
             </androidx.cardview.widget.CardView>
 
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_local_city"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                app:layout_constraintTop_toBottomOf="@+id/cv_confirm_password"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:cardCornerRadius="@dimen/_15sdp"
+                app:cardElevation="@dimen/_5sdp"
+                android:background="@drawable/edittext_rounded_rect_border"
+                >
+
+                <EditText
+                    android:id="@+id/ed_local_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@null"
+                    android:textCursorDrawable="@drawable/cursor_drawable"
+                    android:drawableLeft="@drawable/refferl_icon_off"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:elevation="@dimen/_5sdp"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_12sdp"
+                    android:maxLength="30"
+                    android:textColor="@color/dark_grey"
+                    android:hint="@string/hint_enter_your_local_city"
+                    android:textColorHint="@color/dark_grey"
+                    android:background="@drawable/edittext_rounded_rect_border"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_referral_code"
                 android:layout_width="0dp"
@@ -332,7 +371,7 @@
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginLeft="@dimen/_20sdp"
                 android:layout_marginRight="@dimen/_20sdp"
-                app:layout_constraintTop_toBottomOf="@+id/cv_confirm_password"
+                app:layout_constraintTop_toBottomOf="@+id/cv_local_city"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:cardCornerRadius="@dimen/_15sdp"
