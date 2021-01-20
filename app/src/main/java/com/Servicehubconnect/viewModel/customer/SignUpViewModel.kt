@@ -4,13 +4,12 @@ import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.Servicehubconnect.helper.Utils
-import com.freeluancer.seeker.network.ApiClient
-import com.freeluancer.seeker.network.ApiService
+import com.Servicehubconnect.network.ApiClient
+import com.Servicehubconnect.network.ApiService
 import com.google.gson.JsonObject
-import okhttp3.internal.Util
 import retrofit2.Call
 import retrofit2.Response
-import kotlin.math.sign
+
 
 
 class SignUpViewModel : ViewModel(){

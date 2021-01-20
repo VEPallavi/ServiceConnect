@@ -7,22 +7,27 @@ import android.text.TextWatcher
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.Servicehubconnect.R
 import com.Servicehubconnect.activity.customer.HomeActivity
 import com.Servicehubconnect.activity.servicePerson.HomeActivitySP
 import com.Servicehubconnect.helper.Utils
+import com.Servicehubconnect.viewModel.LoginViewModel
 import kotlinx.android.synthetic.main.activity_login.*
 
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener{
     var showPassword: Boolean = false
+    var viewModel: LoginViewModel?= null
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
 
         setOnClickListener()
         getEditTextData()
@@ -99,16 +104,27 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
                 startActivity(intent)
             }
             R.id.tv_login ->{
-                loginInUser()
+                if(checkValidation()){
+                    loginInUser()
+                }
             }
         }
     }
 
     private fun loginInUser() {
-       // if(checkValidation()){
             var intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
-      //d  }
+
+//        viewModel?.loginUser(this
+//                , ed_email.text.toString()
+//                , ed_password.text.toString())?.observe(this, Observer {
+//
+//            if(it!= null){
+//
+//            }
+//        })
+
+
     }
 
 

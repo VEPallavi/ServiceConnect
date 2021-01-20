@@ -1,8 +1,7 @@
-package com.freeluancer.seeker.network
+package com.Servicehubconnect.network
 
+import com.com.Servicehubconnect.network.ApiList
 import com.google.gson.JsonObject
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -23,10 +22,25 @@ interface ApiService {
     ): Call<JsonObject>
 
 
-    @POST(ApiList.SIGNUP_URL)
+    @POST(ApiList.VERIFY_OTP_URL)
     @FormUrlEncoded
     fun verificationOTP(
+            @Field("email") email: String,
+            @Field("otp") otp: String
+    ): Call<JsonObject>
 
+
+    @POST(ApiList.RESEND_OTP_URL)
+    @FormUrlEncoded
+    fun resendOTP(
+            @Field("email") email: String
+    ): Call<JsonObject>
+
+    @POST(ApiList.LOGIN_URL)
+    @FormUrlEncoded
+    fun loginUser(
+            @Field("email") email: String,
+            @Field("password") password: String
     ): Call<JsonObject>
 
 

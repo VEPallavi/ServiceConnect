@@ -140,7 +140,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:textSize="@dimen/_12sdp"
-        android:text="Resend OTP">
+        android:text="@string/text_resend_otp">
 
     </TextView>
 

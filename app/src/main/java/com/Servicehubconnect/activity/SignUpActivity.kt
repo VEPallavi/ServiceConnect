@@ -236,8 +236,12 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
 
         if(checkValidations()){
             var name = ed_first_name.text.toString() + ed_last_name.text.toString()
-            viewModel!!.signUpData(this, name, ed_emailID.text.toString()
-                    , ed_password.text.toString(), ed_mobile_number.text.toString()
+
+            viewModel!!.signUpData(this
+                    , name
+                    , ed_emailID.text.toString()
+                    , ed_password.text.toString()
+                    , ed_mobile_number.text.toString()
                     , ed_local_city.text.toString()
                     , ed_referral_code.text.toString()
                     , "+"+ccp_signUp.selectedCountryCode).observe(this, Observer {
@@ -250,6 +254,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
                                 Utils.showToast(this, it.get("message").asString )
                             }
                             var intent = Intent(this, VerificationOTPActivity::class.java)
+                            intent.putExtra("email", ed_emailID.text.toString())
                             startActivity(intent)
                         }
                         else if(it.get("status").asString.equals("1")){
@@ -257,6 +262,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
                                 Utils.showToast(this, it.get("message").asString )
                             }
                             var intent = Intent(this, VerificationOTPActivity::class.java)
+                            intent.putExtra("email", ed_emailID.text.toString())
                             startActivity(intent)
                         }
                         else if(it.get("status").asString.equals("0")){

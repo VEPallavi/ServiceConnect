@@ -1,7 +1,8 @@
-package com.freeluancer.seeker.network
+package com.Servicehubconnect.network
 
 
 import android.content.Context
+import com.com.Servicehubconnect.network.ApiList
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -45,9 +46,6 @@ class ApiClient {
 
             return retrofit!!
         }
-
-
-
 
 
 

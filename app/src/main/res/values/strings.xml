@@ -113,6 +113,7 @@
     <string name="txt_yes">Yes</string>
     <string name="txt_do_he_she_need_a_other_location">Do he/she need a other location?</string>
     <string name="hint_enter_your_local_city">Enter your local city</string>
+    <string name="text_resend_otp">Resend OTP</string>
 
 
 </resources>
