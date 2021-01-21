@@ -15,6 +15,7 @@ import com.Servicehubconnect.activity.customer.HomeActivity
 import com.Servicehubconnect.activity.servicePerson.HomeActivitySP
 import com.Servicehubconnect.helper.Utils
 import com.Servicehubconnect.viewModel.LoginViewModel
+import com.google.gson.JsonObject
 import kotlinx.android.synthetic.main.activity_login.*
 
 
@@ -112,17 +113,37 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
     }
 
     private fun loginInUser() {
-            var intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
 
-//        viewModel?.loginUser(this
-//                , ed_email.text.toString()
-//                , ed_password.text.toString())?.observe(this, Observer {
-//
-//            if(it!= null){
-//
-//            }
-//        })
+
+        viewModel?.loginUser(this
+                , ed_email.text.toString()
+                , ed_password.text.toString())?.observe(this, Observer {
+
+            if(it!= null){
+
+                if(it.has("status") && it.get("status").asString.equals("200")){
+
+                    Utils.showToast(this, "Login successfully.")
+
+                    if(it.has("token"))
+
+                    if(it.has("data") && it.get("data") is JsonObject){
+                        var dataObj= it.getAsJsonObject("data")
+
+                    }
+
+                    var intent = Intent(this, HomeActivity::class.java)
+                    startActivity(intent)
+                }
+                else {
+                    if(it.has("status") && it.get("status").asString.equals("0")){
+                        Utils.showToast(this, it.get("message").asString)
+                    }
+                }
+
+
+            }
+        })
 
 
     }
