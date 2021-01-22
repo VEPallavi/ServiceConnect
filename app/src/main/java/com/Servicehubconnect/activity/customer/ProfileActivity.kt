@@ -38,8 +38,8 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener{
                 finish()
             }
             R.id.tv_update_profile ->{
-                var intent = Intent(this, EditProfileActivity::class.java)
-                startActivity(intent)
+//                var intent = Intent(this, EditProfileActivity::class.java)
+//                startActivity(intent)
             }
         }
     }

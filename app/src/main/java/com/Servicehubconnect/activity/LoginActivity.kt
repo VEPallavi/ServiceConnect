@@ -11,8 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.Servicehubconnect.R
-import com.Servicehubconnect.activity.customer.HomeActivity
+import com.Servicehubconnect.activity.customer.HomeActivityCustomer
 import com.Servicehubconnect.activity.servicePerson.HomeActivitySP
+import com.Servicehubconnect.helper.AppPreference
 import com.Servicehubconnect.helper.Utils
 import com.Servicehubconnect.viewModel.LoginViewModel
 import com.google.gson.JsonObject
@@ -22,6 +23,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 class LoginActivity : AppCompatActivity(), View.OnClickListener{
     var showPassword: Boolean = false
     var viewModel: LoginViewModel?= null
+    var appPreference: AppPreference?= null
 
 
 
@@ -29,6 +31,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
+        appPreference = AppPreference.getInstance(this)
 
         setOnClickListener()
         getEditTextData()
@@ -125,15 +128,43 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
 
                     Utils.showToast(this, "Login successfully.")
 
-                    if(it.has("token"))
+                    if(it.has("token")){
+                        appPreference?.setAuthToken(it.get("token").asString)
+                    }
 
                     if(it.has("data") && it.get("data") is JsonObject){
                         var dataObj= it.getAsJsonObject("data")
 
+                        if(dataObj.has("user_type") && !dataObj.get("user_type").isJsonNull){
+
+                            //  Todo USER
+                            if(dataObj.get("user_type").asString.equals("user")){
+
+                                if(dataObj.has("_id")){
+                                    appPreference?.setCustomerUSerID(dataObj.get("_id").asString)
+                                }
+
+                                if(dataObj.has("name")){
+
+                                }
+
+
+
+                                var intent = Intent(this, HomeActivityCustomer::class.java)
+                                startActivity(intent)
+                            }
+
+                             // Todo PROFESSIONAL
+                            else if(dataObj.get("user_type").asString.equals("professional")
+                                    || dataObj.get("user_type").asString.equals("business_user"))
+                            {
+
+                            }
+                        }
+
                     }
 
-                    var intent = Intent(this, HomeActivity::class.java)
-                    startActivity(intent)
+
                 }
                 else {
                     if(it.has("status") && it.get("status").asString.equals("0")){

@@ -16,11 +16,11 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
 import com.Servicehubconnect.R
-import com.Servicehubconnect.fragment.customerApp.DashboardFragment
+import com.Servicehubconnect.fragment.customerApp.DashboardFragmentCustomer
 import com.Servicehubconnect.fragment.customerApp.NotificationFragment
 import kotlinx.android.synthetic.main.customer_app_bar_main.*
 
-class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
+class HomeActivityCustomer : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
     private var mContext: Context? = null
     private var toolbar: Toolbar? = null
     private var mDrawerLayout: DrawerLayout? = null
@@ -42,7 +42,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
     private fun initializeView() {
-        mContext = this@HomeActivity
+        mContext = this@HomeActivityCustomer
         toolbar = findViewById(R.id.toolbar_main) as Toolbar
 
         val navigationView = findViewById(R.id.nav_view) as NavigationView
@@ -123,28 +123,28 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         var mFragment: Fragment? = null
         when (id) {
             0 ->{
-                mFragment = DashboardFragment()
+                mFragment = DashboardFragmentCustomer()
                 replaceFragment(mFragment)
             }
             1 -> {
-                var intent = Intent(this, SalonAndBeautyActivity::class.java)
-                startActivity(intent)
+              //  var intent = Intent(this, SubCategoriesListActivity::class.java)
+              //  startActivity(intent)
             }
             2 -> {
-                var intent = Intent(this, Automative_AutoRepairActivity::class.java)
-                startActivity(intent)
+              //  var intent = Intent(this, Automative_AutoRepairActivity::class.java)
+             //   startActivity(intent)
             }
             3 -> {
-                var intent = Intent(this, HomeCareProductPickUpRideActivity::class.java)
-                startActivity(intent)
+               // var intent = Intent(this, HomeCareProductPickUpRideActivity::class.java)
+               // startActivity(intent)
             }
             4 -> {
-                var intent = Intent(this, HomeMaintenance_RemodelingActivity::class.java)
-                startActivity(intent)
+               // var intent = Intent(this, HomeMaintenance_RemodelingActivity::class.java)
+               // startActivity(intent)
             }
             5 -> {
-                var intent = Intent(this, SpecialityActivity::class.java)
-                startActivity(intent)
+              //  var intent = Intent(this, SpecialityActivity::class.java)
+              //  startActivity(intent)
             }
             6 -> {
                 var intent = Intent(this, TrackServiceManActivity::class.java)
@@ -189,7 +189,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
     fun handleBackPress() {
-        if (mManager!!.findFragmentById(R.id.container) is DashboardFragment)
+        if (mManager!!.findFragmentById(R.id.container) is DashboardFragmentCustomer)
         {
             finish()
         }

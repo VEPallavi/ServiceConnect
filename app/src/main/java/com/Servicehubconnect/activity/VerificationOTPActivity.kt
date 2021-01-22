@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.toolbar_layout.*
 class VerificationOTPActivity : AppCompatActivity(), View.OnClickListener{
     var viewModel: VerificationOTPViewModel?= null
     var email: String?= null
+    var from: String?= null
 
 
 
@@ -34,6 +35,7 @@ class VerificationOTPActivity : AppCompatActivity(), View.OnClickListener{
     private fun initViews() {
         try {
             email = intent.getStringExtra("email")
+            from = intent.getStringExtra("from")
 
         }catch (e: Exception){
             e.printStackTrace()
@@ -192,12 +194,21 @@ class VerificationOTPActivity : AppCompatActivity(), View.OnClickListener{
                     if(it.get("status").asString.equals("200")){
                         Utils.showToast(this, it.get("message").asString)
 
-                        Handler().postDelayed(Runnable {
-                            val intent = Intent(this, LoginActivity::class.java)
+
+                        if(from.equals("from_signup")){
+                            Handler().postDelayed(Runnable {
+                                val intent = Intent(this, LoginActivity::class.java)
+                                startActivity(intent)
+                                finish()
+
+                            }, 1000)
+                        }
+
+                        else if(from.equals("from_forgotPassword")){
+                            var intent = Intent(this, ResetPasswordActivity::class.java)
                             startActivity(intent)
                             finish()
-
-                        }, 1000)
+                        }
 
                     }
                     else if(it.get("status").asString.equals("0")){

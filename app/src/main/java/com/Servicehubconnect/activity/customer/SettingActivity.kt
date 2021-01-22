@@ -42,37 +42,37 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener{
                 finish()
             }
             R.id.tv_profile ->{
-                var intent = Intent(this, ProfileActivity::class.java)
-                startActivity(intent)
+//                var intent = Intent(this, ProfileActivity::class.java)
+//                startActivity(intent)
             }
             R.id.tv_share ->{
-                shareLink()
+            //    shareLink()
             }
             R.id.tv_change_password ->{
-                var intent = Intent(this, ChangePasswordActivity::class.java)
-                startActivity(intent)
+//                var intent = Intent(this, ChangePasswordActivity::class.java)
+//                startActivity(intent)
             }
             R.id.tv_contact_support ->{
-                var intent = Intent(this, ContactSupportActivity::class.java)
-                startActivity(intent)
+//                var intent = Intent(this, ContactSupportActivity::class.java)
+//                startActivity(intent)
             }
             R.id.tv_aboutUs ->{
-                var intent = Intent(this, WebViewActivity::class.java)
-                intent.putExtra("screenType", "About Us")
-                intent.putExtra("url","https://www.google.com/")
-                startActivity(intent)
+//                var intent = Intent(this, WebViewActivity::class.java)
+//                intent.putExtra("screenType", "About Us")
+//                intent.putExtra("url","https://www.google.com/")
+//                startActivity(intent)
             }
             R.id.tv_privacy_policy ->{
-                var intent = Intent(this, WebViewActivity::class.java)
-                intent.putExtra("screenType", "Privacy Policy")
-                intent.putExtra("url","https://www.google.com/")
-                startActivity(intent)
+//                var intent = Intent(this, WebViewActivity::class.java)
+//                intent.putExtra("screenType", "Privacy Policy")
+//                intent.putExtra("url","https://www.google.com/")
+//                startActivity(intent)
             }
             R.id.tv_term_condition ->{
-                var intent = Intent(this, WebViewActivity::class.java)
-                intent.putExtra("screenType", "Term & Condition")
-                intent.putExtra("url","https://www.google.com/")
-                startActivity(intent)
+//                var intent = Intent(this, WebViewActivity::class.java)
+//                intent.putExtra("screenType", "Term & Condition")
+//                intent.putExtra("url","https://www.google.com/")
+//                startActivity(intent)
             }
         }
     }

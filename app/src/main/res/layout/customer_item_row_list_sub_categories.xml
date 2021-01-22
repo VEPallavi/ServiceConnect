@@ -10,7 +10,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/iv_service_pic"
+                android:id="@+id/iv_subCategoryImage"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"
                 app:layout_constraintTop_toTopOf="parent"
@@ -19,12 +19,12 @@
                 android:src="@drawable/login_logo"/>
 
             <TextView
-                android:id="@+id/txt_service_name"
+                android:id="@+id/tv_subCategoryName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/iv_service_pic"
-                app:layout_constraintLeft_toLeftOf="@+id/iv_service_pic"
-                app:layout_constraintRight_toRightOf="@+id/iv_service_pic"
+                app:layout_constraintTop_toBottomOf="@+id/iv_subCategoryImage"
+                app:layout_constraintLeft_toLeftOf="@+id/iv_subCategoryImage"
+                app:layout_constraintRight_toRightOf="@+id/iv_subCategoryImage"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:paddingLeft="@dimen/_5sdp"
                 android:paddingRight="@dimen/_5sdp"

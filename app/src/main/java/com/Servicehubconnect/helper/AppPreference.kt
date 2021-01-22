@@ -9,7 +9,7 @@ class AppPreference()
     var APP_PREFERENCE = "APP_PREFERENCE"
     var TOKEN = "TOKEN"
     var APP_TYPE = "APP_TYPE"
-    var USER_ID = "USER_ID"
+    var CUSTOMER_USER_ID = "CUSTOMER_USER_ID"
 
 
 
@@ -67,14 +67,20 @@ class AppPreference()
         return mPreference!!.getBoolean(key, false)
     }
 
-
-
     fun getAuthToken(): String {
         return getString(TOKEN)
     }
 
     fun setAuthToken(token: String) {
         setString(TOKEN, token)
+    }
+
+    fun getCustomerUserID(): String {
+        return getString(CUSTOMER_USER_ID)
+    }
+
+    fun setCustomerUSerID(userId: String) {
+        setString(CUSTOMER_USER_ID, userId)
     }
 
 

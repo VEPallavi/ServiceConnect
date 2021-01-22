@@ -60,7 +60,7 @@
         <activity android:name="com.Servicehubconnect.activity.LoginActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.Servicehubconnect.activity.customer.HomeActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.HomeActivityCustomer"
             android:screenOrientation="portrait"/>
 
         <activity android:name="com.Servicehubconnect.activity.ForgotPasswordActivity"
@@ -72,7 +72,7 @@
         <activity android:name="com.Servicehubconnect.activity.ResetPasswordActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name="com.Servicehubconnect.activity.customer.SalonAndBeautyActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.SubCategoriesListActivity"
             android:screenOrientation="portrait"/>
 
         <activity android:name="com.Servicehubconnect.activity.customer.Automative_AutoRepairActivity"

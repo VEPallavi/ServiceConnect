@@ -254,6 +254,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
                                 Utils.showToast(this, it.get("message").asString )
                             }
                             var intent = Intent(this, VerificationOTPActivity::class.java)
+                            intent.putExtra("from", "from_signup")
                             intent.putExtra("email", ed_emailID.text.toString())
                             startActivity(intent)
                         }
@@ -262,6 +263,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener{
                                 Utils.showToast(this, it.get("message").asString )
                             }
                             var intent = Intent(this, VerificationOTPActivity::class.java)
+                            intent.putExtra("from", "from_signup")
                             intent.putExtra("email", ed_emailID.text.toString())
                             startActivity(intent)
                         }

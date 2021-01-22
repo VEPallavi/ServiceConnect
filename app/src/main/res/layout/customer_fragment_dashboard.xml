@@ -6,352 +6,46 @@
     android:fillViewport="true"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <TextView
+        android:id="@+id/txt_categories"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="@dimen/_10sdp"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_14sdp"
+        android:text="@string/txt_categories"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_categories_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        app:layout_constraintBottom_toTopOf="@+id/cl_bottom"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_categories"
+        />
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/cl_bottom"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorBackground"
-        >
-
-        <TextView
-            android:id="@+id/txt_categories"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_margin="@dimen/_10sdp"
-            android:textColor="@color/colorBlack"
-            android:textSize="@dimen/_14sdp"
-            android:text="@string/txt_categories" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_salon_beauty"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/_10sdp"
-            android:layout_margin="@dimen/_10sdp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:elevation="@dimen/_5sdp"
-            app:layout_constraintTop_toBottomOf="@+id/txt_categories"
-            android:background="@drawable/white_background_rounded_rect">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/iv_salon_beauty"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:src="@drawable/dashboard_salon_and_beauty_icon">
-
-            </de.hdodenhof.circleimageview.CircleImageView>
-
-            <TextView
-                android:id="@+id/txt_salon_beauty"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintLeft_toRightOf="@+id/iv_salon_beauty"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:drawableRight="@drawable/next_icon"
-                android:paddingLeft="@dimen/_10sdp"
-                android:text="@string/txt_salon_beauty"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_10sdp" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_homeCare"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/_10sdp"
-            android:layout_margin="@dimen/_10sdp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:elevation="@dimen/_5sdp"
-            app:layout_constraintTop_toBottomOf="@+id/cl_salon_beauty"
-            android:background="@drawable/white_background_rounded_rect">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/iv_homeCare"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:src="@drawable/dashboard_homecare_productpick_icon">
-
-            </de.hdodenhof.circleimageview.CircleImageView>
-
-            <TextView
-                android:id="@+id/txt_homeCare"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintLeft_toRightOf="@+id/iv_homeCare"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:drawableRight="@drawable/next_icon"
-                android:paddingLeft="@dimen/_10sdp"
-                android:text="@string/txt_home_care"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_10sdp" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_restaurant_wine"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/_10sdp"
-            android:layout_margin="@dimen/_10sdp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:elevation="@dimen/_5sdp"
-            app:layout_constraintTop_toBottomOf="@+id/cl_homeCare"
-            android:background="@drawable/white_background_rounded_rect">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/iv_restaurant_wine"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:src="@drawable/dashboard_homecare_productpick_icon">
-
-            </de.hdodenhof.circleimageview.CircleImageView>
-
-            <TextView
-                android:id="@+id/txt_restaurant_wine"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintLeft_toRightOf="@+id/iv_restaurant_wine"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:drawableRight="@drawable/next_icon"
-                android:paddingLeft="@dimen/_10sdp"
-                android:text="@string/txt_restaurant_wine"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_10sdp" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_grocery_productStore"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/_10sdp"
-            android:layout_margin="@dimen/_10sdp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:elevation="@dimen/_5sdp"
-            app:layout_constraintTop_toBottomOf="@+id/cl_restaurant_wine"
-            android:background="@drawable/white_background_rounded_rect">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/iv_grocery_productStore"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:src="@drawable/dashboard_homecare_productpick_icon">
-
-            </de.hdodenhof.circleimageview.CircleImageView>
-
-            <TextView
-                android:id="@+id/txt_grocery_productStore"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintLeft_toRightOf="@+id/iv_grocery_productStore"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:drawableRight="@drawable/next_icon"
-                android:paddingLeft="@dimen/_10sdp"
-                android:text="Grocery/Product Store(Flower or gift store)"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_10sdp" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_ride"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/_10sdp"
-            android:layout_margin="@dimen/_10sdp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:elevation="@dimen/_5sdp"
-            app:layout_constraintTop_toBottomOf="@+id/cl_grocery_productStore"
-            android:background="@drawable/white_background_rounded_rect">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/iv_ride"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:src="@drawable/dashboard_homecare_productpick_icon">
-
-            </de.hdodenhof.circleimageview.CircleImageView>
-
-            <TextView
-                android:id="@+id/txt_ride"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintLeft_toRightOf="@+id/iv_ride"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:drawableRight="@drawable/next_icon"
-                android:paddingLeft="@dimen/_10sdp"
-                android:text="@string/txt_ride"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_10sdp" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_automative_autorepair"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/_10sdp"
-            android:layout_margin="@dimen/_10sdp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:elevation="@dimen/_5sdp"
-            app:layout_constraintTop_toBottomOf="@+id/cl_ride"
-            android:background="@drawable/white_background_rounded_rect">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/iv_automative_autorepair"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:src="@drawable/dashboard_automative_autorepair_icon">
-
-            </de.hdodenhof.circleimageview.CircleImageView>
-
-            <TextView
-                android:id="@+id/txt_automative_autorepair"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintLeft_toRightOf="@+id/iv_automative_autorepair"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:drawableRight="@drawable/next_icon"
-                android:paddingLeft="@dimen/_10sdp"
-                android:text="Automative/AutoRepair"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_10sdp" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_homeMaintenance_upgrade"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/_10sdp"
-            android:layout_margin="@dimen/_10sdp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:elevation="@dimen/_5sdp"
-            app:layout_constraintTop_toBottomOf="@+id/cl_automative_autorepair"
-            android:background="@drawable/white_background_rounded_rect">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/iv_homeMaintenance_remodeling"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:src="@drawable/dashboard_homemaintenance_remodeling_icon">
-
-            </de.hdodenhof.circleimageview.CircleImageView>
-
-            <TextView
-                android:id="@+id/txt_homeMaintenance_remodeling"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintLeft_toRightOf="@+id/iv_homeMaintenance_remodeling"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:drawableRight="@drawable/next_icon"
-                android:paddingLeft="@dimen/_10sdp"
-                android:text="@string/txt_home_maintenance_remodeling"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_10sdp" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_speciality"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/_10sdp"
-            android:layout_margin="@dimen/_10sdp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:elevation="@dimen/_5sdp"
-            app:layout_constraintTop_toBottomOf="@+id/cl_homeMaintenance_upgrade"
-            android:background="@drawable/white_background_rounded_rect">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/iv_speciality"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:src="@drawable/dashboard_speciality_icon">
-
-            </de.hdodenhof.circleimageview.CircleImageView>
-
-            <TextView
-                android:id="@+id/txt_speciality"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintLeft_toRightOf="@+id/iv_speciality"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:drawableRight="@drawable/next_icon"
-                android:paddingLeft="@dimen/_10sdp"
-                android:text="@string/txt_speciality"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_10sdp" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_100sdp"
-            app:layout_constraintTop_toBottomOf="@+id/cl_speciality"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:background="@drawable/dashboard_bottom_icon"
-            />
+        android:layout_height="@dimen/_100sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/dashboard_bottom_icon"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>
+

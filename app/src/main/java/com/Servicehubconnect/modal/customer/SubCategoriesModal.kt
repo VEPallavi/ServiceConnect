@@ -1,7 +1,12 @@
 package com.Servicehubconnect.modal.customer
 
 class SubCategoriesModal(
-        var servicePic: Int,
-        var serviceName: String
+        var _id: String?,
+        var category_id: String,
+        var is_deleted: Int,
+        var name: String,
+        var createdAt: String,
+        var updatedAt: String,
+        var __v: Int
 )
 

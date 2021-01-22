@@ -6,22 +6,33 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.Servicehubconnect.R
 import com.Servicehubconnect.helper.Utils
+import com.Servicehubconnect.viewModel.ForgotPasswordViewModel
 import kotlinx.android.synthetic.main.activity_forgot_password.*
 import kotlinx.android.synthetic.main.activity_forgot_password.ed_emailID
 import kotlinx.android.synthetic.main.toolbar_layout.*
 
 
 class ForgotPasswordActivity : AppCompatActivity(), View.OnClickListener{
+    var viewModel: ForgotPasswordViewModel?= null
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_password)
+        viewModel = ViewModelProviders.of(this).get(ForgotPasswordViewModel::class.java)
         setOnClickListener()
         getEditTextData()
+
+
+    }
+
+    private fun getData() {
+        TODO("Not yet implemented")
     }
 
     private fun setOnClickListener() {
@@ -51,8 +62,8 @@ class ForgotPasswordActivity : AppCompatActivity(), View.OnClickListener{
         when(v?.id){
             R.id.tv_send_otp->{
                 if(checkValidation()){
-                    var intent = Intent(this, VerificationOTPActivity::class.java)
-                    startActivity(intent)
+                    forgotPassword()
+
                 }
             }
             R.id.iv_back->{
@@ -60,6 +71,38 @@ class ForgotPasswordActivity : AppCompatActivity(), View.OnClickListener{
             }
         }
     }
+
+
+
+    fun forgotPassword(){
+
+        viewModel?.getForgotPasswordData(this, ed_emailID.text.toString())?.observe(this, Observer {
+
+            if(it!= null){
+
+                if(it.has("status") && it.get("status").asString.equals("200")){
+
+                    if(it.has("message") && !it.get("message").isJsonNull){
+                        Utils.showToast(this, it.get("message").asString)
+
+                        var intent = Intent(this, VerificationOTPActivity::class.java)
+                        intent.putExtra("email", ed_emailID.text.toString())
+                        intent.putExtra("from", "from_forgotPassword")
+                        startActivity(intent)
+                    }
+                }
+                else {
+                    if(it.has("message") && !it.get("message").isJsonNull){
+                        Utils.showToast(this, it.get("message").asString)
+                    }
+                }
+            }
+            else{
+
+            }
+        })
+    }
+
 
 
     fun checkValidation(): Boolean{

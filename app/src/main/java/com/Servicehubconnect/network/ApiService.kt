@@ -43,5 +43,30 @@ interface ApiService {
             @Field("password") password: String
     ): Call<JsonObject>
 
+    @POST(ApiList.FORGOT_PASSWORD_URL)
+    @FormUrlEncoded
+    fun forgotPassword(
+            @Field("email") email: String
+    ): Call<JsonObject>
+
+
+    @POST(ApiList.RESET_PASSWORD_URL)
+    @FormUrlEncoded
+    fun resetPassword(
+            @Field("password") password: String
+    ): Call<JsonObject>
+
+
+    @GET(ApiList.CATEGORY_LIST_URL)
+    fun getCategoryData(
+
+    ): Call<JsonObject>
+
+
+    @GET(ApiList.SUB_CATEGORY_LIST_URL)
+    fun getSubCategoryData(
+     @Query(":categoryId") categoryId: String
+    ): Call<JsonObject>
+
 
 }
