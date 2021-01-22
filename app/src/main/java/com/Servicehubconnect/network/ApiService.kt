@@ -33,7 +33,8 @@ interface ApiService {
     @POST(ApiList.RESEND_OTP_URL)
     @FormUrlEncoded
     fun resendOTP(
-            @Field("email") email: String
+            @Field("email") email: String,
+            @Field("from") from: String
     ): Call<JsonObject>
 
     @POST(ApiList.LOGIN_URL)
@@ -53,7 +54,8 @@ interface ApiService {
     @POST(ApiList.RESET_PASSWORD_URL)
     @FormUrlEncoded
     fun resetPassword(
-            @Field("password") password: String
+            @Field("password") password: String,
+            @Field("email") email: String
     ): Call<JsonObject>
 
 

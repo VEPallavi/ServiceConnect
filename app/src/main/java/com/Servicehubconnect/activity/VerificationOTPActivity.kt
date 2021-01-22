@@ -167,7 +167,7 @@ class VerificationOTPActivity : AppCompatActivity(), View.OnClickListener{
     }
 
     private fun resendOTP() {
-        viewModel?.resendOTP(this, email!!)?.observe(this, Observer {
+        viewModel?.resendOTP(this, email!!, from!!)?.observe(this, Observer {
 
             if(it!= null){
 
@@ -192,10 +192,9 @@ class VerificationOTPActivity : AppCompatActivity(), View.OnClickListener{
                 if(it.has("status")){
 
                     if(it.get("status").asString.equals("200")){
-                        Utils.showToast(this, it.get("message").asString)
 
-
-                        if(from.equals("from_signup")){
+                        if(from.equals("Signup")){
+                            Utils.showToast(this, it.get("message").asString)
                             Handler().postDelayed(Runnable {
                                 val intent = Intent(this, LoginActivity::class.java)
                                 startActivity(intent)
@@ -204,8 +203,9 @@ class VerificationOTPActivity : AppCompatActivity(), View.OnClickListener{
                             }, 1000)
                         }
 
-                        else if(from.equals("from_forgotPassword")){
+                        else if(from.equals("forgotPassword")){
                             var intent = Intent(this, ResetPasswordActivity::class.java)
+                            intent.putExtra("email", email)
                             startActivity(intent)
                             finish()
                         }
@@ -214,6 +214,11 @@ class VerificationOTPActivity : AppCompatActivity(), View.OnClickListener{
                     else if(it.get("status").asString.equals("0")){
                         Utils.showToast(this, it.get("message").asString)
                     }
+
+                    else{
+                        Utils.showToast(this, it.get("message").asString)
+                    }
+
                 }
             }
 

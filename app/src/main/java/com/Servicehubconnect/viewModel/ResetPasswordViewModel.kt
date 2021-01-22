@@ -17,11 +17,11 @@ class ResetPasswordViewModel : ViewModel(){
 
 
 
-    fun resetPassword(mContext: Context, password: String): MutableLiveData<JsonObject>{
+    fun resetPassword(mContext: Context, password: String, email: String): MutableLiveData<JsonObject>{
         resetPasswordResult = MutableLiveData()
 
         var apiService = ApiClient.getClient().create(ApiService::class.java)
-        var call = apiService.resetPassword(password)
+        var call = apiService.resetPassword(password, email)
 
         Utils.showProgressDialog(mContext)
 

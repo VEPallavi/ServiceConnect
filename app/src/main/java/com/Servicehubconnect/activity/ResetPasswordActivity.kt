@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.toolbar_layout.*
 
 class ResetPasswordActivity : AppCompatActivity(), View.OnClickListener{
     var viewModel: ResetPasswordViewModel?= null
+    var email: String?= null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,11 +24,21 @@ class ResetPasswordActivity : AppCompatActivity(), View.OnClickListener{
         setContentView(R.layout.activity_reset_password)
         viewModel = ViewModelProviders.of(this).get(ResetPasswordViewModel::class.java)
 
+        try {
+            if(intent != null){
+                email = intent.getStringExtra("email")
+            }
+
+        }catch (e: Exception){
+            e.printStackTrace()
+        }
+
         setOnClickListener()
     }
 
     private fun setOnClickListener() {
         iv_back.setOnClickListener(this)
+        tv_verify.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -44,7 +55,7 @@ class ResetPasswordActivity : AppCompatActivity(), View.OnClickListener{
     }
 
     private fun resetPassword() {
-        viewModel?.resetPassword(this, ed_password.text.toString())?.observe(this, Observer {
+        viewModel?.resetPassword(this, ed_password.text.toString(), email!!)?.observe(this, Observer {
 
             if(it!= null){
 

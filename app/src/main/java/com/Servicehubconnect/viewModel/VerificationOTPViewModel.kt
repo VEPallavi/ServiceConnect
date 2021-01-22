@@ -41,11 +41,11 @@ class VerificationOTPViewModel : ViewModel(){
     }
 
 
-    fun resendOTP(mContext: Context, email: String): MutableLiveData<JsonObject>{
+    fun resendOTP(mContext: Context, email: String, from: String): MutableLiveData<JsonObject>{
         resendOTPResult = MutableLiveData()
 
         var apiService = ApiClient.getClient().create(ApiService::class.java)
-        var call = apiService.resendOTP(email)
+        var call = apiService.resendOTP(email, from)
         Utils.showProgressDialog(mContext)
 
         call.enqueue(object : retrofit2.Callback<JsonObject>{

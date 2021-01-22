@@ -87,7 +87,7 @@ class ForgotPasswordActivity : AppCompatActivity(), View.OnClickListener{
 
                         var intent = Intent(this, VerificationOTPActivity::class.java)
                         intent.putExtra("email", ed_emailID.text.toString())
-                        intent.putExtra("from", "from_forgotPassword")
+                        intent.putExtra("from", "forgotPassword")
                         startActivity(intent)
                     }
                 }
