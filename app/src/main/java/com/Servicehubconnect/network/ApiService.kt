@@ -65,9 +65,10 @@ interface ApiService {
     ): Call<JsonObject>
 
 
-    @GET(ApiList.SUB_CATEGORY_LIST_URL)
+    @POST(ApiList.SUB_CATEGORY_LIST_URL)
+    @FormUrlEncoded
     fun getSubCategoryData(
-     @Query(":categoryId") categoryId: String
+     @Field("categoryId") categoryId: String
     ): Call<JsonObject>
 
 

@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.Servicehubconnect.R
-import com.Servicehubconnect.activity.customer.SubCategoriesListActivity
+import com.Servicehubconnect.activity.customer.SubCategoryListActivity
 import com.Servicehubconnect.modal.customer.CategoryListDataModel
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -37,8 +37,6 @@ class DashboardAdapterCustomer(var mContext: Context, var categoryList: ArrayLis
 
 
 
-
-
     inner class DashboardViewHolder(view: View): RecyclerView.ViewHolder(view){
         var iv_category_image: ImageView
         var tv_category_name: TextView
@@ -62,9 +60,10 @@ class DashboardAdapterCustomer(var mContext: Context, var categoryList: ArrayLis
 
 
             cl_main.setOnClickListener {
-             //   var intent = Intent(mContext, SubCategoriesListActivity::class.java)
-            //    intent.putExtra("categoryId", dataModal.getId())
-             //   mContext.startActivity(intent)
+                var intent = Intent(mContext, SubCategoryListActivity::class.java)
+                intent.putExtra("categoryId", dataModal.getId())
+                intent.putExtra("categoryName", dataModal.getName())
+                mContext.startActivity(intent)
             }
 
         }

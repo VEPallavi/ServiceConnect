@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.Servicehubconnect.R
+import com.Servicehubconnect.activity.LoginActivity
 import com.Servicehubconnect.activity.WebViewActivity
+import com.Servicehubconnect.helper.AppPreference
 import kotlinx.android.synthetic.main.customer_activity_setting.*
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
 
@@ -27,6 +29,7 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener{
 
     private fun setOnClickListener() {
         ivBack.setOnClickListener(this)
+        tv_sign_out.setOnClickListener(this)
         tv_profile.setOnClickListener(this)
         tv_share.setOnClickListener(this)
         tv_change_password.setOnClickListener(this)
@@ -74,6 +77,20 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener{
 //                intent.putExtra("url","https://www.google.com/")
 //                startActivity(intent)
             }
+
+            R.id.tv_sign_out ->{
+
+                AppPreference.getInstance(this).setAppType("")
+                AppPreference.getInstance(this).setAuthToken("")
+                AppPreference.getInstance(this).setCustomerUserID("")
+                AppPreference.getInstance(this).setCustomerName("")
+
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+                finish()
+            }
+
         }
     }
 

@@ -33,7 +33,6 @@ class HomeActivitySP: AppCompatActivity(), NavigationView.OnNavigationItemSelect
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sp_activity_home)
 
-
         initializeView()
         setUpDrawerLayout()
         setUpClickListener()
@@ -57,12 +56,12 @@ class HomeActivitySP: AppCompatActivity(), NavigationView.OnNavigationItemSelect
         mDrawerLayout = findViewById(R.id.drawer_layout) as DrawerLayout
         mActionBarDrawerToggle = object : ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
             override fun onDrawerClosed(drawerView: View) {
-                // Code here will be triggered once the drawer closes as we dont want anything to happen so we leave this blank
+                // Code here will be triggered once the drawer closes as we don't want anything to happen so we leave this blank
                 super.onDrawerClosed(drawerView)
             }
 
             override fun onDrawerOpened(drawerView: View) {
-                // Code here will be triggered once the drawer open as we dont want anything to happen so we leave this blank
+                // Code here will be triggered once the drawer open as we don't want anything to happen so we leave this blank
                 super.onDrawerOpened(drawerView)
             }
         }

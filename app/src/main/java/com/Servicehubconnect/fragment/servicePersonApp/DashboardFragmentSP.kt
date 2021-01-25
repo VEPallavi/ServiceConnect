@@ -35,7 +35,7 @@ class DashboardFragmentSP : Fragment(){
     }
 
     private fun updateToolbar() {
-        (activity as HomeActivitySP).setToolbarTitle(ConstantFragmentName.DASHBOARD_FRAGMENT_CUSTOMER)
+        (activity as HomeActivitySP).setToolbarTitle(ConstantFragmentName.DASHBOARD_FRAGMENT)
         (activity as HomeActivitySP).setToolbarMenuVisibility(true)
         (activity as HomeActivitySP).setToolbarBackVisibility(false)
     }

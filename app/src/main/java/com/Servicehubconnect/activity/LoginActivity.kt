@@ -130,6 +130,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
 
                     if(it.has("token")){
                         appPreference?.setAuthToken(it.get("token").asString)
+
                     }
 
                     if(it.has("data") && it.get("data") is JsonObject){
@@ -140,15 +141,15 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
                             //  Todo USER
                             if(dataObj.get("user_type").asString.equals("user")){
 
+                                appPreference?.setAppType("1")  // app type "1" - customer
+
                                 if(dataObj.has("_id")){
-                                    appPreference?.setCustomerUSerID(dataObj.get("_id").asString)
+                                    appPreference?.setCustomerUserID(dataObj.get("_id").asString)
                                 }
 
                                 if(dataObj.has("name")){
-
+                                    appPreference?.setCustomerName(dataObj.get("name").asString)
                                 }
-
-
 
                                 var intent = Intent(this, HomeActivityCustomer::class.java)
                                 startActivity(intent)
@@ -158,6 +159,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
                             else if(dataObj.get("user_type").asString.equals("professional")
                                     || dataObj.get("user_type").asString.equals("business_user"))
                             {
+                                appPreference?.setAppType("2")  // app type "2" - Professional/ service-person/ business_user
 
                             }
                         }
@@ -171,8 +173,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
                         Utils.showToast(this, it.get("message").asString)
                     }
                 }
-
-
             }
         })
 

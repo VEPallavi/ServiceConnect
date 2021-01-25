@@ -11,7 +11,7 @@ class ApiList {
         const val FORGOT_PASSWORD_URL ="user/forgot-password"
         const val RESET_PASSWORD_URL = "user/reset-password"
         const val CATEGORY_LIST_URL = "user/get-category-list"
-        const val SUB_CATEGORY_LIST_URL = "user/get-subCategory-list/"
+        const val SUB_CATEGORY_LIST_URL = "user/get-subCategory-list"
 
     }
 

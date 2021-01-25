@@ -46,12 +46,12 @@ class DashboardFragmentCustomer : Fragment(){
 
         updateToolbar()
 
-      //  getCategoresList()
+        getCategoresList()
         return view
     }
 
     private fun updateToolbar() {
-        (activity as HomeActivityCustomer).setToolbarTitle(ConstantFragmentName.DASHBOARD_FRAGMENT_CUSTOMER)
+        (activity as HomeActivityCustomer).setToolbarTitle(ConstantFragmentName.DASHBOARD_FRAGMENT)
         (activity as HomeActivityCustomer).setToolbarMenuVisibility(true)
         (activity as HomeActivityCustomer).setToolbarBackVisibility(false)
         (activity as HomeActivityCustomer).setToolbarNotificationVisibility(true)

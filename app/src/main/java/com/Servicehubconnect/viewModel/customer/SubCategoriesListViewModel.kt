@@ -38,9 +38,4 @@ class SubCategoriesListViewModel : ViewModel(){
         return subCategoryResult!!
     }
 
-
-
-
-
-
 }

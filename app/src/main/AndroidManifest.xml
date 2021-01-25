@@ -72,23 +72,13 @@
         <activity android:name="com.Servicehubconnect.activity.ResetPasswordActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name="com.Servicehubconnect.activity.customer.SubCategoriesListActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name="com.Servicehubconnect.activity.customer.Automative_AutoRepairActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name="com.Servicehubconnect.activity.customer.HomeCareProductPickUpRideActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name="com.Servicehubconnect.activity.customer.HomeMaintenance_RemodelingActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name="com.Servicehubconnect.activity.customer.SpecialityActivity"
-            android:screenOrientation="portrait"/>
-
         <activity android:name="com.Servicehubconnect.activity.customer.SetLocationActivity"
             android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.customer.SubCategoryListActivity"
+            android:screenOrientation="portrait"/>
+
+
 
         <activity android:name="com.Servicehubconnect.activity.customer.SalonAndBeautyBusinessListActivity"
             android:screenOrientation="portrait"/>
