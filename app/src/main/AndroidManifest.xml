@@ -78,6 +78,12 @@
         <activity android:name=".activity.customer.SubCategoryListActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".activity.PrivacyPolicyActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.TermAndConditionActivity"
+            android:screenOrientation="portrait"/>
+
 
 
         <activity android:name="com.Servicehubconnect.activity.customer.SalonAndBeautyBusinessListActivity"

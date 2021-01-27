@@ -72,4 +72,13 @@ interface ApiService {
     ): Call<JsonObject>
 
 
+    @GET(ApiList.PRIVACY_POLICY_URL)
+    fun getPrivacyPolicy(
+
+    ): Call<JsonObject>
+
+    @GET(ApiList.TERM_AND_CONDITION_URL)
+    fun getTermCondition(
+
+    ): Call<JsonObject>
 }

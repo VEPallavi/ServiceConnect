@@ -43,9 +43,12 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
         tv_forgot_password.setOnClickListener(this)
         iv_password_toggle.setOnClickListener(this)
         iv_logo.setOnClickListener {
-            var intent = Intent(this, HomeActivitySP::class.java)
+            var intent = Intent(this, PrivacyPolicyActivity::class.java)
             startActivity(intent)
         }
+
+
+
     }
 
 

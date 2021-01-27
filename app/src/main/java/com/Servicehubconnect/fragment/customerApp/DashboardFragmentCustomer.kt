@@ -46,7 +46,7 @@ class DashboardFragmentCustomer : Fragment(){
 
         updateToolbar()
 
-        getCategoresList()
+    //    getCategoresList()
         return view
     }
 

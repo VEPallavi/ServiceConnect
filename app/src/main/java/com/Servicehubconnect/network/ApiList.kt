@@ -4,6 +4,8 @@ class ApiList {
     companion object {
 
         const val BASE_URL = "http://35.166.234.255:5000/api/"
+        const val PRIVACY_POLICY_URL = "user/privacy-policy"
+        const val TERM_AND_CONDITION_URL ="user/terms-condition"
         const val SIGNUP_URL = "user/register"
         const val VERIFY_OTP_URL = "user/verify-account"
         const val RESEND_OTP_URL = "user/resend-otp"
