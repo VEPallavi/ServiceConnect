@@ -74,11 +74,24 @@ interface ApiService {
 
     @GET(ApiList.PRIVACY_POLICY_URL)
     fun getPrivacyPolicy(
-
+        @Header("Authorization") token: String
     ): Call<JsonObject>
 
     @GET(ApiList.TERM_AND_CONDITION_URL)
     fun getTermCondition(
-
+       @Header("Authorization") token: String
     ): Call<JsonObject>
+
+
+    @PUT(ApiList.SUBMIT_PRIVACY_POLICY)
+    fun submitPrivacyPolicy(
+            @Header("Authorization") token: String
+    ): Call<JsonObject>
+
+
+    @PUT(ApiList.SUBMIT_TERM_AND_CONDITION_URL)
+    fun submitTermAndCondition(
+            @Header("Authorization") token: String
+    ): Call<JsonObject>
+
 }

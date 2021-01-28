@@ -78,11 +78,13 @@
         <activity android:name=".activity.customer.SubCategoryListActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.PrivacyPolicyActivity"
+        <activity android:name=".activity.customer.PrivacyPolicyActivityCustomer"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.TermAndConditionActivity"
+        <activity android:name=".activity.customer.TermAndConditionActivityCustomer"
             android:screenOrientation="portrait"/>
+
+
 
 
 
@@ -161,6 +163,12 @@
             />
 
         <activity android:name="com.Servicehubconnect.activity.servicePerson.MyInvoiceActivitySP"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.servicePerson.TermAndConditionActivityProfessional"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.servicePerson.PrivacyPolicyActivityProfessional"
             android:screenOrientation="portrait"/>
 
     </application>

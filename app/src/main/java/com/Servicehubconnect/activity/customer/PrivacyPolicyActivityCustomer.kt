@@ -1,7 +1,8 @@
-package com.Servicehubconnect.activity
+package com.Servicehubconnect.activity.customer
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -12,9 +13,9 @@ import kotlinx.android.synthetic.main.activity_privacy_policy.*
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
 
 
-class PrivacyPolicyActivity : AppCompatActivity(){
+class PrivacyPolicyActivityCustomer : AppCompatActivity(), View.OnClickListener{
     var viewModel: PrivacyPolicyViewModel?= null
-    var url: String = "http://35.166.234.255/api/user/privacy-policy"
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,16 +58,29 @@ class PrivacyPolicyActivity : AppCompatActivity(){
     private fun setOnClickListener() {
         tv_title.setText("Privacy Policy")
 
+        tv_OK.setOnClickListener(this)
 
         ivBack.setOnClickListener {
             finish()
         }
+    }
 
-        tv_OK.setOnClickListener {
-            var intent = Intent(this, TermAndConditionActivity::class.java)
-            startActivity(intent)
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.tv_OK ->{
+                hitApi()
+            }
         }
+    }
 
+    private fun hitApi() {
+        viewModel!!.submitPrivacyPolicy(this).observe(this, Observer {
+
+            if(it!= null && it.has("status") && it.get("status").asString.equals("200")){
+                var intent = Intent(this, TermAndConditionActivityCustomer::class.java)
+                startActivity(intent)
+            }
+        })
     }
 
 

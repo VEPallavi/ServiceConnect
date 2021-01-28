@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.Servicehubconnect.R
 import com.Servicehubconnect.activity.customer.HomeActivityCustomer
-import com.Servicehubconnect.activity.servicePerson.HomeActivitySP
+import com.Servicehubconnect.activity.customer.PrivacyPolicyActivityCustomer
 import com.Servicehubconnect.helper.AppPreference
 import com.Servicehubconnect.helper.Utils
 import com.Servicehubconnect.viewModel.LoginViewModel
@@ -43,11 +43,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
         tv_forgot_password.setOnClickListener(this)
         iv_password_toggle.setOnClickListener(this)
         iv_logo.setOnClickListener {
-            var intent = Intent(this, PrivacyPolicyActivity::class.java)
+            var intent = Intent(this, PrivacyPolicyActivityCustomer::class.java)
             startActivity(intent)
         }
-
-
 
     }
 
@@ -154,8 +152,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
                                     appPreference?.setCustomerName(dataObj.get("name").asString)
                                 }
 
-                                var intent = Intent(this, HomeActivityCustomer::class.java)
+                                var intent = Intent(this, PrivacyPolicyActivityCustomer::class.java)
                                 startActivity(intent)
+//                                var intent = Intent(this, HomeActivityCustomer::class.java)
+//                                startActivity(intent)
                             }
 
                              // Todo PROFESSIONAL

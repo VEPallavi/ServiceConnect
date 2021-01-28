@@ -1,4 +1,4 @@
-package com.Servicehubconnect.activity
+package com.Servicehubconnect.activity.servicePerson
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.Servicehubconnect.R
-import com.Servicehubconnect.activity.customer.HomeActivityCustomer
 import com.Servicehubconnect.viewModel.TermAndConditionViewModel
 import com.google.gson.JsonObject
 import kotlinx.android.synthetic.main.activity_terms_condition.*
@@ -14,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_terms_condition.tv_OK
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
 
 
-class TermAndConditionActivity : AppCompatActivity(){
+class TermAndConditionActivityProfessional : AppCompatActivity(){
     var url: String =""
     var viewModel: TermAndConditionViewModel?= null
 
@@ -68,7 +67,7 @@ class TermAndConditionActivity : AppCompatActivity(){
         }
 
         tv_OK.setOnClickListener {
-            var intent = Intent(this, HomeActivityCustomer::class.java)
+            var intent = Intent(this, HomeActivitySP::class.java)
             startActivity(intent)
         }
 
