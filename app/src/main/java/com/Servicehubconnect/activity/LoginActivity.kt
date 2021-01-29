@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.Servicehubconnect.R
 import com.Servicehubconnect.activity.customer.HomeActivityCustomer
 import com.Servicehubconnect.activity.customer.PrivacyPolicyActivityCustomer
+import com.Servicehubconnect.activity.customer.TermAndConditionActivityCustomer
 import com.Servicehubconnect.helper.AppPreference
 import com.Servicehubconnect.helper.Utils
 import com.Servicehubconnect.viewModel.LoginViewModel
@@ -152,10 +153,24 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
                                     appPreference?.setCustomerName(dataObj.get("name").asString)
                                 }
 
-                                var intent = Intent(this, PrivacyPolicyActivityCustomer::class.java)
-                                startActivity(intent)
-//                                var intent = Intent(this, HomeActivityCustomer::class.java)
-//                                startActivity(intent)
+                                if(dataObj.has("is_signed_privacyPolicy")
+                                        && dataObj.has("is_signed_termAndCondition")){
+
+                                    if(dataObj.get("is_signed_privacyPolicy").asBoolean == false){
+                                        var intent = Intent(this, PrivacyPolicyActivityCustomer::class.java)
+                                        startActivity(intent)
+                                    }
+                                    else{
+                                        if(dataObj.get("is_signed_termAndCondition").asBoolean == false){
+                                            var intent = Intent(this, TermAndConditionActivityCustomer::class.java)
+                                            startActivity(intent)
+                                        }
+                                        else{
+                                            var intent = Intent(this, HomeActivityCustomer::class.java)
+                                            startActivity(intent)
+                                        }
+                                    }
+                                }
                             }
 
                              // Todo PROFESSIONAL
@@ -166,9 +181,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
 
                             }
                         }
-
                     }
-
 
                 }
                 else {
