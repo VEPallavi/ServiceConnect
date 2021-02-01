@@ -60,10 +60,10 @@ class DashboardAdapterCustomer(var mContext: Context, var categoryList: ArrayLis
 
 
             cl_main.setOnClickListener {
-//                var intent = Intent(mContext, SubCategoryListActivity::class.java)
-//                intent.putExtra("categoryId", dataModal.getId())
-//                intent.putExtra("categoryName", dataModal.getName())
-//                mContext.startActivity(intent)
+                var intent = Intent(mContext, SubCategoryListActivity::class.java)
+                intent.putExtra("categoryId", dataModal.getId())
+                intent.putExtra("categoryName", dataModal.getName())
+                mContext.startActivity(intent)
             }
 
         }

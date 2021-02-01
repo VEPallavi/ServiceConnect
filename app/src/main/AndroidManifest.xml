@@ -84,6 +84,8 @@
         <activity android:name=".activity.customer.TermAndConditionActivityCustomer"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".activity.customer.SetLocationAddressActivity"
+            android:screenOrientation="portrait" />
 
 
 

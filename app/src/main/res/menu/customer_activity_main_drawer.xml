@@ -4,29 +4,9 @@
       tools:showIn="navigation_view">
 
     <item
-        android:id="@+id/nav_salon_beauty"
-        android:icon="@drawable/salon_beauty_icon"
-        android:title="@string/menu_salon_beauty"/>
-    <item
-        android:id="@+id/nav_automative_autorepair"
-        android:icon="@drawable/automative_autorepair_icon"
-        android:title="@string/menu_automative_autorepair" />
-    <item
-        android:id="@+id/nav_homecare_product_pickup_ride"
-        android:icon="@drawable/home_care_product_pickup_ride_icon"
-        android:title="Home Care/Product pickup/Ride/Grocery/Restaurant" />
-    <item
-        android:id="@+id/nav_home_maintenance_remodeling"
-        android:icon="@drawable/home_maintenance_remodling_icon"
-        android:title="@string/menu_home_maintenance_remodeling" />
-    <item
-        android:id="@+id/nav_speciality"
-        android:icon="@drawable/speciality_icon"
-        android:title="@string/menu_speciality" />
-    <item
         android:id="@+id/nav_track_service_man"
         android:icon="@drawable/track_service_man_icon"
-        android:title="@string/menu_track_service_man" />
+        android:title="@string/menu_track_professional" />
     <item
         android:id="@+id/nav_my_service"
         android:icon="@drawable/my_service_icon"
@@ -45,8 +25,7 @@
     <item
         android:id="@+id/nav_reschedule_service"
         android:icon="@drawable/rescheduled_service_icon"
-        android:title="Rescheduled Service" />
-
+        android:title="@string/menu_rescheduled_service" />
 
     <item
         android:id="@+id/nav_refer_friends"

@@ -80,20 +80,15 @@ class HomeActivityCustomer : AppCompatActivity(), NavigationView.OnNavigationIte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_salon_beauty -> setDisplayFragment(1)
-            R.id.nav_automative_autorepair -> setDisplayFragment(2)
-            R.id.nav_homecare_product_pickup_ride -> setDisplayFragment(3)
-            R.id.nav_home_maintenance_remodeling -> setDisplayFragment(4)
-            R.id.nav_speciality -> setDisplayFragment(5)
-            R.id.nav_track_service_man -> setDisplayFragment(6)
-            R.id.nav_my_service -> setDisplayFragment(7)
-            R.id.nav_my_invoice -> setDisplayFragment(8)
-            R.id.nav_my_rating_comment -> setDisplayFragment(9)
-            R.id.nav_reschedule_service -> setDisplayFragment(10)
-            R.id.nav_refer_friends -> setDisplayFragment(11)
-            R.id.nav_notification -> setDisplayFragment(12)
-            R.id.nav_support -> setDisplayFragment(13)
-            R.id.nav_settings -> setDisplayFragment(14)
+            R.id.nav_track_service_man -> setDisplayFragment(1)
+            R.id.nav_my_service -> setDisplayFragment(2)
+            R.id.nav_my_invoice -> setDisplayFragment(3)
+            R.id.nav_my_rating_comment -> setDisplayFragment(4)
+            R.id.nav_reschedule_service -> setDisplayFragment(5)
+            R.id.nav_refer_friends -> setDisplayFragment(6)
+            R.id.nav_notification -> setDisplayFragment(7)
+            R.id.nav_support -> setDisplayFragment(8)
+            R.id.nav_settings -> setDisplayFragment(9)
         }
 
         val drawer = findViewById(R.id.drawer_layout) as DrawerLayout
@@ -127,58 +122,38 @@ class HomeActivityCustomer : AppCompatActivity(), NavigationView.OnNavigationIte
                 replaceFragment(mFragment)
             }
             1 -> {
-              //  var intent = Intent(this, SubCategoriesListActivity::class.java)
-              //  startActivity(intent)
-            }
-            2 -> {
-              //  var intent = Intent(this, Automative_AutoRepairActivity::class.java)
-             //   startActivity(intent)
-            }
-            3 -> {
-               // var intent = Intent(this, HomeCareProductPickUpRideActivity::class.java)
-               // startActivity(intent)
-            }
-            4 -> {
-               // var intent = Intent(this, HomeMaintenance_RemodelingActivity::class.java)
-               // startActivity(intent)
-            }
-            5 -> {
-              //  var intent = Intent(this, SpecialityActivity::class.java)
-              //  startActivity(intent)
-            }
-            6 -> {
                 var intent = Intent(this, TrackServiceManActivity::class.java)
                 startActivity(intent)
             }
-            7 -> {
+            2 -> {
                 var intent = Intent(this, MyServiceActivity::class.java)
                 startActivity(intent)
             }
-            8 -> {
+            3 -> {
                 var intent = Intent(this, MyInvoiceActivity::class.java)
                 startActivity(intent)
             }
-            9 -> {
+            4 -> {
                 var intent = Intent(this, MyRatingAndCommentActivity::class.java)
                 startActivity(intent)
             }
-            10 -> {
+            5 -> {
                 var intent = Intent(this, RescheduledServiceActivity::class.java)
                 startActivity(intent)
             }
-            11 -> {
+            6 -> {
 //                var intent = Intent(this, ReferFriendsActivity::class.java)
 //                startActivity(intent)
             }
-            12 -> {
+            7 -> {
                 mFragment = NotificationFragment()
                 replaceFragment(mFragment)
             }
-            13 -> {
+            8 -> {
 //                var intent = Intent(this, SupportActivity::class.java)
 //                startActivity(intent)
             }
-            14 -> {
+            9-> {
                var intent = Intent(this, SettingActivity::class.java)
                 startActivity(intent)
             }
