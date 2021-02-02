@@ -38,7 +38,6 @@ import com.google.android.libraries.places.widget.Autocomplete
 import com.google.android.libraries.places.widget.AutocompleteActivity
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
 import kotlinx.android.synthetic.main.customer_activity_set_location.*
-import okhttp3.internal.Util
 import java.io.IOException
 import java.util.*
 
@@ -62,10 +61,17 @@ class SetLocationAddressActivity : AppCompatActivity(), View.OnClickListener, On
     var currentLocationAddress: String? = null
     var destinationAddress: String?= null
     var serviceName: String? = null
+    var subCategoryId: String?= null
 
     private val AUTOCOMPLETE_REQUEST_CODE_YOUR_LOCATION = 41
     private val AUTOCOMPLETE_REQUEST_CODE_DESTINATION = 42
     private var isNeedToUpdateAddress: Boolean = true
+
+    var latitudeValue: String?= null
+    var longitudeValue: String?= null
+    var city: String =""
+    var state: String =""
+    var country: String =""
 
 
 
@@ -74,6 +80,7 @@ class SetLocationAddressActivity : AppCompatActivity(), View.OnClickListener, On
         setContentView(R.layout.customer_activity_set_location)
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         serviceName = intent.getStringExtra("serviceName")
+        subCategoryId = intent.getStringExtra("subCategoryId")
 
         val supportMapFragment = (supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?)!!
         supportMapFragment.getMapAsync(this@SetLocationAddressActivity)
@@ -126,9 +133,9 @@ class SetLocationAddressActivity : AppCompatActivity(), View.OnClickListener, On
         try {
             addresses = geocoder!!.getFromLocation(latitude, longitude, 1)
             currentLocationAddress = addresses!!.get(0).getAddressLine(0) // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
-            val city = addresses!!.get(0).locality
-            val state = addresses!!.get(0).adminArea
-            val country = addresses!!.get(0).countryName
+            city = addresses!!.get(0).locality
+            state = addresses!!.get(0).adminArea
+            country = addresses!!.get(0).countryName
             val postalCode = addresses!!.get(0).postalCode
             val knownName = addresses!!.get(0).featureName
             Log.e("<<TAG>>", "address index=" + currentLocationAddress)
@@ -137,6 +144,8 @@ class SetLocationAddressActivity : AppCompatActivity(), View.OnClickListener, On
             Log.e("<<TAG>>", "country index=" + country)
             Log.e("<<TAG>>", "postalCode index=" + postalCode)
             Log.e("<<TAG>>", "knownName index=" + knownName)
+            latitudeValue = latitude.toString()
+            longitudeValue = longitudeValue.toString()
             ed_currentLocation!!.setText(currentLocationAddress)
         } catch (e: IOException) {
             e.printStackTrace()
@@ -186,7 +195,15 @@ class SetLocationAddressActivity : AppCompatActivity(), View.OnClickListener, On
         tv_address.text = currentLocationAddress
         tv_done.setOnClickListener {
             addMoreDetailsDialog!!.dismiss()
-            openDialogOtherLocation()
+            val intent = Intent(this@SetLocationAddressActivity, ProfessionalListActivity::class.java)
+            intent.putExtra("serviceName", serviceName)
+            intent.putExtra("subCategoryId", subCategoryId)
+            intent.putExtra("latitude", latitudeValue)
+            intent.putExtra("longitude", longitudeValue)
+            intent.putExtra("country", country)
+            intent.putExtra("city", city)
+            startActivity(intent)
+          //  openDialogOtherLocation()
         }
     }
 
@@ -205,8 +222,8 @@ class SetLocationAddressActivity : AppCompatActivity(), View.OnClickListener, On
         val tv_done = addOtherLocationDialog!!.findViewById<Button>(R.id.tv_done)
         tv_no.setOnClickListener {
             addOtherLocationDialog!!.dismiss()
-            val intent = Intent(this@SetLocationAddressActivity, SalonAndBeautyBusinessListActivity::class.java)
-            intent.putExtra("serviceName", serviceName)
+            //val intent = Intent(this@SetLocationAddressActivity, ProfessionalListActivity::class.java)
+           // intent.putExtra("serviceName", serviceName)
             startActivity(intent)
         }
         tv_yes.setOnClickListener {
@@ -217,8 +234,8 @@ class SetLocationAddressActivity : AppCompatActivity(), View.OnClickListener, On
         }
         tv_done.setOnClickListener {
             addOtherLocationDialog!!.dismiss()
-            val intent = Intent(this@SetLocationAddressActivity, SalonAndBeautyBusinessListActivity::class.java)
-            intent.putExtra("serviceName", serviceName)
+          //  val intent = Intent(this@SetLocationAddressActivity, ProfessionalListActivity::class.java)
+          //  intent.putExtra("serviceName", serviceName)
             startActivity(intent)
         }
     }

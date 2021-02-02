@@ -15,10 +15,9 @@
 
     <ImageView
         android:id="@+id/iv_business_pic"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/_150sdp"
+        android:layout_width="@dimen/_70sdp"
+        android:layout_height="@dimen/_70sdp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:scaleType="fitXY"
         android:src="@drawable/dummy" />
@@ -27,13 +26,13 @@
         android:id="@+id/tv_professionName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/iv_business_pic"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_business_pic"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_5sdp"
-        android:alpha=".9"
         android:textSize="@dimen/_10sdp"
+        android:alpha=".8"
         android:textColor="@color/colorBlack"
         android:text="Profession Name" />
 
@@ -41,15 +40,71 @@
         android:id="@+id/tv_businessName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_professionName"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="@dimen/_5sdp"
         app:layout_constraintTop_toBottomOf="@+id/tv_professionName"
-        android:layout_marginTop="@dimen/_3sdp"
-        android:alpha=".9"
-        android:textSize="@dimen/_10sdp"
-        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_8sdp"
+        android:textColor="@color/light_grey"
         android:text="Business Name" />
+
+
+    <TextView
+        android:id="@+id/tv_purpose"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_professionName"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_businessName"
+        android:textSize="@dimen/_8sdp"
+        android:textColor="@color/light_grey"
+        android:text="Purpose" />
+
+    <TextView
+        android:id="@+id/tv_cities_of_operation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_professionName"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_purpose"
+        android:textSize="@dimen/_8sdp"
+        android:textColor="@color/light_grey"
+        android:text="Cities of operation" />
+
+
+    <TextView
+        android:id="@+id/txt_minimum_cost"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_professionName"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cities_of_operation"
+        android:textSize="@dimen/_8sdp"
+        android:textColor="@color/light_grey"
+        android:text="Minimum Costs:- " />
+
+
+
+    <TextView
+        android:id="@+id/tv_cost"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/txt_minimum_cost"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cities_of_operation"
+        android:textSize="@dimen/_8sdp"
+        android:textColor="@color/light_grey"
+        android:text="Minimum Costs:- " />
+
+
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/grey_4"
+        app:layout_constraintTop_toBottomOf="@+id/iv_business_pic"
+        android:layout_marginTop="@dimen/_10sdp"
+        />
+
 
     <TextView
         android:id="@+id/tv_ratingValue"
@@ -57,8 +112,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/tv_ratingCount"
-        app:layout_constraintTop_toBottomOf="@+id/tv_businessName"
-        android:layout_marginTop="@dimen/_3sdp"
+        app:layout_constraintTop_toBottomOf="@+id/divider1"
+        android:layout_marginTop="@dimen/_8sdp"
         android:drawableLeft="@drawable/star_icon"
         android:drawablePadding="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_5sdp"
@@ -94,53 +149,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_ratingValue" />
 
-    <ImageView
-        android:id="@+id/iv_licence_icon"
-        android:layout_width="@dimen/_10sdp"
-        android:layout_height="@dimen/_10sdp"
-        app:layout_constraintTop_toTopOf="@+id/iv_licence_pic"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_licence_pic"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="@dimen/_5sdp"
-        android:src="@drawable/salon_beauty_icon" />
-
-    <ImageView
-        android:id="@+id/iv_licence_pic"
-        android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_30sdp"
-        android:scaleType="fitXY"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginLeft="@dimen/_5sdp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_commentsCount"
-        app:layout_constraintLeft_toRightOf="@+id/iv_licence_icon"
-        android:src="@drawable/dummy_licence" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@+id/iv_licence_pic"
-        app:layout_constraintTop_toTopOf="@+id/iv_licence_pic"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_licence_pic"
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:textSize="@dimen/_9sdp"
-        android:textColor="@color/light_grey"
-        android:text="(Licence)"/>
-
-    <TextView
-        android:id="@+id/tv_address"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_licence_pic"
-        android:drawableLeft="@drawable/location_icon"
-        android:drawablePadding="@dimen/_5sdp"
-        android:alpha=".9"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginLeft="@dimen/_5sdp"
-        android:textSize="@dimen/_10sdp"
-        android:textColor="@color/colorBlack"
-        android:text="Address" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

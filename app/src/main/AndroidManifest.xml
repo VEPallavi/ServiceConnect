@@ -90,7 +90,7 @@
 
 
 
-        <activity android:name="com.Servicehubconnect.activity.customer.SalonAndBeautyBusinessListActivity"
+        <activity android:name="com.Servicehubconnect.activity.customer.ProfessionalListActivity"
             android:screenOrientation="portrait"/>
 
         <activity android:name="com.Servicehubconnect.activity.customer.ServiceDetailsAndOrderActivity"

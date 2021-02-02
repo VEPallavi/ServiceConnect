@@ -101,10 +101,11 @@ class SubCategoryListActivity : AppCompatActivity(), View.OnClickListener, ItemL
     override fun itemListener(dataModel: Any) {
         var dataModel = dataModel as SubCategoriesModal
 
-//        Log.e("<<< ", dataModel.name)
-//        var intent = Intent(this, SetLocationAddressActivity::class.java)
-//        intent.putExtra("serviceName", dataModel.name)
-//        startActivity(intent)
+        Log.e("<<< ", dataModel.name)
+        var intent = Intent(this, SetLocationAddressActivity::class.java)
+        intent.putExtra("serviceName", dataModel.name)
+        intent.putExtra("subCategoryId", dataModel._id)
+        startActivity(intent)
     }
 
 

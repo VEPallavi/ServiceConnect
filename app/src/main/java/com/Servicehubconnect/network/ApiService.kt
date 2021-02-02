@@ -71,6 +71,20 @@ interface ApiService {
      @Field("categoryId") categoryId: String
     ): Call<JsonObject>
 
+    @POST(ApiList.GET_PROFESSIONAL_LIST)
+    @FormUrlEncoded
+    fun getProfessionalList(
+      @Field("subCategoryId") subCategoryId: String,
+      @Field("longitude") longitude: String,
+      @Field("latitude") latitude: String,
+      @Field("Country") Country: String,
+      @Field("City") City: String
+    ): Call<JsonObject>
+
+
+
+
+
 
     @GET(ApiList.PRIVACY_POLICY_URL)
     fun getPrivacyPolicy(
