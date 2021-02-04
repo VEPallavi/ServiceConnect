@@ -10,8 +10,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.Servicehubconnect.R
 import com.Servicehubconnect.adapter.customerApp.ProfessionalListAdapter
 import com.Servicehubconnect.callback.ItemListener
+import com.Servicehubconnect.modal.customer.ProfessionalListDataModel
 import com.Servicehubconnect.viewModel.customer.ProfessionalListViewModel
+import com.google.gson.Gson
 import com.google.gson.JsonArray
+import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.customer_activity_professional_list.*
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
 
@@ -23,8 +26,9 @@ class ProfessionalListActivity : AppCompatActivity(), View.OnClickListener, Item
     var subCategoryId: String?= null
     var latitudeValue: String?= null
     var longitudeValue: String?= null
-    var city: String =""
-    var country: String =""
+    var city: String?= null
+    var country: String?= null
+    var keyword: String?= null
 
 
 
@@ -45,27 +49,42 @@ class ProfessionalListActivity : AppCompatActivity(), View.OnClickListener, Item
     private fun initViews() {
         serviceName = intent.getStringExtra("serviceName")
         subCategoryId = intent.getStringExtra("subCategoryId")
+        latitudeValue = intent.getStringExtra("latitude")
+        longitudeValue = intent.getStringExtra("longitude")
+        city = intent.getStringExtra("city")
+        country = intent.getStringExtra("country")
+
         tv_title.text = serviceName
 
-        rv_service_ist.setHasFixedSize(true)
-        rv_service_ist.layoutManager = LinearLayoutManager(this)
-        adapter = ProfessionalListAdapter(this, this)
-        rv_service_ist.adapter = adapter
+        rv_professionalList.setHasFixedSize(true)
+        rv_professionalList.layoutManager = LinearLayoutManager(this)
     }
 
 
 
 
     private fun getProfessionalList() {
-        viewModel!!.getProfessionalList(this, subCategoryId!!, longitudeValue!!, latitudeValue!!, country, city).observe(this, Observer {
+        keyword = ""
+        viewModel!!.getProfessionalList(this, subCategoryId!!, longitudeValue!!, latitudeValue!!, country!!, city!!, keyword!!).observe(this, Observer {
 
             if(it!= null){
 
                 if(it.has("status") && it.get("status").asString.equals("200")){
 
                     if(it.has("data") && it.get("data") is JsonArray){
+                        val type = object : TypeToken<ArrayList<ProfessionalListDataModel>>() {}.type
+                        var professionalList = Gson().fromJson<ArrayList<ProfessionalListDataModel>>(it.get("data"), type)
 
-
+                        if(professionalList.size > 0){
+                            rv_professionalList.visibility = View.VISIBLE
+                            tv_noDataFound.visibility = View.GONE
+                            adapter = ProfessionalListAdapter(this, professionalList, this)
+                            rv_professionalList.adapter = adapter
+                        }
+                        else{
+                            rv_professionalList.visibility = View.GONE
+                            tv_noDataFound.visibility = View.VISIBLE
+                        }
                     }
                 }
             }
@@ -79,6 +98,7 @@ class ProfessionalListActivity : AppCompatActivity(), View.OnClickListener, Item
             R.id.ivBack ->{
                 finish()
             }
+
         }
     }
 

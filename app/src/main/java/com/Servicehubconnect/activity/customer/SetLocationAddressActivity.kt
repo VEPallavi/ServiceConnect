@@ -145,7 +145,7 @@ class SetLocationAddressActivity : AppCompatActivity(), View.OnClickListener, On
             Log.e("<<TAG>>", "postalCode index=" + postalCode)
             Log.e("<<TAG>>", "knownName index=" + knownName)
             latitudeValue = latitude.toString()
-            longitudeValue = longitudeValue.toString()
+            longitudeValue = longitude.toString()
             ed_currentLocation!!.setText(currentLocationAddress)
         } catch (e: IOException) {
             e.printStackTrace()

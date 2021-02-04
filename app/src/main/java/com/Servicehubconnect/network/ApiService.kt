@@ -78,7 +78,8 @@ interface ApiService {
       @Field("longitude") longitude: String,
       @Field("latitude") latitude: String,
       @Field("Country") Country: String,
-      @Field("City") City: String
+      @Field("City") City: String,
+      @Field("keyword") keyword: String
     ): Call<JsonObject>
 
 
