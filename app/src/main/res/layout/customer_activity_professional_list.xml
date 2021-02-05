@@ -25,8 +25,8 @@
             app:layout_constraintTop_toTopOf="parent">
         </include>
 
-        <EditText
-            android:id="@+id/tv_searchSecond_toolbar"
+        <TextView
+            android:id="@+id/tv_search_business"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_8sdp"

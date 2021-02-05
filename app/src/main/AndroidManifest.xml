@@ -167,6 +167,9 @@
         <activity android:name="com.Servicehubconnect.activity.servicePerson.MyInvoiceActivitySP"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".activity.customer.SearchBusinessActivity"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".activity.servicePerson.TermAndConditionActivityProfessional"
             android:screenOrientation="portrait"/>
 

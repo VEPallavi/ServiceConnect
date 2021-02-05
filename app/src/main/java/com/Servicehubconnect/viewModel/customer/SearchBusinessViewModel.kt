@@ -11,20 +11,20 @@ import retrofit2.Call
 import retrofit2.Response
 
 
-class ProfessionalListViewModel : ViewModel(){
-    var professionalListResult: MutableLiveData<JsonObject>?= null
+class SearchBusinessViewModel : ViewModel(){
+    var searchBusinessResult: MutableLiveData<JsonObject>?= null
 
 
 
-    fun getProfessionalList(mContext: Context, subCategoryId: String, longitude: String, latitude: String, country: String
-                            , city: String, keyword: String): MutableLiveData<JsonObject>{
-        professionalListResult = MutableLiveData()
-//        var subCategoryId = "600e6aeffb9991656e1317fd"
-//        var latitude = "26.8467088"
-//        var longitude = "80.9461592"
+
+
+    fun searchBusiness(mContext: Context, subCategoryId: String, longitude: String, latitude: String, country: String
+                       , city: String, keyword: String): MutableLiveData<JsonObject>
+    {
+        searchBusinessResult = MutableLiveData()
 
         var apiService = ApiClient.getClient().create(ApiService::class.java)
-        var call = apiService.getProfessionalList(subCategoryId, longitude, latitude, country, city, keyword)
+        var call = apiService.searchBusiness(subCategoryId, longitude, latitude, country, city, keyword)
 
         Utils.showProgressDialog(mContext)
 
@@ -32,21 +32,18 @@ class ProfessionalListViewModel : ViewModel(){
             override fun onFailure(call: Call<JsonObject>, t: Throwable) {
                 Utils.hideProgressDialog()
                 Utils.showLog(t.message!!)
+
             }
+
             override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
                 Utils.hideProgressDialog()
                 if(response!= null && response.body()!= null){
-                    professionalListResult!!.value = response.body()
+                    searchBusinessResult!!.value = response.body()
                 }
             }
         })
-        return professionalListResult!!
+        return searchBusinessResult!!
     }
-
-
-
-
-
 
 
 

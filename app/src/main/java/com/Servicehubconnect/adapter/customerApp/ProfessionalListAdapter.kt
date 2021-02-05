@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.Servicehubconnect.R
 import com.Servicehubconnect.callback.ItemListener
 import com.Servicehubconnect.modal.customer.ProfessionalListDataModel
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 
 
 class ProfessionalListAdapter(var mContext: Context, var professionalList: ArrayList<ProfessionalListDataModel>, var itemListener: ItemListener) : RecyclerView.Adapter<ProfessionalListAdapter.ProfessionalListViewHolder>(){
@@ -79,6 +81,13 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
             tv_businessName.setText(dataModal.getBussinessName())
             tv_cities_of_operation.setText(dataModal.getCity())
             tv_ratingValue.setText(""+dataModal.getRatingAverage())
+
+
+
+            Glide.with(mContext)
+                    .load(dataModal.getProfilePic())
+                    .apply(RequestOptions().placeholder(R.drawable.dummy).error(R.drawable.dummy))
+                    .into(iv_business_pic)
 
 
             var totalRating: String =""

@@ -44,6 +44,7 @@ class ProfessionalListActivity : AppCompatActivity(), View.OnClickListener, Item
 
     private fun setOnClickListener() {
         ivBack.setOnClickListener(this)
+        tv_search_business.setOnClickListener(this)
     }
 
     private fun initViews() {
@@ -98,13 +99,23 @@ class ProfessionalListActivity : AppCompatActivity(), View.OnClickListener, Item
             R.id.ivBack ->{
                 finish()
             }
+            R.id.tv_search_business ->{
+                var intent = Intent(this, SearchBusinessActivity::class.java)
+                intent.putExtra("serviceName", serviceName)
+                intent.putExtra("subCategoryId", subCategoryId)
+                intent.putExtra("latitude", latitudeValue)
+                intent.putExtra("longitude", longitudeValue)
+                intent.putExtra("country", country)
+                intent.putExtra("city", city)
+                startActivity(intent)
+            }
 
         }
     }
 
     override fun itemListener(dataModel: Any) {
-        var intent = Intent(this, ServiceDetailsAndOrderActivity::class.java)
-        startActivity(intent)
+       // var intent = Intent(this, ServiceDetailsAndOrderActivity::class.java)
+      //  startActivity(intent)
     }
 
 
