@@ -195,14 +195,24 @@ class SetLocationAddressActivity : AppCompatActivity(), View.OnClickListener, On
         tv_address.text = currentLocationAddress
         tv_done.setOnClickListener {
             addMoreDetailsDialog!!.dismiss()
-            val intent = Intent(this@SetLocationAddressActivity, ProfessionalListActivity::class.java)
+      /*      val intent = Intent(this@SetLocationAddressActivity, ProfessionalListActivity::class.java)
             intent.putExtra("serviceName", serviceName)
             intent.putExtra("subCategoryId", subCategoryId)
             intent.putExtra("latitude", latitudeValue)
             intent.putExtra("longitude", longitudeValue)
             intent.putExtra("country", country)
             intent.putExtra("city", city)
+            startActivity(intent)*/
+
+
+
+
+
+            var intent = Intent(this, ProfessionalDetailsWithProductsAndServicesActivity::class.java)
+            intent.putExtra("professionalId", "12")
             startActivity(intent)
+
+
           //  openDialogOtherLocation()
         }
     }

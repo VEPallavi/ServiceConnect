@@ -83,6 +83,16 @@ interface ApiService {
     ): Call<JsonObject>
 
 
+    @POST(ApiList.GET_PROFESSIONAL_DETAILS)
+    @FormUrlEncoded
+    fun getProfessionalDetails(
+            @Field("professionalId") professionalId: String
+
+    ): Call<JsonObject>
+
+
+
+
     @POST(ApiList.GET_PROFESSIONAL_LIST)
     @FormUrlEncoded
     fun searchBusiness(

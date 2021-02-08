@@ -113,9 +113,12 @@ class ProfessionalListActivity : AppCompatActivity(), View.OnClickListener, Item
         }
     }
 
-    override fun itemListener(dataModel: Any) {
-       // var intent = Intent(this, ServiceDetailsAndOrderActivity::class.java)
-      //  startActivity(intent)
+    override fun itemListener(dataModal: Any) {
+        var dataItems= dataModal as ProfessionalListDataModel
+
+        var intent = Intent(this, ProfessionalDetailsWithProductsAndServicesActivity::class.java)
+        intent.putExtra("professionalId", dataItems.getId())
+        startActivity(intent)
     }
 
 

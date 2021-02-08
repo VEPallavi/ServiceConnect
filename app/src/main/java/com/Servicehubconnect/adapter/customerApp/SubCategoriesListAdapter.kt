@@ -47,11 +47,11 @@ class SubCategoriesListAdapter(var mContext: Context, var subCategoriesList: Arr
 
         fun bindItems(dataModal: SubCategoriesModal){
 
-//            Glide.with(mContext)
-//                    .load()
-//                    .apply(RequestOptions().placeholder(R.drawable.dashboard_homecare_productpick_icon)
-//                            .error(R.drawable.dashboard_homecare_productpick_icon))
-//                    .into(ivSubCategoryImage)
+            Glide.with(mContext)
+                    .load(dataModal.sub_category_images)
+                    .apply(RequestOptions().placeholder(R.drawable.dashboard_homecare_productpick_icon)
+                            .error(R.drawable.dashboard_homecare_productpick_icon))
+                    .into(ivSubCategoryImage)
 
             tvSubCategoryName.text = dataModal.name
 

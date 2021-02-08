@@ -52,7 +52,7 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
         var tv_insurance_yes_no: TextView
         var tv_certificate_yes_no: TextView
         var tv_driving_licence_yes_no: TextView
-        var tv_commercial_insured_yes_no: TextView
+        var tvCommercialInsured: TextView
         var cl_main: ConstraintLayout
 
         init {
@@ -70,7 +70,7 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
             tv_insurance_yes_no = view.findViewById(R.id.tv_insurance_yes_no)
             tv_certificate_yes_no = view.findViewById(R.id.tv_certificate_yes_no)
             tv_driving_licence_yes_no = view.findViewById(R.id.tv_driving_licence_yes_no)
-            tv_commercial_insured_yes_no = view.findViewById(R.id.tv_commercial_insured_yes_no)
+            tvCommercialInsured = view.findViewById(R.id.tv_commercial_insured_yes_no)
             cl_main= view.findViewById(R.id.cl_main)
         }
 
@@ -143,10 +143,10 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
 
 
             if(dataModal.getCommercialInsurance() == true){
-                tv_commercial_insured_yes_no.setText("Yes/Cleared")
+                tvCommercialInsured.setText("Yes/Cleared")
             }
             else{
-                tv_commercial_insured_yes_no.setText("N/A")
+                tvCommercialInsured.setText("N/A")
             }
 
             tv_purpose.setText(dataModal.getProfessionalPurpose())

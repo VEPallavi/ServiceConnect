@@ -72,8 +72,8 @@
         <activity android:name="com.Servicehubconnect.activity.ResetPasswordActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name="com.Servicehubconnect.activity.customer.SetLocationActivity"
-            android:screenOrientation="portrait"/>
+<!--        <activity android:name="com.Servicehubconnect.activity.customer.SetLocationActivity"-->
+<!--            android:screenOrientation="portrait"/>-->
 
         <activity android:name=".activity.customer.SubCategoryListActivity"
             android:screenOrientation="portrait"/>
@@ -93,7 +93,7 @@
         <activity android:name="com.Servicehubconnect.activity.customer.ProfessionalListActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.Servicehubconnect.activity.customer.ServiceDetailsAndOrderActivity"
+        <activity android:name=".activity.customer.ProfessionalDetailsWithProductsAndServicesActivity"
             android:screenOrientation="portrait"/>
 
         <activity android:name="com.Servicehubconnect.activity.customer.LicenceListActivity"
