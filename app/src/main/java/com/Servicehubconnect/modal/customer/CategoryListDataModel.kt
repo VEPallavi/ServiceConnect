@@ -34,6 +34,12 @@ class CategoryListDataModel {
     @Expose
     private var v: Int? = null
 
+    @SerializedName("is_required_two_location")
+    @Expose
+    private var is_required_two_location: Boolean?= null
+
+
+
     fun getIsDeleted(): Int? {
         return isDeleted
     }
@@ -90,6 +96,15 @@ class CategoryListDataModel {
         this.v = v
     }
 
+
+
+    fun getIsRequiredTwoLocation(): Boolean? {
+        return is_required_two_location
+    }
+
+    fun setIsRequiredTwoLocation(is_required_two_location: Boolean?) {
+        this.is_required_two_location = is_required_two_location
+    }
 
 }
 

@@ -63,6 +63,7 @@ class DashboardAdapterCustomer(var mContext: Context, var categoryList: ArrayLis
                 var intent = Intent(mContext, SubCategoryListActivity::class.java)
                 intent.putExtra("categoryId", dataModal.getId())
                 intent.putExtra("categoryName", dataModal.getName())
+                intent.putExtra("is_required_two_location", dataModal.getIsRequiredTwoLocation())
                 mContext.startActivity(intent)
             }
 

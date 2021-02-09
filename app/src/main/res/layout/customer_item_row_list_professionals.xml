@@ -41,8 +41,9 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginLeft="@dimen/_8sdp"
-            android:textSize="@dimen/_10sdp"
+            android:textSize="@dimen/_12sdp"
             android:alpha=".8"
+            android:textStyle="bold"
             android:textColor="@color/colorBlack"
             android:text="Profession Name" />
 

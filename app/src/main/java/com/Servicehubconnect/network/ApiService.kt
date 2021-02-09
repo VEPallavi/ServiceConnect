@@ -92,16 +92,10 @@ interface ApiService {
 
 
 
-
-    @POST(ApiList.GET_PROFESSIONAL_LIST)
+    @POST(ApiList.GET_COMMENT_LIST_URL)
     @FormUrlEncoded
-    fun searchBusiness(
-            @Field("subCategoryId") subCategoryId: String,
-            @Field("longitude") longitude: String,
-            @Field("latitude") latitude: String,
-            @Field("Country") Country: String,
-            @Field("City") City: String,
-            @Field("keyword") keyword: String
+    fun getCommentList(
+            @Field("professionalId") professionalId: String
     ): Call<JsonObject>
 
 

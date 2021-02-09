@@ -137,6 +137,7 @@ class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), V
             }
             R.id.tv_comment ->{
                 var intent = Intent(this, CommentListActivity::class.java)
+                intent.putExtra("professionalId", professionalId)
                 startActivity(intent)
             }
             R.id.tv_order ->{

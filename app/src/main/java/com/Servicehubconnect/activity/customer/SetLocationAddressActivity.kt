@@ -62,6 +62,7 @@ class SetLocationAddressActivity : AppCompatActivity(), View.OnClickListener, On
     var destinationAddress: String?= null
     var serviceName: String? = null
     var subCategoryId: String?= null
+    var isRequiredTwoLocation: Boolean?= null
 
     private val AUTOCOMPLETE_REQUEST_CODE_YOUR_LOCATION = 41
     private val AUTOCOMPLETE_REQUEST_CODE_DESTINATION = 42
@@ -75,12 +76,23 @@ class SetLocationAddressActivity : AppCompatActivity(), View.OnClickListener, On
 
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.customer_activity_set_location)
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         serviceName = intent.getStringExtra("serviceName")
         subCategoryId = intent.getStringExtra("subCategoryId")
+        isRequiredTwoLocation = intent.getBooleanExtra("is_required_two_location", false)
+
+
+        if(isRequiredTwoLocation == true){
+
+        }
+        else{
+            divider_1.visibility = View.GONE
+            ed_destination.visibility = View.GONE
+        }
 
         val supportMapFragment = (supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?)!!
         supportMapFragment.getMapAsync(this@SetLocationAddressActivity)
@@ -195,22 +207,22 @@ class SetLocationAddressActivity : AppCompatActivity(), View.OnClickListener, On
         tv_address.text = currentLocationAddress
         tv_done.setOnClickListener {
             addMoreDetailsDialog!!.dismiss()
-      /*      val intent = Intent(this@SetLocationAddressActivity, ProfessionalListActivity::class.java)
+            val intent = Intent(this@SetLocationAddressActivity, ProfessionalListActivity::class.java)
             intent.putExtra("serviceName", serviceName)
             intent.putExtra("subCategoryId", subCategoryId)
             intent.putExtra("latitude", latitudeValue)
             intent.putExtra("longitude", longitudeValue)
             intent.putExtra("country", country)
             intent.putExtra("city", city)
-            startActivity(intent)*/
-
-
-
-
-
-            var intent = Intent(this, ProfessionalDetailsWithProductsAndServicesActivity::class.java)
-            intent.putExtra("professionalId", "12")
             startActivity(intent)
+
+
+
+
+
+        /*    var intent = Intent(this, ProfessionalDetailsWithProductsAndServicesActivity::class.java)
+            intent.putExtra("professionalId", "12")
+            startActivity(intent)*/
 
 
           //  openDialogOtherLocation()

@@ -28,6 +28,7 @@ class SubCategoryListActivity : AppCompatActivity(), View.OnClickListener, ItemL
     var viewModel: SubCategoriesListViewModel?=  null
     var categoryId: String?= null
     var categoryName: String?= null
+    var isRequiredTwoLocation: Boolean?= null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +40,7 @@ class SubCategoryListActivity : AppCompatActivity(), View.OnClickListener, ItemL
             if(intent!= null){
                 categoryId = intent.getStringExtra("categoryId")
                 categoryName = intent.getStringExtra("categoryName")
+                isRequiredTwoLocation = intent.getBooleanExtra("is_required_two_location", false)
             }
 
         }catch (e: Exception){
@@ -105,6 +107,7 @@ class SubCategoryListActivity : AppCompatActivity(), View.OnClickListener, ItemL
         var intent = Intent(this, SetLocationAddressActivity::class.java)
         intent.putExtra("serviceName", dataModel.name)
         intent.putExtra("subCategoryId", dataModel._id)
+        intent.putExtra("is_required_two_location", isRequiredTwoLocation)
         startActivity(intent)
     }
 

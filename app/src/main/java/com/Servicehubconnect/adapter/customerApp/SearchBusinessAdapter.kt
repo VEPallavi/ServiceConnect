@@ -1,13 +1,17 @@
 package com.Servicehubconnect.adapter.customerApp
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.Servicehubconnect.R
+import com.Servicehubconnect.activity.customer.ProfessionalDetailsWithProductsAndServicesActivity
 import com.Servicehubconnect.modal.customer.ProfessionalListDataModel
+import com.Servicehubconnect.viewModel.customer.ProfessionalDetailsWithProductsAndServicesViewModel
 
 
 class SearchBusinessAdapter(var mContext: Context, var dataList: ArrayList<ProfessionalListDataModel>): RecyclerView.Adapter<SearchBusinessAdapter.SearchBusinessViewHolder>(){
@@ -31,13 +35,25 @@ class SearchBusinessAdapter(var mContext: Context, var dataList: ArrayList<Profe
 
     inner class SearchBusinessViewHolder(view: View): RecyclerView.ViewHolder(view){
         var tv_name: TextView
+        var layout_search: LinearLayout
 
         init {
             tv_name = view.findViewById(R.id.tv_name)
+            layout_search = view.findViewById(R.id.layout_search)
         }
 
         fun bindItems(dataModal: ProfessionalListDataModel){
             tv_name.setText(dataModal.getBussinessName())
+
+
+            layout_search.setOnClickListener {
+                var intent = Intent(mContext, ProfessionalDetailsWithProductsAndServicesActivity::class.java)
+                intent.putExtra("professionalId", dataModal.getId())
+                mContext.startActivity(intent)
+            }
+
+
+
         }
     }
 

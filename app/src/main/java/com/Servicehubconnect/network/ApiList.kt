@@ -18,6 +18,7 @@ class ApiList {
         const val SUB_CATEGORY_LIST_URL = "user/get-subCategory-list"
         const val GET_PROFESSIONAL_LIST = "user/get-professional-list"
         const val GET_PROFESSIONAL_DETAILS ="user/get-professionalDetails"
+        const val GET_COMMENT_LIST_URL = "user/get-professional-all-comments"
 
     }
 
