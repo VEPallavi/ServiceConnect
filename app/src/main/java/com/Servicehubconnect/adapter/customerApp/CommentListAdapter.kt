@@ -60,7 +60,7 @@ class CommentListAdapter(var mContext: Context, var dataList: ArrayList<CommentL
 
         fun bindItems(dataModal: CommentListModal){
             tv_name.setText(dataModal.user_name)
-            tv_rating.setText(dataModal.rating)
+            tv_rating.setText(""+dataModal.rating)
             tv_address.setText(dataModal.user_country)
             tv_date.setText(dataModal.createdAt)
             tv_comment.setText(dataModal.comment)

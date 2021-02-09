@@ -39,7 +39,7 @@ class CommentListActivity : AppCompatActivity(), View.OnClickListener{
 
 
 
-        getData()
+   //     getData()
 
 
     }
@@ -61,19 +61,9 @@ class CommentListActivity : AppCompatActivity(), View.OnClickListener{
                             adapter = CommentListAdapter(this, commentList)
                             rv_comment_list.adapter = adapter
                         }
-
-
                     }
-
-
-
-
                 }
-
-
             }
-
-
         })
     }
 
