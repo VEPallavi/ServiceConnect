@@ -100,6 +100,13 @@ interface ApiService {
 
 
 
+    @GET(ApiList.GET_RATING_COMMENTS_URL)
+    fun getRatingAndComment(
+
+    ): Call<JsonObject>
+
+
+
     @GET(ApiList.PRIVACY_POLICY_URL)
     fun getPrivacyPolicy(
         @Header("Authorization") token: String
@@ -121,5 +128,11 @@ interface ApiService {
     fun submitTermAndCondition(
             @Header("Authorization") token: String
     ): Call<JsonObject>
+
+
+
+
+
+
 
 }

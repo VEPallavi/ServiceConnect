@@ -12,7 +12,8 @@ class AppPreference()
     var CUSTOMER_USER_ID = "CUSTOMER_USER_ID"
     var CUSTOMER_NAME = "CUSTOMER_NAME"
 
-
+    var PROFESSIONAL_USER_ID = "PROFESSIONAL_USER_ID"
+    var PROFESSIONAL_NAME = "PROFESSIONAL_NAME"
 
 
 
@@ -68,28 +69,44 @@ class AppPreference()
         return mPreference!!.getBoolean(key, false)
     }
 
+
     fun getAuthToken(): String {
         return getString(TOKEN)
     }
-
     fun setAuthToken(token: String) {
         setString(TOKEN, token)
     }
 
+
     fun getCustomerUserID(): String {
         return getString(CUSTOMER_USER_ID)
     }
-
     fun setCustomerUserID(userId: String) {
         setString(CUSTOMER_USER_ID, userId)
     }
 
+
     fun getCustomerName(): String {
         return getString(CUSTOMER_NAME)
     }
-
     fun setCustomerName(userId: String) {
         setString(CUSTOMER_NAME, userId)
+    }
+
+
+    fun getProfessionalUserID(): String {
+        return getString(PROFESSIONAL_USER_ID)
+    }
+    fun setProfessionalUserID(userId: String) {
+        setString(PROFESSIONAL_USER_ID, userId)
+    }
+
+
+    fun getProfessionalName(): String {
+        return getString(PROFESSIONAL_NAME)
+    }
+    fun setProfessionalName(userId: String) {
+        setString(PROFESSIONAL_NAME, userId)
     }
 
 
@@ -97,9 +114,13 @@ class AppPreference()
     fun getAppType(): String {
         return getString(APP_TYPE)
     }
-
     fun setAppType(app_type: String) {
         setString(APP_TYPE, app_type)
     }
+
+
+
+
+
 
 }

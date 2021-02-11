@@ -14,6 +14,10 @@ import com.Servicehubconnect.R
 import com.Servicehubconnect.activity.customer.HomeActivityCustomer
 import com.Servicehubconnect.activity.customer.PrivacyPolicyActivityCustomer
 import com.Servicehubconnect.activity.customer.TermAndConditionActivityCustomer
+import com.Servicehubconnect.activity.servicePerson.HomeActivitySP
+import com.Servicehubconnect.activity.servicePerson.PrivacyPolicyActivityProfessional
+import com.Servicehubconnect.activity.servicePerson.SubscriptionActivitySP
+import com.Servicehubconnect.activity.servicePerson.TermAndConditionActivityProfessional
 import com.Servicehubconnect.helper.AppPreference
 import com.Servicehubconnect.helper.Utils
 import com.Servicehubconnect.viewModel.LoginViewModel
@@ -177,8 +181,43 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
                             else if(dataObj.get("user_type").asString.equals("professional")
                                     || dataObj.get("user_type").asString.equals("business_user"))
                             {
+
                                 appPreference?.setAppType("2")  // app type "2" - Professional/ service-person/ business_user
 
+                                if(dataObj.has("_id")){
+                                    appPreference?.setProfessionalUserID(dataObj.get("_id").asString)
+                                }
+
+                                if(dataObj.has("name")){
+                                    appPreference?.setProfessionalName(dataObj.get("name").asString)
+                                }
+
+                                if(dataObj.has("is_signed_privacyPolicy")
+                                        && dataObj.has("is_signed_termAndCondition")
+                                        && dataObj.has("is_subscribed")) {
+
+                                    if(dataObj.get("is_signed_privacyPolicy").asBoolean == false){
+                                        var intent = Intent(this, PrivacyPolicyActivityProfessional::class.java)
+                                        startActivity(intent)
+                                    }
+                                    else{
+                                        if(dataObj.get("is_signed_termAndCondition").asBoolean == false){
+                                            var intent = Intent(this, TermAndConditionActivityProfessional::class.java)
+                                            startActivity(intent)
+                                        }
+                                        else{
+
+                                            if(dataObj.get("is_subscribed").asBoolean == false){
+                                                var intent = Intent(this, SubscriptionActivitySP::class.java)
+                                                startActivity(intent)
+                                            }
+                                            else{
+                                                var intent = Intent(this, HomeActivitySP::class.java)
+                                                startActivity(intent)
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
