@@ -95,14 +95,14 @@ interface ApiService {
     @POST(ApiList.GET_COMMENT_LIST_URL)
     @FormUrlEncoded
     fun getCommentList(
-            @Field("professionalId") professionalId: String
+        @Field("professionalId") professionalId: String
     ): Call<JsonObject>
 
 
 
     @GET(ApiList.GET_RATING_COMMENTS_URL)
     fun getRatingAndComment(
-
+        @Header("Authorization") token: String
     ): Call<JsonObject>
 
 

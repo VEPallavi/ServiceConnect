@@ -3,6 +3,7 @@ package com.Servicehubconnect.viewModel.customer
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.Servicehubconnect.helper.AppPreference
 import com.Servicehubconnect.helper.Utils
 import com.Servicehubconnect.network.ApiClient
 import com.Servicehubconnect.network.ApiService
@@ -13,15 +14,18 @@ import retrofit2.Response
 
 class MyRatingAndCommentViewModel : ViewModel(){
     var myRatingAndCommentResult: MutableLiveData<JsonObject>?= null
-
+    var preference: AppPreference?= null
 
 
 
     fun getRatingAndComments(mContext: Context): MutableLiveData<JsonObject>{
         myRatingAndCommentResult = MutableLiveData()
+        preference = AppPreference.getInstance(mContext)
+        var token = preference!!.getAuthToken()
+
 
         var apiService = ApiClient.getClient().create(ApiService::class.java)
-        var call = apiService.getRatingAndComment()
+        var call = apiService.getRatingAndComment("Bearer"+ token)
 
         Utils.showProgressDialog(mContext)
 

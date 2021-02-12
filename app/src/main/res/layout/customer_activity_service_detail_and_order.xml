@@ -62,7 +62,7 @@
             app:layout_constraintTop_toBottomOf="@+id/iv_business_pic"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginLeft="@dimen/_5sdp"
-            android:textSize="@dimen/_10sdp"
+            android:textSize="@dimen/_12sdp"
             android:textColor="@color/colorBlack"
             android:text="Profession Name" />
 

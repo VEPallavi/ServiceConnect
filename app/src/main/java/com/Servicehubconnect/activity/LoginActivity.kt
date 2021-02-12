@@ -3,10 +3,12 @@ package com.Servicehubconnect.activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
+import android.text.TextUtils
 import android.text.TextWatcher
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -23,6 +25,7 @@ import com.Servicehubconnect.helper.Utils
 import com.Servicehubconnect.viewModel.LoginViewModel
 import com.google.gson.JsonObject
 import kotlinx.android.synthetic.main.activity_login.*
+
 
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener{
@@ -51,6 +54,42 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
             var intent = Intent(this, PrivacyPolicyActivityCustomer::class.java)
             startActivity(intent)
         }
+
+
+//        txt_login.setOnClickListener {
+////            val picker = CurrencyPicker.newInstance("Select Currency") // dialog title
+////
+////            picker.setListener { name, code, symbol, flagDrawableResID ->
+////               Utils.showLog(name+ code+ symbol+ flagDrawableResID)
+////                txt_login.setText(code)
+////                picker.dismiss()
+////            }
+////            picker.show(supportFragmentManager, "CURRENCY_PICKER")
+//
+//
+//            val pickerDialog = CountryCurrencyPicker.newInstance(PickerType.COUNTRYandCURRENCY, object : CountryCurrencyPickerListener {
+//                override fun onSelectCountry(country: Country?) {}
+//                override fun onSelectCurrency(currency: Currency) {
+//                    if (currency.getCountries() == null) {
+//
+//                        Utils.showLog(String.format("name: %s\nsymbol: %s", currency.getName(), currency.getSymbol()))
+//                        Utils.showLog(String.format("name: %s\nsymbol: %s", currency.getName()))
+////                        Toast.makeText(this@MainActivity,
+////                                String.format("name: %s\nsymbol: %s", currency.getName(), currency.getSymbol())
+////                                , Toast.LENGTH_SHORT).show()
+//                    } else {
+//                        Utils.showLog(String.format("name: %s\nsymbol: %s", currency.getName(), currency.getSymbol()))
+//                        Utils.showLog(String.format("name: %s\nsymbol: %s", currency.getName()))
+////                        Toast.makeText(this@MainActivity,
+////                                String.format("name: %s\ncurrencySymbol: %s\ncountries: %s", currency.getName(), currency.getSymbol(), TextUtils.join(", ", currency.getCountriesNames()))
+////                                , Toast.LENGTH_SHORT).show()
+//                    }
+//                }
+//            })
+//
+//            pickerDialog.show(supportFragmentManager, CountryCurrencyPicker.DIALOG_NAME)
+//
+//        }
 
     }
 
