@@ -45,8 +45,8 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener{
                 finish()
             }
             R.id.tv_profile ->{
-//                var intent = Intent(this, ProfileActivity::class.java)
-//                startActivity(intent)
+                var intent = Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
             }
             R.id.tv_share ->{
             //    shareLink()

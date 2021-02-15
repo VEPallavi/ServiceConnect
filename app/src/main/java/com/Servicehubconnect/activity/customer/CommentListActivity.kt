@@ -38,9 +38,7 @@ class CommentListActivity : AppCompatActivity(), View.OnClickListener{
         rv_comment_list.layoutManager = LinearLayoutManager(this)
 
 
-
-   //     getData()
-
+        getData()
 
     }
 
@@ -55,12 +53,17 @@ class CommentListActivity : AppCompatActivity(), View.OnClickListener{
                         val type = object : TypeToken<ArrayList<CommentListModal>>() {}.type
                         var commentList = Gson().fromJson<ArrayList<CommentListModal>>(it.get("data"), type)
 
-
-
                         if(commentList.size >0 ){
+                            tv_no_data_found.visibility = View.GONE
+                            rv_comment_list.visibility = View.VISIBLE
                             adapter = CommentListAdapter(this, commentList)
                             rv_comment_list.adapter = adapter
                         }
+                        else {
+                            tv_no_data_found.visibility = View.VISIBLE
+                            rv_comment_list.visibility = View.GONE
+                        }
+
                     }
                 }
             }

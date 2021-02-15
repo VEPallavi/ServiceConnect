@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager.widget.ViewPager
 import com.Servicehubconnect.R
 import com.Servicehubconnect.adapter.customerApp.ServiceDetailsAndOrderViewPagerAdapter
+import com.Servicehubconnect.helper.Utils
 import com.Servicehubconnect.viewModel.customer.ProfessionalDetailsWithProductsAndServicesViewModel
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.TabLayoutOnPageChangeListener
@@ -23,6 +24,7 @@ class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), V
     var viewPager: ViewPager?= null
     var serviceDetailsAndOrderViewPagerAdapter: ServiceDetailsAndOrderViewPagerAdapter?= null
     var professionalId: String?= null
+    var bussinessId: String="23"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +37,7 @@ class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), V
         initViews()
         setOnClickListener()
         getProfessionalDetailsData()
+      //  getProductAndServiceList()
 
     }
 
@@ -67,7 +70,7 @@ class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), V
                         }
 
                         if(dataObj.has("totalComment") && !dataObj.get("totalComment").isJsonNull){
-                            tv_commentsCount.setText(""+dataObj.get("totalComment").asInt + "Comments")
+                            tv_commentsCount.setText(""+dataObj.get("totalComment").asInt + " Comments")
                         }
 
 
@@ -81,15 +84,11 @@ class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), V
                                         + businessObj.get("close_time").asString)
 
                             }
-
                         }
-
 
                         if(dataObj.has("description") && !dataObj.get("description").isJsonNull){
                             tv_description.setText(dataObj.get("description").asString)
                         }
-
-
 
                     }
 
@@ -147,6 +146,27 @@ class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), V
 
         }
     }
+
+
+
+
+    fun getProductAndServiceList(){
+        viewModel!!.getProductAndServiceList(this, bussinessId!!).observe(this, Observer {
+
+            if(it!= null){
+
+                if(it.has("status") && it.get("status").asString.equals("200")){
+
+                }
+                else{
+                    if(it.has("message")){
+                        Utils.showToast(this, it.get("message").asString)
+                    }
+                }
+            }
+        })
+    }
+
 
 
 }

@@ -41,7 +41,7 @@
     <string name="menu_salon_beauty"><![CDATA[Salon & Beauty]]></string>
     <string name="menu_home_maintenance_remodeling">Home Maintenance/Remodeling</string>
     <string name="menu_speciality">Speciality</string>
-    <string name="menu_track_professional">Track Service Man</string>
+    <string name="menu_track_professional">Track Professional</string>
     <string name="menu_my_service">My Service</string>
     <string name="menu_my_rating_comment"><![CDATA[My Rating & Comment]]></string>
     <string name="menu_refer_friends">Refer Friends</string>
@@ -97,7 +97,7 @@
     <string name="txt_done">Done</string>
     <string name="txt_select_location">Select Location</string>
     <string name="txt_enter_location">Your Location</string>
-    <string name="txt_choose_destination">Choose Destination</string>
+    <string name="txt_choose_destination">Choose Destination or Product pickup</string>
     <string name="txt_open_time">Open Time</string>
     <string name="txt_profile">Profile</string>
     <string name="payment_about">(A Cancellation Fee is assessed for any service that have been accepted by the restaurant. NO REFUND will be given if your service is an hour to be expected. Resion is because service man has cancelled app appointment and waiting for you.)</string>

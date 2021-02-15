@@ -71,13 +71,7 @@ class CommentListAdapter(var mContext: Context, var dataList: ArrayList<CommentL
                     .apply(RequestOptions().placeholder(R.drawable.dummy).error(R.drawable.dummy))
                     .into(civ_pic)
 
-
         }
-
-
-
-
-
 
     }
 

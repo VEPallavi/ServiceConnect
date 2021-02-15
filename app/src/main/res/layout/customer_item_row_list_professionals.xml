@@ -23,20 +23,100 @@
         app:layout_constraintTop_toTopOf="parent"
         >
 
-        <ImageView
-            android:id="@+id/iv_business_pic"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_90sdp"
+        <FrameLayout
+            android:id="@+id/fl_business_pic"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_110sdp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:scaleType="fitXY"
-            android:src="@drawable/dummy" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_business_pic"
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="@dimen/_110sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/dummy" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:paddingLeft="@dimen/_10sdp"
+                android:paddingRight="@dimen/_10sdp"
+                android:paddingTop="@dimen/_3sdp"
+                android:paddingBottom="@dimen/_3sdp"
+                android:background="@color/colorPrimary"
+                >
+
+                <TextView
+                    android:id="@+id/tv_happyHours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/fl_discount"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_10sdp"
+                    android:text="Happy Hours"/>
+
+                <TextView
+                    android:id="@+id/tv_happy_hours_open_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_happyHours"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/tv_happy_hours_close_time"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_8sdp"
+                    android:text="00:00 am"/>
+
+                <TextView
+                    android:id="@+id/tv_happy_hours_close_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_happyHours"
+                    app:layout_constraintRight_toLeftOf="@+id/fl_discount"
+                    app:layout_constraintLeft_toRightOf="@+id/tv_happy_hours_open_time"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_8sdp"
+                    android:text="- 00:00 am"/>
+
+                <FrameLayout
+                    android:id="@+id/fl_discount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+
+                    <ImageView
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:src="@drawable/offer_icon" />
+
+                    <TextView
+                        android:id="@+id/tv_discount_percentage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/_8sdp"
+                        android:textColor="@color/colorBlack"
+                        android:text="00%" />
+
+                </FrameLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </FrameLayout>
 
         <TextView
             android:id="@+id/tv_professionName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintLeft_toRightOf="@+id/iv_business_pic"
+            app:layout_constraintLeft_toRightOf="@+id/fl_business_pic"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="@dimen/_5sdp"
@@ -55,7 +135,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_professionName"
             android:textSize="@dimen/_10sdp"
-            android:textColor="@color/light_grey"
+            android:textColor="@color/colorBlack"
             android:text="Business Name" />
 
         <TextView
@@ -65,7 +145,7 @@
             app:layout_constraintLeft_toLeftOf="@+id/tv_professionName"
             app:layout_constraintTop_toBottomOf="@+id/tv_businessName"
             android:textSize="@dimen/_10sdp"
-            android:textColor="@color/light_grey"
+            android:textColor="@color/colorBlack"
             android:text="Purpose: " />
 
         <TextView
@@ -76,7 +156,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_businessName"
             android:textSize="@dimen/_10sdp"
-            android:textColor="@color/light_grey"
+            android:textColor="@color/colorBlack"
             android:text="Purpose wfwhfbwehf  gywfytwvffywf" />
 
         <TextView
@@ -86,7 +166,7 @@
             app:layout_constraintLeft_toLeftOf="@+id/tv_professionName"
             app:layout_constraintTop_toBottomOf="@+id/tv_purpose"
             android:textSize="@dimen/_10sdp"
-            android:textColor="@color/light_grey"
+            android:textColor="@color/colorBlack"
             android:text="Cities of operation: " />
 
         <TextView
@@ -97,7 +177,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_purpose"
             android:textSize="@dimen/_10sdp"
-            android:textColor="@color/light_grey"
+            android:textColor="@color/colorBlack"
             android:text="Cities of operation f3regrg b4tgtg rgeg" />
 
         <TextView
@@ -107,7 +187,7 @@
             app:layout_constraintLeft_toLeftOf="@+id/tv_professionName"
             app:layout_constraintTop_toBottomOf="@+id/tv_cities_of_operation"
             android:textSize="@dimen/_10sdp"
-            android:textColor="@color/light_grey"
+            android:textColor="@color/colorBlack"
             android:text="Minimum Costs: " />
 
         <TextView
@@ -118,7 +198,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_cities_of_operation"
             android:textSize="@dimen/_10sdp"
-            android:textColor="@color/light_grey"
+            android:textColor="@color/colorBlack"
             android:text="67776" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

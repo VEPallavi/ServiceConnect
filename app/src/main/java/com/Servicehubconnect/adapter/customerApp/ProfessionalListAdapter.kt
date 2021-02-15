@@ -54,6 +54,11 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
         var tv_driving_licence_yes_no: TextView
         var tvCommercialInsured: TextView
         var cl_main: ConstraintLayout
+        var tv_happy_hours_open_time: TextView
+        var tv_happy_hours_close_time: TextView
+        var tv_discount_percentage: TextView
+
+
 
         init {
             iv_business_pic = view.findViewById(R.id.iv_business_pic);
@@ -72,7 +77,12 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
             tv_driving_licence_yes_no = view.findViewById(R.id.tv_driving_licence_yes_no)
             tvCommercialInsured = view.findViewById(R.id.tv_commercial_insured_yes_no)
             cl_main= view.findViewById(R.id.cl_main)
+
+            tv_happy_hours_open_time = view.findViewById(R.id.tv_happy_hours_open_time)
+            tv_happy_hours_close_time = view.findViewById(R.id.tv_happy_hours_close_time)
+            tv_discount_percentage= view.findViewById(R.id.tv_discount_percentage)
         }
+
 
 
         fun bindItems(dataModal: ProfessionalListDataModel){
@@ -100,7 +110,32 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
                 tv_ratingCount.setText(" "+dataModal.getTotalRating() + "(Ratings)")
             }
 
-            tv_commentsCount.setText(""+dataModal.getTotalComment())
+            tv_commentsCount.setText(""+dataModal.getTotalComment() +" Comments")
+
+
+
+            if(dataModal.getBussinessInfo()!!.getHappyHours()!!.getStartTime() != null
+                    &&  !dataModal.getBussinessInfo()!!.getHappyHours()!!.getStartTime()!!.equals("")){
+
+
+                tv_happy_hours_open_time.setText(dataModal.getBussinessInfo()!!.getHappyHours()!!.getStartTime())
+            }
+
+            if(dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime() != null
+                    &&  !dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime()!!.equals("")){
+
+
+                tv_happy_hours_close_time.setText(dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime())
+            }
+
+            if(dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime() != null
+                    &&  !dataModal.getBussinessInfo()!!.getHappyHours()!!.getDiscount()!!.equals("")){
+
+
+                tv_discount_percentage.setText(""+dataModal.getBussinessInfo()!!.getHappyHours()!!.getDiscount() +"%")
+            }
+
+
 
             if(dataModal.getBackgroundCheck() == true){
                 tv_backgroundCheck_yes_no.setText("Yes/Cleared")

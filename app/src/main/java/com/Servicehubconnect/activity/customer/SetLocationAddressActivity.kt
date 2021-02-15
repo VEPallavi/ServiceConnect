@@ -3,6 +3,7 @@ package com.Servicehubconnect.activity.customer
 import android.Manifest
 import android.app.Activity
 import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
@@ -10,7 +11,10 @@ import android.graphics.drawable.ColorDrawable
 import android.location.Address
 import android.location.Geocoder
 import android.location.Location
+import android.location.LocationManager
 import android.os.Bundle
+import android.os.Looper
+import android.provider.Settings
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
@@ -20,11 +24,11 @@ import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.app.ActivityCompat
+import androidx.core.location.LocationManagerCompat.isLocationEnabled
 import com.Servicehubconnect.R
 import com.Servicehubconnect.helper.Utils
 import com.google.android.gms.common.api.Status
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -32,6 +36,8 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.Autocomplete
@@ -52,7 +58,7 @@ class SetLocationAddressActivity : AppCompatActivity(), View.OnClickListener, On
     var ivBack: ImageView?= null
     var tv_title: TextView?= null
     var currentLocation: Location?= null
-    var fusedLocationProviderClient: FusedLocationProviderClient? = null
+   // var fusedLocationProviderClient: FusedLocationProviderClient? = null
     private val REQUEST_CODE = 101
     var geocoder: Geocoder? = null
     var addresses: List<Address>? = null
@@ -73,6 +79,8 @@ class SetLocationAddressActivity : AppCompatActivity(), View.OnClickListener, On
     var city: String =""
     var state: String =""
     var country: String =""
+    private val LOCATION_PERMISSION = 44
+    private var mFusedLocationClient: FusedLocationProviderClient? = null
 
 
 
@@ -80,7 +88,8 @@ class SetLocationAddressActivity : AppCompatActivity(), View.OnClickListener, On
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.customer_activity_set_location)
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
         serviceName = intent.getStringExtra("serviceName")
         subCategoryId = intent.getStringExtra("subCategoryId")
         isRequiredTwoLocation = intent.getBooleanExtra("is_required_two_location", false)
@@ -97,7 +106,8 @@ class SetLocationAddressActivity : AppCompatActivity(), View.OnClickListener, On
         val supportMapFragment = (supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?)!!
         supportMapFragment.getMapAsync(this@SetLocationAddressActivity)
 
-        fetchLocation()
+      //  fetchLocation()
+        getLastLocation()
         initViews()
     }
 
@@ -123,22 +133,152 @@ class SetLocationAddressActivity : AppCompatActivity(), View.OnClickListener, On
         ed_destination.setOnClickListener(this)
     }
 
-    private fun fetchLocation() {
-        if (ActivityCompat.checkSelfPermission(
-                        this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                        this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), REQUEST_CODE)
-            return
-        }
-        val task = fusedLocationProviderClient!!.lastLocation
-        task.addOnSuccessListener { location ->
-            if (location != null) {
-                currentLocation = location
-                updateLocation(location.latitude, location.longitude)
-                updateMapLocation(location.latitude, location.longitude)
+//    private fun fetchLocation() {
+//        if (ActivityCompat.checkSelfPermission(
+//                        this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+//                        this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), REQUEST_CODE)
+//            return
+//        }
+//        val task = mFusedLocationClient!!.lastLocation
+//        task.addOnSuccessListener { location ->
+//            if (location != null) {
+//                currentLocation = location
+//                updateLocation(location.latitude, location.longitude)
+//                updateMapLocation(location.latitude, location.longitude)
+//            }
+//        }
+//    }
+
+
+
+    private fun getLastLocation() {
+// check if permissions are given
+        if (checkPermissions()) {
+
+// check if location is enabled
+            if (isLocationEnabled()) {
+
+                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return
+                }
+                mFusedLocationClient!!.lastLocation
+                        .addOnCompleteListener(object : OnCompleteListener<Location?> {
+                            override fun onComplete(task: Task<Location?>) {
+                                val location: Location? = task.getResult()
+                                if (location == null) {
+                                    requestNewLocationData()
+                                } else {
+                                    updateLocation(location.latitude, location.longitude)
+                                    updateMapLocation(location.latitude, location.longitude)
+                                }
+                            }
+                        })
+            } else {
+                Toast.makeText(this, "Please turn on" + " your location...", Toast.LENGTH_LONG)
+                        .show()
+                val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                startActivity(intent)
             }
+        } else {
+// if permissions aren't available,
+// request for permissions
+            requestPermissions()
         }
     }
+
+
+
+    private fun requestNewLocationData() {
+
+// Initializing LocationRequest
+// object with appropriate methods
+        val mLocationRequest = LocationRequest()
+        mLocationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+        mLocationRequest.interval = 5
+        mLocationRequest.fastestInterval = 0
+        mLocationRequest.numUpdates = 1
+
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return
+        }
+        mFusedLocationClient?.requestLocationUpdates(
+                mLocationRequest,
+                mLocationCallback,
+                Looper.myLooper()
+        )
+    }
+
+    private val mLocationCallback: LocationCallback = object : LocationCallback() {
+        override fun onLocationResult(locationResult: LocationResult) {
+            val mLastLocation = locationResult.lastLocation
+            updateLocation(mLastLocation.latitude, mLastLocation.longitude)
+            updateMapLocation(mLastLocation.latitude, mLastLocation.longitude)
+
+           // updateAddressField(mLastLocation.latitude, mLastLocation.longitude)
+        }
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        if (checkPermissions()) {
+            getLastLocation()
+        }
+    }
+
+    private fun checkPermissions(): Boolean {
+        return ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
+
+// If we want background location
+// on Android 10.0 and higher,
+// use:
+// ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED
+    }
+
+    // method to request for permissions
+    private fun requestPermissions() {
+        ActivityCompat.requestPermissions(
+                this, arrayOf(
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION
+        ), LOCATION_PERMISSION
+        )
+    }
+
+    // method to check
+// if location is enabled
+    private fun isLocationEnabled(): Boolean {
+        val locationManager =
+                getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
+                LocationManager.NETWORK_PROVIDER
+        )
+    }
+
+
+
 
     private fun updateLocation(latitude: Double, longitude: Double) {
         geocoder = Geocoder(this@SetLocationAddressActivity, Locale.getDefault())
@@ -187,7 +327,8 @@ class SetLocationAddressActivity : AppCompatActivity(), View.OnClickListener, On
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String?>, grantResults: IntArray) {
        if(requestCode == REQUEST_CODE){
            if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-               fetchLocation()
+              // fetchLocation()
+               getLastLocation()
            }
        }
     }
@@ -268,7 +409,8 @@ class SetLocationAddressActivity : AppCompatActivity(), View.OnClickListener, On
                 finish()
             }
             R.id.iv_fetchLocation ->{
-                fetchLocation()
+               // fetchLocation()
+                getLastLocation()
             }
             R.id.tv_selectLocation ->{
                 openAddMoreDetailsDialog()

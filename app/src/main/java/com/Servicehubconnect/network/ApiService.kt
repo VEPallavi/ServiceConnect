@@ -91,6 +91,13 @@ interface ApiService {
     ): Call<JsonObject>
 
 
+    @POST(ApiList.GET_PRODUCT_AND_SERVICE_LIST_URL)
+    @FormUrlEncoded
+    fun getProductAndServiceList(
+            @Field("bussinessId") bussinessId: String
+    ): Call<JsonObject>
+
+
 
     @POST(ApiList.GET_COMMENT_LIST_URL)
     @FormUrlEncoded
