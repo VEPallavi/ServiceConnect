@@ -17,4 +17,163 @@
     <color name="grey_4">#e6e6e6</color>
     <color name="colorBackground">#f0f0f0</color>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="main_bg">#ececec</color>
+    <color name="hint_color">#8c8c8c</color>
+    <color name="login_text_color">#282828</color>
+    <color name="color_cash_screen_bg">#50639500</color>
+
+    <color name="color_text">#222222</color>
+    <color name="color_lighttext">#414040</color>
+
+    <color name="light_blue_color">#0169AF</color>
+    <color name="main_bg_alpha">#fafafa</color>
+
+
+    <color name="horz_line">#CCCCCC</color>
+    <color name="theme_blue">#639500</color>
+    <color name="text_grey">#949494</color>
+    <color name="settings_heading_color">#E0E0E0</color>
+    <color name="color_header">#3b7806</color>
+    <color name="alpha_press_effect">#30000000</color>
+    <color name="color_bg_dialog">#7D000000</color>
+    <color name="color_buttons">#4B69AB</color>
+    <color name="color_buttons_pressed">#3C5489</color>
+    <color name="button_dark_grey">#34302F</color>
+    <color name="button_dark_grey_pressed">#242221</color>
+    <color name="color_my_job_history_item_border">#E6E6E6</color>
+    <color name="color_blue_positive_btn">#3B548A</color>
+    <color name="color_blue_positive_btn_press">#324C7C</color>
+    <color name="color_rate_driver_bottom_bar"> #F5F8FA</color>
+    <color name="color_invoice_light_blue">#7C98D5</color>
+    <color name="color_green_btn">#639500</color>
+    <color name="color_green_btn_press">#4F7700</color>
+    <color name="color_green_disabled_btn">#A7D67E</color>
+    <color name="color_green_disabled_btn_press">#93A500</color>
+    <color name="progress_secondary">#feba01</color>
+    <color name="link_color">#0000FF</color>
+    <color name="driver_signup_heading">#BEBEBE</color>
+    <color name="help_bg">#C0C0C0</color>
+
+    <color name="color_red_btn">#DF4B4B</color>
+    <color name="color_red_btn_press">#B23C3C</color>
+
+    <color name="nav_title">#FFFFFF</color>
+    <color name="login_buttons">#F1C40F</color>
+    <color name="login_buttons_pressed">#B78C0B</color>
+    <color name="menu_text">#000000</color>
+    <color name="status_bar_color">#224603</color>
+    <color name="pickup_text_color">#cdcdcd</color>
+    <color name="pickup_details_color">#cecece</color>
+    <color name="trip_statistics_color">#4F7700</color>
+    <color name="distance_color">#93949f</color>
+    <color name="distance_text_color">#3f3f3f</color>
+
+    <color name="car_type_color">#639500</color>
+    <color name="privacy_color">#4b69ab</color>
+    <color name="credit_amount_color">#4F7700</color>
+    <color name="credit_heading_color">#010101</color>
+    <color name="credit_choose_amount">#313131</color>
+    <color name="common_red_color">#4F7700</color>
+    <color name="fare_calc">#7a7a7c</color>
+    <color name="menu_selector_color">#E2F1D8</color>
+    <color name="color_booking_invoice">#5A7700</color>
+    <color name="color_amount">#8e8e8e</color>
+    <color name="color_amount_value">#262626</color>
+    <color name="color_transaction_mode">#423e3e</color>
+    <color name="color_card_no">#787777</color>
+
+    <color name="color_accept_btn">#00a610</color>
+    <color name="color_reject_btn">#ff3e3e</color>
+    <color name="color_estimated_cash">#1e1e1e</color>
+    <color name="color_trip_status">#a6a6a6</color>
+    <color name="color_date_time">#4F7700</color>
+    <color name="transparent_black">#99000000</color>
+    <color name="color_darkish_grey">#1e1e1e</color>
+    <color name="background_grey">#cecece</color>
+
+    <color name="color_restaurant_name">#262628</color>
+    <color name="color_restaurant_address">#9b9b9b</color>
+    <color name="color_restaurant_ratingbar">#ff9f00</color>
+    <color name="color_restaurant_ratingbar_inactive">#c2c4ca</color>
+    <color name="color_order_food_discount_bg">#7ec045</color>
+    <color name="color_ordered_food_bill_amount">#3b7807</color>
+    <color name="color_line_seperator">#f5f5f5</color>
+    <color name="color_order_food_date">#4a4a4a</color>
+    <color name="color_order_food_status">#E27626</color>
+    <color name="color_order_food_delivered">#008a00</color>
+    <color name="color_order_cancelled">#d0021b</color>
+    <color name="color_msg_order_placed">#111111</color>
+    <color name="color_quantity_border">#dddddd</color>
+    <color name="color_apply_coupon">#555555</color>
+    <color name="color_tip_amount_separator">#dcdcdc</color>
+    <color name="color_order_add_button">#4caf50</color>
+    <color name="color_order_status_vertical_line">#d8d8d8</color>
+    <color name="color_order_menu_tab_default">#71767a</color>
+    <color name="color_apply_coupon_dialog_header_bg">#f1f1f1</color>
+    <color name="color_apply_coupon_dialog_header_text">#2b2b2b</color>
+    <color name="no_stores_found_txt_color">#4d1d1f21</color>
+    <color name="extra_package_list_header_bg">#EEF3FA</color>
+
+    <color name="txt_header_driver_view">#b8b8b8</color>
+    <color name="order_detail_value">#4a4a4a</color>
+    <color name="app_color">#206fb8</color>
+    <color name="image_border_color">#949494</color>
+    <color name="add_card_text_card_added_text_color">#9d9d9d</color>
+    <color name="new_login_button_bg_color">#69990d</color>
+    <color name="sub_black_color">#4a4a4a</color>
+
+    <color name="secondary_heading_light_text_color">#aaaaaa</color>
+    <color name="secondary_value_text_color">@color/black</color>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </resources>

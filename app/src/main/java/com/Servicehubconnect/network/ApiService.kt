@@ -1,5 +1,6 @@
 package com.Servicehubconnect.network
 
+import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.ServiceAndProductResponseModal
 import com.com.Servicehubconnect.network.ApiList
 import com.google.gson.JsonObject
 import retrofit2.Call
@@ -95,7 +96,7 @@ interface ApiService {
     @FormUrlEncoded
     fun getProductAndServiceList(
             @Field("bussinessId") bussinessId: String
-    ): Call<JsonObject>
+    ): Call<ServiceAndProductResponseModal>
 
 
 

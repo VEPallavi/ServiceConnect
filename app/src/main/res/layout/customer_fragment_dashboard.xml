@@ -31,11 +31,23 @@
         android:layout_marginRight="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_5sdp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_categories"
         />
+
+    <TextView
+        android:id="@+id/tv_no_categories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/dark_grey"
+        android:textSize="@dimen/_12sdp"
+        android:text="No categories found"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -36,7 +36,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="@dimen/_5sdp"
         android:drawablePadding="@dimen/_5sdp"
-        android:drawableLeft="@drawable/star_icon"
+        android:drawableLeft="@drawable/star_icon_on"
         android:textColor="@color/colorPrimary"
         android:text="5.0"/>
 

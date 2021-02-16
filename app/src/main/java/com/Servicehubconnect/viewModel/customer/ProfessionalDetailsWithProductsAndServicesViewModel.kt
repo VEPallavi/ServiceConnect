@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.Servicehubconnect.helper.Utils
+import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.ServiceAndProductResponseModal
 import com.Servicehubconnect.network.ApiClient
 import com.Servicehubconnect.network.ApiService
 import com.google.gson.JsonObject
@@ -17,7 +18,7 @@ import retrofit2.Response
 
 class ProfessionalDetailsWithProductsAndServicesViewModel : ViewModel(){
     var professionalDetailsResult: MutableLiveData<JsonObject>?= null
-    var productAndServiceListResult: MutableLiveData<JsonObject>?= null
+    var productAndServiceListResult: MutableLiveData<ServiceAndProductResponseModal>?= null
 
 
 
@@ -49,7 +50,7 @@ class ProfessionalDetailsWithProductsAndServicesViewModel : ViewModel(){
     }
 
 
-    fun getProductAndServiceList(mContext: Context, bussinessId: String): MutableLiveData<JsonObject>{
+    fun getProductAndServiceList(mContext: Context, bussinessId: String): MutableLiveData<ServiceAndProductResponseModal>{
         productAndServiceListResult = MutableLiveData()
 
         var apiService = ApiClient.getClient().create(ApiService::class.java)
@@ -58,13 +59,13 @@ class ProfessionalDetailsWithProductsAndServicesViewModel : ViewModel(){
 
         Utils.showProgressDialog(mContext)
 
-        call.enqueue(object: retrofit2.Callback<JsonObject>{
-            override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+        call.enqueue(object: retrofit2.Callback<ServiceAndProductResponseModal>{
+            override fun onFailure(call: Call<ServiceAndProductResponseModal>, t: Throwable) {
                 Utils.hideProgressDialog()
                 Utils.showLog(t.message!!)
             }
 
-            override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
+            override fun onResponse(call: Call<ServiceAndProductResponseModal>, response: Response<ServiceAndProductResponseModal>) {
                 Utils.hideProgressDialog()
                 if(response != null  && response.body()!= null){
                     productAndServiceListResult!!.value = response.body()

@@ -44,9 +44,17 @@ class ProfessionalListDataModel {
     @Expose
     private var description: String? = null
 
-    @SerializedName("bussinessName")
+    @SerializedName("bussiness_name")
     @Expose
     private var bussinessName: String? = null
+
+
+
+    @SerializedName("bussinessId")
+    @Expose
+    private var bussinessId: String? = null
+
+
 
     @SerializedName("name")
     @Expose
@@ -79,6 +87,11 @@ class ProfessionalListDataModel {
     @SerializedName("insurance")
     @Expose
     private var insurance: Boolean? = null
+
+
+    @SerializedName("insured")
+    @Expose
+    private var insured: Boolean? = null
 
     @SerializedName("tradeLicence")
     @Expose
@@ -174,6 +187,7 @@ class ProfessionalListDataModel {
         this.description = description
     }
 
+
     fun getBussinessName(): String? {
         return bussinessName
     }
@@ -181,6 +195,18 @@ class ProfessionalListDataModel {
     fun setBussinessName(bussinessName: String?) {
         this.bussinessName = bussinessName
     }
+
+
+
+    fun getBussinessId(): String? {
+        return bussinessId
+    }
+
+    fun setBussinessId(bussinessId: String?) {
+        this.bussinessId = bussinessId
+    }
+
+
 
     fun getName(): String? {
         return name
@@ -245,6 +271,17 @@ class ProfessionalListDataModel {
     fun setInsurance(insurance: Boolean?) {
         this.insurance = insurance
     }
+
+
+    fun getInsured(): Boolean? {
+        return insured
+    }
+
+    fun setInsured(insured: Boolean?) {
+        this.insured = insured
+    }
+
+
 
     fun getTradeLicence(): Boolean? {
         return tradeLicence

@@ -72,9 +72,16 @@ class DashboardFragmentCustomer : Fragment(){
                         var categoryList = Gson().fromJson<ArrayList<CategoryListDataModel>>(it.get("data"), type)
 
                         if(categoryList.size > 0){
+                            tv_no_categories.visibility = View.GONE
+                            rvCategoriesList!!.visibility = View.VISIBLE
                             adapter = DashboardAdapterCustomer(activity!!, categoryList)
                             rvCategoriesList!!.adapter = adapter
                         }
+                        else{
+                            tv_no_categories.visibility = View.VISIBLE
+                            rvCategoriesList!!.visibility = View.GONE
+                        }
+
                     }
                 }
                 else {
@@ -83,6 +90,10 @@ class DashboardFragmentCustomer : Fragment(){
                     }
                 }
             }
+            else{
+                    Utils.showToast(activity!!, resources.getString(R.string.msg_common_error))
+            }
+
         })
     }
 

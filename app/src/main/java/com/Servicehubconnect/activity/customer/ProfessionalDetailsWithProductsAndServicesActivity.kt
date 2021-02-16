@@ -1,5 +1,6 @@
 package com.Servicehubconnect.activity.customer
 
+import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -9,22 +10,34 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager.widget.ViewPager
 import com.Servicehubconnect.R
-import com.Servicehubconnect.adapter.customerApp.ServiceDetailsAndOrderViewPagerAdapter
-import com.Servicehubconnect.helper.Utils
+import com.Servicehubconnect.adapter.customerApp.OrderServiceAndProduct.ServiceAndProductOrderPagerAdapter
+import com.Servicehubconnect.fragment.customerApp.ServiceAndProductOrderMenuFragment
+import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.CategoryInfo
+import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.ServiceAndProductListDataModal
+import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.ServiceAndProductResponseModal
 import com.Servicehubconnect.viewModel.customer.ProfessionalDetailsWithProductsAndServicesViewModel
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.TabLayoutOnPageChangeListener
 import com.google.gson.JsonObject
 import kotlinx.android.synthetic.main.customer_activity_service_detail_and_order.*
+import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
 
 
 class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), View.OnClickListener{
     var viewModel: ProfessionalDetailsWithProductsAndServicesViewModel?= null
     var tabs: TabLayout?= null
     var viewPager: ViewPager?= null
-    var serviceDetailsAndOrderViewPagerAdapter: ServiceDetailsAndOrderViewPagerAdapter?= null
+    var pagerAdapter: ServiceAndProductOrderPagerAdapter?= null
     var professionalId: String?= null
-    var bussinessId: String="23"
+    var bussinessId: String?= null
+    var tabTitle = ArrayList<String>()
+    var allJsonData: ServiceAndProductResponseModal? = null
+    var serviceAndProductListModal: ServiceAndProductListDataModal?= null
+    var serviceAndProductList = ArrayList<ServiceAndProductListDataModal>()
+    private var categoryList: ArrayList<CategoryInfo> = ArrayList<CategoryInfo>()
+    var categoryInfoModal: CategoryInfo?= null
+    var activity: Activity?= null
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,12 +45,14 @@ class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), V
         setContentView(R.layout.customer_activity_service_detail_and_order)
         viewModel = ViewModelProviders.of(this).get(ProfessionalDetailsWithProductsAndServicesViewModel::class.java)
 
+        activity =  this
         professionalId = intent.getStringExtra("professionalId")
+        bussinessId = intent.getStringExtra("bussinessId")
 
         initViews()
         setOnClickListener()
         getProfessionalDetailsData()
-      //  getProductAndServiceList()
+        getProductAndServiceList()
 
     }
 
@@ -104,12 +119,13 @@ class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), V
         viewPager = findViewById(R.id.viewPager)
 
         for (k in 0..9) {
-            tabs!!.addTab(tabs!!.newTab().setText("" + k +"A"))
+            tabs!!.addTab(tabs!!.newTab().setText("" + k))
+            tabTitle.add("P - " + k)
         }
         tabs!!.setTabTextColors(Color.parseColor("#898989"), Color.parseColor("#FF4081"))
 
-        serviceDetailsAndOrderViewPagerAdapter = ServiceDetailsAndOrderViewPagerAdapter(supportFragmentManager, tabs!!.getTabCount())
-        viewPager!!.adapter = serviceDetailsAndOrderViewPagerAdapter
+        pagerAdapter = ServiceAndProductOrderPagerAdapter(supportFragmentManager, tabs!!.getTabCount(), tabTitle)
+        viewPager!!.adapter = pagerAdapter
         viewPager!!.setOffscreenPageLimit(1)
         viewPager!!.addOnPageChangeListener(TabLayoutOnPageChangeListener(tabs))
 
@@ -126,10 +142,15 @@ class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), V
         tv_licence.setOnClickListener(this)
         tv_comment.setOnClickListener(this)
         tv_order.setOnClickListener(this)
+        ivBack.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when(v?.id){
+            R.id.ivBack ->{
+                finish()
+            }
+
             R.id.tv_licence ->{
                 var intent = Intent(this, LicenceListActivity::class.java)
                 startActivity(intent)
@@ -151,22 +172,47 @@ class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), V
 
 
     fun getProductAndServiceList(){
+        var categoryName: String =""
         viewModel!!.getProductAndServiceList(this, bussinessId!!).observe(this, Observer {
 
             if(it!= null){
 
-                if(it.has("status") && it.get("status").asString.equals("200")){
+                allJsonData = it
+
+
+                if(allJsonData!!.status == 200){
+
+                    if(allJsonData!!.data.size >0){
+                        serviceAndProductList.clear()
+                            for (i in 0 until allJsonData!!.data.size) {
+                                serviceAndProductListModal = allJsonData?.data?.get(i)
+                                serviceAndProductList.add(serviceAndProductListModal!!)
+
+
+                                for (i in 0 until serviceAndProductList.size) {
+                                    categoryList.clear()
+                                    try {
+                                        categoryName = serviceAndProductList.get(i).category_name
+                                        categoryList = serviceAndProductList.get(i).info
+                                        // categoryInfoModal = serviceAndProductList.get(i).info
+                                    } catch (e: Exception) {
+                                        e.printStackTrace()
+                                    }
+                                }
+                            }
+
+                            pagerAdapter!!.addFragment(ServiceAndProductOrderMenuFragment(activity, categoryList), categoryName)
+                    }
 
                 }
                 else{
-                    if(it.has("message")){
-                        Utils.showToast(this, it.get("message").asString)
-                    }
+
+
+
                 }
             }
         })
     }
-
 
 
 }

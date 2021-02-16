@@ -15,7 +15,8 @@
         android:layout_height="@dimen/_90sdp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_launcher_background" />
+        android:scaleType="fitXY"
+        android:src="@drawable/dummy" />
 
     <TextView
         android:id="@+id/tv_name"
@@ -42,7 +43,7 @@
         android:layout_marginTop="@dimen/_5sdp"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/_10sdp"
-        android:text="$50.00 f4gu4ruyrebvyerbyrebfeybvyerbfe envehvbgvvebfyebrcjsvuefbrybre" />
+        android:text="$50.00" />
 
     <TextView
         android:id="@+id/tv_descp"
@@ -54,7 +55,7 @@
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginRight="@dimen/_5sdp"
         android:textSize="@dimen/_8sdp"
-        android:text="snc dsgv sv gcbewytfvwdjvvfhv  bf vbf v dh hd hvndjvhdfvb bdfhvdhvbh"
+        android:text="snc dsgv svb bdfhvd wgrh "
         />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -67,17 +68,19 @@
 
         <TextView
             android:id="@+id/tv_add"
-            android:layout_width="@dimen/_80sdp"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/_30sdp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:background="@drawable/button_rounded_rect_blue"
             android:gravity="center"
+            android:paddingLeft="@dimen/_25sdp"
+            android:paddingRight="@dimen/_25sdp"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/_12sdp"
             android:text="Add"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_item_minus_count_plus"

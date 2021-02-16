@@ -26,9 +26,15 @@
 
 
 
+    <string name="blank_space">---</string>
+    <string name="label_restaurant_description">Descriptions</string>
+
+
+
 
 
     <string name="msg_no_internet">Please check your internet connection and try again.</string>
+    <string name="msg_common_error">Oops something went wrong.</string>
     <string name="msg_invalid_email">Please enter a valid email id.</string>
     <string name="msg_empty_pass">Please enter your password.</string>
     <string name="msg_invalid_pass">Password must be at least 6 characters.</string>

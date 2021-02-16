@@ -118,6 +118,7 @@ class ProfessionalListActivity : AppCompatActivity(), View.OnClickListener, Item
 
         var intent = Intent(this, ProfessionalDetailsWithProductsAndServicesActivity::class.java)
         intent.putExtra("professionalId", dataItems.getId())
+        intent.putExtra("bussinessId", dataItems.getBussinessId())
         startActivity(intent)
     }
 
