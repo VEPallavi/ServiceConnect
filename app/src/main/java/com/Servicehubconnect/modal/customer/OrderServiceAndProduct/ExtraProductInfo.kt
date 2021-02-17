@@ -8,7 +8,7 @@ package com.Servicehubconnect.modal.customer.OrderServiceAndProduct
 class ExtraProductInfo (
         var _id: String,
         var extraProduct: String,
-        var size_price: ArrayList<SizePriceForProduct>,
+        var size_price: ArrayList<SizePriceForExtraProduct>,
         var description: String
 
 )

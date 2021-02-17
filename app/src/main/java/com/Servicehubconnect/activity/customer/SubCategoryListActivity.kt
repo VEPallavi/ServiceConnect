@@ -15,11 +15,11 @@ import com.Servicehubconnect.callback.ItemListener
 import com.Servicehubconnect.helper.Utils
 import com.Servicehubconnect.modal.customer.SubCategoriesModal
 import com.Servicehubconnect.viewModel.customer.SubCategoriesListViewModel
-import kotlinx.android.synthetic.main.customer_activity_salon_beauty.*
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
 import com.google.gson.Gson
 import com.google.gson.JsonArray
 import com.google.gson.reflect.TypeToken
+import kotlinx.android.synthetic.main.customer_activity_subcategory_list.*
 
 
 class SubCategoryListActivity : AppCompatActivity(), View.OnClickListener, ItemListener {
@@ -33,7 +33,7 @@ class SubCategoryListActivity : AppCompatActivity(), View.OnClickListener, ItemL
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.customer_activity_salon_beauty)
+        setContentView(R.layout.customer_activity_subcategory_list)
         viewModel = ViewModelProviders.of(this).get(SubCategoriesListViewModel::class.java)
 
         try {

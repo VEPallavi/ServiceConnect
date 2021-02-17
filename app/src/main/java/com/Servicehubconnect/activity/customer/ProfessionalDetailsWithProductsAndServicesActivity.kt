@@ -14,11 +14,13 @@ import com.Servicehubconnect.adapter.customerApp.OrderServiceAndProduct.ServiceA
 import com.Servicehubconnect.fragment.customerApp.ServiceAndProductOrderMenuFragment
 import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.CategoryInfo
 import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.ServiceAndProductListDataModal
-import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.ServiceAndProductResponseModal
 import com.Servicehubconnect.viewModel.customer.ProfessionalDetailsWithProductsAndServicesViewModel
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.TabLayoutOnPageChangeListener
+import com.google.gson.Gson
+import com.google.gson.JsonArray
 import com.google.gson.JsonObject
+import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.customer_activity_service_detail_and_order.*
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
 
@@ -31,12 +33,14 @@ class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), V
     var professionalId: String?= null
     var bussinessId: String?= null
     var tabTitle = ArrayList<String>()
-    var allJsonData: ServiceAndProductResponseModal? = null
+    var allJsonData: JsonObject? = null
     var serviceAndProductListModal: ServiceAndProductListDataModal?= null
     var serviceAndProductList = ArrayList<ServiceAndProductListDataModal>()
     private var categoryList: ArrayList<CategoryInfo> = ArrayList<CategoryInfo>()
     var categoryInfoModal: CategoryInfo?= null
     var activity: Activity?= null
+    var categoryName: String =""
+    var categoryType: String =""
 
 
 
@@ -77,7 +81,6 @@ class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), V
                         if(dataObj.has("ratingAverage") && !dataObj.get("ratingAverage").isJsonNull){
 
                             tv_ratingValue.setText(""+dataObj.get("ratingAverage").asInt)
-
                         }
 
                         if(dataObj.has("totalRating") && !dataObj.get("totalRating").isJsonNull){
@@ -96,7 +99,7 @@ class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), V
                             if(businessObj.has("open_time") && businessObj.has("close_time")){
 
                                 tv_open_and_close_time.setText(businessObj.get("open_time").asString
-                                        + businessObj.get("close_time").asString)
+                                        +"-" + businessObj.get("close_time").asString)
 
                             }
                         }
@@ -115,10 +118,12 @@ class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), V
     }
 
     private fun initViews() {
-        tabs = findViewById(R.id.activities_tabs)
         viewPager = findViewById(R.id.viewPager)
+        tabs = findViewById(R.id.activities_tabs)
+        tabs!!.setupWithViewPager(viewPager)
 
-        for (k in 0..9) {
+
+ /*       for (k in 0..9) {
             tabs!!.addTab(tabs!!.newTab().setText("" + k))
             tabTitle.add("P - " + k)
         }
@@ -134,7 +139,7 @@ class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), V
             tabs!!.setTabMode(TabLayout.MODE_FIXED);
         } else {
             tabs!!.setTabMode(TabLayout.MODE_SCROLLABLE);
-        }
+        }*/
 
     }
 
@@ -172,44 +177,69 @@ class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), V
 
 
     fun getProductAndServiceList(){
-        var categoryName: String =""
         viewModel!!.getProductAndServiceList(this, bussinessId!!).observe(this, Observer {
 
             if(it!= null){
 
                 allJsonData = it
 
+                if(it.has("status") && it.get("status").asString.equals("200")){
 
-                if(allJsonData!!.status == 200){
+                    if(it.has("data") && it.get("data") is JsonArray){
 
-                    if(allJsonData!!.data.size >0){
-                        serviceAndProductList.clear()
-                            for (i in 0 until allJsonData!!.data.size) {
-                                serviceAndProductListModal = allJsonData?.data?.get(i)
-                                serviceAndProductList.add(serviceAndProductListModal!!)
+                        val type = object : TypeToken<ArrayList<ServiceAndProductListDataModal>>() {}.type
+                        var dataList = Gson().fromJson<ArrayList<ServiceAndProductListDataModal>>(it.get("data"), type)
 
 
-                                for (i in 0 until serviceAndProductList.size) {
-                                    categoryList.clear()
-                                    try {
-                                        categoryName = serviceAndProductList.get(i).category_name
-                                        categoryList = serviceAndProductList.get(i).info
-                                        // categoryInfoModal = serviceAndProductList.get(i).info
-                                    } catch (e: Exception) {
-                                        e.printStackTrace()
-                                    }
-                                }
+                        if(dataList.size >0){
+                            serviceAndProductList.addAll(dataList)
+
+                            pagerAdapter = ServiceAndProductOrderPagerAdapter(supportFragmentManager)
+                            viewPager!!.offscreenPageLimit = serviceAndProductList.size     // Used to maintain state of each page in viewpager
+
+                            for (i in 0 until serviceAndProductList.size) {
+                                categoryName = serviceAndProductList.get(i).category_name
+                                categoryType = serviceAndProductList.get(i).category_type
+                                categoryList = serviceAndProductList.get(i).info
+
+                                pagerAdapter!!.addFragment(ServiceAndProductOrderMenuFragment(activity, categoryList, categoryType), categoryName)
+
                             }
+                            viewPager!!.setAdapter(pagerAdapter)
+                        }
 
-                            pagerAdapter!!.addFragment(ServiceAndProductOrderMenuFragment(activity, categoryList), categoryName)
                     }
 
                 }
-                else{
 
 
-
-                }
+//                if(allJsonData!!.status == 200){
+//
+//                    if(allJsonData!!.data.size >0){
+//                        serviceAndProductList.clear()
+//                            for (i in 0 until allJsonData!!.data.size) {
+//                                serviceAndProductListModal = allJsonData?.data?.get(i)
+//                                serviceAndProductList.add(serviceAndProductListModal!!)
+//
+//
+//                                for (i in 0 until serviceAndProductList.size) {
+//                                    categoryList.clear()
+//                                    try {
+//                                        categoryName = serviceAndProductList.get(i).category_name
+//                                        categoryList = serviceAndProductList.get(i).info
+//                                        // categoryInfoModal = serviceAndProductList.get(i).info
+//                                    } catch (e: Exception) {
+//                                        e.printStackTrace()
+//                                    }
+//                                }
+//                            }
+//                            pagerAdapter!!.addFragment(ServiceAndProductOrderMenuFragment(activity, categoryList), categoryName)
+//                    }
+//                }
+//                else{
+//
+//
+//                }
             }
         })
     }

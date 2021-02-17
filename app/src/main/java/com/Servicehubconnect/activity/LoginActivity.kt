@@ -196,6 +196,26 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
                                     appPreference?.setCustomerName(dataObj.get("name").asString)
                                 }
 
+                                if(dataObj.has("profile_pic") && !dataObj.get("profile_pic").isJsonNull){
+                                    appPreference?.setCustomerMobileNo(dataObj.get("profile_pic").asString)
+                                }
+
+
+                                if(dataObj.has("email") && !dataObj.get("email").isJsonNull){
+                                    appPreference?.setCustomerEmailID(dataObj.get("email").asString)
+                                }
+
+
+                                if(dataObj.has("mobile_no") && !dataObj.get("mobile_no").isJsonNull){
+                                    appPreference?.setCustomerMobileNo(dataObj.get("mobile_no").asString)
+                                }
+
+                                if(dataObj.has("country_code") && !dataObj.get("country_code").isJsonNull){
+                                    appPreference?.setCustomerCountryCode(dataObj.get("country_code").asString)
+                                }
+
+
+
                                 if(dataObj.has("is_signed_privacyPolicy")
                                         && dataObj.has("is_signed_termAndCondition")){
 

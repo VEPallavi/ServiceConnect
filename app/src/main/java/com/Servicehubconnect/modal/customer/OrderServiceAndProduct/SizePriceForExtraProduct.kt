@@ -5,7 +5,7 @@ package com.Servicehubconnect.modal.customer.OrderServiceAndProduct
  * Project SignupLibrary Screen
  */
 
-data class SizePriceForProduct (
+data class SizePriceForExtraProduct (
         var size: String,
         var price: Int
 

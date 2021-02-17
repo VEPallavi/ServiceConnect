@@ -21,10 +21,13 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.Servicehubconnect.R
+import com.Servicehubconnect.helper.AppPreference
 import com.Servicehubconnect.helper.RealPathUtil
 import com.Servicehubconnect.helper.Utils
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.rilixtech.widget.countrycodepicker.CountryCodePicker
+import kotlinx.android.synthetic.main.activity_signup.*
 import kotlinx.android.synthetic.main.customer_activity_edit_profile.*
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
 import java.io.File
@@ -35,26 +38,49 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class EditProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu.OnMenuItemClickListener{
+    var appPreference: AppPreference?= null
     var outputFileUri: Uri? = null
     val CAMERA_REQUEST = 101
     val GALLERY_REQUEST = 102
     var imageFilePath: String = ""
+    var countryCodePicker: CountryCodePicker?= null
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.customer_activity_edit_profile)
+        appPreference = AppPreference.getInstance(this)
 
         tv_title.text = "Update Profile"
 
+        initViews()
+
         setOnClickListener()
+
+    }
+
+    private fun initViews() {
+        ed_name.setText(appPreference!!.getCustomerName())
+        ed_phoneNumber.setText(appPreference!!.getCustomerMobileNo())
+        tv_countryCodePicker.setText(appPreference!!.getCustomerCountryCode())
+        tv_emailId.setText(appPreference!!.getCustomerEmailID())
+        if(!appPreference!!.getCustomerProfilePic().equals("") && appPreference!!.getCustomerProfilePic()!= null){
+            Glide.with(this)
+                    .load(appPreference!!.getCustomerProfilePic())
+                    .apply(RequestOptions().placeholder(R.drawable.dummy).error(R.drawable.dummy))
+                    .into(iv_profile_image)
+        }
 
     }
 
     private fun setOnClickListener() {
         ivBack.setOnClickListener(this)
         iv_image_picker.setOnClickListener(this)
+        tv_countryCodePicker.setOnClickListener {
+            tv_countryCodePicker.setText(countryCodePicker?.selectedCountryCode)
+        }
+
     }
 
     override fun onClick(v: View?) {

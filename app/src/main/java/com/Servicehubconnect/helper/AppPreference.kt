@@ -11,6 +11,10 @@ class AppPreference()
     var APP_TYPE = "APP_TYPE"
     var CUSTOMER_USER_ID = "CUSTOMER_USER_ID"
     var CUSTOMER_NAME = "CUSTOMER_NAME"
+    var CUSTOMER_PROFILE_PIC = "CUSTOMER_PROFILE_PIC"
+    var CUSTOMER_EMAIL_ID = "CUSTOMER_EMAIL_ID"
+    var CUSTOMER_MOBILE_NUMBER = "CUSTOMER_MOBILE_NUMBER"
+    var CUSTOMER_COUNTRY_CODE = "CUSTOMER_COUNTRY_CODE"
 
     var PROFESSIONAL_USER_ID = "PROFESSIONAL_USER_ID"
     var PROFESSIONAL_NAME = "PROFESSIONAL_NAME"
@@ -92,6 +96,40 @@ class AppPreference()
     fun setCustomerName(userId: String) {
         setString(CUSTOMER_NAME, userId)
     }
+
+
+    fun getCustomerProfilePic(): String {
+        return getString(CUSTOMER_PROFILE_PIC)
+    }
+    fun setCustomerProfilePic(profilePic: String) {
+        setString(CUSTOMER_PROFILE_PIC, profilePic)
+    }
+
+
+
+    fun getCustomerCountryCode(): String {
+        return getString(CUSTOMER_COUNTRY_CODE)
+    }
+    fun setCustomerCountryCode(countryCode: String) {
+        setString(CUSTOMER_COUNTRY_CODE, countryCode)
+    }
+
+
+
+    fun getCustomerMobileNo(): String {
+        return getString(CUSTOMER_MOBILE_NUMBER)
+    }
+    fun setCustomerMobileNo(mobileNumber: String) {
+        setString(CUSTOMER_MOBILE_NUMBER, mobileNumber)
+    }
+
+    fun getCustomerEmailID(): String {
+        return getString(CUSTOMER_EMAIL_ID)
+    }
+    fun setCustomerEmailID(emailId: String) {
+        setString(CUSTOMER_EMAIL_ID, emailId)
+    }
+
 
 
     fun getProfessionalUserID(): String {

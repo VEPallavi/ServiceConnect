@@ -9,9 +9,12 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.Servicehubconnect.R
+import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.CategoryInfo
 
 
-class ServiceAndProductOrderMenuAdapter(var mContext: Context) : RecyclerView.Adapter<ServiceAndProductOrderMenuAdapter.ServiceProductViewHolder>(){
+public class ServiceAndProductOrderMenuAdapter(var mContext: Context, var categoryInfoList: ArrayList<CategoryInfo>
+                                        ,var categoryType: String)
+    : RecyclerView.Adapter<ServiceAndProductOrderMenuAdapter.ServiceProductViewHolder>(){
 
 
 
@@ -21,11 +24,24 @@ class ServiceAndProductOrderMenuAdapter(var mContext: Context) : RecyclerView.Ad
     }
 
     override fun getItemCount(): Int {
-        return 10
+        return if (categoryInfoList != null) {
+            categoryInfoList.size
+        } else {
+            0
+        }
     }
 
     override fun onBindViewHolder(holder: ServiceProductViewHolder, position: Int) {
-        TODO("Not yet implemented")
+//        categoryType : "product' for product   & "service' for service
+        if(categoryType.equals("product")){
+            holder.tv_name.setText(categoryInfoList.get(position).product_name)
+
+        }
+        else if(categoryType.equals("service")){
+            holder.tv_name.setText(categoryInfoList.get(position).service_name)
+        }
+
+
     }
 
 
@@ -39,9 +55,23 @@ class ServiceAndProductOrderMenuAdapter(var mContext: Context) : RecyclerView.Ad
         var cl_add: ConstraintLayout
         var tv_add: TextView
         var cl_item_minus_count_plus: ConstraintLayout
-        var iv_minus: 
+        var iv_minus: ImageView
+        var tv_item_count: TextView
+        var iv_plus: ImageView
 
 
+        init {
+            iv_business_image = view.findViewById(R.id.iv_business_image)
+            tv_name = view.findViewById(R.id.tv_name)
+            tv_price = view.findViewById(R.id.tv_price)
+            tv_descp = view.findViewById(R.id.tv_descp)
+            cl_add = view.findViewById(R.id.cl_add)
+            tv_add = view.findViewById(R.id.tv_add)
+            cl_item_minus_count_plus = view.findViewById(R.id.cl_item_minus_count_plus)
+            iv_minus = view.findViewById(R.id.iv_minus)
+            tv_item_count = view.findViewById(R.id.tv_item_count)
+            iv_plus = view.findViewById(R.id.iv_plus)
+        }
 
 
     }

@@ -96,7 +96,7 @@ interface ApiService {
     @FormUrlEncoded
     fun getProductAndServiceList(
             @Field("bussinessId") bussinessId: String
-    ): Call<ServiceAndProductResponseModal>
+    ): Call<JsonObject>
 
 
 

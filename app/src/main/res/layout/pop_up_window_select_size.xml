@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/txt_select_size_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Size : "
+        android:textSize="16sp"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:textColor="@color/colorPrimary"/>
+
+    <RadioGroup
+        android:id="@+id/rg_sizes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_15sdp"
+        android:layout_below="@+id/txt_select_size_label">
+
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rg_sizes"
+        android:text="Next"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textSize="@dimen/_15sdp"/>
+</RelativeLayout>

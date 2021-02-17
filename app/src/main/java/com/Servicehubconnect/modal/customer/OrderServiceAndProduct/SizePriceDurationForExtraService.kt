@@ -3,7 +3,7 @@ package com.Servicehubconnect.modal.customer.OrderServiceAndProduct
 
 
 
-data class SizePriceDurationForService (
+data class SizePriceDurationForExtraService (
 
         var size: String,
         var price: Int,

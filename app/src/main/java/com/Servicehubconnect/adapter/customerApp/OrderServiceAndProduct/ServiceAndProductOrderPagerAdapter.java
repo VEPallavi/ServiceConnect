@@ -4,9 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-
-import com.Servicehubconnect.fragment.customerApp.ServiceAndProductOrderMenuFragment;
 
 import java.util.ArrayList;
 
@@ -19,11 +16,17 @@ public class ServiceAndProductOrderPagerAdapter extends FragmentPagerAdapter {
     private final ArrayList<String> fragmentTitleList = new ArrayList<>();
 
 
-    public ServiceAndProductOrderPagerAdapter(FragmentManager fm, int NumOfTabs, ArrayList<String> tabTitle) {
+//    public ServiceAndProductOrderPagerAdapter(FragmentManager fm, int NumOfTabs, ArrayList<String> tabTitle) {
+//        super(fm);
+//        this.mNumOfTabs = NumOfTabs;
+//        this.tabTitle = tabTitle;
+//    }
+
+
+    public ServiceAndProductOrderPagerAdapter(FragmentManager fm) {
         super(fm);
-        this.mNumOfTabs = NumOfTabs;
-        this.tabTitle = tabTitle;
     }
+
 
     @NonNull
     @Override
@@ -46,6 +49,13 @@ public class ServiceAndProductOrderPagerAdapter extends FragmentPagerAdapter {
         fragmentList.add(fragment);
 
         fragmentTitleList.add(title);
+    }
+
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+
+        return fragmentTitleList.get(position);
     }
 
 

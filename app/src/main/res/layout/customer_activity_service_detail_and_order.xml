@@ -236,12 +236,13 @@
             android:layout_height="@dimen/_35sdp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:tabTextColor="#80ffffff"
+            app:tabTextColor="@color/colorBlack"
             app:tabIndicatorHeight="@dimen/_3sdp"
-            app:tabSelectedTextColor="@color/colorAccent"
-            app:tabIndicatorColor="@color/colorAccent"
+            android:background="@color/colorWhite"
+            app:tabSelectedTextColor="@color/colorPrimary"
+            app:tabIndicatorColor="@color/dark_grey"
             android:elevation="5dp"
-            app:tabMode="fixed"
+            app:tabMode="scrollable"
             app:tabGravity="fill"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -253,6 +254,7 @@
             android:layout_height="match_parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="@dimen/_35sdp"
             android:layout_marginBottom="@dimen/_40sdp"
             app:layout_constraintTop_toBottomOf="@+id/activities_tabs"
             app:layout_constraintBottom_toTopOf="@+id/cl_product_service_count"
@@ -260,8 +262,8 @@
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewPager"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
