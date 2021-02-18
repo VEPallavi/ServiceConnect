@@ -2,7 +2,6 @@ package com.Servicehubconnect.activity.customer
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -16,13 +15,14 @@ import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.CategoryInfo
 import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.ServiceAndProductListDataModal
 import com.Servicehubconnect.viewModel.customer.ProfessionalDetailsWithProductsAndServicesViewModel
 import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayout.TabLayoutOnPageChangeListener
 import com.google.gson.Gson
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.customer_activity_service_detail_and_order.*
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), View.OnClickListener{
@@ -41,6 +41,7 @@ class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), V
     var activity: Activity?= null
     var categoryName: String =""
     var categoryType: String =""
+    var finalListHashMap: HashMap<String, java.util.ArrayList<CategoryInfo>> = LinkedHashMap<String, java.util.ArrayList<CategoryInfo>>()
 
 
 

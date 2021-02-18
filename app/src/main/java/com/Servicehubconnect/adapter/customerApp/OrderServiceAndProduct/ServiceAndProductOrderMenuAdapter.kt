@@ -42,6 +42,12 @@ public class ServiceAndProductOrderMenuAdapter(var mContext: Context, var catego
         }
 
 
+        holder.tv_add.setOnClickListener {
+            holder.cl_item_minus_count_plus.visibility = View.VISIBLE
+
+        }
+
+
     }
 
 
