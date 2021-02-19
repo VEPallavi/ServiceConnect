@@ -24,11 +24,12 @@ class ProfessionalListActivity : AppCompatActivity(), View.OnClickListener, Item
     var adapter: ProfessionalListAdapter?= null
     var serviceName: String?= null
     var subCategoryId: String?= null
-    var latitudeValue: String?= null
-    var longitudeValue: String?= null
-    var city: String?= null
-    var country: String?= null
-    var keyword: String?= null
+    var latitudeValue: String =""
+    var longitudeValue: String =""
+    var city: String =""
+    var country: String =""
+    var keyword: String =""
+    var screenType: String =""
 
 
 
@@ -48,12 +49,19 @@ class ProfessionalListActivity : AppCompatActivity(), View.OnClickListener, Item
     }
 
     private fun initViews() {
+        screenType = intent.getStringExtra("SCREEN_TYPE")!!
         serviceName = intent.getStringExtra("serviceName")
         subCategoryId = intent.getStringExtra("subCategoryId")
-        latitudeValue = intent.getStringExtra("latitude")
-        longitudeValue = intent.getStringExtra("longitude")
-        city = intent.getStringExtra("city")
-        country = intent.getStringExtra("country")
+
+        if(screenType.equals("SetLocationAddressActivity")){
+            latitudeValue = intent.getStringExtra("latitude")!!
+            longitudeValue = intent.getStringExtra("longitude")!!
+            city = intent.getStringExtra("city")!!
+            country = intent.getStringExtra("country")!!
+        }
+
+
+
 
         tv_title.text = serviceName
 
@@ -116,7 +124,7 @@ class ProfessionalListActivity : AppCompatActivity(), View.OnClickListener, Item
     override fun itemListener(dataModal: Any) {
         var dataItems= dataModal as ProfessionalListDataModel
 
-        var intent = Intent(this, ProfessionalDetailsWithProductsAndServicesActivity::class.java)
+        var intent = Intent(this, OrderProductsAndServicesActivity::class.java)
         intent.putExtra("professionalId", dataItems.getId())
         intent.putExtra("bussinessId", dataItems.getBussinessId())
         startActivity(intent)

@@ -1,6 +1,5 @@
 package com.Servicehubconnect.fragment.customerApp
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +13,7 @@ import com.Servicehubconnect.R
 import com.Servicehubconnect.activity.customer.*
 import com.Servicehubconnect.adapter.customerApp.DashboardAdapterCustomer
 import com.Servicehubconnect.helper.Utils
-import com.Servicehubconnect.helper.customer.ConstantFragmentName
+import com.Servicehubconnect.helper.customer.ConstantName
 import com.Servicehubconnect.modal.customer.CategoryListDataModel
 import com.Servicehubconnect.viewModel.customer.DashboardViewModelCustomer
 import com.google.gson.Gson
@@ -51,7 +50,7 @@ class DashboardFragmentCustomer : Fragment(){
     }
 
     private fun updateToolbar() {
-        (activity as HomeActivityCustomer).setToolbarTitle(ConstantFragmentName.DASHBOARD_FRAGMENT)
+        (activity as HomeActivityCustomer).setToolbarTitle(ConstantName.DASHBOARD_FRAGMENT)
         (activity as HomeActivityCustomer).setToolbarMenuVisibility(true)
         (activity as HomeActivityCustomer).setToolbarBackVisibility(false)
         (activity as HomeActivityCustomer).setToolbarNotificationVisibility(true)

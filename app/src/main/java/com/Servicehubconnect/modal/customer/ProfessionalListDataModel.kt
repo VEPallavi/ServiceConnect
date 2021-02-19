@@ -32,6 +32,12 @@ class ProfessionalListDataModel {
     private var professionalPurpose: String?= null
 
 
+
+    @SerializedName("local_city")
+    @Expose
+    private var local_city: String?= null
+
+
     @SerializedName("city")
     @Expose
     private var city: String? = null
@@ -147,6 +153,17 @@ class ProfessionalListDataModel {
     fun setProfessionalPurpose(professionalPurpose: String?) {
         this.professionalPurpose = professionalPurpose
     }
+
+
+
+    fun getLocalCity(): String? {
+        return professionalPurpose
+    }
+
+    fun setLocalCity(local_city: String?) {
+        this.local_city = local_city
+    }
+
 
 
 

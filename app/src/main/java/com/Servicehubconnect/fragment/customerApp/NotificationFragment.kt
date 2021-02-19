@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.Servicehubconnect.R
 import com.Servicehubconnect.activity.customer.HomeActivityCustomer
 import com.Servicehubconnect.adapter.customerApp.NotificationListAdapter
-import com.Servicehubconnect.helper.customer.ConstantFragmentName
+import com.Servicehubconnect.helper.customer.ConstantName
 import kotlinx.android.synthetic.main.customer_fragment_notification.*
 
 
@@ -33,7 +33,7 @@ class NotificationFragment : Fragment(){
     }
 
     private fun updateToolbar() {
-        (activity as HomeActivityCustomer).setToolbarTitle(ConstantFragmentName.NOTIFICATION_FRAGMENT)
+        (activity as HomeActivityCustomer).setToolbarTitle(ConstantName.NOTIFICATION_FRAGMENT)
         (activity as HomeActivityCustomer).setToolbarMenuVisibility(false)
         (activity as HomeActivityCustomer).setToolbarBackVisibility(true)
         (activity as HomeActivityCustomer).setToolbarNotificationVisibility(false)

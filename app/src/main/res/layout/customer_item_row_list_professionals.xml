@@ -135,6 +135,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_professionName"
             android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
             android:textColor="@color/colorBlack"
             android:text="Business Name" />
 
@@ -145,6 +146,7 @@
             app:layout_constraintLeft_toLeftOf="@+id/tv_professionName"
             app:layout_constraintTop_toBottomOf="@+id/tv_businessName"
             android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
             android:textColor="@color/colorBlack"
             android:text="Purpose: " />
 
@@ -156,8 +158,9 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_businessName"
             android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
             android:textColor="@color/colorBlack"
-            android:text="Purpose wfwhfbwehf  gywfytwvffywf" />
+            android:text="Purpose wfwhfbwehf gywfytwvffywf" />
 
         <TextView
             android:id="@+id/txt_cities_of_operation"
@@ -166,6 +169,7 @@
             app:layout_constraintLeft_toLeftOf="@+id/tv_professionName"
             app:layout_constraintTop_toBottomOf="@+id/tv_purpose"
             android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
             android:textColor="@color/colorBlack"
             android:text="Cities of operation: " />
 
@@ -177,6 +181,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_purpose"
             android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
             android:textColor="@color/colorBlack"
             android:text="Cities of operation f3regrg b4tgtg rgeg" />
 
@@ -187,6 +192,7 @@
             app:layout_constraintLeft_toLeftOf="@+id/tv_professionName"
             app:layout_constraintTop_toBottomOf="@+id/tv_cities_of_operation"
             android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
             android:textColor="@color/colorBlack"
             android:text="Minimum Costs: " />
 
@@ -198,6 +204,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_cities_of_operation"
             android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
             android:textColor="@color/colorBlack"
             android:text="67776" />
 
@@ -225,6 +232,7 @@
         android:drawablePadding="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_5sdp"
         android:textSize="@dimen/_10sdp"
+        android:textStyle="bold"
         android:textColor="@color/colorBlack"
         android:text="4.5" />
 
@@ -236,7 +244,8 @@
         app:layout_constraintLeft_toRightOf="@+id/tv_ratingValue"
         app:layout_constraintBottom_toBottomOf="@+id/tv_ratingValue"
         android:textSize="@dimen/_9sdp"
-        android:textColor="@color/light_grey"
+        android:textStyle="bold"
+        android:textColor="@color/dark_grey"
         android:text=" (2.2k Ratings)" />
 
     <TextView
@@ -249,6 +258,7 @@
         android:drawablePadding="@dimen/_5sdp"
         android:alpha=".9"
         android:text="2.3k Comments"
+        android:textStyle="bold"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/_10sdp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -267,6 +277,7 @@
         android:text="Background Check"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/_10sdp"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_commentsCount" />
 
@@ -275,7 +286,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"
         app:layout_constraintLeft_toRightOf="@+id/tv_backgroundCheck"
         app:layout_constraintTop_toBottomOf="@+id/tv_commentsCount"
         android:text="Yes/Cleared" />
@@ -290,6 +304,7 @@
         android:drawablePadding="@dimen/_5sdp"
         android:alpha=".9"
         android:text="Trade Licence"
+        android:textStyle="bold"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/_10sdp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -301,9 +316,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_6sdp"
         app:layout_constraintLeft_toRightOf="@+id/tv_backgroundCheck"
         app:layout_constraintTop_toBottomOf="@+id/tv_backgroundCheck"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"
         android:text="Yes/Cleared" />
 
     <TextView
@@ -317,6 +335,7 @@
         android:gravity="left"
         android:alpha=".9"
         android:text="Insured"
+        android:textStyle="bold"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/_10sdp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -327,9 +346,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_6sdp"
         app:layout_constraintLeft_toRightOf="@+id/tv_insurance"
         app:layout_constraintTop_toBottomOf="@+id/tv_tradeLicence"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"
         android:text="Yes/Cleared" />
 
 
@@ -345,6 +367,7 @@
         android:alpha=".9"
         android:text="Certificate"
         android:textColor="@color/colorBlack"
+        android:textStyle="bold"
         android:textSize="@dimen/_10sdp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_insurance" />
@@ -354,9 +377,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_6sdp"
         app:layout_constraintLeft_toRightOf="@+id/tv_certificate"
         app:layout_constraintTop_toBottomOf="@+id/tv_insurance"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"
         android:text="Yes/Cleared"
         />
 
@@ -372,6 +398,7 @@
         android:gravity="left"
         android:alpha=".9"
         android:text="Driving Licence/State Id"
+        android:textStyle="bold"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/_10sdp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -382,9 +409,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_6sdp"
         app:layout_constraintLeft_toRightOf="@+id/tv_driving_licence"
         app:layout_constraintTop_toBottomOf="@+id/tv_certificate"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"
         android:text="Yes/Cleared" />
 
     <TextView
@@ -399,6 +429,7 @@
         android:alpha=".9"
         android:text="Commercial Insured"
         android:textColor="@color/colorBlack"
+        android:textStyle="bold"
         android:textSize="@dimen/_10sdp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_driving_licence" />
@@ -408,9 +439,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_6sdp"
         app:layout_constraintLeft_toRightOf="@+id/tv_commercial_insured"
         app:layout_constraintTop_toBottomOf="@+id/tv_driving_licence"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"
         android:text="Yes/Cleared" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

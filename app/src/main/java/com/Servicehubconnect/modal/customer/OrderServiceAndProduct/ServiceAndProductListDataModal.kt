@@ -10,6 +10,6 @@ data class ServiceAndProductListDataModal (
         var business_id: String,
         var category_type: String,
         var createdAt: String,
-        var info: ArrayList<CategoryInfo> = ArrayList()
+        var info: ArrayList<StoreItemDetailsListCategoryInfo> = ArrayList()
 
 )

@@ -27,6 +27,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.location.LocationManagerCompat.isLocationEnabled
 import com.Servicehubconnect.R
 import com.Servicehubconnect.helper.Utils
+import com.Servicehubconnect.helper.customer.ConstantName
 import com.google.android.gms.common.api.Status
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -355,16 +356,8 @@ class SetLocationAddressActivity : AppCompatActivity(), View.OnClickListener, On
             intent.putExtra("longitude", longitudeValue)
             intent.putExtra("country", country)
             intent.putExtra("city", city)
+            intent.putExtra("SCREEN_TYPE", "SetLocationAddressActivity")
             startActivity(intent)
-
-
-
-
-
-        /*    var intent = Intent(this, ProfessionalDetailsWithProductsAndServicesActivity::class.java)
-            intent.putExtra("professionalId", "12")
-            startActivity(intent)*/
-
 
           //  openDialogOtherLocation()
         }

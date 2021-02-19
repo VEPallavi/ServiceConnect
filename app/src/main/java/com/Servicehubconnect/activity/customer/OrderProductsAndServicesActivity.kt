@@ -11,8 +11,8 @@ import androidx.viewpager.widget.ViewPager
 import com.Servicehubconnect.R
 import com.Servicehubconnect.adapter.customerApp.OrderServiceAndProduct.ServiceAndProductOrderPagerAdapter
 import com.Servicehubconnect.fragment.customerApp.ServiceAndProductOrderMenuFragment
-import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.CategoryInfo
 import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.ServiceAndProductListDataModal
+import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.StoreItemDetailsListCategoryInfo
 import com.Servicehubconnect.viewModel.customer.ProfessionalDetailsWithProductsAndServicesViewModel
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.Gson
@@ -25,7 +25,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), View.OnClickListener{
+class OrderProductsAndServicesActivity: AppCompatActivity(), View.OnClickListener{
     var viewModel: ProfessionalDetailsWithProductsAndServicesViewModel?= null
     var tabs: TabLayout?= null
     var viewPager: ViewPager?= null
@@ -36,13 +36,14 @@ class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), V
     var allJsonData: JsonObject? = null
     var serviceAndProductListModal: ServiceAndProductListDataModal?= null
     var serviceAndProductList = ArrayList<ServiceAndProductListDataModal>()
-    private var categoryList: ArrayList<CategoryInfo> = ArrayList<CategoryInfo>()
-    var categoryInfoModal: CategoryInfo?= null
+    private var categoryList: ArrayList<StoreItemDetailsListCategoryInfo> = ArrayList<StoreItemDetailsListCategoryInfo>()
+    var categoryInfoModal: StoreItemDetailsListCategoryInfo?= null
     var activity: Activity?= null
     var categoryName: String =""
     var categoryType: String =""
-    var finalListHashMap: HashMap<String, java.util.ArrayList<CategoryInfo>> = LinkedHashMap<String, java.util.ArrayList<CategoryInfo>>()
-
+    companion object {
+        lateinit var finalListHashMap: HashMap<String, ArrayList<StoreItemDetailsListCategoryInfo>>
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,8 +76,8 @@ class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), V
                             tv_professionName.setText(dataObj.get("name").asString)
                         }
 
-                        if(dataObj.has("bussinessName") && !dataObj.get("bussinessName").isJsonNull){
-                            tv_businessName.setText(dataObj.get("bussinessName").asString)
+                        if(dataObj.has("bussiness_name") && !dataObj.get("bussiness_name").isJsonNull){
+                            tv_businessName.setText(dataObj.get("bussiness_name").asString)
                         }
 
                         if(dataObj.has("ratingAverage") && !dataObj.get("ratingAverage").isJsonNull){
@@ -244,6 +245,8 @@ class ProfessionalDetailsWithProductsAndServicesActivity: AppCompatActivity(), V
             }
         })
     }
+
+   
 
 
 }

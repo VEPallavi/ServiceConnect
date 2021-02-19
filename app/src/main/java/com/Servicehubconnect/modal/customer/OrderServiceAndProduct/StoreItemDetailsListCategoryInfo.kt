@@ -3,7 +3,7 @@ package com.Servicehubconnect.modal.customer.OrderServiceAndProduct
 
 
 
-class CategoryInfo (
+class StoreItemDetailsListCategoryInfo (
 
         var _id: String,
         var product_name: String,

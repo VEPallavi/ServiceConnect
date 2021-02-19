@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.Servicehubconnect.R
 import com.Servicehubconnect.activity.servicePerson.HomeActivitySP
 import com.Servicehubconnect.adapter.servicePerson.DashboardAdapterSP
-import com.Servicehubconnect.helper.customer.ConstantFragmentName
+import com.Servicehubconnect.helper.customer.ConstantName
 import kotlinx.android.synthetic.main.sp_fragment_dashboard.*
 
 
@@ -35,7 +35,7 @@ class DashboardFragmentSP : Fragment(){
     }
 
     private fun updateToolbar() {
-        (activity as HomeActivitySP).setToolbarTitle(ConstantFragmentName.DASHBOARD_FRAGMENT)
+        (activity as HomeActivitySP).setToolbarTitle(ConstantName.DASHBOARD_FRAGMENT)
         (activity as HomeActivitySP).setToolbarMenuVisibility(true)
         (activity as HomeActivitySP).setToolbarBackVisibility(false)
     }

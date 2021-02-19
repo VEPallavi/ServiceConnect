@@ -9,9 +9,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.Servicehubconnect.R
-import com.Servicehubconnect.activity.customer.ProfessionalDetailsWithProductsAndServicesActivity
+import com.Servicehubconnect.activity.customer.OrderProductsAndServicesActivity
 import com.Servicehubconnect.modal.customer.ProfessionalListDataModel
-import com.Servicehubconnect.viewModel.customer.ProfessionalDetailsWithProductsAndServicesViewModel
 
 
 class SearchBusinessAdapter(var mContext: Context, var dataList: ArrayList<ProfessionalListDataModel>): RecyclerView.Adapter<SearchBusinessAdapter.SearchBusinessViewHolder>(){
@@ -47,7 +46,7 @@ class SearchBusinessAdapter(var mContext: Context, var dataList: ArrayList<Profe
 
 
             layout_search.setOnClickListener {
-                var intent = Intent(mContext, ProfessionalDetailsWithProductsAndServicesActivity::class.java)
+                var intent = Intent(mContext, OrderProductsAndServicesActivity::class.java)
                 intent.putExtra("professionalId", dataModal.getId())
                 mContext.startActivity(intent)
             }

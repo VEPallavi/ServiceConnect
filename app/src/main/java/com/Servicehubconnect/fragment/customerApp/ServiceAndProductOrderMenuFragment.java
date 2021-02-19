@@ -2,6 +2,7 @@ package com.Servicehubconnect.fragment.customerApp;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +16,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.Servicehubconnect.R;
+import com.Servicehubconnect.activity.customer.OrderProductsAndServicesActivity;
 import com.Servicehubconnect.adapter.customerApp.OrderServiceAndProduct.ServiceAndProductOrderMenuAdapter;
-import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.CategoryInfo;
+import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.StoreItemDetailsListCategoryInfo;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -26,7 +29,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
     TextView c;
     int val;
     private Activity activity;
-    private ArrayList<CategoryInfo> categoryInfoList;
+    private ArrayList<StoreItemDetailsListCategoryInfo> categoryInfoList;
     ServiceAndProductOrderMenuAdapter serviceAndProductOrderMenuAdapter;
     String categoryType;
 
@@ -34,7 +37,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
 
     @SuppressLint("ValidFragment")
-    public ServiceAndProductOrderMenuFragment(Activity activity, ArrayList<CategoryInfo> categoryInfoList, String categoryType) {
+    public ServiceAndProductOrderMenuFragment(Activity activity, ArrayList<StoreItemDetailsListCategoryInfo> categoryInfoList, String categoryType) {
         this.activity = activity;
         this.categoryInfoList = categoryInfoList;
         this.categoryType = categoryType;
@@ -51,7 +54,11 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
         linearLayoutManager = new LinearLayoutManager(getActivity());
         rv_service_and_order_menu.setLayoutManager(linearLayoutManager);
 
-        serviceAndProductOrderMenuAdapter = new ServiceAndProductOrderMenuAdapter(getActivity(), categoryInfoList, categoryType);
+        serviceAndProductOrderMenuAdapter = new ServiceAndProductOrderMenuAdapter(getActivity(), categoryInfoList
+                , OrderProductsAndServicesActivity.finalListHashMap, categoryType);
+
+
+        serviceAndProductOrderMenuAdapter.setOnAddButtonClickListener(new AddOrderButtonClickListener());
         rv_service_and_order_menu.setAdapter(serviceAndProductOrderMenuAdapter);
 
 
@@ -67,6 +74,51 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
     }
 
+
+
+    private class AddOrderButtonClickListener implements ServiceAndProductOrderMenuAdapter.AddButtonClickListener {
+
+        @Override
+        public void onAddButtonClickListener(ServiceAndProductOrderMenuAdapter.ServiceAndProductOrderMenuViewHolder viewHolder
+                , StoreItemDetailsListCategoryInfo storeItemDetailsListModel, int position) {
+
+
+//            if (!storeItemDetailsListModel.getSize_price_duration() && !storeItemDetailsListModel.isExtraPackage()) {
+//
+//                addListToFinalHashMap(storeItemDetailsListModel);
+//
+//            } else if (storeItemDetailsListModel.isSize() && !storeItemDetailsListModel.isExtraPackage()) {
+//
+//                StoreItemDetailsListModel vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+//
+//                showSizePopup(vStoreItemDetailsListModel , false);
+//
+//            } else if (storeItemDetailsListModel.isSize() && storeItemDetailsListModel.isExtraPackage()) {
+//
+//                StoreItemDetailsListModel vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+//
+//                showSizePopup(vStoreItemDetailsListModel , false);
+//
+//            } else if (!storeItemDetailsListModel.isSize() && storeItemDetailsListModel.isExtraPackage()) {
+//
+//                StoreItemDetailsListModel vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+//
+//                String strJsonStoreItemDetailsLModel = new Gson().toJson(vStoreItemDetailsListModel);
+//
+//                Intent i = new Intent(activity, ExtraPackageListActivity.class);
+//
+//                i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
+//
+//                i.putExtra(AppConstants.ITEM_ID, vStoreItemDetailsListModel.getStoreCategoriesItemId());
+//
+//                i.putExtra(AppConstants.SIZE_PRICE , vStoreItemDetailsListModel.getStoreCategoriesItemPrice());
+//
+//                startActivityForResult(i, 1);
+//
+//            }
+
+        }
+    }
 
 
 

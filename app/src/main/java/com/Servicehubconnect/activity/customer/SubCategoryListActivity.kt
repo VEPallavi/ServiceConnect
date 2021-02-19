@@ -13,6 +13,7 @@ import com.Servicehubconnect.R
 import com.Servicehubconnect.adapter.customerApp.SubCategoriesListAdapter
 import com.Servicehubconnect.callback.ItemListener
 import com.Servicehubconnect.helper.Utils
+import com.Servicehubconnect.helper.customer.ConstantName
 import com.Servicehubconnect.modal.customer.SubCategoriesModal
 import com.Servicehubconnect.viewModel.customer.SubCategoriesListViewModel
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
@@ -102,13 +103,25 @@ class SubCategoryListActivity : AppCompatActivity(), View.OnClickListener, ItemL
 
     override fun itemListener(dataModel: Any) {
         var dataModel = dataModel as SubCategoriesModal
+        var locality = dataModel.locality
 
-        Log.e("<<< ", dataModel.name)
-        var intent = Intent(this, SetLocationAddressActivity::class.java)
-        intent.putExtra("serviceName", dataModel.name)
-        intent.putExtra("subCategoryId", dataModel._id)
-        intent.putExtra("is_required_two_location", isRequiredTwoLocation)
-        startActivity(intent)
+        if(locality.equals("global")){
+            val intent = Intent(this, ProfessionalListActivity::class.java)
+            intent.putExtra("serviceName", dataModel.name)
+            intent.putExtra("subCategoryId", dataModel._id)
+            intent.putExtra("SCREEN_TYPE", "SubCategoriesListActivity")
+            startActivity(intent)
+        }
+        else if(locality.equals("local")){
+            Log.e("<<< ", dataModel.name)
+            var intent = Intent(this, SetLocationAddressActivity::class.java)
+            intent.putExtra("serviceName", dataModel.name)
+            intent.putExtra("subCategoryId", dataModel._id)
+            intent.putExtra("is_required_two_location", isRequiredTwoLocation)
+            startActivity(intent)
+        }
+
+
     }
 
 

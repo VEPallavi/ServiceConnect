@@ -63,6 +63,7 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginLeft="@dimen/_5sdp"
             android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
             android:textColor="@color/colorBlack"
             android:text="Profession Name" />
 
@@ -74,6 +75,7 @@
             android:layout_marginTop="@dimen/_3sdp"
             android:text="Business Name"
             android:textColor="@color/colorBlack"
+            android:textStyle="bold"
             android:textSize="@dimen/_10sdp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -106,6 +108,7 @@
             android:layout_marginLeft="@dimen/_5sdp"
             android:drawableLeft="@drawable/star_icon_on"
             android:gravity="bottom"
+            android:textStyle="bold"
             android:drawablePadding="@dimen/_5sdp"
             android:textSize="@dimen/_10sdp"
             android:textColor="@color/colorPrimary"
@@ -118,7 +121,8 @@
             app:layout_constraintLeft_toRightOf="@+id/tv_ratingValue"
             app:layout_constraintBottom_toBottomOf="@+id/tv_ratingValue"
             android:textSize="@dimen/_8sdp"
-            android:textColor="@color/light_grey"
+            android:textColor="@color/dark_grey"
+            android:textStyle="bold"
             android:text=" (2.2k Ratings)" />
 
         <TextView
@@ -133,6 +137,7 @@
             android:drawableLeft="@drawable/comment_icon"
             android:drawablePadding="@dimen/_5sdp"
             android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
             android:textColor="@color/colorBlack"
             android:text="2.3k Comments" />
 
@@ -145,7 +150,9 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_commentsCount"
             android:layout_marginLeft="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:textColor="@color/light_grey"
+            android:textColor="@color/dark_grey"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
             android:text="@string/txt_open_time"/>
 
         <TextView
@@ -157,6 +164,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txt_openTime"
             android:layout_marginLeft="@dimen/_5sdp"
             android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
             android:textColor="@color/colorBlack"
             android:text="10:00 Am - 12:00Am"/>
 
@@ -170,6 +178,8 @@
             android:layout_marginLeft="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
+            android:textColor="@color/dark_grey"
             android:text="Description"/>
 
         <TextView
@@ -182,6 +192,7 @@
             android:layout_marginLeft="@dimen/_5sdp"
             android:textSize="@dimen/_10sdp"
             android:textColor="@color/colorBlack"
+            android:textStyle="bold"
             android:text="ecnevevshegveruhbvgefvsucdhbdyvbced cydcw"/>
 
         <TextView
@@ -215,6 +226,7 @@
             android:layout_marginTop="@dimen/_8sdp"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
             android:text="2.3k Comments" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -292,7 +304,7 @@
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:paddingTop="@dimen/_3sdp"
                 android:textColor="@color/colorWhite"
-                android:text="1 Product  |  $00.00"/>
+                android:text="0 Product  |  $00.00"/>
 
             <TextView
                 android:id="@+id/tv_service"
@@ -305,7 +317,7 @@
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:textSize="@dimen/_10sdp"
                 android:textColor="@color/colorWhite"
-                android:text="1 Service  |  $00.00"/>
+                android:text="0 Service  |  $00.00"/>
 
             <TextView
                 android:id="@+id/tv_total_service_time"

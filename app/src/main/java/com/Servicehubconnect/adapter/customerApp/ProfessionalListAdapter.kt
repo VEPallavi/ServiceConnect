@@ -89,7 +89,7 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
 
             tv_professionName.setText(dataModal.getName())
             tv_businessName.setText(dataModal.getBussinessName())
-            tv_cities_of_operation.setText(dataModal.getCity())
+            tv_cities_of_operation.setText(dataModal.getLocalCity())
             tv_ratingValue.setText(""+dataModal.getRatingAverage())
 
 
