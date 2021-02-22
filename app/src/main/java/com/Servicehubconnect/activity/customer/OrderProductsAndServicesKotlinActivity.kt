@@ -14,6 +14,8 @@ import com.Servicehubconnect.fragment.customerApp.ServiceAndProductOrderMenuFrag
 import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.ServiceAndProductListDataModal
 import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.StoreItemDetailsListCategoryInfo
 import com.Servicehubconnect.viewModel.customer.ProfessionalDetailsWithProductsAndServicesViewModel
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.Gson
 import com.google.gson.JsonArray
@@ -25,7 +27,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class OrderProductsAndServicesActivity: AppCompatActivity(), View.OnClickListener{
+class OrderProductsAndServicesKotlinActivity: AppCompatActivity(), View.OnClickListener{
     var viewModel: ProfessionalDetailsWithProductsAndServicesViewModel?= null
     var tabs: TabLayout?= null
     var viewPager: ViewPager?= null
@@ -79,6 +81,16 @@ class OrderProductsAndServicesActivity: AppCompatActivity(), View.OnClickListene
                         if(dataObj.has("bussiness_name") && !dataObj.get("bussiness_name").isJsonNull){
                             tv_businessName.setText(dataObj.get("bussiness_name").asString)
                         }
+
+
+                        if(dataObj.has("profile_pic") && !dataObj.get("profile_pic").isJsonNull){
+                            Glide.with(this)
+                                    .load(dataObj.get("profile_pic").asString)
+                                    .apply(RequestOptions().placeholder(R.drawable.dummy).error(R.drawable.dummy))
+                                    .into(iv_business_pic)
+                        }
+
+
 
                         if(dataObj.has("ratingAverage") && !dataObj.get("ratingAverage").isJsonNull){
 

@@ -56,13 +56,16 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
         if(categoryType.equals("product")){
             holder.tv_name.setText(storeItemDetailsList.get(position).getProduct_name());
 
+
+            holder.tv_add.setOnClickListener(new AddOrderClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
+
         }
         else if(categoryType.equals("service")){
             holder.tv_name.setText(storeItemDetailsList.get(position).getService_name());
         }
 
 
-        holder.tv_add.setOnClickListener(new AddOrderClickListener(holder, storeItemDetailsList.get(position), position));
+
 
 //
 //        holder.tv_add.setOnClickListener {
@@ -96,7 +99,7 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
      **/
     public interface AddButtonClickListener {
 
-        void onAddButtonClickListener(ServiceAndProductOrderMenuViewHolder viewHolder, StoreItemDetailsListCategoryInfo storeItemDetailsListModel, int position);
+        void onAddButtonClickListener(ServiceAndProductOrderMenuViewHolder viewHolder, StoreItemDetailsListCategoryInfo storeItemDetailsListModel, int position, String categoryType);
 
     }
 
@@ -114,20 +117,25 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
         private StoreItemDetailsListCategoryInfo storeItemDetailsListModel;
 
         private int position;
+        private String categoryType;
 
-        public AddOrderClickListener(ServiceAndProductOrderMenuViewHolder viewHolder, StoreItemDetailsListCategoryInfo storeItemDetailsListModel, int position) {
+
+        public AddOrderClickListener(ServiceAndProductOrderMenuViewHolder viewHolder
+                , StoreItemDetailsListCategoryInfo storeItemDetailsListModel, int position, String categoryType) {
 
             this.viewHolder = viewHolder;
 
             this.storeItemDetailsListModel = storeItemDetailsListModel;
 
             this.position = position;
+
+            this.categoryType = categoryType;
         }
 
         @Override
         public void onClick(View v) {
 
-            addButtonClickListener.onAddButtonClickListener(viewHolder, storeItemDetailsListModel, position);
+            addButtonClickListener.onAddButtonClickListener(viewHolder, storeItemDetailsListModel, position, categoryType);
 
         }
     }

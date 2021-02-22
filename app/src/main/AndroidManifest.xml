@@ -93,7 +93,7 @@
         <activity android:name="com.Servicehubconnect.activity.customer.ProfessionalListActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.OrderProductsAndServicesActivity"
+        <activity android:name=".activity.customer.OrderProductsAndServicesKotlinActivity"
             android:screenOrientation="portrait"/>
 
         <activity android:name="com.Servicehubconnect.activity.customer.LicenceListActivity"

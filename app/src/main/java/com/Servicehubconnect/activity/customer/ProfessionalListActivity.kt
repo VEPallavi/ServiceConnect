@@ -124,7 +124,7 @@ class ProfessionalListActivity : AppCompatActivity(), View.OnClickListener, Item
     override fun itemListener(dataModal: Any) {
         var dataItems= dataModal as ProfessionalListDataModel
 
-        var intent = Intent(this, OrderProductsAndServicesActivity::class.java)
+        var intent = Intent(this, OrderProductsAndServicesKotlinActivity::class.java)
         intent.putExtra("professionalId", dataItems.getId())
         intent.putExtra("bussinessId", dataItems.getBussinessId())
         startActivity(intent)
