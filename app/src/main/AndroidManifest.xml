@@ -105,6 +105,14 @@
         <activity android:name="com.Servicehubconnect.activity.customer.OrderPlaceActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".activity.customer.ExtraPackageListActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.customer.OrderProductsAndServicesActivity"
+            android:screenOrientation="portrait"/>
+
+
+
         <activity android:name="com.Servicehubconnect.activity.customer.SettingActivity"
             android:screenOrientation="portrait"/>
 

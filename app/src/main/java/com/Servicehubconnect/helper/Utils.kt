@@ -190,6 +190,15 @@ class Utils {
         }
 
 
+        fun getIsHappyHours(startTime: String, endTime: String):String{
+
+
+
+
+            return ""
+        }
+
+
 
     }
 }

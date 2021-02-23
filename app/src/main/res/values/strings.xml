@@ -125,6 +125,9 @@
     <string name="hint_enter_your_local_city">Enter your local city</string>
     <string name="text_resend_otp">Resend OTP</string>
     <string name="menu_rescheduled_service">Rescheduled Service</string>
+    <string name="txt_no_extras_selected">No Extras Selected</string>
+    <string name="txt_item_total">Item Total</string>
+    <string name="txt_add_item">Add Item</string>
 
 
 </resources>

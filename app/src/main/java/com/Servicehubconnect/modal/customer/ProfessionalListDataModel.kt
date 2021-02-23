@@ -157,7 +157,7 @@ class ProfessionalListDataModel {
 
 
     fun getLocalCity(): String? {
-        return professionalPurpose
+        return local_city
     }
 
     fun setLocalCity(local_city: String?) {

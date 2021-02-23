@@ -13,6 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.Servicehubconnect.R;
+import com.Servicehubconnect.helper.AppConstants;
 import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.StoreItemDetailsListCategoryInfo;
 
 import java.util.ArrayList;
@@ -22,13 +23,13 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
     private Activity activity;
     private ArrayList<StoreItemDetailsListCategoryInfo> storeItemDetailsList;
     private  HashMap<String, ArrayList<StoreItemDetailsListCategoryInfo>> finalListHashMap;
-    private String categoryType;
+    private String categoryType, currencySymbol;
     private AddButtonClickListener addButtonClickListener;
 
 
 
     public ServiceAndProductOrderMenuAdapter(Activity activity, ArrayList<StoreItemDetailsListCategoryInfo> storeItemDetailsList
-            , HashMap<String, ArrayList<StoreItemDetailsListCategoryInfo>> finalListHashMap, String categoryType) {
+            , HashMap<String, ArrayList<StoreItemDetailsListCategoryInfo>> finalListHashMap, String categoryType, String currencySymbol) {
 
         this.activity = activity;
 
@@ -37,6 +38,8 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
         this.finalListHashMap = finalListHashMap;
 
         this.categoryType = categoryType;
+
+        this.currencySymbol = currencySymbol;
     }
 
 
@@ -53,15 +56,38 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
     public void onBindViewHolder(@NonNull ServiceAndProductOrderMenuViewHolder holder, int position) {
 
         //        categoryType : "product' for product   & "service' for service
-        if(categoryType.equals("product")){
-            holder.tv_name.setText(storeItemDetailsList.get(position).getProduct_name());
+        if(categoryType.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
+            holder.tv_name.setText(storeItemDetailsList.get(position).getProductName());
+            holder.tv_price.setText(currencySymbol +storeItemDetailsList.get(position).getPrice());
+            holder.tv_descp.setText(storeItemDetailsList.get(position).getDescription());
 
 
             holder.tv_add.setOnClickListener(new AddOrderClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
 
         }
-        else if(categoryType.equals("service")){
-            holder.tv_name.setText(storeItemDetailsList.get(position).getService_name());
+        else if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
+            holder.tv_name.setText(storeItemDetailsList.get(position).getServiceName());
+            holder.tv_price.setText(currencySymbol +storeItemDetailsList.get(position).getPrice());
+            holder.tv_descp.setText(storeItemDetailsList.get(position).getDescription());
+
+            holder.tv_add.setOnClickListener(new AddOrderClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
+        }
+
+
+        if(finalListHashMap.containsKey(storeItemDetailsList.get(position).getId()))
+        {
+            holder.cl_item_minus_count_plus.setVisibility(View.VISIBLE);
+
+            holder.tv_add.setVisibility(View.GONE);
+
+            holder.tv_item_count.setText(""+finalListHashMap.get(storeItemDetailsList.get(position).getId()).size());
+        }else {
+
+            holder.cl_item_minus_count_plus.setVisibility(View.GONE);
+
+            holder.tv_add.setVisibility(View.VISIBLE);
+
+            holder.tv_item_count.setText("0");
         }
 
 

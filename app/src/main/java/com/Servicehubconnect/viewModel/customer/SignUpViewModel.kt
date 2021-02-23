@@ -38,6 +38,7 @@ class SignUpViewModel : ViewModel(){
             override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
                 Utils.hideProgressDialog()
                 if(response != null && response.body()!= null){
+
                     signUpResult!!.value = response.body()
                 }
             }

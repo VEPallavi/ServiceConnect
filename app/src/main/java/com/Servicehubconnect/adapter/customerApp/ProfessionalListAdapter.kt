@@ -45,7 +45,7 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
         var tv_ratingCount: TextView
         var tv_commentsCount: TextView
         var tv_purpose: TextView
-        var tv_cities_of_operation: TextView
+        var tv_city: TextView
         var tv_cost: TextView
         var tv_backgroundCheck_yes_no: TextView
         var tv_tradeLicence_yes_no: TextView
@@ -67,7 +67,7 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
             tv_ratingValue = view.findViewById(R.id.tv_ratingValue);
             tv_ratingCount = view.findViewById(R.id.tv_ratingCount);
             tv_commentsCount = view.findViewById(R.id.tv_commentsCount)
-            tv_cities_of_operation = view.findViewById(R.id.tv_cities_of_operation)
+            tv_city = view.findViewById(R.id.tv_city)
             tv_purpose = view.findViewById(R.id.tv_purpose)
             tv_cost = view.findViewById(R.id.tv_cost)
             tv_backgroundCheck_yes_no = view.findViewById(R.id.tv_backgroundCheck_yes_no)
@@ -89,7 +89,7 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
 
             tv_professionName.setText(dataModal.getName())
             tv_businessName.setText(dataModal.getBussinessName())
-            tv_cities_of_operation.setText(dataModal.getLocalCity())
+            tv_city.setText(dataModal.getLocalCity())
             tv_ratingValue.setText(""+dataModal.getRatingAverage())
 
 
@@ -123,6 +123,7 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
 
             if(dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime() != null
                     &&  !dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime()!!.equals("")){
+
 
 
                 tv_happy_hours_close_time.setText(dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime())

@@ -163,7 +163,7 @@
             android:text="Purpose wfwhfbwehf gywfytwvffywf" />
 
         <TextView
-            android:id="@+id/txt_cities_of_operation"
+            android:id="@+id/txt_city"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="@+id/tv_professionName"
@@ -171,13 +171,13 @@
             android:textSize="@dimen/_10sdp"
             android:textStyle="bold"
             android:textColor="@color/colorBlack"
-            android:text="Cities of operation: " />
+            android:text="City: " />
 
         <TextView
-            android:id="@+id/tv_cities_of_operation"
+            android:id="@+id/tv_city"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintLeft_toRightOf="@+id/txt_cities_of_operation"
+            app:layout_constraintLeft_toRightOf="@+id/txt_city"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_purpose"
             android:textSize="@dimen/_10sdp"
@@ -190,7 +190,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="@+id/tv_professionName"
-            app:layout_constraintTop_toBottomOf="@+id/tv_cities_of_operation"
+            app:layout_constraintTop_toBottomOf="@+id/tv_city"
             android:textSize="@dimen/_10sdp"
             android:textStyle="bold"
             android:textColor="@color/colorBlack"
@@ -202,7 +202,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toRightOf="@+id/txt_minimum_cost"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_cities_of_operation"
+            app:layout_constraintTop_toBottomOf="@+id/tv_city"
             android:textSize="@dimen/_10sdp"
             android:textStyle="bold"
             android:textColor="@color/colorBlack"

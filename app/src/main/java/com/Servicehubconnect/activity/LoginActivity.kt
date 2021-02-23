@@ -173,10 +173,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
 
                     Utils.showToast(this, "Login successfully.")
 
-                    if(it.has("token")){
-                        appPreference?.setAuthToken(it.get("token").asString)
 
-                    }
 
                     if(it.has("data") && it.get("data") is JsonObject){
                         var dataObj= it.getAsJsonObject("data")
@@ -185,6 +182,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
 
                             //  Todo USER
                             if(dataObj.get("user_type").asString.equals("user")){
+
+
+                                if(dataObj.has("token")){
+                                    appPreference?.setAuthToken(dataObj.get("token").asString)
+                                }
 
                                 appPreference?.setAppType("1")  // app type "1" - customer
 
