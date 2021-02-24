@@ -52,6 +52,10 @@ public class OrderProductsAndServicesActivity extends AppCompatActivity implemen
     public static HashMap<String , ArrayList<StoreItemDetailsListCategoryInfo>> finalListHashMap
             = new LinkedHashMap<String , ArrayList<StoreItemDetailsListCategoryInfo>>();
 
+    public static HashMap<String , ArrayList<StoreItemDetailsListCategoryInfo>> finalListHashMapForService
+            = new LinkedHashMap<String , ArrayList<StoreItemDetailsListCategoryInfo>>();
+
+
     ImageView iv_business_pic, ivBack;
     TextView tv_professionName, tv_businessName, tv_address, tv_ratingValue, tv_ratingCount
             , tv_commentsCount, tv_open_and_close_time, tv_description, tv_licence, tv_comment;
@@ -162,7 +166,6 @@ public class OrderProductsAndServicesActivity extends AppCompatActivity implemen
                                     currencySymbol = businessInfoObj.get("currency_symbol").getAsString();
                                 }
 
-
                             }
 
 
@@ -179,9 +182,6 @@ public class OrderProductsAndServicesActivity extends AppCompatActivity implemen
                                 tv_commentsCount.setText(""+dataObj.get("totalComment").getAsInt() + " Comments");
                                 tv_comment.setText(""+dataObj.get("totalComment").getAsInt() + " Comments");
                             }
-
-
-
 
 
 
@@ -228,17 +228,16 @@ public class OrderProductsAndServicesActivity extends AppCompatActivity implemen
                     }
 
 
+                    if(finalListHashMapForService != null && finalListHashMapForService.size() >0){
+                        finalListHashMapForService.clear();
+                    }
+
+
                     if(it.has("status") && it.get("status").getAsString().equals("200")){
 
                         if(it.has("data") && it.get("data") instanceof JsonArray){
                              Type type = new TypeToken<ArrayList<ServiceAndProductListDataModal>>() {}.getType();
                              ArrayList<ServiceAndProductListDataModal> dataList = new Gson().fromJson(it.get("data"), type);
-
-
-
-//                            Type type = new TypeToken<ArrayList<ServiceAndProductListDataModal>> () {}.getType();
-//                            ArrayList<ServiceAndProductListDataModal> dataList
-//                            = new Gson().fromJson<ArrayList<ServiceAndProductListDataModal>>(it.get("data"), type);
 
 
                             if(dataList.size() >0){
@@ -256,26 +255,12 @@ public class OrderProductsAndServicesActivity extends AppCompatActivity implemen
                                     pagerAdapter.addFragment(new ServiceAndProductOrderMenuFragment(activity, categoryList, categoryType, currencySymbol), categoryName);
                                 }
 
-//                                for (i in 0 until serviceAndProductList.size) {
-//                                    categoryName = serviceAndProductList.get(i).category_name;
-//                                    categoryType = serviceAndProductList.get(i).category_type;
-//                                    categoryList = serviceAndProductList.get(i).info;
-//
-//                                    pagerAdapter.addFragment(ServiceAndProductOrderMenuFragment(activity, categoryList, categoryType), categoryName);
-//
-//                                }
                                 viewPager.setAdapter(pagerAdapter);
                             }
-
                         }
-
                     }
 
-
                 }
-
-
-
             }
         });
 

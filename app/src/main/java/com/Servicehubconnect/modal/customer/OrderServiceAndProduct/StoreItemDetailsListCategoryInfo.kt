@@ -10,9 +10,9 @@ class StoreItemDetailsListCategoryInfo{
     @Expose
     private var id: String? = null
 
-    @SerializedName("service_name")
+    @SerializedName("name")
     @Expose
-    private var serviceName: String? = null
+    private var name: String? = null
 
     @SerializedName("category_id")
     @Expose
@@ -30,9 +30,9 @@ class StoreItemDetailsListCategoryInfo{
     @Expose
     private var businessId: String? = null
 
-    @SerializedName("service_image")
+    @SerializedName("image")
     @Expose
-    private var serviceImage: String? = null
+    private var image: String? = null
 
     @SerializedName("price")
     @Expose
@@ -66,6 +66,32 @@ class StoreItemDetailsListCategoryInfo{
     @Expose
     private var productImage: String? = null
 
+
+    var isSelectedProductCount:Int= 1
+    var isSelectedServiceCount:Int= 1
+
+
+    fun getIsSelectedProductCount(): Int? {
+        return isSelectedProductCount
+    }
+
+    fun setIsSelectedProductCount(isSelectedProductCount: Int?) {
+        this.isSelectedProductCount = isSelectedProductCount!!
+    }
+
+    fun getIsSelectedServiceCount(): Int? {
+        return isSelectedServiceCount
+    }
+
+    fun setIsSelectedServiceCount(isSelectedServiceCount: Int?) {
+        this.isSelectedServiceCount = isSelectedServiceCount!!
+    }
+
+
+
+
+
+
     fun getId(): String? {
         return id
     }
@@ -74,12 +100,12 @@ class StoreItemDetailsListCategoryInfo{
         this.id = id
     }
 
-    fun getServiceName(): String? {
-        return serviceName
+    fun getName(): String? {
+        return name
     }
 
-    fun setServiceName(serviceName: String?) {
-        this.serviceName = serviceName
+    fun setName(name: String?) {
+        this.name = name
     }
 
     fun getCategoryId(): String? {
@@ -114,12 +140,12 @@ class StoreItemDetailsListCategoryInfo{
         this.businessId = businessId
     }
 
-    fun getServiceImage(): String? {
-        return serviceImage
+    fun getImage(): String? {
+        return image
     }
 
-    fun setServiceImage(serviceImage: String?) {
-        this.serviceImage = serviceImage
+    fun setImage(image: String?) {
+        this.image = image
     }
 
     fun getPrice(): String? {
@@ -162,13 +188,7 @@ class StoreItemDetailsListCategoryInfo{
         this.isExtraPackage = isExtraPackage
     }
 
-    fun getProductName(): String? {
-        return productName
-    }
 
-    fun setProductName(productName: String?) {
-        this.productName = productName
-    }
 
     fun getSizePrice(): ArrayList<SizePriceForProduct?>? {
         return sizePrice
@@ -177,15 +197,6 @@ class StoreItemDetailsListCategoryInfo{
     fun setSizePrice(sizePrice: ArrayList<SizePriceForProduct?>?) {
         this.sizePrice = sizePrice
     }
-
-    fun getProductImage(): String? {
-        return productImage
-    }
-
-    fun setProductImage(productImage: String?) {
-        this.productImage = productImage
-    }
-
 
 
 }

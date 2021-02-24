@@ -42,7 +42,7 @@
         <item name="android:windowMinWidthMajor">100%</item>
         <item name="android:windowMinWidthMinor">100%</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="android:background">@android:color/white</item>
+        <item name="android:background">@android:color/transparent</item>
         <item name="android:windowBackground">@color/white</item>
         <item name="android:windowEnterAnimation">@anim/size_pop_up_slide_up</item>
     </style>

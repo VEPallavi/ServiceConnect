@@ -21,6 +21,7 @@ class ApiList {
         const val GET_PRODUCT_AND_SERVICE_LIST_URL ="user/get-productAndService-bussinessId"
         const val GET_COMMENT_LIST_URL = "user/get-professional-all-comments"
         const val GET_RATING_COMMENTS_URL ="user/get-my-comments"
+        const val GET_EXTRA_PACKAGE_LIST_URL ="user/get-extra-product"
 
     }
 

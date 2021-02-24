@@ -148,7 +148,7 @@
             android:textSize="@dimen/_10sdp"
             android:textStyle="bold"
             android:textColor="@color/colorBlack"
-            android:text="Purpose: " />
+            android:text="Skills/talents: " />
 
         <TextView
             android:id="@+id/tv_purpose"

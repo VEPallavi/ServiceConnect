@@ -107,6 +107,14 @@ interface ApiService {
     ): Call<JsonObject>
 
 
+    @POST(ApiList.GET_EXTRA_PACKAGE_LIST_URL)
+    @FormUrlEncoded
+    fun getExtraPackageList(
+            @Field("extraId") extraId: String,
+            @Field("category_type") category_type: String
+    ): Call<JsonObject>
+
+
 
     @GET(ApiList.GET_RATING_COMMENTS_URL)
     fun getRatingAndComment(
