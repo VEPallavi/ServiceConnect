@@ -25,6 +25,21 @@ import com.google.gson.annotations.SerializedName
     @Expose
     private var unit: String? = null
 
+
+
+
+     private var selected = false
+
+
+     fun isSelected(): Boolean {
+         return selected
+     }
+
+     fun setSelected(selected: Boolean) {
+         this.selected = selected
+     }
+
+
     fun getSize(): String? {
         return size
     }

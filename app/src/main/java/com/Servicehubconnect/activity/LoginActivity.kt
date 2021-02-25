@@ -14,6 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.Servicehubconnect.R
 import com.Servicehubconnect.activity.customer.HomeActivityCustomer
+import com.Servicehubconnect.activity.customer.OrderProductsAndServicesActivity
 import com.Servicehubconnect.activity.customer.PrivacyPolicyActivityCustomer
 import com.Servicehubconnect.activity.customer.TermAndConditionActivityCustomer
 import com.Servicehubconnect.activity.servicePerson.HomeActivitySP
@@ -51,8 +52,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
         tv_forgot_password.setOnClickListener(this)
         iv_password_toggle.setOnClickListener(this)
         iv_logo.setOnClickListener {
-            var intent = Intent(this, PrivacyPolicyActivityCustomer::class.java)
-            startActivity(intent)
+//            var intent = Intent(this, OrderProductsAndServicesActivity::class.java)
+//            intent.putExtra("professionalId", "6021313a7d13b63440d048bd")
+//            intent.putExtra("bussinessId", "602a6069f29a483523fb1bfe")
+//            startActivity(intent)
         }
 
 

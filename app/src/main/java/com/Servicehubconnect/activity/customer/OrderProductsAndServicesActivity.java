@@ -49,7 +49,7 @@ public class OrderProductsAndServicesActivity extends AppCompatActivity implemen
     ArrayList<StoreItemDetailsListCategoryInfo> categoryList = new ArrayList();
     StoreItemDetailsListCategoryInfo categoryInfoModal;
     public static String currencySymbol = "";
-    public static HashMap<String , ArrayList<StoreItemDetailsListCategoryInfo>> finalListHashMap
+    public static HashMap<String , ArrayList<StoreItemDetailsListCategoryInfo>> finalListHashMapForProduct
             = new LinkedHashMap<String , ArrayList<StoreItemDetailsListCategoryInfo>>();
 
     public static HashMap<String , ArrayList<StoreItemDetailsListCategoryInfo>> finalListHashMapForService
@@ -113,9 +113,6 @@ public class OrderProductsAndServicesActivity extends AppCompatActivity implemen
         tabs = findViewById(R.id.activities_tabs);
         viewPager = findViewById(R.id.viewPager);
         tabs.setupWithViewPager(viewPager);
-
-
-
 
     }
 
@@ -222,9 +219,9 @@ public class OrderProductsAndServicesActivity extends AppCompatActivity implemen
                 if(it != null){
                     allJsonData = it;
 
-                    if(finalListHashMap!=null && finalListHashMap.size()>0)
+                    if(finalListHashMapForProduct!=null && finalListHashMapForProduct.size()>0)
                     {
-                        finalListHashMap.clear();
+                        finalListHashMapForProduct.clear();
                     }
 
 

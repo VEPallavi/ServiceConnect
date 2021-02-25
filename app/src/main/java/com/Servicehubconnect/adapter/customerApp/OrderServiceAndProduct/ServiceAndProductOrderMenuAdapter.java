@@ -25,28 +25,26 @@ import java.util.HashMap;
 public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<ServiceAndProductOrderMenuAdapter.ServiceAndProductOrderMenuViewHolder> {
     private Activity activity;
     private ArrayList<StoreItemDetailsListCategoryInfo> storeItemDetailsList;
-    private  HashMap<String, ArrayList<StoreItemDetailsListCategoryInfo>> finalListHashMap;
+    private  HashMap<String, ArrayList<StoreItemDetailsListCategoryInfo>> finalListHashMapForProduct;
     private  HashMap<String, ArrayList<StoreItemDetailsListCategoryInfo>> finalListHashMapForService;
     private String categoryType, currencySymbol;
     private AddButtonClickListener addButtonClickListener;
     private IncreaseQuantityClickListener increaseQuantityClickListener;
     private DecreaseQuantityClickListener decreaseQuantityClickListener;
-    private int itemProductCount=1;
-    private int itemServiceCount=1;
 
     AddItemListener addItemListener;
 
 
     public ServiceAndProductOrderMenuAdapter(Activity activity, ArrayList<StoreItemDetailsListCategoryInfo> storeItemDetailsList
-            , HashMap<String, ArrayList<StoreItemDetailsListCategoryInfo>> finalListHashMap
+            , HashMap<String, ArrayList<StoreItemDetailsListCategoryInfo>> finalListHashMapForProduct
             , HashMap<String, ArrayList<StoreItemDetailsListCategoryInfo>> finalListHashMapForService
-            , String categoryType, String currencySymbol, AddItemListener addItemListener) {
+            , String categoryType, String currencySymbol) {
 
         this.activity = activity;
 
         this.storeItemDetailsList = storeItemDetailsList;
 
-        this.finalListHashMap = finalListHashMap;
+        this.finalListHashMapForProduct = finalListHashMapForProduct;
 
         this.finalListHashMapForService = finalListHashMapForService;
 
@@ -86,7 +84,7 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
 
 
 
-             if(storeItemDetailsList.get(position).getIsSelectedServiceCount() ==1){
+             if(storeItemDetailsList.get(position).getIsSelectedServiceCount() ==0){
                  holder.cl_item_minus_count_plus.setVisibility(View.GONE);
 
                  holder.tv_add.setVisibility(View.VISIBLE);
@@ -101,21 +99,15 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
                  holder.tv_item_count.setText(""+ storeItemDetailsList.get(position).getIsSelectedServiceCount() );
              }
 
+            // addItemListener.addItemListener(storeItemDetailsList.get(position), position, categoryType);
 
-             addItemListener.addItemListener(storeItemDetailsList.get(position), position, categoryType);
+           //  storeItemDetailsList.get(position).setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()+1);
 
-
-
-
-             storeItemDetailsList.get(position).setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()+1);
-
-
-          //   holder.tv_add.setOnClickListener(new AddOrderClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
+             holder.tv_add.setOnClickListener(new AddOrderClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
 
              holder.iv_minus.setOnClickListener(new DecreaseOrderQuantityClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
 
              holder.iv_plus.setOnClickListener(new IncreaseOrderQuantityClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
-
 
         }
 
@@ -133,7 +125,7 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
 
 
 
-             if(storeItemDetailsList.get(position).getIsSelectedProductCount() ==1){
+             if(storeItemDetailsList.get(position).getIsSelectedProductCount() ==0){
                  holder.cl_item_minus_count_plus.setVisibility(View.GONE);
 
                  holder.tv_add.setVisibility(View.VISIBLE);
@@ -150,7 +142,6 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
 
 
 
-             storeItemDetailsList.get(position).setIsSelectedProductCount(storeItemDetailsList.get(position).getIsSelectedProductCount()+1);
              holder.tv_add.setOnClickListener(new AddOrderClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
 
              holder.iv_minus.setOnClickListener(new DecreaseOrderQuantityClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
@@ -220,19 +211,18 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
         @Override
         public void onClick(View v) {
 
+
+            if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
+                storeItemDetailsListModel.setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()+1);
+
+            }
+
+            else if(categoryType.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
+                storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(position).getIsSelectedProductCount()+1);
+
+            }
+
             addButtonClickListener.onAddButtonClickListener(viewHolder, storeItemDetailsListModel, position, categoryType);
-
-
-//             if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
-//                storeItemDetailsList.get(position).setIsSelectedServiceCount(itemServiceCount++);
-//                //notifyDataSetChanged();
-//            }
-//
-//            else if(categoryType.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
-//                storeItemDetailsList.get(position).setIsSelectedProductCount(itemProductCount++);
-//               // notifyDataSetChanged();
-//            }
-
 
         }
     }
@@ -281,8 +271,18 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
         @Override
         public void onClick(View v) {
 
-            increaseQuantityClickListener.onIncreaseQuantityClickListener(viewHolder, storeItemDetailsListModel, position, categoryType);
 
+            if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
+                storeItemDetailsListModel.setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()+1);
+
+            }
+
+            else if(categoryType.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
+                storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(position).getIsSelectedProductCount()+1);
+
+            }
+
+            increaseQuantityClickListener.onIncreaseQuantityClickListener(viewHolder, storeItemDetailsListModel, position, categoryType);
         }
     }
 
@@ -328,13 +328,18 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
         @Override
         public void onClick(View v) {
 
+            if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
+                storeItemDetailsListModel.setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()-1);
+            }
+
+            else if(categoryType.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
+                storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(position).getIsSelectedProductCount()-1);
+            }
+
             decreaseQuantityClickListener.onDecreaseQuantityClickListener(viewHolder, storeItemDetailsListModel, position, categoryType);
 
         }
     }
-
-
-
 
 
 

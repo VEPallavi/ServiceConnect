@@ -7,9 +7,9 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.SpannableString;
-import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,8 +34,8 @@ import com.Servicehubconnect.activity.customer.ExtraPackageListActivity;
 import com.Servicehubconnect.activity.customer.OrderProductsAndServicesActivity;
 import com.Servicehubconnect.adapter.customerApp.OrderServiceAndProduct.ServiceAndProductOrderMenuAdapter;
 import com.Servicehubconnect.callback.AddItemListener;
-import com.Servicehubconnect.callback.ItemListener;
 import com.Servicehubconnect.helper.AppConstants;
+import com.Servicehubconnect.helper.Utils;
 import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.StoreItemDetailsListCategoryInfo;
 import com.google.gson.Gson;
 
@@ -44,7 +44,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class ServiceAndProductOrderMenuFragment extends Fragment implements AddItemListener {
+public class ServiceAndProductOrderMenuFragment extends Fragment {
     RecyclerView rv_service_and_order_menu;
     LinearLayoutManager linearLayoutManager;
     TextView c;
@@ -67,6 +67,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment implements AddI
     private ImageView imgEditItem;
     private ImageView imgRemoveItem;
     private AlertDialog editOrRemoveItemDialog;
+    private int editIndex=0;
 
 
 
@@ -100,10 +101,10 @@ public class ServiceAndProductOrderMenuFragment extends Fragment implements AddI
         rv_service_and_order_menu.setLayoutManager(linearLayoutManager);
 
         serviceAndProductOrderMenuAdapter = new ServiceAndProductOrderMenuAdapter(getActivity(), categoryInfoList
-                , OrderProductsAndServicesActivity.finalListHashMap, OrderProductsAndServicesActivity.finalListHashMapForService, categoryType, currencySymbol, this);
+                , OrderProductsAndServicesActivity.finalListHashMapForProduct, OrderProductsAndServicesActivity.finalListHashMapForService, categoryType, currencySymbol);
 
 
-     //   serviceAndProductOrderMenuAdapter.setOnAddButtonClickListener(new AddOrderButtonClickListener());
+        serviceAndProductOrderMenuAdapter.setOnAddButtonClickListener(new AddOrderButtonClickListener());
 
         serviceAndProductOrderMenuAdapter.setOnIncreaseQuantityClickListener(new IncreaseOrderQuantityClickListener());
 
@@ -113,250 +114,131 @@ public class ServiceAndProductOrderMenuFragment extends Fragment implements AddI
         rv_service_and_order_menu.setAdapter(serviceAndProductOrderMenuAdapter);
     }
 
-    @Override
-    public void addItemListener(@NotNull StoreItemDetailsListCategoryInfo storeItemDetailsListModel, int position, @NotNull String categoryType) {
-
-
-        ///  CATEGORY_TYPE_PRODUCT
-
-        if(categoryType.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
-
-
-            if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
-
-                addListToFinalHashMap(storeItemDetailsListModel, categoryType);
-
-            }
-            else if (storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
-
-                ///  StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
-
-                //  showSizePopup(vStoreItemDetailsListModel , false, categoryType);
 
 
 
-                addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+    private class AddOrderButtonClickListener implements ServiceAndProductOrderMenuAdapter.AddButtonClickListener {
 
-            }
-            else if (storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
+        @Override
+        public void onAddButtonClickListener(ServiceAndProductOrderMenuAdapter.ServiceAndProductOrderMenuViewHolder viewHolder
+                , StoreItemDetailsListCategoryInfo storeItemDetailsListModel, int position, String categoryType) {
 
-                //StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+                 ///  CATEGORY_TYPE_SERVICE
 
-                //  showSizePopup(vStoreItemDetailsListModel , false, categoryType);
+             if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
 
+                if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
 
+                    addListToFinalHashMap(storeItemDetailsListModel,categoryType);
 
+                }
+                else if (storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
 
-                addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+                    StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
 
-            }
-            else if (!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
-
-//                StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
-//
-//                String strJsonStoreItemDetailsLModel = new Gson().toJson(vStoreItemDetailsListModel);
-//
-//                Intent i = new Intent(activity, ExtraPackageListActivity.class);
-//
-//                i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
-//
-//              //  i.putExtra(AppConstants.ITEM_ID, vStoreItemDetailsListModel.getStoreCategoriesItemId());
-//
-//             //   i.putExtra(AppConstants.SIZE_PRICE , vStoreItemDetailsListModel.getStoreCategoriesItemPrice());
-//
-//                startActivityForResult(i, 1);
+                    showSizePopup(vStoreItemDetailsListModel , false, categoryType);
 
 
 
-                //   addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+                   // addListToFinalHashMap(storeItemDetailsListModel, categoryType);
 
-            }
-
-        }
-
-
-
-        ///  CATEGORY_TYPE_SERVICE
-
-        else if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
-
-            if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
-
-                addListToFinalHashMap(storeItemDetailsListModel,categoryType);
-
-            }
-            else if (storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
+                }
+                else if (storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
 
                 StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
 
                 showSizePopup(vStoreItemDetailsListModel , false, categoryType);
 
 
+                  //  addListToFinalHashMap(storeItemDetailsListModel, categoryType);
 
-                // addListToFinalHashMap(storeItemDetailsListModel, categoryType);
-
-            }
-            else if (storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
+                }
+                else if (!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
 
                 StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
 
-                showSizePopup(vStoreItemDetailsListModel , false, categoryType);
+                String strJsonStoreItemDetailsLModel = new Gson().toJson(vStoreItemDetailsListModel);
+
+                Intent i = new Intent(activity, ExtraPackageListActivity.class);
+
+                i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
+
+              //  i.putExtra(AppConstants.ITEM_ID, vStoreItemDetailsListModel.getStoreCategoriesItemId());
+
+             //   i.putExtra(AppConstants.SIZE_PRICE , vStoreItemDetailsListModel.getStoreCategoriesItemPrice());
+
+                startActivityForResult(i, 1);
+
+
+
+                 //   addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+
+                }
+            }
 
 
 
 
-                //  addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+            ///  CATEGORY_TYPE_PRODUCT
+
+            if(categoryType.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
+
+
+                if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
+
+                    addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+
+                }
+                else if (storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
+
+                      StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+
+                      showSizePopup(vStoreItemDetailsListModel , false, categoryType);
+
+
+
+                   // addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+
+                }
+                else if (storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
+
+                    StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+
+                      showSizePopup(vStoreItemDetailsListModel , false, categoryType);
+
+
+
+
+                    //addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+
+                }
+                else if (!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
+
+                StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+
+                String strJsonStoreItemDetailsLModel = new Gson().toJson(vStoreItemDetailsListModel);
+
+                Intent i = new Intent(activity, ExtraPackageListActivity.class);
+
+                i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
+
+              //  i.putExtra(AppConstants.ITEM_ID, vStoreItemDetailsListModel.getStoreCategoriesItemId());
+
+             //   i.putExtra(AppConstants.SIZE_PRICE , vStoreItemDetailsListModel.getStoreCategoriesItemPrice());
+
+                startActivityForResult(i, 1);
+
+
+
+                       addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+
+                }
 
             }
-            else if (!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
-
-//                StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
-//
-//                String strJsonStoreItemDetailsLModel = new Gson().toJson(vStoreItemDetailsListModel);
-//
-//                Intent i = new Intent(activity, ExtraPackageListActivity.class);
-//
-//                i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
-//
-//              //  i.putExtra(AppConstants.ITEM_ID, vStoreItemDetailsListModel.getStoreCategoriesItemId());
-//
-//             //   i.putExtra(AppConstants.SIZE_PRICE , vStoreItemDetailsListModel.getStoreCategoriesItemPrice());
-//
-//                startActivityForResult(i, 1);
 
 
-
-                //   addListToFinalHashMap(storeItemDetailsListModel, categoryType);
-
-            }
         }
-
     }
-
-
-//    private class AddOrderButtonClickListener implements ServiceAndProductOrderMenuAdapter.AddButtonClickListener {
-//
-//        @Override
-//        public void onAddButtonClickListener(ServiceAndProductOrderMenuAdapter.ServiceAndProductOrderMenuViewHolder viewHolder
-//                , StoreItemDetailsListCategoryInfo storeItemDetailsListModel, int position, String categoryType) {
-//
-//
-//
-//                    ///  CATEGORY_TYPE_PRODUCT
-//
-//            if(categoryType.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
-//
-//
-//                if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
-//
-//                    addListToFinalHashMap(storeItemDetailsListModel, categoryType);
-//
-//                }
-//                else if (storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
-//
-//              ///  StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
-//
-//              //  showSizePopup(vStoreItemDetailsListModel , false, categoryType);
-//
-//
-//
-//                    addListToFinalHashMap(storeItemDetailsListModel, categoryType);
-//
-//                }
-//                else if (storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
-//
-//                //StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
-//
-//              //  showSizePopup(vStoreItemDetailsListModel , false, categoryType);
-//
-//
-//
-//
-//                    addListToFinalHashMap(storeItemDetailsListModel, categoryType);
-//
-//                }
-//                else if (!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
-//
-////                StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
-////
-////                String strJsonStoreItemDetailsLModel = new Gson().toJson(vStoreItemDetailsListModel);
-////
-////                Intent i = new Intent(activity, ExtraPackageListActivity.class);
-////
-////                i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
-////
-////              //  i.putExtra(AppConstants.ITEM_ID, vStoreItemDetailsListModel.getStoreCategoriesItemId());
-////
-////             //   i.putExtra(AppConstants.SIZE_PRICE , vStoreItemDetailsListModel.getStoreCategoriesItemPrice());
-////
-////                startActivityForResult(i, 1);
-//
-//
-//
-//                 //   addListToFinalHashMap(storeItemDetailsListModel, categoryType);
-//
-//                }
-//
-//            }
-//
-//
-//
-//                 ///  CATEGORY_TYPE_SERVICE
-//
-//            else if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
-//
-//                if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
-//
-//                    addListToFinalHashMap(storeItemDetailsListModel,categoryType);
-//
-//                }
-//                else if (storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
-//
-//                    StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
-//
-//                    showSizePopup(vStoreItemDetailsListModel , false, categoryType);
-//
-//
-//
-//                   // addListToFinalHashMap(storeItemDetailsListModel, categoryType);
-//
-//                }
-//                else if (storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
-//
-//                StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
-//
-//                showSizePopup(vStoreItemDetailsListModel , false, categoryType);
-//
-//
-//
-//
-//                  //  addListToFinalHashMap(storeItemDetailsListModel, categoryType);
-//
-//                }
-//                else if (!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
-//
-////                StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
-////
-////                String strJsonStoreItemDetailsLModel = new Gson().toJson(vStoreItemDetailsListModel);
-////
-////                Intent i = new Intent(activity, ExtraPackageListActivity.class);
-////
-////                i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
-////
-////              //  i.putExtra(AppConstants.ITEM_ID, vStoreItemDetailsListModel.getStoreCategoriesItemId());
-////
-////             //   i.putExtra(AppConstants.SIZE_PRICE , vStoreItemDetailsListModel.getStoreCategoriesItemPrice());
-////
-////                startActivityForResult(i, 1);
-//
-//
-//
-//                 //   addListToFinalHashMap(storeItemDetailsListModel, categoryType);
-//
-//                }
-//            }
-//        }
-//    }
 
 
 
@@ -392,6 +274,9 @@ public class ServiceAndProductOrderMenuFragment extends Fragment implements AddI
                     StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
 
                     showSizePopup(vStoreItemDetailsListModel , false, categoryType);
+
+
+                  //  addListToFinalHashMap(storeItemDetailsListModel, categoryType);
                 }
 
                 else if (!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
@@ -439,6 +324,8 @@ public class ServiceAndProductOrderMenuFragment extends Fragment implements AddI
                     StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
 
                     showSizePopup(vStoreItemDetailsListModel , false, categoryType);
+
+                  //  addListToFinalHashMap(storeItemDetailsListModel, categoryType);
                 }
 
                 else if (!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
@@ -488,10 +375,21 @@ public class ServiceAndProductOrderMenuFragment extends Fragment implements AddI
 
                         OrderProductsAndServicesActivity.finalListHashMapForService.get(storeItemDetailsListModel.getId()).remove(0);
 
-                        if (OrderProductsAndServicesActivity.finalListHashMapForService.get(storeItemDetailsListModel.getId()).size() == 0) {
+                        if (storeItemDetailsListModel.isSelectedServiceCount() == 0) {
                             OrderProductsAndServicesActivity.finalListHashMapForService.remove(storeItemDetailsListModel.getId());
 
                         }
+//                        else
+//                        {
+//                            OrderProductsAndServicesActivity.finalListHashMapForService
+//                                    .remove(OrderProductsAndServicesActivity.finalListHashMapForService.get(storeItemDetailsListModel));
+//
+//
+//                            Log.e("<<<<", "<<<  decrease <<"+OrderProductsAndServicesActivity.finalListHashMapForService.size());
+//
+//                        }
+
+
 
                         serviceAndProductOrderMenuAdapter.notifyDataSetChanged();
 
@@ -501,7 +399,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment implements AddI
 
 
                 else {
-                     showModifyItemPopup(storeItemDetailsListModel);
+                     showModifyItemPopup(storeItemDetailsListModel, categoryType);
                 }
 
 
@@ -513,7 +411,31 @@ public class ServiceAndProductOrderMenuFragment extends Fragment implements AddI
 
 
                 if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
+
+                    if (OrderProductsAndServicesActivity.finalListHashMapForProduct.containsKey(storeItemDetailsListModel.getId())) {
+
+                        OrderProductsAndServicesActivity.finalListHashMapForProduct.get(storeItemDetailsListModel.getId()).remove(0);
+
+                        if (storeItemDetailsListModel.isSelectedServiceCount() == 0) {
+                            OrderProductsAndServicesActivity.finalListHashMapForProduct.remove(storeItemDetailsListModel.getId());
+
+                        }
+                        serviceAndProductOrderMenuAdapter.notifyDataSetChanged();
+
+                        setSelectedItemCountandPrice(categoryType);
+                    }
+                }
+
+                else {
+                     showModifyItemPopup(storeItemDetailsListModel, categoryType);
+                }
+
+
+
+/*                if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
+
                     if (OrderProductsAndServicesActivity.finalListHashMap.containsKey(storeItemDetailsListModel.getId())) {
+
                         OrderProductsAndServicesActivity.finalListHashMap.get(storeItemDetailsListModel.getId()).remove(0);
 
                         if (OrderProductsAndServicesActivity.finalListHashMap.get(storeItemDetailsListModel.getId()).size() == 0) {
@@ -525,13 +447,13 @@ public class ServiceAndProductOrderMenuFragment extends Fragment implements AddI
 
                         setSelectedItemCountandPrice(categoryType);
                     }
-                } else {
-                    // showModifyItemPopup(storeItemDetailsListModel);
+
                 }
+
+                else {
+                    // showModifyItemPopup(storeItemDetailsListModel);
+                }*/
             }
-
-
-
         }
 
 
@@ -540,77 +462,158 @@ public class ServiceAndProductOrderMenuFragment extends Fragment implements AddI
 
 
 
-    private void showModifyItemPopup(StoreItemDetailsListCategoryInfo storeItemModel) {
+    private void showModifyItemPopup(StoreItemDetailsListCategoryInfo storeItemModel, String categoryType) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_Dialog);
+        if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
 
-        LayoutInflater inflater = getLayoutInflater();
+            AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_Dialog);
 
-        View dialogLayout = inflater.inflate(R.layout.customer_pop_up_window_edit_or_remove_food_item, null);
+            LayoutInflater inflater = getLayoutInflater();
 
-        initEditRemovePopupUi(dialogLayout);
+            View dialogLayout = inflater.inflate(R.layout.customer_pop_up_window_edit_or_remove_item, null);
 
-        if (lnLayoutRemoveEditItemContainer.getChildCount() > 0) {
+            initEditRemovePopupUi(dialogLayout);
 
-            lnLayoutRemoveEditItemContainer.removeAllViews();
-        }
+            if (lnLayoutRemoveEditItemContainer.getChildCount() > 0) {
 
-        if (OrderProductsAndServicesActivity.finalListHashMap.containsKey(storeItemModel.getId())) {
-
-            ArrayList<StoreItemDetailsListCategoryInfo> storeItemDetailsListModels = new ArrayList<>();
-
-            storeItemDetailsListModels = OrderProductsAndServicesActivity.finalListHashMap.get(storeItemModel.getId());
-
-            LayoutInflater layoutInflater = activity.getLayoutInflater();
-
-            if (storeItemDetailsListModels != null && storeItemDetailsListModels.size() > 0) {
-
-                for (int index = 0; index < storeItemDetailsListModels.size(); index++) {
-
-                    View editRemoveItemRow = layoutInflater.inflate(R.layout.customer_row_remove_or_edit_item, lnLayoutRemoveEditItemContainer, false);
-
-                    txtFoodName = (TextView) editRemoveItemRow.findViewById(R.id.txt_food_name);
-
-                    txtFoodSize = (TextView) editRemoveItemRow.findViewById(R.id.txt_food_size);
-
-                    txtExtras = (TextView) editRemoveItemRow.findViewById(R.id.txt_extras);
-
-                    txtFoodDescription = (TextView) editRemoveItemRow.findViewById(R.id.txt_food_description);
-
-                    btnShowMoreOrLess = (Button) editRemoveItemRow.findViewById(R.id.btn_show_more_or_less);
-
-                    imgEditItem = (ImageView) editRemoveItemRow.findViewById(R.id.img_edit_item);
-
-                    imgRemoveItem = (ImageView) editRemoveItemRow.findViewById(R.id.img_remove_item);
-
-                    editRemoveItemRow.setTag(Integer.toString(index));
-
-                    lnLayoutRemoveEditItemContainer.addView(editRemoveItemRow);
-                }
+                lnLayoutRemoveEditItemContainer.removeAllViews();
             }
 
+            if (OrderProductsAndServicesActivity.finalListHashMapForService.containsKey(storeItemModel.getId())) {
+
+                ArrayList<StoreItemDetailsListCategoryInfo> storeItemDetailsListModels = new ArrayList<>();
+
+                storeItemDetailsListModels = OrderProductsAndServicesActivity.finalListHashMapForService.get(storeItemModel.getId());
+
+                LayoutInflater layoutInflater = activity.getLayoutInflater();
+
+                if (storeItemDetailsListModels != null && storeItemDetailsListModels.size() > 0) {
+
+                    for (int index = 0; index < storeItemDetailsListModels.size(); index++) {
+
+                        View editRemoveItemRow = layoutInflater.inflate(R.layout.customer_row_remove_or_edit_item, lnLayoutRemoveEditItemContainer, false);
+
+                        txtFoodName = (TextView) editRemoveItemRow.findViewById(R.id.txt_food_name);
+
+                        txtFoodSize = (TextView) editRemoveItemRow.findViewById(R.id.txt_food_size);
+
+                        txtExtras = (TextView) editRemoveItemRow.findViewById(R.id.txt_extras);
+
+                        txtFoodDescription = (TextView) editRemoveItemRow.findViewById(R.id.txt_food_description);
+
+                        btnShowMoreOrLess = (Button) editRemoveItemRow.findViewById(R.id.btn_show_more_or_less);
+
+                        imgEditItem = (ImageView) editRemoveItemRow.findViewById(R.id.img_edit_item);
+
+                        imgRemoveItem = (ImageView) editRemoveItemRow.findViewById(R.id.img_remove_item);
+
+                        editRemoveItemRow.setTag(Integer.toString(index));
+
+                        lnLayoutRemoveEditItemContainer.addView(editRemoveItemRow);
+                    }
+                }
+
+            }
+
+
+            editOrRemoveItemDialog = builder.create();
+
+            editOrRemoveItemDialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+            editOrRemoveItemDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+
+            editOrRemoveItemDialog.setView(dialogLayout, 0, 0, 0, 0);
+
+            editOrRemoveItemDialog.setCanceledOnTouchOutside(true);
+
+            editOrRemoveItemDialog.setCancelable(true);
+
+            WindowManager.LayoutParams params = editOrRemoveItemDialog.getWindow().getAttributes();
+
+            params.gravity = Gravity.BOTTOM;
+
+            builder.setView(dialogLayout);
+
+            editOrRemoveItemDialog.show();
+
         }
 
 
-        editOrRemoveItemDialog = builder.create();
+        else if(categoryType.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
 
-        editOrRemoveItemDialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+            AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_Dialog);
 
-        editOrRemoveItemDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            LayoutInflater inflater = getLayoutInflater();
 
-        editOrRemoveItemDialog.setView(dialogLayout, 0, 0, 0, 0);
+            View dialogLayout = inflater.inflate(R.layout.customer_pop_up_window_edit_or_remove_item, null);
 
-        editOrRemoveItemDialog.setCanceledOnTouchOutside(true);
+            initEditRemovePopupUi(dialogLayout);
 
-        editOrRemoveItemDialog.setCancelable(true);
+            if (lnLayoutRemoveEditItemContainer.getChildCount() > 0) {
 
-        WindowManager.LayoutParams params = editOrRemoveItemDialog.getWindow().getAttributes();
+                lnLayoutRemoveEditItemContainer.removeAllViews();
+            }
 
-        params.gravity = Gravity.BOTTOM;
+            if (OrderProductsAndServicesActivity.finalListHashMapForProduct.containsKey(storeItemModel.getId())) {
 
-        builder.setView(dialogLayout);
+                ArrayList<StoreItemDetailsListCategoryInfo> storeItemDetailsListModels = new ArrayList<>();
 
-        editOrRemoveItemDialog.show();
+                storeItemDetailsListModels = OrderProductsAndServicesActivity.finalListHashMapForProduct.get(storeItemModel.getId());
+
+                LayoutInflater layoutInflater = activity.getLayoutInflater();
+
+                if (storeItemDetailsListModels != null && storeItemDetailsListModels.size() > 0) {
+
+                    for (int index = 0; index < storeItemDetailsListModels.size(); index++) {
+
+                        View editRemoveItemRow = layoutInflater.inflate(R.layout.customer_row_remove_or_edit_item, lnLayoutRemoveEditItemContainer, false);
+
+                        txtFoodName = (TextView) editRemoveItemRow.findViewById(R.id.txt_food_name);
+
+                        txtFoodSize = (TextView) editRemoveItemRow.findViewById(R.id.txt_food_size);
+
+                        txtExtras = (TextView) editRemoveItemRow.findViewById(R.id.txt_extras);
+
+                        txtFoodDescription = (TextView) editRemoveItemRow.findViewById(R.id.txt_food_description);
+
+                        btnShowMoreOrLess = (Button) editRemoveItemRow.findViewById(R.id.btn_show_more_or_less);
+
+                        imgEditItem = (ImageView) editRemoveItemRow.findViewById(R.id.img_edit_item);
+
+                        imgRemoveItem = (ImageView) editRemoveItemRow.findViewById(R.id.img_remove_item);
+
+                        editRemoveItemRow.setTag(Integer.toString(index));
+
+                        lnLayoutRemoveEditItemContainer.addView(editRemoveItemRow);
+                    }
+                }
+
+            }
+
+
+            editOrRemoveItemDialog = builder.create();
+
+            editOrRemoveItemDialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+            editOrRemoveItemDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+
+            editOrRemoveItemDialog.setView(dialogLayout, 0, 0, 0, 0);
+
+            editOrRemoveItemDialog.setCanceledOnTouchOutside(true);
+
+            editOrRemoveItemDialog.setCancelable(true);
+
+            WindowManager.LayoutParams params = editOrRemoveItemDialog.getWindow().getAttributes();
+
+            params.gravity = Gravity.BOTTOM;
+
+            builder.setView(dialogLayout);
+
+            editOrRemoveItemDialog.show();
+        }
+
+
+
 
     }
 
@@ -627,26 +630,57 @@ public class ServiceAndProductOrderMenuFragment extends Fragment implements AddI
 
         View dialogLayout = inflater.inflate(R.layout.pop_up_window_select_size, null);
 
-        initPopUpUI(dialogLayout, storeItemDetailsListModel , edit);
 
 
-        for (int i = 0; i < storeItemDetailsListModel.getSizePrice().size(); i++) {
-            RadioButton rbn = new RadioButton(getActivity());
+        if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
 
-            rbn.setText(getSpannableString(storeItemDetailsListModel.getSizePrice().get(i).getSize()
-                    , "   " + OrderProductsAndServicesActivity.currencySymbol + String.format("%.2f"
-                            , Double.parseDouble(String.valueOf(storeItemDetailsListModel.getSizePrice().get(i).getPrice())))));
+            initPopUpUI(dialogLayout, storeItemDetailsListModel , edit, categoryType);
 
-            rbn.setId(i);
+            for (int i = 0; i < storeItemDetailsListModel.getSizePriceDuration().size(); i++) {
+                RadioButton rbn = new RadioButton(getActivity());
 
-            if(storeItemDetailsListModel.getSizePrice().get(i).isSelected())
-            {
-                rbn.setChecked(true);
+                rbn.setText(getSpannableString(storeItemDetailsListModel.getSizePriceDuration().get(i).getSize()
+                        , "   " + OrderProductsAndServicesActivity.currencySymbol + String.format("%.2f"
+                                , Double.parseDouble(String.valueOf(storeItemDetailsListModel.getSizePriceDuration().get(i).getPrice())))));
+
+                rbn.setId(i);
+
+                if(storeItemDetailsListModel.getSizePriceDuration().get(i).isSelected())
+                {
+                    rbn.setChecked(true);
+                }
+
+                rgSize.addView(rbn);
+
+            }
+        }
+
+        else if(categoryType.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
+
+            initPopUpUI(dialogLayout, storeItemDetailsListModel , edit, categoryType);
+
+            for (int i = 0; i < storeItemDetailsListModel.getSizePrice().size(); i++) {
+                RadioButton rbn = new RadioButton(getActivity());
+
+                rbn.setText(getSpannableString(storeItemDetailsListModel.getSizePrice().get(i).getSize()
+                        , "   " + OrderProductsAndServicesActivity.currencySymbol + String.format("%.2f"
+                                , Double.parseDouble(String.valueOf(storeItemDetailsListModel.getSizePrice().get(i).getPrice())))));
+
+                rbn.setId(i);
+
+                if(storeItemDetailsListModel.getSizePrice().get(i).isSelected())
+                {
+                    rbn.setChecked(true);
+                }
+
+                rgSize.addView(rbn);
+
             }
 
-            rgSize.addView(rbn);
-
         }
+
+
+
 
         infoSizeSelectionDialog = builder.create();
 
@@ -671,13 +705,13 @@ public class ServiceAndProductOrderMenuFragment extends Fragment implements AddI
     }
 
 
-    private void initPopUpUI(View view, StoreItemDetailsListCategoryInfo storeItemDetailsListModel, Boolean edit) {
+    private void initPopUpUI(View view, StoreItemDetailsListCategoryInfo storeItemDetailsListModel, Boolean edit, String categoryType) {
 
         rgSize = (RadioGroup) view.findViewById(R.id.rg_sizes);
 
         btnNext = (Button) view.findViewById(R.id.btn_next);
 
-        btnNext.setOnClickListener(new ButtonSelectSizeClick(storeItemDetailsListModel , edit));
+        btnNext.setOnClickListener(new ButtonSelectSizeClick(storeItemDetailsListModel , edit, categoryType));
 
     }
 
@@ -686,76 +720,209 @@ public class ServiceAndProductOrderMenuFragment extends Fragment implements AddI
 
         StoreItemDetailsListCategoryInfo storeItemDetailsListModel;
         boolean edit;
+        String categoryType;
 
-        public ButtonSelectSizeClick(StoreItemDetailsListCategoryInfo storeItemDetailsListModel, Boolean edit) {
+        public ButtonSelectSizeClick(StoreItemDetailsListCategoryInfo storeItemDetailsListModel, Boolean edit, String categoryType) {
             this.storeItemDetailsListModel = storeItemDetailsListModel;
             this.edit  = edit;
+            this.categoryType = categoryType;
         }
 
         @Override
         public void onClick(View v) {
 
-            int selectedRadioButtonId = rgSize.getCheckedRadioButtonId();
+            if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
 
-            if (selectedRadioButtonId == -1) {
+                int selectedRadioButtonId = rgSize.getCheckedRadioButtonId();
 
-                Toast.makeText(activity, "Please select size.", Toast.LENGTH_SHORT).show();
+                if (selectedRadioButtonId == -1) {
 
-                return;
+                    Toast.makeText(activity, "Please select size.", Toast.LENGTH_SHORT).show();
 
-            } else {
+                    return;
 
-                String sizePrice = "";
+                }
+                else {
 
-                if(storeItemDetailsListModel.getIsSize() && !edit || storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
-                    for (int i = 0; i < storeItemDetailsListModel.getSizePrice().size(); i++) {
-                        if (selectedRadioButtonId == i) {
+                    String sizePrice = "";
 
-                            storeItemDetailsListModel.getSizePrice().get(i).setSelected(true);
+                    if(storeItemDetailsListModel.getIsSize() && !edit
+                            || storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage())
 
-                        } else {
+                    {
+                        for (int i = 0; i < storeItemDetailsListModel.getSizePriceDuration().size(); i++) {
+                            if (selectedRadioButtonId == i) {
 
-                            storeItemDetailsListModel.getSizePrice().get(i).setSelected(false);
+                                storeItemDetailsListModel.getSizePriceDuration().get(i).setSelected(true);
+
+                            } else {
+
+                                storeItemDetailsListModel.getSizePriceDuration().get(i).setSelected(false);
+                            }
                         }
                     }
-                }
 
-                sizePrice = storeItemDetailsListModel.getSizePrice().get(selectedRadioButtonId).getPrice().toString();
 
-                if (storeItemDetailsListModel.getIsExtraPackage()) {
 
-                    String strJsonStoreItemDetailsLModel = new Gson().toJson(storeItemDetailsListModel);
+                    sizePrice = storeItemDetailsListModel.getSizePriceDuration().get(selectedRadioButtonId).getPrice().toString();
 
-                    Intent i = new Intent(activity, ExtraPackageListActivity.class);
 
-                    i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
+                    if (storeItemDetailsListModel.getIsExtraPackage()) {
 
-                    i.putExtra(AppConstants.ITEM_ID, storeItemDetailsListModel.getId());
+                        String strJsonStoreItemDetailsLModel = new Gson().toJson(storeItemDetailsListModel);
 
-                    i.putExtra(AppConstants.CATEGORY_TYPE, categoryType);
+                        Intent i = new Intent(activity, ExtraPackageListActivity.class);
 
-                  //  i.putExtra(AppConstants.IS_ITEM_EDIT, edit);
+                        i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
 
-                 //   i.putExtra(AppConstants.SIZE_ID , storeItemDetailsListModel.getSizeDetailsList().get(selectedRadioButtonId).getSizeId());
+                        i.putExtra(AppConstants.ITEM_ID, storeItemDetailsListModel.getId());
 
-                    i.putExtra(AppConstants.SIZE_PRICE , sizePrice);
+                        i.putExtra(AppConstants.CATEGORY_TYPE, categoryType);
 
-                    startActivityForResult(i, 1);
+                        //  i.putExtra(AppConstants.IS_ITEM_EDIT, edit);
 
-                } else {
+                        //   i.putExtra(AppConstants.SIZE_ID , storeItemDetailsListModel.getSizeDetailsList().get(selectedRadioButtonId).getSizeId());
 
-                    if (!edit) {
+                        i.putExtra(AppConstants.SIZE_PRICE , sizePrice);
 
-                        addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+                        startActivityForResult(i, 1);
 
                     } else {
 
-                       // addEditedListToFinalHashMap(storeItemDetailsListModel);
+                        if (!edit) {
+
+                            addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+
+                        }
+                        else {
+
+                            // addEditedListToFinalHashMap(storeItemDetailsListModel);
+                        }
+
+                        infoSizeSelectionDialog.dismiss();
+                    }
+                }
+
+            }
+
+
+            else if(categoryType.equals(AppConstants.CATEGORY_TYPE_PRODUCT))
+
+            {
+                int selectedRadioButtonId = rgSize.getCheckedRadioButtonId();
+
+                if (selectedRadioButtonId == -1) {
+
+                    Toast.makeText(activity, "Please select size.", Toast.LENGTH_SHORT).show();
+
+                    return;
+
+                } else {
+
+                    String sizePrice = "";
+
+                    if(storeItemDetailsListModel.getIsSize() && !edit || storeItemDetailsListModel.getIsSize()
+                            && !storeItemDetailsListModel.getIsExtraPackage()) {
+
+                        for (int i = 0; i < storeItemDetailsListModel.getSizePrice().size(); i++) {
+                            if (selectedRadioButtonId == i) {
+
+                                storeItemDetailsListModel.getSizePrice().get(i).setSelected(true);
+
+                            } else {
+
+                                storeItemDetailsListModel.getSizePrice().get(i).setSelected(false);
+                            }
+                        }
                     }
 
-                    infoSizeSelectionDialog.dismiss();
+                    sizePrice = storeItemDetailsListModel.getSizePrice().get(selectedRadioButtonId).getPrice().toString();
+
+                    if (storeItemDetailsListModel.getIsExtraPackage()) {
+
+                        String strJsonStoreItemDetailsLModel = new Gson().toJson(storeItemDetailsListModel);
+
+                        Intent i = new Intent(activity, ExtraPackageListActivity.class);
+
+                        i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
+
+                        i.putExtra(AppConstants.ITEM_ID, storeItemDetailsListModel.getId());
+
+                        i.putExtra(AppConstants.CATEGORY_TYPE, categoryType);
+
+                        //  i.putExtra(AppConstants.IS_ITEM_EDIT, edit);
+
+                        //   i.putExtra(AppConstants.SIZE_ID , storeItemDetailsListModel.getSizeDetailsList().get(selectedRadioButtonId).getSizeId());
+
+                        i.putExtra(AppConstants.SIZE_PRICE , sizePrice);
+
+                        startActivityForResult(i, 1);
+
+                    } else {
+
+                        if (!edit) {
+
+                            addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+
+                        } else {
+
+                             addEditedListToFinalHashMap(storeItemDetailsListModel, categoryType);
+                        }
+
+                        infoSizeSelectionDialog.dismiss();
+                    }
                 }
+
             }
+
+
+        }
+    }
+
+
+
+
+    private void addEditedListToFinalHashMap(StoreItemDetailsListCategoryInfo storeItemDetailsListModel, String categoryType) {
+        {
+
+            if(categoryType.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
+
+                if (OrderProductsAndServicesActivity.finalListHashMapForProduct.containsKey(storeItemDetailsListModel.getId())) {
+
+                    ArrayList<StoreItemDetailsListCategoryInfo> storeItemDetailsListModels = OrderProductsAndServicesActivity.finalListHashMapForProduct.get(storeItemDetailsListModel.getId());
+
+                    storeItemDetailsListModels.remove(editIndex);
+
+                    storeItemDetailsListModels.add(editIndex,storeItemDetailsListModel);
+
+                    OrderProductsAndServicesActivity.finalListHashMapForProduct.put(storeItemDetailsListModel.getId(), storeItemDetailsListModels);
+                }
+
+                serviceAndProductOrderMenuAdapter.notifyDataSetChanged();
+
+                setSelectedItemCountandPrice(categoryType);
+            }
+
+
+            else if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
+
+                if (OrderProductsAndServicesActivity.finalListHashMapForService.containsKey(storeItemDetailsListModel.getId())) {
+
+                    ArrayList<StoreItemDetailsListCategoryInfo> storeItemDetailsListModels = OrderProductsAndServicesActivity.finalListHashMapForService.get(storeItemDetailsListModel.getId());
+
+                    storeItemDetailsListModels.remove(editIndex);
+
+                    storeItemDetailsListModels.add(editIndex,storeItemDetailsListModel);
+
+                    OrderProductsAndServicesActivity.finalListHashMapForService.put(storeItemDetailsListModel.getId(), storeItemDetailsListModels);
+                }
+
+                serviceAndProductOrderMenuAdapter.notifyDataSetChanged();
+
+                setSelectedItemCountandPrice(categoryType);
+
+            }
+
         }
     }
 
@@ -829,14 +996,14 @@ public class ServiceAndProductOrderMenuFragment extends Fragment implements AddI
 
         else if(categoryType.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
 
-            if (OrderProductsAndServicesActivity.finalListHashMap.containsKey(storeItemDetailsListModel.getId())) {
+            if (OrderProductsAndServicesActivity.finalListHashMapForProduct.containsKey(storeItemDetailsListModel.getId())) {
 
                 ArrayList<StoreItemDetailsListCategoryInfo> storeItemDetailsListModels
-                        = OrderProductsAndServicesActivity.finalListHashMap.get(storeItemDetailsListModel.getId());
+                        = OrderProductsAndServicesActivity.finalListHashMapForProduct.get(storeItemDetailsListModel.getId());
 
                 storeItemDetailsListModels.add(storeItemDetailsListModel);
 
-                OrderProductsAndServicesActivity.finalListHashMap.put(storeItemDetailsListModel.getId(), storeItemDetailsListModels);
+                OrderProductsAndServicesActivity.finalListHashMapForProduct.put(storeItemDetailsListModel.getId(), storeItemDetailsListModels);
             }
             else {
 
@@ -844,7 +1011,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment implements AddI
 
                 storeItemDetailsListModels.add(storeItemDetailsListModel);
 
-                OrderProductsAndServicesActivity.finalListHashMap.put(storeItemDetailsListModel.getId(), storeItemDetailsListModels);
+                OrderProductsAndServicesActivity.finalListHashMapForProduct.put(storeItemDetailsListModel.getId(), storeItemDetailsListModels);
             }
 
             serviceAndProductOrderMenuAdapter.notifyDataSetChanged();
@@ -876,9 +1043,24 @@ public class ServiceAndProductOrderMenuFragment extends Fragment implements AddI
                 for(int j = 0; j < list.size(); j++){
                     StoreItemDetailsListCategoryInfo storeItemDetailsListModel = list.get(j);
 
-                    //   if (!storeItemDetailsListModel.is_size() && !storeItemDetailsListModel.isExtraPackage()) {
-                    totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getPrice());
-                    //   }
+                    if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
+                        totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getPrice());
+                    }
+
+                    else if (storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
+
+                        for (int k = 0; k < storeItemDetailsListModel.getSizePriceDuration().size(); k++) {
+
+                            if (storeItemDetailsListModel.getSizePriceDuration().get(k).isSelected()) {
+                                totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getSizePriceDuration().get(k).getPrice().toString());
+
+                                break;
+                            }
+                        }
+                    }
+
+
+
                 }
                 i++;
             }
@@ -913,7 +1095,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment implements AddI
 
 
 
-            for (Map.Entry<String, ArrayList<StoreItemDetailsListCategoryInfo>> entry : OrderProductsAndServicesActivity.finalListHashMap.entrySet()) {
+            for (Map.Entry<String, ArrayList<StoreItemDetailsListCategoryInfo>> entry : OrderProductsAndServicesActivity.finalListHashMapForProduct.entrySet()) {
 
                 ArrayList<StoreItemDetailsListCategoryInfo> list = entry.getValue();
 
@@ -922,9 +1104,25 @@ public class ServiceAndProductOrderMenuFragment extends Fragment implements AddI
                 for(int j = 0; j < list.size(); j++){
                     StoreItemDetailsListCategoryInfo storeItemDetailsListModel = list.get(j);
 
-                    //   if (!storeItemDetailsListModel.is_size() && !storeItemDetailsListModel.isExtraPackage()) {
-                    totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getPrice());
-                    //   }
+
+                    if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
+                        totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getPrice());
+                    }
+
+
+                    else if (storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
+
+                        for (int k = 0; k < storeItemDetailsListModel.getSizePrice().size(); k++) {
+
+                            if (storeItemDetailsListModel.getSizePrice().get(k).isSelected()) {
+                                totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getSizePrice().get(k).getPrice().toString());
+
+                                break;
+                            }
+                        }
+                    }
+
+
                 }
                 i++;
             }

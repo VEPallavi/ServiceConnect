@@ -26,6 +26,12 @@ class StoreItemDetailsListCategoryInfo{
     @Expose
     private var sizePriceDuration: ArrayList<SizePriceDurationForService?>? = null
 
+
+    @SerializedName("size_price")
+    @Expose
+    private var sizePrice: ArrayList<SizePriceForProduct?>? = null
+
+
     @SerializedName("business_id")
     @Expose
     private var businessId: String? = null
@@ -48,7 +54,7 @@ class StoreItemDetailsListCategoryInfo{
 
     @SerializedName("extraInfo")
     @Expose
-    private var extraInfo: ArrayList<ExtraInfoForProductAndService?>? = null
+    private var extraInfo: ArrayList<ExtraPackageInfoForProductAndService?>? = null
 
     @SerializedName("isExtraPackage")
     @Expose
@@ -58,17 +64,27 @@ class StoreItemDetailsListCategoryInfo{
     @Expose
     private var productName: String? = null
 
-    @SerializedName("size_price")
-    @Expose
-    private var sizePrice: ArrayList<SizePriceForProduct?>? = null
+
 
     @SerializedName("product_image")
     @Expose
     private var productImage: String? = null
 
 
-    var isSelectedProductCount:Int= 1
-    var isSelectedServiceCount:Int= 1
+    private var selected = false
+
+
+    fun isSelected(): Boolean {
+        return selected
+    }
+
+    fun setSelected(selected: Boolean) {
+        this.selected = selected
+    }
+
+
+    var isSelectedProductCount:Int= 0
+    var isSelectedServiceCount:Int= 0
 
 
     fun getIsSelectedProductCount(): Int? {
@@ -172,11 +188,11 @@ class StoreItemDetailsListCategoryInfo{
         this.isSize = isSize
     }
 
-    fun getExtraInfo(): ArrayList<ExtraInfoForProductAndService?>? {
+    fun getExtraInfo(): ArrayList<ExtraPackageInfoForProductAndService?>? {
         return extraInfo
     }
 
-    fun setExtraInfo(extraInfo: ArrayList<ExtraInfoForProductAndService?>?) {
+    fun setExtraInfo(extraInfo: ArrayList<ExtraPackageInfoForProductAndService?>?) {
         this.extraInfo = extraInfo
     }
 

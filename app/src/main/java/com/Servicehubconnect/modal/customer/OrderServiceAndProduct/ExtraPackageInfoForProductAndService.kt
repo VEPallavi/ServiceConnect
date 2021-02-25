@@ -12,7 +12,7 @@ import com.google.gson.annotations.SerializedName
  * Project SignupLibrary Screen
  */
 
-class ExtraInfoForProductAndService {
+class ExtraPackageInfoForProductAndService {
 
     @SerializedName("_id")
     @Expose
@@ -24,7 +24,7 @@ class ExtraInfoForProductAndService {
 
     @SerializedName("size_price_duration")
     @Expose
-    private var sizePriceDuration: ArrayList<SizePriceDurationForExtraService?>? = null
+    private var sizePriceDurationForExtraService: ArrayList<SizePriceDurationForExtraService?>? = null
 
     @SerializedName("description")
     @Expose
@@ -40,7 +40,7 @@ class ExtraInfoForProductAndService {
 
     @SerializedName("size_price")
     @Expose
-    private var sizePrice: ArrayList<SizePriceForExtraProduct?>? = null
+    private var sizePriceForExtraProduct: ArrayList<SizePriceForExtraProduct?>? = null
 
     fun getId(): String? {
         return id
@@ -59,11 +59,11 @@ class ExtraInfoForProductAndService {
     }
 
     fun getSizePriceDuration(): ArrayList<SizePriceDurationForExtraService?>? {
-        return sizePriceDuration
+        return sizePriceDurationForExtraService
     }
 
     fun setSizePriceDuration(sizePriceDuration: ArrayList<SizePriceDurationForExtraService?>?) {
-        this.sizePriceDuration = sizePriceDuration
+        this.sizePriceDurationForExtraService = sizePriceDuration
     }
 
     fun getDescription(): String? {
@@ -91,11 +91,11 @@ class ExtraInfoForProductAndService {
     }
 
     fun getSizePrice(): ArrayList<SizePriceForExtraProduct?>? {
-        return sizePrice
+        return sizePriceForExtraProduct
     }
 
     fun setSizePrice(sizePrice: ArrayList<SizePriceForExtraProduct?>?) {
-        this.sizePrice = sizePrice
+        this.sizePriceForExtraProduct = sizePrice
     }
 
 

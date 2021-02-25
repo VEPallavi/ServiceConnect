@@ -108,7 +108,7 @@ class HomeActivityCustomer : AppCompatActivity(), NavigationView.OnNavigationIte
             }
             R.id.iv_notification ->
             {
-                setDisplayFragment(12)
+                setDisplayFragment(7)
             }
 
         }
@@ -146,8 +146,14 @@ class HomeActivityCustomer : AppCompatActivity(), NavigationView.OnNavigationIte
 //                startActivity(intent)
             }
             7 -> {
-                mFragment = NotificationFragment()
-                replaceFragment(mFragment)
+
+                var intent = Intent(this, OrderProductsAndServicesActivity::class.java)
+                intent.putExtra("professionalId", "6021313a7d13b63440d048bd")
+                intent.putExtra("bussinessId", "602a6069f29a483523fb1bfe")
+                startActivity(intent)
+
+//                mFragment = NotificationFragment()
+//                replaceFragment(mFragment)
             }
             8 -> {
 //                var intent = Intent(this, SupportActivity::class.java)
