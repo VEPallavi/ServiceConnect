@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:id="@+id/sv_edit_remove_item"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_170sdp">
+
+        <LinearLayout
+            android:id="@+id/ln_layout_remove_edit_item_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sv_edit_remove_item"
+        android:background="@color/color_header"
+        android:text="Close"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textSize="@dimen/_15sdp"/>
+
+</RelativeLayout>

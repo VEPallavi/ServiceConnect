@@ -102,7 +102,7 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
              }
 
 
-             addItemListener.itemListener(storeItemDetailsList.get(position), position, categoryType);
+             addItemListener.addItemListener(storeItemDetailsList.get(position), position, categoryType);
 
 
 

@@ -10,6 +10,6 @@ import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.StoreItemDeta
 interface AddItemListener {
 
 
-    fun itemListener(dataModel: StoreItemDetailsListCategoryInfo, position: Int, categoryType: String)
+    fun addItemListener(dataModel: StoreItemDetailsListCategoryInfo, position: Int, categoryType: String)
 
 }
