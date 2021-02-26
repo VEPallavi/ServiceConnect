@@ -111,7 +111,7 @@
             android:id="@+id/img_edit_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/back_icon_on"
+            android:src="@drawable/ic_modify_item"
             android:layout_weight="1"
             android:padding="@dimen/_8sdp"/>
 

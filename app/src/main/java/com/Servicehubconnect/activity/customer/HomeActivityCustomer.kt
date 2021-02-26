@@ -147,13 +147,13 @@ class HomeActivityCustomer : AppCompatActivity(), NavigationView.OnNavigationIte
             }
             7 -> {
 
-                var intent = Intent(this, OrderProductsAndServicesActivity::class.java)
-                intent.putExtra("professionalId", "6021313a7d13b63440d048bd")
-                intent.putExtra("bussinessId", "602a6069f29a483523fb1bfe")
-                startActivity(intent)
+//                var intent = Intent(this, OrderProductsAndServicesActivity::class.java)
+//                intent.putExtra("professionalId", "6021313a7d13b63440d048bd")
+//                intent.putExtra("bussinessId", "602a6069f29a483523fb1bfe")
+//                startActivity(intent)
 
-//                mFragment = NotificationFragment()
-//                replaceFragment(mFragment)
+                mFragment = NotificationFragment()
+                replaceFragment(mFragment)
             }
             8 -> {
 //                var intent = Intent(this, SupportActivity::class.java)

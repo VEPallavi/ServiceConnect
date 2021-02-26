@@ -74,7 +74,7 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
          if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
 
             holder.tv_name.setText(storeItemDetailsList.get(position).getName());
-            holder.tv_price.setText(currencySymbol +storeItemDetailsList.get(position).getPrice());
+            holder.tv_price.setText(currencySymbol +""+storeItemDetailsList.get(position).getPrice());
             holder.tv_descp.setText(storeItemDetailsList.get(position).getDescription());
 
              Glide.with(activity)
@@ -83,8 +83,8 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
                      .into(holder.iv_business_image);
 
 
-
-             if(storeItemDetailsList.get(position).getIsSelectedServiceCount() ==0){
+             // Todo
+  /*           if(storeItemDetailsList.get(position).getIsSelectedServiceCount() ==0){
                  holder.cl_item_minus_count_plus.setVisibility(View.GONE);
 
                  holder.tv_add.setVisibility(View.VISIBLE);
@@ -97,17 +97,21 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
                  holder.tv_add.setVisibility(View.GONE);
 
                  holder.tv_item_count.setText(""+ storeItemDetailsList.get(position).getIsSelectedServiceCount() );
-             }
+             }*/
 
             // addItemListener.addItemListener(storeItemDetailsList.get(position), position, categoryType);
 
-           //  storeItemDetailsList.get(position).setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()+1);
 
-             holder.tv_add.setOnClickListener(new AddOrderClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
 
-             holder.iv_minus.setOnClickListener(new DecreaseOrderQuantityClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
 
-             holder.iv_plus.setOnClickListener(new IncreaseOrderQuantityClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
+
+
+             // Todo
+        //     holder.tv_add.setOnClickListener(new AddOrderClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
+
+     //       holder.iv_minus.setOnClickListener(new DecreaseOrderQuantityClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
+
+       //      holder.iv_plus.setOnClickListener(new IncreaseOrderQuantityClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
 
         }
 
@@ -115,14 +119,13 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
         else if(categoryType.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
 
             holder.tv_name.setText(storeItemDetailsList.get(position).getName());
-            holder.tv_price.setText(currencySymbol +storeItemDetailsList.get(position).getPrice());
+            holder.tv_price.setText(currencySymbol +""+storeItemDetailsList.get(position).getPrice());
             holder.tv_descp.setText(storeItemDetailsList.get(position).getDescription());
 
              Glide.with(activity)
                      .load(storeItemDetailsList.get(position).getImage().toString())
                      .apply(new RequestOptions().placeholder(R.drawable.dummy).error(R.drawable.dummy))
                      .into(holder.iv_business_image);
-
 
 
              if(storeItemDetailsList.get(position).getIsSelectedProductCount() ==0){
@@ -144,7 +147,7 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
 
              holder.tv_add.setOnClickListener(new AddOrderClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
 
-             holder.iv_minus.setOnClickListener(new DecreaseOrderQuantityClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
+     //        holder.iv_minus.setOnClickListener(new DecreaseOrderQuantityClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
 
              holder.iv_plus.setOnClickListener(new IncreaseOrderQuantityClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
 
@@ -213,7 +216,8 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
 
 
             if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
-                storeItemDetailsListModel.setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()+1);
+                // Todo
+              //  storeItemDetailsListModel.setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()+1);
 
             }
 
@@ -273,7 +277,8 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
 
 
             if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
-                storeItemDetailsListModel.setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()+1);
+                // Todo
+             //   storeItemDetailsListModel.setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()+1);
 
             }
 
@@ -329,18 +334,24 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
         public void onClick(View v) {
 
             if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
-                storeItemDetailsListModel.setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()-1);
+
+                    // Todo
+//                if(storeItemDetailsList.get(position).getIsSelectedServiceCount() > 1){
+//                    storeItemDetailsListModel.setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()-1);
+//                }
+
             }
 
             else if(categoryType.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
-                storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(position).getIsSelectedProductCount()-1);
+                // Todo
+
+//                if(storeItemDetailsList.get(position).getIsSelectedProductCount() >1){
+//                    storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(position).getIsSelectedProductCount()-1);
+//                }
             }
-
             decreaseQuantityClickListener.onDecreaseQuantityClickListener(viewHolder, storeItemDetailsListModel, position, categoryType);
-
         }
     }
-
 
 
 

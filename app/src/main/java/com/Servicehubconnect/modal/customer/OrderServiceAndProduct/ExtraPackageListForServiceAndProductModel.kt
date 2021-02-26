@@ -12,7 +12,7 @@ import com.google.gson.annotations.SerializedName
  * Project SignupLibrary Screen
  */
 
-class ExtraPackageInfoForProductAndService {
+class ExtraPackageListForServiceAndProductModel {
 
     @SerializedName("_id")
     @Expose
@@ -29,6 +29,12 @@ class ExtraPackageInfoForProductAndService {
     @SerializedName("description")
     @Expose
     private var description: String? = null
+
+
+    @SerializedName("multi_selected")
+    @Expose
+    private var multi_selected: Boolean? = null
+
 
     @SerializedName("business_id")
     @Expose
@@ -73,6 +79,19 @@ class ExtraPackageInfoForProductAndService {
     fun setDescription(description: String?) {
         this.description = description
     }
+
+
+
+
+    fun getIsMultiSelected(): Boolean? {
+        return multi_selected
+    }
+
+    fun setIsMultiSelected(multi_selected: Boolean?) {
+        this.multi_selected = multi_selected
+    }
+
+
 
     fun getBusinessId(): String? {
         return businessId

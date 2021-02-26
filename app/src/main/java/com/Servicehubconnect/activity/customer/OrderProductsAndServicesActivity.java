@@ -188,7 +188,7 @@ public class OrderProductsAndServicesActivity extends AppCompatActivity implemen
                                 if(businessObj.has("open_time") && businessObj.has("close_time")){
 
                                     tv_open_and_close_time.setText(businessObj.get("open_time").getAsString()
-                                            +"-" + businessObj.get("close_time").getAsString());
+                                            +" - " + businessObj.get("close_time").getAsString());
 
                                 }
                             }

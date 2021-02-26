@@ -1,9 +1,12 @@
 package com.Servicehubconnect.activity.customer;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -17,7 +20,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.Servicehubconnect.R;
 import com.Servicehubconnect.helper.AppConstants;
-import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.ExtraPackageInfoForProductAndService;
+import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.ExtraPackageListForServiceAndProductModel;
 import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.StoreItemDetailsListCategoryInfo;
 import com.Servicehubconnect.viewModel.customer.ExtraPackageListViewModel;
 import com.google.gson.Gson;
@@ -30,13 +33,13 @@ import java.util.ArrayList;
 
 
 public class ExtraPackageListActivity extends AppCompatActivity {
-    ArrayList<ExtraPackageInfoForProductAndService> extraServiceAndProductList = new ArrayList();
+    ArrayList<ExtraPackageListForServiceAndProductModel> extraServiceAndProductList = new ArrayList();
     ExtraPackageListViewModel viewModel;
     TextView txt_item_name, txt_item_price, txt_item_time, txt_selected_extras, txt_total_amount;
     LinearLayout lnLayoutExtrasContainer;
     RelativeLayout rlt_layout_add_extras;
     private StoreItemDetailsListCategoryInfo storeItemDetailsModel;
-    private ExtraPackageInfoForProductAndService extraPackageInfoForProductAndService;
+    private ExtraPackageListForServiceAndProductModel extraPackageInfoForProductAndService;
     String extraId;
     String category_type;
     double sizePrice;
@@ -108,8 +111,8 @@ public class ExtraPackageListActivity extends AppCompatActivity {
 
                         if(it.has("extraInfo") && it.get("extraInfo") instanceof JsonArray) {
 
-                            Type type = new TypeToken<ArrayList<ExtraPackageInfoForProductAndService>>() {}.getType();
-                            ArrayList<ExtraPackageInfoForProductAndService> dataList = new Gson().fromJson(it.get("extraInfo"), type);
+                            Type type = new TypeToken<ArrayList<ExtraPackageListForServiceAndProductModel>>() {}.getType();
+                            ArrayList<ExtraPackageListForServiceAndProductModel> dataList = new Gson().fromJson(it.get("extraInfo"), type);
 
                             if(dataList.size() >0){
                                 extraServiceAndProductList.addAll(dataList);
@@ -127,40 +130,97 @@ public class ExtraPackageListActivity extends AppCompatActivity {
 
         if(extraServiceAndProductList != null && extraServiceAndProductList.size() >0){
 
+            // TODO
 
-            if(category_type.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
+//            if(category_type.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
+//
+//                rgServiceProductName = new RadioGroup[extraServiceAndProductList.size()];
+//
+//
+//                for (int index = 0; index < extraServiceAndProductList.size(); index++) {
+//
+//                    LinearLayout layout = new LinearLayout(this);
+//
+//                    layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+//
+//                    layout.setOrientation(LinearLayout.VERTICAL);
+//
+//                    TextView tv = new TextView(this);
+//
+//                    tv.setText(extraServiceAndProductList.get(index).getExtraService());
+//
+//                    tv.setTextColor(this.getResources().getColor(R.color.colorBlack));
+//
+//                    tv.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+//
+//                    tv.setTextSize(15.0f);
+//
+//                    layout.addView(tv);
+//
+//                     /// TODO
+//
+////                    if (extraServiceAndProductList.get(index).getIsMultiSelected()) {
+////
+////                        ArrayList<ExtraPackageListForServiceAndProductModel> extraPackageDetailList = extraServiceAndProductList.get(index).getExtraPackageDetailList();
+////
+////                        if (extraPackageDetailList != null && extraPackageDetailList.size() > 0) {
+////
+////                            chkServiceProductName = new CheckBox[extraPackageDetailList.size()];
+////
+////                            for (int indexOfPackage = 0; indexOfPackage < extraPackageDetailList.size(); indexOfPackage++) {
+////
+////                                chkServiceProductName[indexOfPackage] = new CheckBox(activity);
+////
+//////                                chkFoodName[indexOfPackage].setText(extraPackageDetailList.get(indexOfPackage).getDescription() + "      $" + String.format("%.2f", extraPackageDetailList.get(indexOfPackage).getPrice()));
+////                                chkServiceProductName[indexOfPackage].setText(getSpannableString(extraPackageDetailList.get(indexOfPackage).getDescription(),   "   " + OrderFoodActivity.currencySymbol + String.format("%.2f", extraPackageDetailList.get(indexOfPackage).getPrice())));
+////
+////                                chkServiceProductName[indexOfPackage].setTextColor(activity.getResources().getColor(R.color.color_restaurant_address));
+////
+////                                chkServiceProductName[indexOfPackage].setTag(extraPackageDetailList.get(indexOfPackage).getDescription());
+////
+////                                if (extraPackageDetailList.get(indexOfPackage).isSelected()) {
+////
+////                                    chkServiceProductName[indexOfPackage].setChecked(true);
+////                                }
+////
+////                                // Set previously selected extra packages
+/////*
+////                                    if (previouslySelectedExtraPackageList != null) {
+////
+////                                        for (int indexOfSelectedItems = 0; indexOfSelectedItems < previouslySelectedExtraPackageList.size(); indexOfSelectedItems++) {
+////
+////                                            if (previouslySelectedExtraPackageList.get(indexOfSelectedItems).getDescription()
+////                                                    .equalsIgnoreCase(extraPackageDetailList.get(indexOfPackage).getDescription())) {
+////
+////                                                chkFoodName[indexOfPackage].setChecked(true);
+////                                            }
+////
+////                                        }
+////                                    }
+////*/
+////
+////                                chkServiceProductName[indexOfPackage]
+////                                        .setOnCheckedChangeListener(new CheckBoxClick(extraPackageDetailList.get(indexOfPackage).getExtraPackageDetailId(),
+////                                                extraPackageDetailList.get(indexOfPackage).getDescription(), extraPackageDetailList.get(indexOfPackage).getPrice()));
+////
+////                                layout.addView(chkServiceProductName[indexOfPackage]);
+////
+////                            }
+////                        }
+////
+////                    }
+//
+//
+//
+//
+//                    lnLayoutExtrasContainer.addView(layout);
+//
+//                }
+//
+//            }
 
-                rgServiceProductName = new RadioGroup[extraServiceAndProductList.size()];
 
-
-                for (int index = 0; index < extraServiceAndProductList.size(); index++) {
-
-                    LinearLayout layout = new LinearLayout(this);
-
-                    layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-
-                    layout.setOrientation(LinearLayout.VERTICAL);
-
-                    TextView tv = new TextView(this);
-
-                    tv.setText(extraServiceAndProductList.get(index).getExtraService());
-
-                    tv.setTextColor(this.getResources().getColor(R.color.colorBlack));
-
-                    tv.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-
-                    tv.setTextSize(15.0f);
-
-                    layout.addView(tv);
-
-                    lnLayoutExtrasContainer.addView(layout);
-
-                }
-
-            }
-
-
-            else if(category_type.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
+             if(category_type.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
 
 
                 rgServiceProductName = new RadioGroup[extraServiceAndProductList.size()];
@@ -178,7 +238,7 @@ public class ExtraPackageListActivity extends AppCompatActivity {
 
                     tv.setText(extraServiceAndProductList.get(index).getExtraProduct());
 
-                    tv.setTextColor(this.getResources().getColor(R.color.colorPrimary));
+                    tv.setTextColor(this.getResources().getColor(R.color.colorBlack));
 
                     tv.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
 
@@ -197,6 +257,113 @@ public class ExtraPackageListActivity extends AppCompatActivity {
 
 
     }
+
+
+
+    private class CheckBoxClick implements CompoundButton.OnCheckedChangeListener {
+
+        String itemId;
+
+        public CheckBoxClick(String itemId, String itemName, double price) {
+            this.itemId = itemId;
+        }
+
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+          //  prepareSelectedFinalList(itemId, true, isChecked);
+        }
+    }
+
+
+    private class RadioButtonClick implements View.OnClickListener {
+
+        String itemId;
+
+        public RadioButtonClick(String itemId, String itemName, double price, String packageName, int indexOfRadioGroup) {
+
+            this.itemId = itemId;
+        }
+
+        @SuppressLint("NewApi")
+        @Override
+        public void onClick(View v) {
+
+          //  prepareSelectedFinalList(itemId, false, true);
+        }
+    }
+
+
+
+//    private void prepareSelectedFinalList(String strItemId, boolean isMultipleSelect, boolean isChecked)
+//
+//    {
+//
+//
+//        //  extraPackageDetailsSelectedModel.getExtraPackageListModels().get(0).getExtraPackageDetailList().get(0).getExtraPackageDetailId();
+//        for (int i = 0; i < extraPackageDetailsSelectedModel.getExtraPackageListModels().size(); i++) {
+//
+//            int jSize = extraPackageDetailsSelectedModel.getExtraPackageListModels().get(i).getExtraPackageDetailList().size();
+//
+//            for (int j = 0; j < jSize; j++) {
+//
+//                if (isMultipleSelect) {
+//
+//                    if (isChecked && extraPackageDetailsSelectedModel.getExtraPackageListModels().get(i).getExtraPackageDetailList().get(j).getExtraPackageDetailId().equalsIgnoreCase(strItemId) && extraPackageDetailsSelectedModel.getExtraPackageListModels().get(i).isMultiselect()) {
+//
+//                        extraPackageDetailsSelectedModel.getExtraPackageListModels().get(i).getExtraPackageDetailList().get(j).setSelected(true);
+//                    } else if (!isChecked && extraPackageDetailsSelectedModel.getExtraPackageListModels().get(i).getExtraPackageDetailList().get(j).getExtraPackageDetailId().equalsIgnoreCase(strItemId) && extraPackageDetailsSelectedModel.getExtraPackageListModels().get(i).isMultiselect()) {
+//
+//                        extraPackageDetailsSelectedModel.getExtraPackageListModels().get(i).getExtraPackageDetailList().get(j).setSelected(false);
+//                    }
+//
+//                } else {
+//
+//                    if (extraPackageDetailsSelectedModel.getExtraPackageListModels().get(i).getExtraPackageDetailList().get(j).getExtraPackageDetailId().equalsIgnoreCase(strItemId)) {
+//
+//                        if (extraPackageDetailsSelectedModel.getExtraPackageListModels().get(i).getExtraPackageDetailList().get(j).isSelected() && !extraPackageDetailsSelectedModel.getExtraPackageListModels().get(i).isMultiselect()) {
+//                            extraPackageDetailsSelectedModel.getExtraPackageListModels().get(i).getExtraPackageDetailList().get(j).setSelected(false);
+//                            rgFoodName[i].clearCheck();
+//                        } else if (!extraPackageDetailsSelectedModel.getExtraPackageListModels().get(i).isMultiselect()) {
+//
+//                            extraPackageDetailsSelectedModel.getExtraPackageListModels().get(i).getExtraPackageDetailList().get(j).setSelected(true);
+//                        }
+//                    } else if (!extraPackageDetailsSelectedModel.getExtraPackageListModels().get(i).isMultiselect()) {
+//
+//                        extraPackageDetailsSelectedModel.getExtraPackageListModels().get(i).getExtraPackageDetailList().get(j).setSelected(false);
+//                    }
+//                }
+//            }
+//
+//
+//        }
+//
+//
+//        calculateTotalPrice();
+//
+//    }
+//
+//
+//    private void calculateTotalPrice() {
+//        double totalPrize = 0.0;
+//
+//        totalPrize = sizePrize;
+//
+//        for (int i = 0; i < extraPackageDetailsSelectedModel.getExtraPackageListModels().size(); i++) {
+//
+//            int jSize = extraPackageDetailsSelectedModel.getExtraPackageListModels().get(i).getExtraPackageDetailList().size();
+//
+//            for (int j = 0; j < jSize; j++) {
+//
+//                if (extraPackageDetailsSelectedModel.getExtraPackageListModels().get(i).getExtraPackageDetailList().get(j).isSelected()) {
+//
+//                    totalPrize = totalPrize + extraPackageDetailsSelectedModel.getExtraPackageListModels().get(i).getExtraPackageDetailList().get(j).getPrice();
+//                }
+//            }
+//        }
+//
+//        txtTotalAmount.setText("Item Total " + OrderFoodActivity.currencySymbol + String.format("%.2f", totalPrize));
+//    }
+
 
 
 }

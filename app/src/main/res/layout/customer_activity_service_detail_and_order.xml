@@ -103,7 +103,7 @@
             android:drawablePadding="@dimen/_5sdp"
             android:textSize="@dimen/_10sdp"
             android:textColor="@color/colorPrimary"
-            android:text="4.5" />
+            android:text="0" />
 
         <TextView
             android:id="@+id/tv_ratingCount"
@@ -114,7 +114,7 @@
             android:textSize="@dimen/_8sdp"
             android:textColor="@color/dark_grey"
             android:textStyle="bold"
-            android:text=" (2.2k Ratings)" />
+            android:text=" (0.0k Ratings)" />
 
         <TextView
             android:id="@+id/tv_commentsCount"
@@ -130,7 +130,7 @@
             android:textSize="@dimen/_10sdp"
             android:textStyle="bold"
             android:textColor="@color/colorBlack"
-            android:text="2.3k Comments" />
+            android:text="0 Comments" />
 
         <TextView
             android:id="@+id/txt_openTime"
@@ -157,7 +157,7 @@
             android:textSize="@dimen/_10sdp"
             android:textStyle="bold"
             android:textColor="@color/colorBlack"
-            android:text="10:00 Am - 12:00Am"/>
+            android:text="00:00 Am - 00:00Pm"/>
 
         <TextView
             android:id="@+id/txt_description"
@@ -218,7 +218,7 @@
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/_10sdp"
             android:textStyle="bold"
-            android:text="2.3k Comments" />
+            android:text="0 Comment" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
