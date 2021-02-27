@@ -132,92 +132,92 @@ public class ExtraPackageListActivity extends AppCompatActivity {
 
             // TODO
 
-//            if(category_type.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
+            if(category_type.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
+
+                rgServiceProductName = new RadioGroup[extraServiceAndProductList.size()];
+
+
+                for (int index = 0; index < extraServiceAndProductList.size(); index++) {
+
+                    LinearLayout layout = new LinearLayout(this);
+
+                    layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+
+                    layout.setOrientation(LinearLayout.VERTICAL);
+
+                    TextView tv = new TextView(this);
+
+                    tv.setText(extraServiceAndProductList.get(index).getExtraService());
+
+                    tv.setTextColor(this.getResources().getColor(R.color.colorBlack));
+
+                    tv.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+
+                    tv.setTextSize(15.0f);
+
+                    layout.addView(tv);
+
+                     /// TODO
+
+//                    if (extraServiceAndProductList.get(index).getIsMultiSelected()) {
 //
-//                rgServiceProductName = new RadioGroup[extraServiceAndProductList.size()];
+//                        ArrayList<ExtraPackageListForServiceAndProductModel> extraPackageDetailList = extraServiceAndProductList.get(index).getExtraPackageDetailList();
 //
+//                        if (extraPackageDetailList != null && extraPackageDetailList.size() > 0) {
 //
-//                for (int index = 0; index < extraServiceAndProductList.size(); index++) {
+//                            chkServiceProductName = new CheckBox[extraPackageDetailList.size()];
 //
-//                    LinearLayout layout = new LinearLayout(this);
+//                            for (int indexOfPackage = 0; indexOfPackage < extraPackageDetailList.size(); indexOfPackage++) {
 //
-//                    layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+//                                chkServiceProductName[indexOfPackage] = new CheckBox(activity);
 //
-//                    layout.setOrientation(LinearLayout.VERTICAL);
+////                                chkFoodName[indexOfPackage].setText(extraPackageDetailList.get(indexOfPackage).getDescription() + "      $" + String.format("%.2f", extraPackageDetailList.get(indexOfPackage).getPrice()));
+//                                chkServiceProductName[indexOfPackage].setText(getSpannableString(extraPackageDetailList.get(indexOfPackage).getDescription(),   "   " + OrderFoodActivity.currencySymbol + String.format("%.2f", extraPackageDetailList.get(indexOfPackage).getPrice())));
 //
-//                    TextView tv = new TextView(this);
+//                                chkServiceProductName[indexOfPackage].setTextColor(activity.getResources().getColor(R.color.color_restaurant_address));
 //
-//                    tv.setText(extraServiceAndProductList.get(index).getExtraService());
+//                                chkServiceProductName[indexOfPackage].setTag(extraPackageDetailList.get(indexOfPackage).getDescription());
 //
-//                    tv.setTextColor(this.getResources().getColor(R.color.colorBlack));
+//                                if (extraPackageDetailList.get(indexOfPackage).isSelected()) {
 //
-//                    tv.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+//                                    chkServiceProductName[indexOfPackage].setChecked(true);
+//                                }
 //
-//                    tv.setTextSize(15.0f);
+//                                // Set previously selected extra packages
+///*
+//                                    if (previouslySelectedExtraPackageList != null) {
 //
-//                    layout.addView(tv);
+//                                        for (int indexOfSelectedItems = 0; indexOfSelectedItems < previouslySelectedExtraPackageList.size(); indexOfSelectedItems++) {
 //
-//                     /// TODO
+//                                            if (previouslySelectedExtraPackageList.get(indexOfSelectedItems).getDescription()
+//                                                    .equalsIgnoreCase(extraPackageDetailList.get(indexOfPackage).getDescription())) {
 //
-////                    if (extraServiceAndProductList.get(index).getIsMultiSelected()) {
-////
-////                        ArrayList<ExtraPackageListForServiceAndProductModel> extraPackageDetailList = extraServiceAndProductList.get(index).getExtraPackageDetailList();
-////
-////                        if (extraPackageDetailList != null && extraPackageDetailList.size() > 0) {
-////
-////                            chkServiceProductName = new CheckBox[extraPackageDetailList.size()];
-////
-////                            for (int indexOfPackage = 0; indexOfPackage < extraPackageDetailList.size(); indexOfPackage++) {
-////
-////                                chkServiceProductName[indexOfPackage] = new CheckBox(activity);
-////
-//////                                chkFoodName[indexOfPackage].setText(extraPackageDetailList.get(indexOfPackage).getDescription() + "      $" + String.format("%.2f", extraPackageDetailList.get(indexOfPackage).getPrice()));
-////                                chkServiceProductName[indexOfPackage].setText(getSpannableString(extraPackageDetailList.get(indexOfPackage).getDescription(),   "   " + OrderFoodActivity.currencySymbol + String.format("%.2f", extraPackageDetailList.get(indexOfPackage).getPrice())));
-////
-////                                chkServiceProductName[indexOfPackage].setTextColor(activity.getResources().getColor(R.color.color_restaurant_address));
-////
-////                                chkServiceProductName[indexOfPackage].setTag(extraPackageDetailList.get(indexOfPackage).getDescription());
-////
-////                                if (extraPackageDetailList.get(indexOfPackage).isSelected()) {
-////
-////                                    chkServiceProductName[indexOfPackage].setChecked(true);
-////                                }
-////
-////                                // Set previously selected extra packages
-/////*
-////                                    if (previouslySelectedExtraPackageList != null) {
-////
-////                                        for (int indexOfSelectedItems = 0; indexOfSelectedItems < previouslySelectedExtraPackageList.size(); indexOfSelectedItems++) {
-////
-////                                            if (previouslySelectedExtraPackageList.get(indexOfSelectedItems).getDescription()
-////                                                    .equalsIgnoreCase(extraPackageDetailList.get(indexOfPackage).getDescription())) {
-////
-////                                                chkFoodName[indexOfPackage].setChecked(true);
-////                                            }
-////
-////                                        }
-////                                    }
-////*/
-////
-////                                chkServiceProductName[indexOfPackage]
-////                                        .setOnCheckedChangeListener(new CheckBoxClick(extraPackageDetailList.get(indexOfPackage).getExtraPackageDetailId(),
-////                                                extraPackageDetailList.get(indexOfPackage).getDescription(), extraPackageDetailList.get(indexOfPackage).getPrice()));
-////
-////                                layout.addView(chkServiceProductName[indexOfPackage]);
-////
-////                            }
-////                        }
-////
-////                    }
+//                                                chkFoodName[indexOfPackage].setChecked(true);
+//                                            }
 //
+//                                        }
+//                                    }
+//*/
 //
+//                                chkServiceProductName[indexOfPackage]
+//                                        .setOnCheckedChangeListener(new CheckBoxClick(extraPackageDetailList.get(indexOfPackage).getExtraPackageDetailId(),
+//                                                extraPackageDetailList.get(indexOfPackage).getDescription(), extraPackageDetailList.get(indexOfPackage).getPrice()));
 //
+//                                layout.addView(chkServiceProductName[indexOfPackage]);
 //
-//                    lnLayoutExtrasContainer.addView(layout);
+//                            }
+//                        }
 //
-//                }
-//
-//            }
+//                    }
+
+
+
+
+                    lnLayoutExtrasContainer.addView(layout);
+
+                }
+
+            }
 
 
              if(category_type.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
