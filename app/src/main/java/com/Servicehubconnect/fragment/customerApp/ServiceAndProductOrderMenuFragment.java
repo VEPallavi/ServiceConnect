@@ -888,6 +888,42 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
 
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(infoSizeSelectionDialog != null){
+            infoSizeSelectionDialog.dismiss();
+        }
+
+        if(requestCode == 1){
+
+            if(resultCode == 1){
+                StoreItemDetailsListCategoryInfo storeItemDetailsListModel = new Gson().fromJson(data.getStringExtra(AppConstants.STORE_ITEM_DETAILS)
+                        , StoreItemDetailsListCategoryInfo.class);
+
+                boolean isEdit = data.getBooleanExtra(AppConstants.IS_ITEM_EDIT,false);
+                String categoryType =  data.getExtras().getString(AppConstants.CATEGORY_TYPE);
+
+                if(!isEdit) {
+
+                    addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+                }else {
+
+                    addEditedListToFinalHashMap(storeItemDetailsListModel, categoryType);
+                }
+
+
+            }
+
+        }
+
+
+    }
+
+
+
+
     private void addEditedListToFinalHashMap(StoreItemDetailsListCategoryInfo storeItemDetailsListModel, String categoryType) {
         {
 
@@ -1175,6 +1211,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
         });
 
     }
+
 
 
     public Double convertStrToDouble(String strValue) {

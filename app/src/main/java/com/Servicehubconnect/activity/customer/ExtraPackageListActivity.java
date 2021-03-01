@@ -1,6 +1,7 @@
 package com.Servicehubconnect.activity.customer;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.Servicehubconnect.R;
 import com.Servicehubconnect.helper.AppConstants;
+import com.Servicehubconnect.helper.Utils;
 import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.ExtraPackageListForServiceAndProductModel;
 import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.StoreItemDetailsListCategoryInfo;
 import com.Servicehubconnect.viewModel.customer.ExtraPackageListViewModel;
@@ -37,12 +39,14 @@ public class ExtraPackageListActivity extends AppCompatActivity {
     ExtraPackageListViewModel viewModel;
     TextView txt_item_name, txt_item_price, txt_item_time, txt_selected_extras, txt_total_amount;
     LinearLayout lnLayoutExtrasContainer;
-    RelativeLayout rlt_layout_add_extras;
+    RelativeLayout rltLayoutAddExtras;
     private StoreItemDetailsListCategoryInfo storeItemDetailsModel;
     private ExtraPackageListForServiceAndProductModel extraPackageInfoForProductAndService;
     String extraId;
     String category_type;
     double sizePrice;
+    private Activity activity;
+    private boolean isEdit = false;
 
 
     private CheckBox[] chkServiceProductName;
@@ -56,11 +60,12 @@ public class ExtraPackageListActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_activity_extra_package_list);
+        activity = this;
 
         viewModel = ViewModelProviders.of(this).get(ExtraPackageListViewModel.class);
 
-
         initViews();
+        setListener();
         getIntentData();
         setData();
 
@@ -79,6 +84,97 @@ public class ExtraPackageListActivity extends AppCompatActivity {
 
     }
 
+
+    private void setListener() {
+
+
+        rltLayoutAddExtras.setOnClickListener(new AddItemClickListener());
+    }
+
+
+    private class AddItemClickListener implements View.OnClickListener {
+
+
+        @Override
+        public void onClick(View v) {
+
+//            if(category_type.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
+//
+//                if (isEdit) {
+//                    if (storeItemDetailsModel.getIsSize()) {
+//                        for (int i = 0; i < storeItemDetailsModel.getSizePriceDuration().size(); i++) {
+//
+//                            if (storeItemDetailsModel.getSizePriceDuration().get(i).getSizeId().equalsIgnoreCase(sizeId)) {
+//
+//                                storeItemDetailsModel.getSizePriceDuration().get(i).setSelected(true);
+//                            } else {
+//
+//                                storeItemDetailsModel.getSizePriceDuration().get(i).setSelected(false);
+//                            }
+//                        }
+//                    }
+//
+//                }
+//
+//                storeItemDetailsModel.setExtraPackageDetailsResponseModel(extraPackageDetailsSelectedModel);
+//
+//                String jsonStoreItemDetailsModel = new Gson().toJson(storeItemDetailsModel);
+//
+//                Intent i = new Intent();
+//
+//                i.putExtra(AppConstants.STORE_ITEM_DETAILS, jsonStoreItemDetailsModel);
+//
+//                i.putExtra(AppConstants.IS_ITEM_EDIT, isEdit);
+//
+//                setResult(1, i);
+//
+//                onBackPressed();
+//
+//            }
+
+
+
+
+//            else if(category_type.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
+//
+//                if (isEdit) {
+//                    if (storeItemDetailsModel.getIsSize()) {
+//                        for (int i = 0; i < storeItemDetailsModel.getSizePrice().size(); i++) {
+//
+//                            if (storeItemDetailsModel.getSizePrice().get(i).getSizeId().equalsIgnoreCase(sizeId)) {
+//
+//                                storeItemDetailsModel.getSizePrice().get(i).setSelected(true);
+//                            } else {
+//
+//                                storeItemDetailsModel.getSizePrice().get(i).setSelected(false);
+//                            }
+//                        }
+//                    }
+//
+//                }
+//
+//                storeItemDetailsModel.setExtraPackageDetailsResponseModel(extraPackageDetailsSelectedModel);
+//
+//                String jsonStoreItemDetailsModel = new Gson().toJson(storeItemDetailsModel);
+//
+//                Intent i = new Intent();
+//
+//                i.putExtra(AppConstants.STORE_ITEM_DETAILS, jsonStoreItemDetailsModel);
+//
+//                i.putExtra(AppConstants.IS_ITEM_EDIT, isEdit);
+//
+//                setResult(1, i);
+//
+//                onBackPressed();
+//            }
+
+
+        }
+    }
+
+
+
+
     private void initViews() {
         txt_item_name = findViewById(R.id.txt_item_name);
         txt_item_price = findViewById(R.id.txt_item_price);
@@ -86,7 +182,7 @@ public class ExtraPackageListActivity extends AppCompatActivity {
         txt_selected_extras = findViewById(R.id.txt_selected_extras);
         txt_total_amount = findViewById(R.id.txt_total_amount);
         lnLayoutExtrasContainer = findViewById(R.id.ln_layout_extras_container);
-        rlt_layout_add_extras = findViewById(R.id.rlt_layout_add_extras);
+        rltLayoutAddExtras = findViewById(R.id.rlt_layout_add_extras);
     }
 
 
@@ -221,6 +317,9 @@ public class ExtraPackageListActivity extends AppCompatActivity {
 
 
              if(category_type.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
+                 ArrayList<ExtraPackageListForServiceAndProductModel> extraPackageModels = extraServiceAndProductList;
+
+                 Utils.Companion.showLog("<<<< extra  "+ extraPackageModels);
 
 
                 rgServiceProductName = new RadioGroup[extraServiceAndProductList.size()];
@@ -247,7 +346,16 @@ public class ExtraPackageListActivity extends AppCompatActivity {
                     layout.addView(tv);
 
                     lnLayoutExtrasContainer.addView(layout);
+
+                    if(extraPackageModels.get(index).getIsMultiSelected()){
+
+
+                    }
+
                 }
+
+
+
 
             }
 
