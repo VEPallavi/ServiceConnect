@@ -57,6 +57,7 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
         var tv_happy_hours_open_time: TextView
         var tv_happy_hours_close_time: TextView
         var tv_discount_percentage: TextView
+        var tv_instruction: TextView
 
 
 
@@ -81,6 +82,7 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
             tv_happy_hours_open_time = view.findViewById(R.id.tv_happy_hours_open_time)
             tv_happy_hours_close_time = view.findViewById(R.id.tv_happy_hours_close_time)
             tv_discount_percentage= view.findViewById(R.id.tv_discount_percentage)
+            tv_instruction = view.findViewById(R.id.tv_instruction)
         }
 
 
