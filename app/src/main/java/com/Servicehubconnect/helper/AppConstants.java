@@ -11,6 +11,7 @@ public interface AppConstants {
 	public static final String CATEGORY_TYPE = "CATEGORY_TYPE";
 	public static final String CATEGORY_TYPE_PRODUCT = "product";
 	public static final String CATEGORY_TYPE_SERVICE = "service";
+	public static final String IS_ITEM_EDIT = "IS_ITEM_EDIT";
 
 
 
