@@ -84,7 +84,7 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
 
 
              // Todo
-  /*           if(storeItemDetailsList.get(position).getIsSelectedServiceCount() ==0){
+             if(storeItemDetailsList.get(position).getIsSelectedServiceCount() ==0){
                  holder.cl_item_minus_count_plus.setVisibility(View.GONE);
 
                  holder.tv_add.setVisibility(View.VISIBLE);
@@ -97,7 +97,7 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
                  holder.tv_add.setVisibility(View.GONE);
 
                  holder.tv_item_count.setText(""+ storeItemDetailsList.get(position).getIsSelectedServiceCount() );
-             }*/
+             }
 
             // addItemListener.addItemListener(storeItemDetailsList.get(position), position, categoryType);
 
@@ -107,7 +107,7 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
 
 
              // Todo
-        //     holder.tv_add.setOnClickListener(new AddOrderClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
+             holder.tv_add.setOnClickListener(new AddOrderClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
 
      //       holder.iv_minus.setOnClickListener(new DecreaseOrderQuantityClickListener(holder, storeItemDetailsList.get(position), position, categoryType));
 

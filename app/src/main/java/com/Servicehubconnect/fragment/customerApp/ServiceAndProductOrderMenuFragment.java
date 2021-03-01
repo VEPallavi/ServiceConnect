@@ -135,9 +135,9 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                 }
                 else if (storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
 
-                    StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+                //    StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
 
-                    showSizePopup(vStoreItemDetailsListModel , false, categoryType);
+                //    showSizePopup(vStoreItemDetailsListModel , false, categoryType);
 
 
 
@@ -146,9 +146,9 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                 }
                 else if (storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
 
-                StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+              //  StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
 
-                showSizePopup(vStoreItemDetailsListModel , false, categoryType);
+             //   showSizePopup(vStoreItemDetailsListModel , false, categoryType);
 
 
                   //  addListToFinalHashMap(storeItemDetailsListModel, categoryType);
@@ -156,21 +156,21 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                 }
                 else if (!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
 
-                StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
-
-                String strJsonStoreItemDetailsLModel = new Gson().toJson(vStoreItemDetailsListModel);
-
-                Intent i = new Intent(activity, ExtraPackageListActivity.class);
-
-                i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
-
-                i.putExtra(AppConstants.CATEGORY_TYPE, categoryType);
-
-              //  i.putExtra(AppConstants.ITEM_ID, vStoreItemDetailsListModel.getStoreCategoriesItemId());
-
-                i.putExtra(AppConstants.SIZE_PRICE , vStoreItemDetailsListModel.getPrice().toString());
-
-                startActivityForResult(i, 1);
+//                StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+//
+//                String strJsonStoreItemDetailsLModel = new Gson().toJson(vStoreItemDetailsListModel);
+//
+//                Intent i = new Intent(activity, ExtraPackageListActivity.class);
+//
+//                i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
+//
+//                i.putExtra(AppConstants.CATEGORY_TYPE, categoryType);
+//
+//              //  i.putExtra(AppConstants.ITEM_ID, vStoreItemDetailsListModel.getStoreCategoriesItemId());
+//
+//                i.putExtra(AppConstants.SIZE_PRICE , vStoreItemDetailsListModel.getPrice().toString());
+//
+//                startActivityForResult(i, 1);
 
 
 
