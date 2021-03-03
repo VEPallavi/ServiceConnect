@@ -146,6 +146,11 @@ interface ApiService {
     ): Call<JsonObject>
 
 
+    @POST()
+    @FormUrlEncoded
+    fun getSupportData(
+            @Header("Authorization") token: String
+    ): Call<JsonObject>
 
 
 

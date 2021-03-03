@@ -30,6 +30,8 @@ class ExtraPackageListForServiceAndProductModel {
     @Expose
     private var description: String? = null
 
+    private var selected = false
+
 
     @SerializedName("multi_selected")
     @Expose
@@ -47,6 +49,7 @@ class ExtraPackageListForServiceAndProductModel {
     @SerializedName("size_price")
     @Expose
     private var sizePriceForExtraProduct: ArrayList<SizePriceForExtraProduct?>? = null
+
 
     fun getId(): String? {
         return id
@@ -80,6 +83,14 @@ class ExtraPackageListForServiceAndProductModel {
         this.description = description
     }
 
+
+    fun isSelected(): Boolean {
+        return selected
+    }
+
+    fun setSelected(selected: Boolean) {
+        this.selected = selected
+    }
 
 
 

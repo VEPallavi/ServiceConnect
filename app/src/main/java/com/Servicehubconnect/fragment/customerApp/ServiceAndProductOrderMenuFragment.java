@@ -787,7 +787,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
                         //  i.putExtra(AppConstants.IS_ITEM_EDIT, edit);
 
-                        //   i.putExtra(AppConstants.SIZE_ID , storeItemDetailsListModel.getSizeDetailsList().get(selectedRadioButtonId).getSizeId());
+                           i.putExtra(AppConstants.SIZE_NAME , storeItemDetailsListModel.getSizePriceDuration().get(selectedRadioButtonId).getSize());
 
                         i.putExtra(AppConstants.SIZE_PRICE , sizePrice);
 
@@ -858,7 +858,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
                         //  i.putExtra(AppConstants.IS_ITEM_EDIT, edit);
 
-                        //   i.putExtra(AppConstants.SIZE_ID , storeItemDetailsListModel.getSizeDetailsList().get(selectedRadioButtonId).getSizeId());
+                           i.putExtra(AppConstants.SIZE_NAME , storeItemDetailsListModel.getSizePrice().get(selectedRadioButtonId).getSize());
 
                         i.putExtra(AppConstants.SIZE_PRICE , sizePrice);
 
