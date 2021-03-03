@@ -17,6 +17,8 @@ import com.google.gson.JsonArray
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.customer_activity_professional_list.*
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class ProfessionalListActivity : AppCompatActivity(), View.OnClickListener, ItemListener{
@@ -30,6 +32,7 @@ class ProfessionalListActivity : AppCompatActivity(), View.OnClickListener, Item
     var country: String =""
     var keyword: String =""
     var screenType: String =""
+    var time_zone: String=""
 
 
 
@@ -37,6 +40,8 @@ class ProfessionalListActivity : AppCompatActivity(), View.OnClickListener, Item
         super.onCreate(savedInstanceState)
         setContentView(R.layout.customer_activity_professional_list)
         viewModel = ViewModelProviders.of(this).get(ProfessionalListViewModel::class.java)
+
+
         initViews()
         getProfessionalList()
         setOnClickListener()
@@ -61,9 +66,11 @@ class ProfessionalListActivity : AppCompatActivity(), View.OnClickListener, Item
         }
 
 
-
-
         tv_title.text = serviceName
+
+        val cal = Calendar.getInstance()
+         time_zone = cal.timeZone.toString()
+
 
         rv_professionalList.setHasFixedSize(true)
         rv_professionalList.layoutManager = LinearLayoutManager(this)
@@ -74,7 +81,7 @@ class ProfessionalListActivity : AppCompatActivity(), View.OnClickListener, Item
 
     private fun getProfessionalList() {
         keyword = ""
-        viewModel!!.getProfessionalList(this, subCategoryId!!, longitudeValue!!, latitudeValue!!, country!!, city!!, keyword!!).observe(this, Observer {
+        viewModel!!.getProfessionalList(this, subCategoryId!!, longitudeValue!!, latitudeValue!!, country!!, city!!, keyword!!, time_zone).observe(this, Observer {
 
             if(it!= null){
 

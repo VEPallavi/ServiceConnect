@@ -80,14 +80,16 @@ interface ApiService {
       @Field("latitude") latitude: String,
       @Field("Country") Country: String,
       @Field("City") City: String,
-      @Field("keyword") keyword: String
+      @Field("keyword") keyword: String,
+      @Field("time_zone") time_zone: String
     ): Call<JsonObject>
 
 
     @POST(ApiList.GET_PROFESSIONAL_DETAILS)
     @FormUrlEncoded
     fun getProfessionalDetails(
-            @Field("professionalId") professionalId: String
+            @Field("professionalId") professionalId: String,
+            @Field("time_zone") time_zone: String
 
     ): Call<JsonObject>
 

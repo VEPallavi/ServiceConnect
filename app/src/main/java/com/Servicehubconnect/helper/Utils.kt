@@ -190,12 +190,23 @@ class Utils {
         }
 
 
-        fun getIsHappyHours(startTime: String, endTime: String):String{
+        fun get12hrFormatfrom24hr(_24HourTime : String): String{
+           var _24HourDtFinal =""
+            try {
+                val _24HourTime = _24HourTime
+                val _24HourSDF = SimpleDateFormat("HH:mm:ss")
+                val _12HourSDF = SimpleDateFormat("hh:mm a")
+                val _24HourDt = _24HourSDF.parse(_24HourTime)
+                 _24HourDtFinal = _12HourSDF.format(_24HourDt)
+               // System.out.println(_24HourDt)
+               // println(_12HourSDF.format(_24HourDt))
+            } catch (e: java.lang.Exception) {
+                _24HourDtFinal = ""
+                e.printStackTrace()
+            }
 
+            return _24HourDtFinal
 
-
-
-            return ""
         }
 
 

@@ -17,7 +17,8 @@ import com.google.gson.Gson
 import com.google.gson.JsonArray
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.customer_activity_search_business.*
-
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class SearchBusinessActivity : AppCompatActivity(), View.OnClickListener{
@@ -31,6 +32,7 @@ class SearchBusinessActivity : AppCompatActivity(), View.OnClickListener{
     var longitudeValue: String?= null
     var city: String?= null
     var country: String?= null
+    var timeZone: String =""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +51,10 @@ class SearchBusinessActivity : AppCompatActivity(), View.OnClickListener{
         longitudeValue = intent.getStringExtra("longitude")
         city = intent.getStringExtra("city")
         country = intent.getStringExtra("country")
+
+
+        val cal = Calendar.getInstance()
+        timeZone = cal.timeZone.toString()
 
         iv_back.setOnClickListener(this)
         iv_cancel.setOnClickListener(this)
@@ -92,7 +98,7 @@ class SearchBusinessActivity : AppCompatActivity(), View.OnClickListener{
             cl_no_data_found.visibility = View.INVISIBLE
 
             viewModel!!.searchBusiness(this, subCategoryId!!, longitudeValue!!, latitudeValue!!
-                    , country!!, city!!, searchData).observe(this, Observer {
+                    , country!!, city!!, searchData, timeZone).observe(this, Observer {
 
                 if(it!= null){
 

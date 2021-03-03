@@ -10,6 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.Servicehubconnect.R
 import com.Servicehubconnect.callback.ItemListener
+import com.Servicehubconnect.helper.Utils
 import com.Servicehubconnect.modal.customer.ProfessionalListDataModel
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -58,6 +59,7 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
         var tv_happy_hours_close_time: TextView
         var tv_discount_percentage: TextView
         var tv_instruction: TextView
+        var cl_happyHours: ConstraintLayout
 
 
 
@@ -83,6 +85,7 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
             tv_happy_hours_close_time = view.findViewById(R.id.tv_happy_hours_close_time)
             tv_discount_percentage= view.findViewById(R.id.tv_discount_percentage)
             tv_instruction = view.findViewById(R.id.tv_instruction)
+            cl_happyHours = view.findViewById(R.id.cl_happyHours)
         }
 
 
@@ -100,6 +103,14 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
                     .load(dataModal.getProfilePic())
                     .apply(RequestOptions().placeholder(R.drawable.dummy).error(R.drawable.dummy))
                     .into(iv_business_pic)
+
+
+            if(dataModal.getBussinessInfo()!!.getIsHappyHours() == true){
+                cl_happyHours.visibility = View.VISIBLE
+            }
+            else{
+                cl_happyHours.visibility = View.GONE
+            }
 
 
             var totalRating: String =""
@@ -120,7 +131,7 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
                     &&  !dataModal.getBussinessInfo()!!.getHappyHours()!!.getStartTime()!!.equals("")){
 
 
-                tv_happy_hours_open_time.setText(dataModal.getBussinessInfo()!!.getHappyHours()!!.getStartTime())
+                tv_happy_hours_open_time.setText(Utils.get12hrFormatfrom24hr(dataModal.getBussinessInfo()!!.getHappyHours()!!.getStartTime()!!))
             }
 
             if(dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime() != null
@@ -128,7 +139,7 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
 
 
 
-                tv_happy_hours_close_time.setText(dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime())
+                tv_happy_hours_close_time.setText(Utils.get12hrFormatfrom24hr(dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime()!!))
             }
 
             if(dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime() != null

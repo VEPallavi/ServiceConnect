@@ -26,6 +26,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.Servicehubconnect.R;
 import com.Servicehubconnect.helper.AppConstants;
 import com.Servicehubconnect.helper.Utils;
+import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.ExtraPackageDetailsResponseModel;
 import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.ExtraPackageListForServiceAndProductModel;
 import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.StoreItemDetailsListCategoryInfo;
 import com.Servicehubconnect.viewModel.customer.ExtraPackageListViewModel;
@@ -79,6 +80,42 @@ public class ExtraPackageListActivity extends AppCompatActivity {
         getIntentData();
         setData();
 
+        if (!isEdit) {
+
+            getExtraPackages();
+        } else {
+
+            extraServiceAndProductList = storeItemDetailsModel.getExtraInfo();
+
+            setExtraPackageData();
+        }
+
+    }
+
+    private void getExtraPackages() {
+
+        viewModel.getExtraPackageList(this, extraId, category_type).observe(this, new Observer<JsonObject>() {
+            @Override
+            public void onChanged(JsonObject it) {
+
+                if(it!= null){
+
+                    if(it.has("status") && it.get("status").getAsString().equals("200")){
+
+                        if(it.has("extraInfo") && it.get("extraInfo") instanceof JsonArray) {
+
+                            Type type = new TypeToken<ArrayList<ExtraPackageListForServiceAndProductModel>>() {}.getType();
+                            ArrayList<ExtraPackageListForServiceAndProductModel> dataList = new Gson().fromJson(it.get("extraInfo"), type);
+
+                            if(dataList.size() >0){
+                                extraServiceAndProductList.addAll(dataList);
+                                setExtraPackageData();
+                            }
+                        }
+                    }
+                }
+            }
+        });
     }
 
     private void getIntentData() {
@@ -150,6 +187,8 @@ public class ExtraPackageListActivity extends AppCompatActivity {
 
                 i.putExtra(AppConstants.IS_ITEM_EDIT, isEdit);
 
+                i.putExtra(AppConstants.CATEGORY_TYPE, category_type);
+
                 setResult(1, i);
 
                 onBackPressed();
@@ -187,6 +226,8 @@ public class ExtraPackageListActivity extends AppCompatActivity {
 
                 i.putExtra(AppConstants.IS_ITEM_EDIT, isEdit);
 
+                i.putExtra(AppConstants.CATEGORY_TYPE, category_type);
+
                 setResult(1, i);
 
                 onBackPressed();
@@ -221,32 +262,13 @@ public class ExtraPackageListActivity extends AppCompatActivity {
         txt_item_price.setText(OrderProductsAndServicesActivity.currencySymbol + String.format("%.2f", sizePrice));
 
 
-        viewModel.getExtraPackageList(this, extraId, category_type).observe(this, new Observer<JsonObject>() {
-            @Override
-            public void onChanged(JsonObject it) {
 
-                if(it!= null){
-
-                    if(it.has("status") && it.get("status").getAsString().equals("200")){
-
-                        if(it.has("extraInfo") && it.get("extraInfo") instanceof JsonArray) {
-
-                            Type type = new TypeToken<ArrayList<ExtraPackageListForServiceAndProductModel>>() {}.getType();
-                            ArrayList<ExtraPackageListForServiceAndProductModel> dataList = new Gson().fromJson(it.get("extraInfo"), type);
-
-                            if(dataList.size() >0){
-                                extraServiceAndProductList.addAll(dataList);
-                                setExtraPackageData();
-                            }
-                        }
-                    }
-                }
-            }
-        });
 
     }
 
     private void setExtraPackageData() {
+       // extraSelectedServiceAndProductList = getClonedExtraPackageDetailsResponseMode();
+
 
         if(extraServiceAndProductList != null && extraServiceAndProductList.size() >0){
 
@@ -448,6 +470,16 @@ public class ExtraPackageListActivity extends AppCompatActivity {
 
     }
 
+
+    private StoreItemDetailsListCategoryInfo getClonedExtraPackageDetailsResponseMode() {
+        StoreItemDetailsListCategoryInfo extraPackageDetailsSelectModel = new StoreItemDetailsListCategoryInfo();
+
+        String strJson = new Gson().toJson(extraSelectedServiceAndProductList);
+
+        extraPackageDetailsSelectModel = new Gson().fromJson(strJson, StoreItemDetailsListCategoryInfo.class);
+
+        return extraPackageDetailsSelectModel;
+    }
 
 
     private class CheckBoxClick implements CompoundButton.OnCheckedChangeListener {

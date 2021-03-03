@@ -13,6 +13,10 @@ class BussinessInfoModal {
     @Expose
     private var happyHours: HappyHours? = null
 
+    @SerializedName("isHappyHours")
+    @Expose
+    private var isHappyHours: Boolean? = null
+
 
     @SerializedName("currency_symbol")
     @Expose
@@ -37,6 +41,16 @@ class BussinessInfoModal {
 
     fun setHappyHours(happyHours: HappyHours?) {
         this.happyHours = happyHours
+    }
+
+
+
+    fun getIsHappyHours(): Boolean? {
+        return isHappyHours
+    }
+
+    fun setIsHappyHours(isHappyHours: Boolean?) {
+        this.isHappyHours = isHappyHours
     }
 
 

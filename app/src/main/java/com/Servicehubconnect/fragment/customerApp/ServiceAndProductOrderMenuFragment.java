@@ -205,9 +205,9 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                 }
                 else if (storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
 
-                    // StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+                    StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
 
-                    //  showSizePopup(vStoreItemDetailsListModel , false, categoryType);
+                      showSizePopup(vStoreItemDetailsListModel , false, categoryType);
 
 
 
@@ -259,14 +259,14 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
             // TODO
 
                   ///   CATEGORY_TYPE_SERVICE
-//            if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
-//
-//                if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
-//
-//                    addListToFinalHashMap(storeItemDetailsListModel, categoryType);
-//
-//                }
-//
+            if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
+
+                if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
+
+                    addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+
+                }
+
 //                else if (storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
 //
 //                    StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
@@ -304,7 +304,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 //
 //
 //
-//            }
+            }
 
 
 
@@ -325,9 +325,9 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                 }
 
                 else if (storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
-                  //  StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+                    StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
 
-                  //  showSizePopup(vStoreItemDetailsListModel , false, categoryType);
+                    showSizePopup(vStoreItemDetailsListModel , false, categoryType);
 
                   //  addListToFinalHashMap(storeItemDetailsListModel, categoryType);
                 }
@@ -903,7 +903,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                         , StoreItemDetailsListCategoryInfo.class);
 
                 boolean isEdit = data.getBooleanExtra(AppConstants.IS_ITEM_EDIT,false);
-                String categoryType =  data.getExtras().getString(AppConstants.CATEGORY_TYPE);
+                String categoryType =  data.getStringExtra(AppConstants.CATEGORY_TYPE);
 
                 if(!isEdit) {
 
@@ -1163,6 +1163,53 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                             }
                         }
                     }
+
+
+                    else if (storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
+
+                        for (int k = 0; k < storeItemDetailsListModel.getSizePrice().size(); k++) {
+
+                            if (storeItemDetailsListModel.getSizePrice().get(k).isSelected()) {
+                                totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getSizePrice().get(k).getPrice().toString());
+
+                                break;
+                            }
+                        }
+
+                                   // TODO
+
+//                        for (int z = 0; z < storeItemDetailsListModel.getExtraPackageDetailsResponseModel().getExtraPackageListModels().size(); z++) {
+//
+//                            for (int l = 0; l < storeItemDetailsListModel.getExtraPackageDetailsResponseModel().getExtraPackageListModels().get(z).getExtraPackageDetailList().size(); l++) {
+//
+//                                if (storeItemDetailsListModel.getExtraPackageDetailsResponseModel().getExtraPackageListModels().get(z).getExtraPackageDetailList().get(l).isSelected()) {
+//
+//                                    totalAmount = totalAmount + storeItemDetailsListModel.getExtraPackageDetailsResponseModel().getExtraPackageListModels().get(z).getExtraPackageDetailList().get(l).getPrice();
+//                                }
+//                            }
+//                        }
+
+                    }
+
+
+
+                    else if (!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
+
+//                        for (int z = 0; z < storeItemDetailsListModel.getExtraPackageDetailsResponseModel().getExtraPackageListModels().size(); z++) {
+//
+//                            for (int l = 0; l < storeItemDetailsListModel.getExtraPackageDetailsResponseModel().getExtraPackageListModels().get(z).getExtraPackageDetailList().size(); l++) {
+//
+//                                if (storeItemDetailsListModel.getExtraPackageDetailsResponseModel().getExtraPackageListModels().get(z).getExtraPackageDetailList().get(l).isSelected()) {
+//
+//                                    totalAmount = totalAmount + storeItemDetailsListModel.getExtraPackageDetailsResponseModel().getExtraPackageListModels().get(z).getExtraPackageDetailList().get(l).getPrice();
+//                                }
+//                            }
+//                        }
+
+                        totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getPrice().toString());
+                    }
+
+
 
 
                 }

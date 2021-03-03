@@ -17,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.Servicehubconnect.R;
 import com.Servicehubconnect.adapter.customerApp.OrderServiceAndProduct.ServiceAndProductOrderPagerAdapter;
 import com.Servicehubconnect.fragment.customerApp.ServiceAndProductOrderMenuFragment;
+import com.Servicehubconnect.helper.Utils;
 import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.ServiceAndProductListDataModal;
 import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.StoreItemDetailsListCategoryInfo;
 import com.Servicehubconnect.viewModel.customer.ProfessionalDetailsWithProductsAndServicesViewModel;
@@ -31,6 +32,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -68,6 +70,8 @@ public class OrderProductsAndServicesActivity extends AppCompatActivity implemen
     public static TextView tv_total_service_time;
 
     public static TextView tv_order;
+
+    String time_zone ="";
 
 
 
@@ -114,6 +118,10 @@ public class OrderProductsAndServicesActivity extends AppCompatActivity implemen
         viewPager = findViewById(R.id.viewPager);
         tabs.setupWithViewPager(viewPager);
 
+
+        Calendar cal = Calendar.getInstance();
+        time_zone = cal.getTimeZone().toString();
+
     }
 
 
@@ -127,7 +135,7 @@ public class OrderProductsAndServicesActivity extends AppCompatActivity implemen
 
 
     private void getProfessionalDetailsData() {
-        viewModel.getProfessionalDetails(this, professionalId).observe(this, new Observer<JsonObject>() {
+        viewModel.getProfessionalDetails(this, professionalId, time_zone).observe(this, new Observer<JsonObject>() {
             @Override
             public void onChanged(JsonObject it) {
 
@@ -187,8 +195,11 @@ public class OrderProductsAndServicesActivity extends AppCompatActivity implemen
 
                                 if(businessObj.has("open_time") && businessObj.has("close_time")){
 
-                                    tv_open_and_close_time.setText(businessObj.get("open_time").getAsString()
-                                            +" - " + businessObj.get("close_time").getAsString());
+                                    String openTime = businessObj.get("open_time").getAsString();
+                                    String closeTime = businessObj.get("close_time").getAsString();
+
+                                    tv_open_and_close_time.setText(Utils.Companion.get12hrFormatfrom24hr(openTime)
+                                            +" - " + Utils.Companion.get12hrFormatfrom24hr(closeTime));
 
                                 }
                             }

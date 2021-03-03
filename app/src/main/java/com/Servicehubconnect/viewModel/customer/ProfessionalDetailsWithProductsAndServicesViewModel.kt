@@ -24,11 +24,11 @@ class ProfessionalDetailsWithProductsAndServicesViewModel : ViewModel(){
 
 
 
-    fun getProfessionalDetails(mContext: Context, professionalId: String): MutableLiveData<JsonObject>{
+    fun getProfessionalDetails(mContext: Context, professionalId: String, time_zone: String): MutableLiveData<JsonObject>{
         professionalDetailsResult = MutableLiveData()
 
         var apiService = ApiClient.getClient().create(ApiService::class.java)
-        var call = apiService.getProfessionalDetails(professionalId)
+        var call = apiService.getProfessionalDetails(professionalId, time_zone)
 
         Utils.showProgressDialog(mContext)
 

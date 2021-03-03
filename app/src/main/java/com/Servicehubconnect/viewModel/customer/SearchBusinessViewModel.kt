@@ -19,12 +19,12 @@ class SearchBusinessViewModel : ViewModel(){
 
 
     fun searchBusiness(mContext: Context, subCategoryId: String, longitude: String, latitude: String, country: String
-                       , city: String, keyword: String): MutableLiveData<JsonObject>
+                       , city: String, keyword: String, timeZone:String): MutableLiveData<JsonObject>
     {
         searchBusinessResult = MutableLiveData()
 
         var apiService = ApiClient.getClient().create(ApiService::class.java)
-        var call = apiService.getProfessionalList(subCategoryId, longitude, latitude, country, city, keyword)
+        var call = apiService.getProfessionalList(subCategoryId, longitude, latitude, country, city, keyword, timeZone)
 
         Utils.showProgressDialog(mContext)
 

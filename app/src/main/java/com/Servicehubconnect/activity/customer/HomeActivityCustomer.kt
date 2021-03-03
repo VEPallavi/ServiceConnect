@@ -14,11 +14,12 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import com.google.android.material.navigation.NavigationView
 import com.Servicehubconnect.R
 import com.Servicehubconnect.fragment.customerApp.DashboardFragmentCustomer
 import com.Servicehubconnect.fragment.customerApp.NotificationFragment
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.customer_app_bar_main.*
+import java.util.*
 
 class HomeActivityCustomer : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
     private var mContext: Context? = null
@@ -152,8 +153,24 @@ class HomeActivityCustomer : AppCompatActivity(), NavigationView.OnNavigationIte
 //                intent.putExtra("bussinessId", "602a6069f29a483523fb1bfe")
 //                startActivity(intent)
 
-                mFragment = NotificationFragment()
-                replaceFragment(mFragment)
+
+//                val tz: TimeZone = TimeZone.getDefault()
+//                System.out.println("TimeZone   " + tz.getDisplayName(false, TimeZone.SHORT).toString() + " Timezone id :: " + tz.getID())
+
+
+//                val tz = TimeZone.getDefault()
+//                val now = Date()
+////Import part : x.0 for double number
+////Import part : x.0 for double number
+//                val offsetFromUtc = tz.getOffset(now.time) / 3600000.0
+//                val m2tTimeZoneIs: String = offsetFromUtc.toString()
+
+                val cal = Calendar.getInstance()
+                val tz = cal.timeZone
+
+                System.out.println("TimeZone   "  + " Timezone id :: " + tz)
+//                mFragment = NotificationFragment()
+//                replaceFragment(mFragment)
             }
             8 -> {
 //                var intent = Intent(this, SupportActivity::class.java)

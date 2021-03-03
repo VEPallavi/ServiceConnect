@@ -17,14 +17,14 @@ class ProfessionalListViewModel : ViewModel(){
 
 
     fun getProfessionalList(mContext: Context, subCategoryId: String, longitude: String, latitude: String, country: String
-                            , city: String, keyword: String): MutableLiveData<JsonObject>{
+                            , city: String, keyword: String, time_zone: String): MutableLiveData<JsonObject>{
         professionalListResult = MutableLiveData()
 //        var subCategoryId = "600e6aeffb9991656e1317fd"
 //        var latitude = "26.8467088"
 //        var longitude = "80.9461592"
 
         var apiService = ApiClient.getClient().create(ApiService::class.java)
-        var call = apiService.getProfessionalList(subCategoryId, longitude, latitude, country, city, keyword)
+        var call = apiService.getProfessionalList(subCategoryId, longitude, latitude, country, city, keyword, time_zone)
 
         Utils.showProgressDialog(mContext)
 
