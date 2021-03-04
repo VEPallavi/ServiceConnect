@@ -52,7 +52,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
     TextView c;
     int val;
     private Activity activity;
-    private ArrayList<StoreItemDetailsListCategoryInfo> categoryInfoList;
+    private ArrayList<StoreItemDetailsListCategoryInfo> storeItemDetailsList;
     ServiceAndProductOrderMenuAdapter serviceAndProductOrderMenuAdapter;
     String categoryType, currencySymbol;
     private RadioGroup rgSize;
@@ -72,13 +72,16 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
     private int editIndex=0;
     private TwoButtonActionDialog twoButtonActionDialog;
 
+    int positionSelectedItem;
+    Boolean isAdd;
+
 
 
     @SuppressLint("ValidFragment")
-    public ServiceAndProductOrderMenuFragment(Activity activity, ArrayList<StoreItemDetailsListCategoryInfo> categoryInfoList
+    public ServiceAndProductOrderMenuFragment(Activity activity, ArrayList<StoreItemDetailsListCategoryInfo> storeItemDetailsList
             , String categoryType, String currencySymbol) {
         this.activity = activity;
-        this.categoryInfoList = categoryInfoList;
+        this.storeItemDetailsList = storeItemDetailsList;
         this.categoryType = categoryType;
         this.currencySymbol = currencySymbol;
 
@@ -103,7 +106,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
         linearLayoutManager = new LinearLayoutManager(getActivity());
         rv_service_and_order_menu.setLayoutManager(linearLayoutManager);
 
-        serviceAndProductOrderMenuAdapter = new ServiceAndProductOrderMenuAdapter(getActivity(), categoryInfoList
+        serviceAndProductOrderMenuAdapter = new ServiceAndProductOrderMenuAdapter(getActivity(), storeItemDetailsList
                 , OrderProductsAndServicesActivity.finalListHashMapForProduct, OrderProductsAndServicesActivity.finalListHashMapForService, categoryType, currencySymbol);
 
 
@@ -138,9 +141,9 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                 }
                 else if (storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
 
-                //    StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+                    StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
 
-                //    showSizePopup(vStoreItemDetailsListModel , false, categoryType);
+                    showSizePopup(vStoreItemDetailsListModel , false, categoryType, position);
 
 
 
@@ -149,9 +152,9 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                 }
                 else if (storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
 
-              //  StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+                StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
 
-             //   showSizePopup(vStoreItemDetailsListModel , false, categoryType);
+                showSizePopup(vStoreItemDetailsListModel , false, categoryType, position);
 
 
                   //  addListToFinalHashMap(storeItemDetailsListModel, categoryType);
@@ -159,21 +162,24 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                 }
                 else if (!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
 
-//                StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
-//
-//                String strJsonStoreItemDetailsLModel = new Gson().toJson(vStoreItemDetailsListModel);
-//
-//                Intent i = new Intent(activity, ExtraPackageListActivity.class);
-//
-//                i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
-//
-//                i.putExtra(AppConstants.CATEGORY_TYPE, categoryType);
-//
-//              //  i.putExtra(AppConstants.ITEM_ID, vStoreItemDetailsListModel.getStoreCategoriesItemId());
-//
-//                i.putExtra(AppConstants.SIZE_PRICE , vStoreItemDetailsListModel.getPrice().toString());
-//
-//                startActivityForResult(i, 1);
+                StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+
+                String strJsonStoreItemDetailsLModel = new Gson().toJson(vStoreItemDetailsListModel);
+
+                    positionSelectedItem = position;
+                    isAdd = true;
+
+                Intent i = new Intent(activity, ExtraPackageListActivity.class);
+
+                i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
+
+                i.putExtra(AppConstants.CATEGORY_TYPE, categoryType);
+
+              //  i.putExtra(AppConstants.ITEM_ID, vStoreItemDetailsListModel.getStoreCategoriesItemId());
+
+                i.putExtra(AppConstants.SIZE_PRICE , vStoreItemDetailsListModel.getPrice().toString());
+
+                startActivityForResult(i, 1);
 
 
 
@@ -199,7 +205,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
                       StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
 
-                      showSizePopup(vStoreItemDetailsListModel , false, categoryType);
+                      showSizePopup(vStoreItemDetailsListModel , false, categoryType, position);
 
 
 
@@ -210,7 +216,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
                     StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
 
-                      showSizePopup(vStoreItemDetailsListModel , false, categoryType);
+                      showSizePopup(vStoreItemDetailsListModel , false, categoryType, position);
 
 
 
@@ -223,6 +229,10 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                 StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
 
                 String strJsonStoreItemDetailsLModel = new Gson().toJson(vStoreItemDetailsListModel);
+
+                positionSelectedItem = position;
+                isAdd = true;
+
 
                 Intent i = new Intent(activity, ExtraPackageListActivity.class);
 
@@ -270,40 +280,43 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
                 }
 
-//                else if (storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
+                else if (storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
+
+                    StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+
+                    showSizePopup(vStoreItemDetailsListModel , false, categoryType, position);
+                }
 //
-//                    StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+                else if (storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
+                    StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+
+                    showSizePopup(vStoreItemDetailsListModel , false, categoryType, position);
+
+
+                  //  addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+                }
 //
-//                    showSizePopup(vStoreItemDetailsListModel , false, categoryType);
-//                }
-//
-//                else if (storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
-//                    StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
-//
-//                    showSizePopup(vStoreItemDetailsListModel , false, categoryType);
-//
-//
-//                  //  addListToFinalHashMap(storeItemDetailsListModel, categoryType);
-//                }
-//
-//                else if (!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
-//                    StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
-//
-//                    String strJsonStoreItemDetailsLModel = new Gson().toJson(vStoreItemDetailsListModel);
-//
-//                    Intent i = new Intent(activity, ExtraPackageListActivity.class);
-//
-//                    i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
-//
-//                    i.putExtra(AppConstants.CATEGORY_TYPE, categoryType);
-//
-//                    i.putExtra(AppConstants.ITEM_ID, vStoreItemDetailsListModel.getId());
-//
-//                    i.putExtra(AppConstants.SIZE_PRICE , vStoreItemDetailsListModel.getPrice());
-//
-//                    startActivityForResult(i, 1);
-//
-//                }
+                else if (!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
+                    StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+
+                    String strJsonStoreItemDetailsLModel = new Gson().toJson(vStoreItemDetailsListModel);
+
+                      positionSelectedItem = position;
+                      isAdd = true;
+
+                    Intent i = new Intent(activity, ExtraPackageListActivity.class);
+
+                    i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
+
+                    i.putExtra(AppConstants.CATEGORY_TYPE, categoryType);
+
+                    i.putExtra(AppConstants.ITEM_ID, vStoreItemDetailsListModel.getId());
+
+                    i.putExtra(AppConstants.SIZE_PRICE , vStoreItemDetailsListModel.getPrice());
+
+                    startActivityForResult(i, 1);
+
+                }
 //
 //
 //
@@ -324,13 +337,14 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
                     StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
 
-                    showSizePopup(vStoreItemDetailsListModel , false, categoryType);
+                    showSizePopup(vStoreItemDetailsListModel , false, categoryType, position);
                 }
 
                 else if (storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
                     StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
 
-                    showSizePopup(vStoreItemDetailsListModel , false, categoryType);
+                    showSizePopup(vStoreItemDetailsListModel , false, categoryType, position);
+
 
                   //  addListToFinalHashMap(storeItemDetailsListModel, categoryType);
                 }
@@ -339,6 +353,9 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                     StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
 
                     String strJsonStoreItemDetailsLModel = new Gson().toJson(vStoreItemDetailsListModel);
+
+                    positionSelectedItem = position;
+                    isAdd = true;
 
                     Intent i = new Intent(activity, ExtraPackageListActivity.class);
 
@@ -351,6 +368,8 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                     i.putExtra(AppConstants.SIZE_PRICE , vStoreItemDetailsListModel.getPrice());
 
                     startActivityForResult(i, 1);
+
+
 
                 }
 
@@ -428,7 +447,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                 }
 
                 else {
-                     showModifyItemPopup(storeItemDetailsListModel, categoryType);
+                     showModifyItemPopup(storeItemDetailsListModel, categoryType, position);
                 }
 
 
@@ -471,7 +490,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
 
 
-    private void showModifyItemPopup(StoreItemDetailsListCategoryInfo storeItemModel, String categoryType) {
+    private void showModifyItemPopup(StoreItemDetailsListCategoryInfo storeItemModel, String categoryType, int position) {
 
         if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
 
@@ -553,9 +572,9 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                         }
 
 
-                        imgRemoveItem.setOnClickListener(new RemoveItemConfirmationDialog(index, storeItemDetailsListModels.get(index).getId(), categoryType));
+                        imgRemoveItem.setOnClickListener(new RemoveItemConfirmationDialog(index, storeItemDetailsListModels.get(index).getId(), categoryType, position));
 
-                        imgEditItem.setOnClickListener(new EditItemConfirmationDialog(index, storeItemDetailsListModels.get(index).getId(), categoryType));
+                        imgEditItem.setOnClickListener(new EditItemConfirmationDialog(index, storeItemDetailsListModels.get(index).getId(), categoryType, position));
 
 
                         lnLayoutRemoveEditItemContainer.addView(editRemoveItemRow);
@@ -671,7 +690,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
 
 
-    private void showSizePopup(StoreItemDetailsListCategoryInfo storeItemDetailsListModel , Boolean edit, String categoryType) {
+    private void showSizePopup(StoreItemDetailsListCategoryInfo storeItemDetailsListModel , Boolean edit, String categoryType, int position) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_Dialog);
 
@@ -683,7 +702,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
         if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
 
-            initPopUpUI(dialogLayout, storeItemDetailsListModel , edit, categoryType);
+            initPopUpUI(dialogLayout, storeItemDetailsListModel , edit, categoryType, position);
 
             for (int i = 0; i < storeItemDetailsListModel.getSizePriceDuration().size(); i++) {
                 RadioButton rbn = new RadioButton(getActivity());
@@ -706,7 +725,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
         else if(categoryType.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
 
-            initPopUpUI(dialogLayout, storeItemDetailsListModel , edit, categoryType);
+            initPopUpUI(dialogLayout, storeItemDetailsListModel , edit, categoryType, position);
 
             for (int i = 0; i < storeItemDetailsListModel.getSizePrice().size(); i++) {
                 RadioButton rbn = new RadioButton(getActivity());
@@ -754,13 +773,13 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
     }
 
 
-    private void initPopUpUI(View view, StoreItemDetailsListCategoryInfo storeItemDetailsListModel, Boolean edit, String categoryType) {
+    private void initPopUpUI(View view, StoreItemDetailsListCategoryInfo storeItemDetailsListModel, Boolean edit, String categoryType, int position) {
 
         rgSize = (RadioGroup) view.findViewById(R.id.rg_sizes);
 
         btnNext = (Button) view.findViewById(R.id.btn_next);
 
-        btnNext.setOnClickListener(new ButtonSelectSizeClick(storeItemDetailsListModel , edit, categoryType));
+        btnNext.setOnClickListener(new ButtonSelectSizeClick(storeItemDetailsListModel , edit, categoryType, position));
 
     }
 
@@ -770,11 +789,13 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
         StoreItemDetailsListCategoryInfo storeItemDetailsListModel;
         boolean edit;
         String categoryType;
+        int position;
 
-        public ButtonSelectSizeClick(StoreItemDetailsListCategoryInfo storeItemDetailsListModel, Boolean edit, String categoryType) {
+        public ButtonSelectSizeClick(StoreItemDetailsListCategoryInfo storeItemDetailsListModel, Boolean edit, String categoryType, int position) {
             this.storeItemDetailsListModel = storeItemDetailsListModel;
             this.edit  = edit;
             this.categoryType = categoryType;
+            this.position = position;
         }
 
         @Override
@@ -820,6 +841,9 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
                         String strJsonStoreItemDetailsLModel = new Gson().toJson(storeItemDetailsListModel);
 
+                        positionSelectedItem = position;
+                        isAdd = true;
+
                         Intent i = new Intent(activity, ExtraPackageListActivity.class);
 
                         i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
@@ -839,13 +863,14 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                     } else {
 
                         if (!edit) {
-
+                            positionSelectedItem = position;
+                            isAdd = true;
                             addListToFinalHashMap(storeItemDetailsListModel, categoryType);
 
                         }
                         else {
 
-                            // addEditedListToFinalHashMap(storeItemDetailsListModel);
+                             addEditedListToFinalHashMap(storeItemDetailsListModel, categoryType);
                         }
 
                         infoSizeSelectionDialog.dismiss();
@@ -890,6 +915,9 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                     if (storeItemDetailsListModel.getIsExtraPackage()) {
 
                         String strJsonStoreItemDetailsLModel = new Gson().toJson(storeItemDetailsListModel);
+
+                        positionSelectedItem = positionSelectedItem;
+                        isAdd = true;
 
                         Intent i = new Intent(activity, ExtraPackageListActivity.class);
 
@@ -948,6 +976,37 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                 boolean isEdit = data.getBooleanExtra(AppConstants.IS_ITEM_EDIT,false);
                 String categoryType =  data.getStringExtra(AppConstants.CATEGORY_TYPE);
 
+
+                if(storeItemDetailsListModel != null){
+
+                    if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
+                        if(isAdd){
+                            storeItemDetailsListModel.setSelectedServiceCount(storeItemDetailsList.get(positionSelectedItem).getIsSelectedServiceCount()+1);
+
+                        }
+
+                        serviceAndProductOrderMenuAdapter.notifyDataSetChanged();
+
+
+                    }
+
+                    else if(categoryType.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
+                        if(isAdd){
+                            storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(positionSelectedItem).getIsSelectedProductCount()+1);
+
+                        }
+                        else{
+                            if(storeItemDetailsList.get(positionSelectedItem).getIsSelectedProductCount() >=1){
+                                storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(positionSelectedItem).getIsSelectedProductCount()-1);
+                            }
+
+                        }
+                         serviceAndProductOrderMenuAdapter.notifyDataSetChanged();
+                    }
+
+                }
+
+
                 if(!isEdit) {
 
                     addListToFinalHashMap(storeItemDetailsListModel, categoryType);
@@ -955,7 +1014,6 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
                     addEditedListToFinalHashMap(storeItemDetailsListModel, categoryType);
                 }
-
 
             }
 
@@ -1332,18 +1390,20 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
         int index;
         String storeCategoriesItemId;
         String categoryType;
+        int position;
 
-        public RemoveItemConfirmationDialog(int index, String storeCategoriesItemId, String categoryType) {
+        public RemoveItemConfirmationDialog(int index, String storeCategoriesItemId, String categoryType, int position) {
             this.index = index;
             this.storeCategoriesItemId = storeCategoriesItemId;
             this.categoryType = categoryType;
+            this.position = position;
         }
 
         @Override
         public void onClick(View v) {
             //lnLayoutRemoveEditItemContainer.removeViewAt(index);
 
-            showInfoDialog(false , index , storeCategoriesItemId, categoryType);
+            showInfoDialog(false , index , storeCategoriesItemId, categoryType, position);
 
         }
     }
@@ -1354,24 +1414,26 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
         String itemId = "";
         int  index;
         String categoryType;
+        int position;
 
-        public EditItemConfirmationDialog(int index, String storeCategoriesItemId, String categoryType) {
+        public EditItemConfirmationDialog(int index, String storeCategoriesItemId, String categoryType, int position) {
             this.itemId = storeCategoriesItemId;
             this.index = index;
             this.categoryType = categoryType;
+            this.position = position;
         }
 
 
         @Override
         public void onClick(View v) {
 
-            showInfoDialog(true ,index , itemId, categoryType);
+            showInfoDialog(true ,index , itemId, categoryType, position);
 
         }
     }
 
 
-    private void showInfoDialog(boolean b, int index, String storeCategoriesItemId, String categoryType) {
+    private void showInfoDialog(boolean b, int index, String storeCategoriesItemId, String categoryType, int position) {
 
         if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
 
@@ -1390,7 +1452,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                 twoButtonActionDialog.dismiss();
             }else {
                 twoButtonActionDialog = new TwoButtonActionDialog(activity, okMessage,
-                        getString(R.string.cancel), message, new okListener( index, storeCategoriesItemId , b, categoryType), new cancelDialogListener());
+                        getString(R.string.cancel), message, new okListener( index, storeCategoriesItemId , b, categoryType, position), new cancelDialogListener());
                 twoButtonActionDialog.setCancelable(false);
                 twoButtonActionDialog.show();
             }
@@ -1415,7 +1477,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                 twoButtonActionDialog.dismiss();
             }else {
                 twoButtonActionDialog = new TwoButtonActionDialog(activity, okMessage,
-                        getString(R.string.cancel), message, new okListener( index, storeCategoriesItemId , b, categoryType), new cancelDialogListener());
+                        getString(R.string.cancel), message, new okListener( index, storeCategoriesItemId , b, categoryType, position), new cancelDialogListener());
                 twoButtonActionDialog.setCancelable(false);
                 twoButtonActionDialog.show();
             }
@@ -1435,11 +1497,14 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
         String itemId;
         boolean isEdit;
         String categoryType;
-        public okListener(int index, String storeCategoriesItemId , boolean isEdit, String categoryType) {
+        int position;
+
+        public okListener(int index, String storeCategoriesItemId , boolean isEdit, String categoryType, int position) {
             this.index = index;
             this.itemId = storeCategoriesItemId;
             this.isEdit = isEdit;
             this.categoryType = categoryType;
+            this.position = position;
         }
 
         @Override
@@ -1465,7 +1530,8 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                                 editOrRemoveItemDialog.dismiss();
                             }
 
-                            showSizePopup(OrderProductsAndServicesActivity.finalListHashMapForService.get(itemId).get(index) , true, categoryType);
+                            showSizePopup(OrderProductsAndServicesActivity.finalListHashMapForService.get(itemId).get(index)
+                                    , true, categoryType, position);
 
                         } else if (OrderProductsAndServicesActivity.finalListHashMapForService.get(itemId).get(index).getIsExtraPackage()) {
 
@@ -1477,6 +1543,9 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                             String strJsonStoreItemDetailsLModel = new Gson().toJson(OrderProductsAndServicesActivity.finalListHashMapForService.get(itemId).get(index));
 
                             Intent i = new Intent(activity, ExtraPackageListActivity.class);
+
+                            isAdd = false;
+                            positionSelectedItem = position;
 
                             i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
 
@@ -1510,7 +1579,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
                     if ((OrderProductsAndServicesActivity.finalListHashMapForService.get(itemId) != null) && (OrderProductsAndServicesActivity.finalListHashMapForService.get(itemId).size() > 0)) {
 
-                        showModifyItemPopup(OrderProductsAndServicesActivity.finalListHashMapForService.get(itemId).get(0), categoryType);
+                        showModifyItemPopup(OrderProductsAndServicesActivity.finalListHashMapForService.get(itemId).get(0), categoryType, position);
 
                     } else {
                         if (editOrRemoveItemDialog != null && editOrRemoveItemDialog.isShowing()) {
@@ -1524,7 +1593,6 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                     setSelectedItemCountandPrice(categoryType);
 
                 }
-
 
 
 
@@ -1549,7 +1617,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                                 editOrRemoveItemDialog.dismiss();
                             }
 
-                            showSizePopup(OrderProductsAndServicesActivity.finalListHashMapForProduct.get(itemId).get(index) , true, categoryType);
+                            showSizePopup(OrderProductsAndServicesActivity.finalListHashMapForProduct.get(itemId).get(index) , true, categoryType, position);
 
                         } else if (OrderProductsAndServicesActivity.finalListHashMapForProduct.get(itemId).get(index).getIsExtraPackage()) {
 
@@ -1561,6 +1629,9 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                             String strJsonStoreItemDetailsLModel = new Gson().toJson(OrderProductsAndServicesActivity.finalListHashMapForProduct.get(itemId).get(index));
 
                             Intent i = new Intent(activity, ExtraPackageListActivity.class);
+
+                            isAdd = false;
+                            positionSelectedItem = position;
 
                             i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
 
@@ -1594,7 +1665,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
                     if ((OrderProductsAndServicesActivity.finalListHashMapForProduct.get(itemId) != null) && (OrderProductsAndServicesActivity.finalListHashMapForProduct.get(itemId).size() > 0)) {
 
-                        showModifyItemPopup(OrderProductsAndServicesActivity.finalListHashMapForProduct.get(itemId).get(0), categoryType);
+                        showModifyItemPopup(OrderProductsAndServicesActivity.finalListHashMapForProduct.get(itemId).get(0), categoryType, position);
 
                     } else {
                         if (editOrRemoveItemDialog != null && editOrRemoveItemDialog.isShowing()) {
@@ -1609,12 +1680,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
                 }
 
-
-
             }
-
-
-
 
 
         }
