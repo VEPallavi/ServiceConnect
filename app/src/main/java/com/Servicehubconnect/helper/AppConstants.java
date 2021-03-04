@@ -5,6 +5,9 @@ package com.Servicehubconnect.helper;
 public interface AppConstants {
 
 	//public static final float APP_VERSION = 1.4f;
+	public static final String FONT_TYPE_VARELA_REGULAR = "Varela-Regular.ttf";
+
+	public static final String FONT_TYPE_VARELA_ROUND= "VarelaRound-Regular.ttf";
 	public static final String STORE_ITEM_DETAILS = "STORE_ITEM_DETAILS";
 	public static final String ITEM_ID = "ITEM_ID";
 	public static final String SIZE_PRICE = "SIZE_PRICE";

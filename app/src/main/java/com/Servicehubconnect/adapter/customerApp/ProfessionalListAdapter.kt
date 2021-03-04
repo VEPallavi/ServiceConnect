@@ -105,12 +105,12 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
                     .into(iv_business_pic)
 
 
-            if(dataModal.getBussinessInfo()!!.getIsHappyHours() == true){
-                cl_happyHours.visibility = View.VISIBLE
-            }
-            else{
-                cl_happyHours.visibility = View.GONE
-            }
+//            if(dataModal.getBussinessInfo()!!.getIsHappyHours() == true){
+//                cl_happyHours.visibility = View.VISIBLE
+//            }
+//            else{
+//                cl_happyHours.visibility = View.GONE
+//            }
 
 
             var totalRating: String =""
