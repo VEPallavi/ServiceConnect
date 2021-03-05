@@ -49,6 +49,7 @@
                 android:paddingTop="@dimen/_3sdp"
                 android:paddingBottom="@dimen/_3sdp"
                 android:background="@color/colorPrimary"
+                android:visibility="visible"
                 >
 
                 <TextView

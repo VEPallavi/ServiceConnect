@@ -218,42 +218,42 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
 
             if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
 
-                if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()){
-                    storeItemDetailsListModel.setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()+1);
-                }
-                else if(storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()){
-                    storeItemDetailsListModel.setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()+1);
-                }
-                else if(!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()){
-
-                }
-                else if(storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()){
-
-                }
+//                if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()){
+//                    storeItemDetailsListModel.setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()+1);
+//                }
+//                else if(storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()){
+//                    storeItemDetailsListModel.setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()+1);
+//                }
+//                else if(!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()){
+//
+//                }
+//                else if(storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()){
+//
+//                }
 
 
                 // Todo
-              //  storeItemDetailsListModel.setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()+1);
+                storeItemDetailsListModel.setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()+1);
 
             }
 
             else if(categoryType.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
 
 
-                if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()){
-                    storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(position).getIsSelectedProductCount()+1);
-                }
-                else if(storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()){
-                    storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(position).getIsSelectedProductCount()+1);
-                }
-                else if(!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()){
+//                if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()){
+//                    storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(position).getIsSelectedProductCount()+1);
+//                }
+//                else if(storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()){
+//                    storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(position).getIsSelectedProductCount()+1);
+//                }
+//                else if(!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()){
+//
+//                }
+//                else if(storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()){
+//
+//                }
 
-                }
-                else if(storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()){
-
-                }
-
-              //  storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(position).getIsSelectedProductCount()+1);
+                storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(position).getIsSelectedProductCount()+1);
             }
 
             addButtonClickListener.onAddButtonClickListener(viewHolder, storeItemDetailsListModel, position, categoryType);
@@ -308,42 +308,43 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
 
             if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
 
-                if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()){
-                    storeItemDetailsListModel.setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()+1);
-                }
-                else if(storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()){
-                    storeItemDetailsListModel.setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()+1);
-                }
-                else if(!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()){
-
-                }
-                else if(storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()){
-
-                }
+//                if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()){
+//                    storeItemDetailsListModel.setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()+1);
+//                }
+//                else if(storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()){
+//                    storeItemDetailsListModel.setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()+1);
+//                }
+//                else if(!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()){
+//
+//                }
+//                else if(storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()){
+//
+//                }
 
 
                 // Todo
-            //    storeItemDetailsListModel.setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()+1);
+                storeItemDetailsListModel.setIsSelectedServiceCount(storeItemDetailsList.get(position).getIsSelectedServiceCount()+1);
 
             }
 
             else if(categoryType.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
 
-                if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()){
-                    storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(position).getIsSelectedProductCount()+1);
-                }
-                else if(storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()){
-                    storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(position).getIsSelectedProductCount()+1);
-                }
-                else if(!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()){
 
-                }
-                else if(storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()){
-
-                }
+//                if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()){
+//                    storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(position).getIsSelectedProductCount()+1);
+//                }
+//                else if(storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()){
+//                    storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(position).getIsSelectedProductCount()+1);
+//                }
+//                else if(!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()){
+//
+//                }
+//                else if(storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()){
+//
+//                }
 
                 // Todo
-              //  storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(position).getIsSelectedProductCount()+1);
+                storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(position).getIsSelectedProductCount()+1);
 
             }
 

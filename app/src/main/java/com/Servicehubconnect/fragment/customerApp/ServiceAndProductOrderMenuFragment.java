@@ -136,7 +136,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
                 if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
 
-                    addListToFinalHashMap(storeItemDetailsListModel,categoryType);
+                    addListToFinalHashMap(storeItemDetailsListModel,categoryType, position);
 
                 }
                 else if (storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
@@ -198,7 +198,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
                 if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
 
-                    addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+                    addListToFinalHashMap(storeItemDetailsListModel, categoryType, position);
 
                 }
                 else if (storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
@@ -276,7 +276,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
                 if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
 
-                    addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+                    addListToFinalHashMap(storeItemDetailsListModel, categoryType, position);
 
                 }
 
@@ -329,7 +329,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
                 if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
 
-                    addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+                    addListToFinalHashMap(storeItemDetailsListModel, categoryType, position);
 
                 }
 
@@ -447,7 +447,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                 }
 
                 else {
-                     showModifyItemPopup(storeItemDetailsListModel, categoryType, position);
+                    // showModifyItemPopup(storeItemDetailsListModel, categoryType, position);
                 }
 
 
@@ -865,7 +865,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                         if (!edit) {
                             positionSelectedItem = position;
                             isAdd = true;
-                            addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+                            addListToFinalHashMap(storeItemDetailsListModel, categoryType, position);
 
                         }
                         else {
@@ -916,7 +916,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
                         String strJsonStoreItemDetailsLModel = new Gson().toJson(storeItemDetailsListModel);
 
-                        positionSelectedItem = positionSelectedItem;
+                        positionSelectedItem = position;
                         isAdd = true;
 
                         Intent i = new Intent(activity, ExtraPackageListActivity.class);
@@ -938,8 +938,9 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                     } else {
 
                         if (!edit) {
-
-                            addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+                            positionSelectedItem = position;
+                            isAdd = true;
+                            addListToFinalHashMap(storeItemDetailsListModel, categoryType, position);
 
                         } else {
 
@@ -977,39 +978,39 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                 String categoryType =  data.getStringExtra(AppConstants.CATEGORY_TYPE);
 
 
-                if(storeItemDetailsListModel != null){
-
-                    if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
-                        if(isAdd){
-                            storeItemDetailsListModel.setSelectedServiceCount(storeItemDetailsList.get(positionSelectedItem).getIsSelectedServiceCount()+1);
-
-                        }
-
-                        serviceAndProductOrderMenuAdapter.notifyDataSetChanged();
-
-
-                    }
-
-                    else if(categoryType.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
-                        if(isAdd){
-                            storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(positionSelectedItem).getIsSelectedProductCount()+1);
-
-                        }
-                        else{
-                            if(storeItemDetailsList.get(positionSelectedItem).getIsSelectedProductCount() >=1){
-                                storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(positionSelectedItem).getIsSelectedProductCount()-1);
-                            }
-
-                        }
-                         serviceAndProductOrderMenuAdapter.notifyDataSetChanged();
-                    }
-
-                }
+//                if(storeItemDetailsListModel != null){
+//
+//                    if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
+//                        if(isAdd){
+//                            storeItemDetailsListModel.setSelectedServiceCount(storeItemDetailsList.get(positionSelectedItem).getIsSelectedServiceCount()+1);
+//                        }
+//
+//                     //   serviceAndProductOrderMenuAdapter.notifyDataSetChanged();
+//
+//
+//                    }
+//
+//                    else if(categoryType.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
+//                        if(isAdd){
+//                            storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(positionSelectedItem).getIsSelectedProductCount()+1);
+//                        }
+//                        else{
+//                            if(storeItemDetailsList.get(positionSelectedItem).getIsSelectedProductCount() >=1){
+//                                storeItemDetailsListModel.setIsSelectedProductCount(storeItemDetailsList.get(positionSelectedItem).getIsSelectedProductCount()-1);
+//
+//                            }
+//
+//                        }
+//                       // serviceAndProductOrderMenuAdapter.notifyDataSetChanged();
+//                    }
+//
+//                    serviceAndProductOrderMenuAdapter.notifyDataSetChanged();
+//                }
 
 
                 if(!isEdit) {
 
-                    addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+                    addListToFinalHashMap(storeItemDetailsListModel, categoryType, positionSelectedItem);
                 }else {
 
                     addEditedListToFinalHashMap(storeItemDetailsListModel, categoryType);
@@ -1109,7 +1110,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
 
 
-    public void addListToFinalHashMap(StoreItemDetailsListCategoryInfo storeItemDetailsListModel, String categoryType) {
+    public void addListToFinalHashMap(StoreItemDetailsListCategoryInfo storeItemDetailsListModel, String categoryType, int position) {
 
         if(categoryType.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
 
@@ -1173,6 +1174,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
             int totalSelectedCount = 0;
             double totalAmount = 0;
+            int totalTimeTakenForService = 20;
             int i = 0;
 
 
@@ -1188,6 +1190,9 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
                     if (!storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
                         totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getPrice().toString());
+
+                          // dummy time for service
+                        totalTimeTakenForService = totalTimeTakenForService + 20;
                     }
 
                     else if (storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
@@ -1197,9 +1202,61 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                             if (storeItemDetailsListModel.getSizePriceDuration().get(k).isSelected()) {
                                 totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getSizePriceDuration().get(k).getPrice().toString());
 
+                                // dummy time for service
+                                totalTimeTakenForService = totalTimeTakenForService +20;
                                 break;
                             }
                         }
+                    }
+
+
+                    else if (storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
+
+                        for (int k = 0; k < storeItemDetailsListModel.getSizePriceDuration().size(); k++) {
+
+                            if (storeItemDetailsListModel.getSizePriceDuration().get(k).isSelected()) {
+                                totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getSizePriceDuration().get(k).getPrice().toString());
+
+                                // dummy time for service
+                                totalTimeTakenForService = totalTimeTakenForService + 20;
+
+                                break;
+                            }
+                        }
+
+                        // TODO
+
+//                        for (int z = 0; z < storeItemDetailsListModel.getExtraPackageDetailsResponseModel().getExtraPackageListModels().size(); z++) {
+//
+//                            for (int l = 0; l < storeItemDetailsListModel.getExtraPackageDetailsResponseModel().getExtraPackageListModels().get(z).getExtraPackageDetailList().size(); l++) {
+//
+//                                if (storeItemDetailsListModel.getExtraPackageDetailsResponseModel().getExtraPackageListModels().get(z).getExtraPackageDetailList().get(l).isSelected()) {
+//
+//                                    totalAmount = totalAmount + storeItemDetailsListModel.getExtraPackageDetailsResponseModel().getExtraPackageListModels().get(z).getExtraPackageDetailList().get(l).getPrice();
+//                                }
+//                            }
+//                        }
+
+                    }
+
+
+                    else if (!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
+
+//                        for (int z = 0; z < storeItemDetailsListModel.getExtraPackageDetailsResponseModel().getExtraPackageListModels().size(); z++) {
+//
+//                            for (int l = 0; l < storeItemDetailsListModel.getExtraPackageDetailsResponseModel().getExtraPackageListModels().get(z).getExtraPackageDetailList().size(); l++) {
+//
+//                                if (storeItemDetailsListModel.getExtraPackageDetailsResponseModel().getExtraPackageListModels().get(z).getExtraPackageDetailList().get(l).isSelected()) {
+//
+//                                    totalAmount = totalAmount + storeItemDetailsListModel.getExtraPackageDetailsResponseModel().getExtraPackageListModels().get(z).getExtraPackageDetailList().get(l).getPrice();
+//                                }
+//                            }
+//                        }
+
+                        totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getPrice().toString());
+
+                        // dummy time for service
+                        totalTimeTakenForService = totalTimeTakenForService + 20;
                     }
 
 
@@ -1225,7 +1282,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
 
             OrderProductsAndServicesActivity.tv_service_select_bill_amount.setText(" " + OrderProductsAndServicesActivity.currencySymbol + String.format("%.2f", totalAmount));
-
+            OrderProductsAndServicesActivity.tv_total_service_time.setText(" " + totalTimeTakenForService);
         }
 
 

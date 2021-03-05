@@ -105,12 +105,35 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
                     .into(iv_business_pic)
 
 
-//            if(dataModal.getBussinessInfo()!!.getIsHappyHours() == true){
-//                cl_happyHours.visibility = View.VISIBLE
-//            }
-//            else{
-//                cl_happyHours.visibility = View.GONE
-//            }
+            if(dataModal.getBussinessInfo()!!.getIsHappyHours() == true){
+                cl_happyHours.visibility = View.VISIBLE
+
+                if(dataModal.getBussinessInfo()!!.getHappyHours()!!.getStartTime() != null
+                        &&  !dataModal.getBussinessInfo()!!.getHappyHours()!!.getStartTime()!!.equals("")){
+
+
+                    tv_happy_hours_open_time.setText(Utils.get12hrFormatfrom24hr(dataModal.getBussinessInfo()!!.getHappyHours()!!.getStartTime()!!))
+                }
+
+                if(dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime() != null
+                        &&  !dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime()!!.equals("")){
+
+
+
+                    tv_happy_hours_close_time.setText(Utils.get12hrFormatfrom24hr(dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime()!!))
+                }
+
+                if(dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime() != null
+                        &&  !dataModal.getBussinessInfo()!!.getHappyHours()!!.getDiscount()!!.equals("")){
+
+
+                    tv_discount_percentage.setText(""+dataModal.getBussinessInfo()!!.getHappyHours()!!.getDiscount() +"%")
+                }
+
+            }
+            else{
+                cl_happyHours.visibility = View.GONE
+            }
 
 
             var totalRating: String =""
@@ -127,27 +150,7 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
 
 
 
-            if(dataModal.getBussinessInfo()!!.getHappyHours()!!.getStartTime() != null
-                    &&  !dataModal.getBussinessInfo()!!.getHappyHours()!!.getStartTime()!!.equals("")){
 
-
-                tv_happy_hours_open_time.setText(Utils.get12hrFormatfrom24hr(dataModal.getBussinessInfo()!!.getHappyHours()!!.getStartTime()!!))
-            }
-
-            if(dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime() != null
-                    &&  !dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime()!!.equals("")){
-
-
-
-                tv_happy_hours_close_time.setText(Utils.get12hrFormatfrom24hr(dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime()!!))
-            }
-
-            if(dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime() != null
-                    &&  !dataModal.getBussinessInfo()!!.getHappyHours()!!.getDiscount()!!.equals("")){
-
-
-                tv_discount_percentage.setText(""+dataModal.getBussinessInfo()!!.getHappyHours()!!.getDiscount() +"%")
-            }
 
 
 

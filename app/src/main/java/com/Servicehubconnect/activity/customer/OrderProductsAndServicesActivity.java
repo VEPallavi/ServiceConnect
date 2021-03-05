@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
@@ -50,6 +51,7 @@ public class OrderProductsAndServicesActivity extends AppCompatActivity implemen
     ArrayList<ServiceAndProductListDataModal> serviceAndProductList = new ArrayList();
     ArrayList<StoreItemDetailsListCategoryInfo> categoryList = new ArrayList();
     StoreItemDetailsListCategoryInfo categoryInfoModal;
+    
     public static String currencySymbol = "";
     public static HashMap<String , ArrayList<StoreItemDetailsListCategoryInfo>> finalListHashMapForProduct
             = new LinkedHashMap<String , ArrayList<StoreItemDetailsListCategoryInfo>>();
@@ -61,6 +63,10 @@ public class OrderProductsAndServicesActivity extends AppCompatActivity implemen
     ImageView iv_business_pic, ivBack;
     TextView tv_professionName, tv_businessName, tv_address, tv_ratingValue, tv_ratingCount
             , tv_commentsCount, tv_open_and_close_time, tv_description, tv_licence, tv_comment;
+    
+    ConstraintLayout cl_happyHours;
+    TextView tv_happy_hours_close_time, tv_happy_hours_open_time, tv_discount_percentage;
+
 
 
     public static TextView tv_product_item_count;
@@ -112,6 +118,11 @@ public class OrderProductsAndServicesActivity extends AppCompatActivity implemen
         tv_service_select_bill_amount = findViewById(R.id.tv_service_select_bill_amount);
         tv_order = findViewById(R.id.tv_order);
         ivBack = findViewById(R.id.ivBack);
+        cl_happyHours = findViewById(R.id.cl_happyHours);
+        tv_happy_hours_open_time = findViewById(R.id.tv_happy_hours_open_time);
+        tv_happy_hours_close_time = findViewById(R.id.tv_happy_hours_close_time);
+        tv_discount_percentage = findViewById(R.id.tv_discount_percentage);
+
 
 
         tabs = findViewById(R.id.activities_tabs);
@@ -169,6 +180,53 @@ public class OrderProductsAndServicesActivity extends AppCompatActivity implemen
                                 if(businessInfoObj.has("currency_symbol")
                                         && !businessInfoObj.get("currency_symbol").isJsonNull()){
                                     currencySymbol = businessInfoObj.get("currency_symbol").getAsString();
+                                }
+
+
+                                if(businessInfoObj.has("isHappyHours")
+                                        && !businessInfoObj.get("isHappyHours").isJsonNull()){
+
+
+
+                                    if(businessInfoObj.get("isHappyHours").getAsBoolean() == true){
+
+                                        cl_happyHours.setVisibility(View.VISIBLE);
+
+
+
+                                        if(businessInfoObj.has("happy_hours")
+                                                && (businessInfoObj.get("happy_hours") instanceof JsonObject)){
+
+                                            JsonObject happy_hoursObj = dataObj.getAsJsonObject("happy_hours");
+
+                                            if(happy_hoursObj.has("start_time")
+                                                    && !happy_hoursObj.get("start_time").isJsonNull()){
+
+                                                tv_happy_hours_open_time.setText(Utils.Companion.get12hrFormatfrom24hr(happy_hoursObj.get("start_time").getAsString()));
+
+                                            }
+
+                                            if(happy_hoursObj.has("end_time")
+                                                    && !happy_hoursObj.get("end_time").isJsonNull()){
+
+                                                tv_happy_hours_close_time.setText(Utils.Companion.get12hrFormatfrom24hr(happy_hoursObj.get("end_time").getAsString()));
+
+                                            }
+
+                                            if(happy_hoursObj.has("discount")
+                                                    && !happy_hoursObj.get("discount").isJsonNull()){
+
+                                                tv_discount_percentage.setText(happy_hoursObj.get("discount").getAsString());
+
+                                            }
+
+                                        }
+                                        
+                                    }
+                                    else {
+                                        cl_happyHours.setVisibility(View.GONE);
+                                    }
+
                                 }
 
                             }
