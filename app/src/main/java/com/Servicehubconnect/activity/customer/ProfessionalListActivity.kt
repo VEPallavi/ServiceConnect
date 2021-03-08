@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.Servicehubconnect.R
 import com.Servicehubconnect.adapter.customerApp.ProfessionalListAdapter
 import com.Servicehubconnect.callback.ItemListener
+import com.Servicehubconnect.helper.Utils
 import com.Servicehubconnect.modal.customer.ProfessionalListDataModel
 import com.Servicehubconnect.viewModel.customer.ProfessionalListViewModel
 import com.google.gson.Gson
@@ -69,7 +70,8 @@ class ProfessionalListActivity : AppCompatActivity(), View.OnClickListener, Item
         tv_title.text = serviceName
 
         val cal = Calendar.getInstance()
-         time_zone = cal.timeZone.toString()
+         time_zone = cal.timeZone.id.toString()
+
 
 
         rv_professionalList.setHasFixedSize(true)
@@ -102,6 +104,9 @@ class ProfessionalListActivity : AppCompatActivity(), View.OnClickListener, Item
                             tv_noDataFound.visibility = View.VISIBLE
                         }
                     }
+                }
+                else {
+                    Utils.showToast(this, getString(R.string.msg_common_error))
                 }
             }
         })

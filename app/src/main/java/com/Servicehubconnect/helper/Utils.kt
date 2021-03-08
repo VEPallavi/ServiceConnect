@@ -6,6 +6,7 @@ import android.app.ProgressDialog
 import android.content.Context
 import android.content.res.Resources
 import android.net.ConnectivityManager
+import android.os.Build
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.inputmethod.InputMethodManager
@@ -208,6 +209,7 @@ class Utils {
             return _24HourDtFinal
 
         }
+
 
 
 

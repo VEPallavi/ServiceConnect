@@ -48,11 +48,11 @@ public class ExtraPackageListActivity extends AppCompatActivity {
     TextView txt_item_name, txt_item_price, txt_item_time, txt_selected_extras, txt_total_amount;
     LinearLayout lnLayoutExtrasContainer;
     RelativeLayout rltLayoutAddExtras;
-    private StoreItemDetailsListCategoryInfo storeItemDetailsModel;
-    private ExtraPackageListForServiceAndProductModel extraPackageInfoForProductAndService;
     String extraId;
     String category_type;
     double sizePrice;
+    private StoreItemDetailsListCategoryInfo storeItemDetailsModel;
+    private ExtraPackageListForServiceAndProductModel extraPackageInfoForProductAndService;
     private Activity activity;
     private boolean isEdit = false;
 
@@ -98,16 +98,17 @@ public class ExtraPackageListActivity extends AppCompatActivity {
             @Override
             public void onChanged(JsonObject it) {
 
-                if(it!= null){
+                if (it != null) {
 
-                    if(it.has("status") && it.get("status").getAsString().equals("200")){
+                    if (it.has("status") && it.get("status").getAsString().equals("200")) {
 
-                        if(it.has("extraInfo") && it.get("extraInfo") instanceof JsonArray) {
+                        if (it.has("extraInfo") && it.get("extraInfo") instanceof JsonArray) {
 
-                            Type type = new TypeToken<ArrayList<ExtraPackageListForServiceAndProductModel>>() {}.getType();
+                            Type type = new TypeToken<ArrayList<ExtraPackageListForServiceAndProductModel>>() {
+                            }.getType();
                             ArrayList<ExtraPackageListForServiceAndProductModel> dataList = new Gson().fromJson(it.get("extraInfo"), type);
 
-                            if(dataList.size() >0){
+                            if (dataList.size() > 0) {
                                 extraServiceAndProductList.addAll(dataList);
                                 setExtraPackageData();
                             }
@@ -121,15 +122,15 @@ public class ExtraPackageListActivity extends AppCompatActivity {
     private void getIntentData() {
         Intent intent = getIntent();
 
-        if(intent != null){
+        if (intent != null) {
             category_type = getIntent().getStringExtra(AppConstants.CATEGORY_TYPE);
-            sizePrice =  Double.parseDouble(getIntent().getStringExtra(AppConstants.SIZE_PRICE));
+            sizePrice = Double.parseDouble(getIntent().getStringExtra(AppConstants.SIZE_PRICE));
 
             String jsonStoreItemDetailsModel = intent.getStringExtra(AppConstants.STORE_ITEM_DETAILS);
             storeItemDetailsModel = new Gson().fromJson(jsonStoreItemDetailsModel, StoreItemDetailsListCategoryInfo.class);
 
 
-            if(storeItemDetailsModel.getIsSize()) {
+            if (storeItemDetailsModel.getIsSize()) {
 
                 sizeNAme = intent.getStringExtra(AppConstants.SIZE_NAME);
 
@@ -152,94 +153,6 @@ public class ExtraPackageListActivity extends AppCompatActivity {
         rltLayoutAddExtras.setOnClickListener(new AddItemClickListener());
     }
 
-
-    private class AddItemClickListener implements View.OnClickListener {
-
-
-        @Override
-        public void onClick(View v) {
-
-            if(category_type.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
-
-                if (isEdit) {
-                    if (storeItemDetailsModel.getIsSize()) {
-                        for (int i = 0; i < storeItemDetailsModel.getSizePriceDuration().size(); i++) {
-
-                            if (storeItemDetailsModel.getSizePriceDuration().get(i).getSize().equalsIgnoreCase(sizeNAme)) {
-
-                                storeItemDetailsModel.getSizePriceDuration().get(i).setSelected(true);
-                            } else {
-
-                                storeItemDetailsModel.getSizePriceDuration().get(i).setSelected(false);
-                            }
-                        }
-                    }
-
-                }
-
-                storeItemDetailsModel.setExtraInfo(extraSelectedServiceAndProductList);
-
-                String jsonStoreItemDetailsModel = new Gson().toJson(storeItemDetailsModel);
-
-                Intent i = new Intent();
-
-                i.putExtra(AppConstants.STORE_ITEM_DETAILS, jsonStoreItemDetailsModel);
-
-                i.putExtra(AppConstants.IS_ITEM_EDIT, isEdit);
-
-                i.putExtra(AppConstants.CATEGORY_TYPE, category_type);
-
-                setResult(1, i);
-
-                onBackPressed();
-
-            }
-
-
-
-
-            else if(category_type.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
-
-                if (isEdit) {
-                    if (storeItemDetailsModel.getIsSize()) {
-                        for (int i = 0; i < storeItemDetailsModel.getSizePrice().size(); i++) {
-
-                            if (storeItemDetailsModel.getSizePrice().get(i).getSize().equalsIgnoreCase(sizeNAme)) {
-
-                                storeItemDetailsModel.getSizePrice().get(i).setSelected(true);
-                            } else {
-
-                                storeItemDetailsModel.getSizePrice().get(i).setSelected(false);
-                            }
-                        }
-                    }
-
-                }
-
-                storeItemDetailsModel.setExtraInfo(extraSelectedServiceAndProductList);
-
-                String jsonStoreItemDetailsModel = new Gson().toJson(storeItemDetailsModel);
-
-                Intent i = new Intent();
-
-                i.putExtra(AppConstants.STORE_ITEM_DETAILS, jsonStoreItemDetailsModel);
-
-                i.putExtra(AppConstants.IS_ITEM_EDIT, isEdit);
-
-                i.putExtra(AppConstants.CATEGORY_TYPE, category_type);
-
-                setResult(1, i);
-
-                onBackPressed();
-            }
-
-
-        }
-    }
-
-
-
-
     private void initViews() {
         txt_item_name = findViewById(R.id.txt_item_name);
         txt_item_price = findViewById(R.id.txt_item_price);
@@ -250,11 +163,8 @@ public class ExtraPackageListActivity extends AppCompatActivity {
         rltLayoutAddExtras = findViewById(R.id.rlt_layout_add_extras);
     }
 
-
-
-
     private void setData() {
-        if(storeItemDetailsModel != null){
+        if (storeItemDetailsModel != null) {
             extraId = storeItemDetailsModel.getExtraId();
             category_type = category_type;
             txt_item_name.setText(storeItemDetailsModel.getName());
@@ -262,19 +172,17 @@ public class ExtraPackageListActivity extends AppCompatActivity {
         txt_item_price.setText(OrderProductsAndServicesActivity.currencySymbol + String.format("%.2f", sizePrice));
 
 
-
-
     }
 
     private void setExtraPackageData() {
-       // extraSelectedServiceAndProductList = getClonedExtraPackageDetailsResponseMode();
+        // extraSelectedServiceAndProductList = getClonedExtraPackageDetailsResponseMode();
 
 
-        if(extraServiceAndProductList != null && extraServiceAndProductList.size() >0){
+        if (extraServiceAndProductList != null && extraServiceAndProductList.size() > 0) {
 
             // TODO
 
-            if(category_type.equals(AppConstants.CATEGORY_TYPE_SERVICE)){
+            if (category_type.equals(AppConstants.CATEGORY_TYPE_SERVICE)) {
 
                 rgServiceProductName = new RadioGroup[extraServiceAndProductList.size()];
 
@@ -299,7 +207,7 @@ public class ExtraPackageListActivity extends AppCompatActivity {
 
                     layout.addView(tv);
 
-                     /// TODO
+                    /// TODO
 
 //                    if (extraServiceAndProductList.get(index).getIsMultiSelected()) {
 //
@@ -354,7 +262,7 @@ public class ExtraPackageListActivity extends AppCompatActivity {
 //                    }
 
 
-                      // Todo
+                    // Todo
 
 //                    else {
 //
@@ -424,10 +332,10 @@ public class ExtraPackageListActivity extends AppCompatActivity {
             }
 
 
-             if(category_type.equals(AppConstants.CATEGORY_TYPE_PRODUCT)){
-                 ArrayList<ExtraPackageListForServiceAndProductModel> extraPackageModels = extraServiceAndProductList;
+            if (category_type.equals(AppConstants.CATEGORY_TYPE_PRODUCT)) {
+                ArrayList<ExtraPackageListForServiceAndProductModel> extraPackageModels = extraServiceAndProductList;
 
-                 Utils.Companion.showLog("<<<< extra Product :  "+ extraPackageModels);
+                Utils.Companion.showLog("<<<< extra Product :  " + extraPackageModels);
 
 
                 rgServiceProductName = new RadioGroup[extraServiceAndProductList.size()];
@@ -455,7 +363,7 @@ public class ExtraPackageListActivity extends AppCompatActivity {
 
                     lnLayoutExtrasContainer.addView(layout);
 
-                    if(extraPackageModels.get(index).getIsMultiSelected()){
+                    if (extraPackageModels.get(index).getIsMultiSelected()) {
 
                     }
 
@@ -467,9 +375,7 @@ public class ExtraPackageListActivity extends AppCompatActivity {
         }
 
 
-
     }
-
 
     private StoreItemDetailsListCategoryInfo getClonedExtraPackageDetailsResponseMode() {
         StoreItemDetailsListCategoryInfo extraPackageDetailsSelectModel = new StoreItemDetailsListCategoryInfo();
@@ -481,6 +387,105 @@ public class ExtraPackageListActivity extends AppCompatActivity {
         return extraPackageDetailsSelectModel;
     }
 
+    private SpannableString getSpannableString(String name, String amount, String time) {
+
+        String foodNameAmt = name + " " + amount;
+
+        SpannableString styledString
+                = new SpannableString(foodNameAmt);
+
+        styledString.setSpan(new RelativeSizeSpan(1f), 0, name.length() + 1, 0);
+
+        styledString.setSpan(new RelativeSizeSpan(0.8f), name.length(), foodNameAmt.length(), 0);
+
+
+        styledString.setSpan(new ForegroundColorSpan(Color.BLACK), 0, name.length() + 1, 0);
+
+        styledString.setSpan(new ForegroundColorSpan(activity.getResources().getColor(R.color.color_restaurant_address)), name.length(), foodNameAmt.length(), 0);
+
+
+        return styledString;
+
+    }
+
+    private class AddItemClickListener implements View.OnClickListener {
+
+
+        @Override
+        public void onClick(View v) {
+
+            if (category_type.equals(AppConstants.CATEGORY_TYPE_SERVICE)) {
+
+                if (isEdit) {
+                    if (storeItemDetailsModel.getIsSize()) {
+                        for (int i = 0; i < storeItemDetailsModel.getSizePriceDuration().size(); i++) {
+
+                            if (storeItemDetailsModel.getSizePriceDuration().get(i).getSize().equalsIgnoreCase(sizeNAme)) {
+
+                                storeItemDetailsModel.getSizePriceDuration().get(i).setSelected(true);
+                            } else {
+
+                                storeItemDetailsModel.getSizePriceDuration().get(i).setSelected(false);
+                            }
+                        }
+                    }
+
+                }
+
+                storeItemDetailsModel.setExtraInfo(extraSelectedServiceAndProductList);
+
+                String jsonStoreItemDetailsModel = new Gson().toJson(storeItemDetailsModel);
+
+                Intent i = new Intent();
+
+                i.putExtra(AppConstants.STORE_ITEM_DETAILS, jsonStoreItemDetailsModel);
+
+                i.putExtra(AppConstants.IS_ITEM_EDIT, isEdit);
+
+                i.putExtra(AppConstants.CATEGORY_TYPE, category_type);
+
+                setResult(1, i);
+
+                onBackPressed();
+
+            } else if (category_type.equals(AppConstants.CATEGORY_TYPE_PRODUCT)) {
+
+                if (isEdit) {
+                    if (storeItemDetailsModel.getIsSize()) {
+                        for (int i = 0; i < storeItemDetailsModel.getSizePrice().size(); i++) {
+
+                            if (storeItemDetailsModel.getSizePrice().get(i).getSize().equalsIgnoreCase(sizeNAme)) {
+
+                                storeItemDetailsModel.getSizePrice().get(i).setSelected(true);
+                            } else {
+
+                                storeItemDetailsModel.getSizePrice().get(i).setSelected(false);
+                            }
+                        }
+                    }
+
+                }
+
+                storeItemDetailsModel.setExtraInfo(extraSelectedServiceAndProductList);
+
+                String jsonStoreItemDetailsModel = new Gson().toJson(storeItemDetailsModel);
+
+                Intent i = new Intent();
+
+                i.putExtra(AppConstants.STORE_ITEM_DETAILS, jsonStoreItemDetailsModel);
+
+                i.putExtra(AppConstants.IS_ITEM_EDIT, isEdit);
+
+                i.putExtra(AppConstants.CATEGORY_TYPE, category_type);
+
+                setResult(1, i);
+
+                onBackPressed();
+            }
+
+
+        }
+    }
 
     private class CheckBoxClick implements CompoundButton.OnCheckedChangeListener {
 
@@ -492,28 +497,9 @@ public class ExtraPackageListActivity extends AppCompatActivity {
 
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-          //  prepareSelectedFinalList(itemId, true, isChecked);
+            //  prepareSelectedFinalList(itemId, true, isChecked);
         }
     }
-
-
-    private class RadioButtonClick implements View.OnClickListener {
-
-        String itemId;
-
-        public RadioButtonClick(String itemId, String itemName, double price, String packageName, int indexOfRadioGroup) {
-
-            this.itemId = itemId;
-        }
-
-        @SuppressLint("NewApi")
-        @Override
-        public void onClick(View v) {
-
-          //  prepareSelectedFinalList(itemId, false, true);
-        }
-    }
-
 
 
 //    private void prepareSelectedFinalList(String strItemId, boolean isMultipleSelect, boolean isChecked)
@@ -586,35 +572,22 @@ public class ExtraPackageListActivity extends AppCompatActivity {
 //        txtTotalAmount.setText("Item Total " + OrderFoodActivity.currencySymbol + String.format("%.2f", totalPrize));
 //    }
 
+    private class RadioButtonClick implements View.OnClickListener {
 
+        String itemId;
 
+        public RadioButtonClick(String itemId, String itemName, double price, String packageName, int indexOfRadioGroup) {
 
+            this.itemId = itemId;
+        }
 
+        @SuppressLint("NewApi")
+        @Override
+        public void onClick(View v) {
 
-
-
-
-    private SpannableString getSpannableString(String name, String amount, String time) {
-
-        String foodNameAmt = name + " " + amount;
-
-        SpannableString styledString
-                = new SpannableString(foodNameAmt);
-
-        styledString.setSpan(new RelativeSizeSpan(1f), 0, name.length()+1, 0);
-
-        styledString.setSpan(new RelativeSizeSpan(0.8f), name.length(), foodNameAmt.length(),0);
-
-
-        styledString.setSpan(new ForegroundColorSpan(Color.BLACK), 0, name.length()+1, 0);
-
-        styledString.setSpan(new ForegroundColorSpan(activity.getResources().getColor(R.color.color_restaurant_address)), name.length(), foodNameAmt.length(),0);
-
-
-        return styledString;
-
+            //  prepareSelectedFinalList(itemId, false, true);
+        }
     }
-
 
 
 }

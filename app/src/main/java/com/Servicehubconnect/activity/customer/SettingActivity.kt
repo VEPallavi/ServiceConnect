@@ -56,8 +56,8 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener{
 //                startActivity(intent)
             }
             R.id.tv_contact_support ->{
-//                var intent = Intent(this, ContactSupportActivity::class.java)
-//                startActivity(intent)
+                var intent = Intent(this, ContactSupportActivity::class.java)
+                startActivity(intent)
             }
             R.id.tv_aboutUs ->{
 //                var intent = Intent(this, WebViewActivity::class.java)

@@ -131,7 +131,7 @@ public class OrderProductsAndServicesActivity extends AppCompatActivity implemen
 
 
         Calendar cal = Calendar.getInstance();
-        time_zone = cal.getTimeZone().toString();
+        time_zone = cal.getTimeZone().getID().toString();
 
     }
 
@@ -197,7 +197,7 @@ public class OrderProductsAndServicesActivity extends AppCompatActivity implemen
                                         if(businessInfoObj.has("happy_hours")
                                                 && (businessInfoObj.get("happy_hours") instanceof JsonObject)){
 
-                                            JsonObject happy_hoursObj = dataObj.getAsJsonObject("happy_hours");
+                                            JsonObject happy_hoursObj = businessInfoObj.getAsJsonObject("happy_hours");
 
                                             if(happy_hoursObj.has("start_time")
                                                     && !happy_hoursObj.get("start_time").isJsonNull()){
@@ -209,14 +209,14 @@ public class OrderProductsAndServicesActivity extends AppCompatActivity implemen
                                             if(happy_hoursObj.has("end_time")
                                                     && !happy_hoursObj.get("end_time").isJsonNull()){
 
-                                                tv_happy_hours_close_time.setText(Utils.Companion.get12hrFormatfrom24hr(happy_hoursObj.get("end_time").getAsString()));
+                                                tv_happy_hours_close_time.setText(" - "+Utils.Companion.get12hrFormatfrom24hr(happy_hoursObj.get("end_time").getAsString()));
 
                                             }
 
                                             if(happy_hoursObj.has("discount")
                                                     && !happy_hoursObj.get("discount").isJsonNull()){
 
-                                                tv_discount_percentage.setText(happy_hoursObj.get("discount").getAsString());
+                                                tv_discount_percentage.setText(happy_hoursObj.get("discount").getAsString() +"%");
 
                                             }
 
@@ -234,7 +234,7 @@ public class OrderProductsAndServicesActivity extends AppCompatActivity implemen
 
                             if(dataObj.has("ratingAverage") && !dataObj.get("ratingAverage").isJsonNull()){
 
-                                tv_ratingValue.setText(""+dataObj.get("ratingAverage").getAsInt());
+                                tv_ratingValue.setText(""+dataObj.get("ratingAverage").getAsString());
                             }
 
                             if(dataObj.has("totalRating") && !dataObj.get("totalRating").isJsonNull()){

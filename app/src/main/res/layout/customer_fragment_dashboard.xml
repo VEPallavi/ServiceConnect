@@ -46,7 +46,8 @@
         app:layout_constraintTop_toTopOf="parent"
         android:textColor="@color/dark_grey"
         android:textSize="@dimen/_12sdp"
-        android:text="No categories found"/>
+        android:text="No categories found"
+        android:visibility="gone"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

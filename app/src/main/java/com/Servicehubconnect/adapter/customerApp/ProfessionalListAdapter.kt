@@ -120,7 +120,7 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
 
 
 
-                    tv_happy_hours_close_time.setText(Utils.get12hrFormatfrom24hr(dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime()!!))
+                    tv_happy_hours_close_time.setText(" - "+Utils.get12hrFormatfrom24hr(dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime()!!))
                 }
 
                 if(dataModal.getBussinessInfo()!!.getHappyHours()!!.getEndTime() != null
