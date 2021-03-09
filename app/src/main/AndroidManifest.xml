@@ -25,8 +25,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
+        android:requestLegacyExternalStorage="true"
+        tools:overrideLibrary="androidx.multidex"
         >
-        <activity android:name="com.Servicehubconnect.activity.SplashActivity">
+        <activity android:name="com.Servicehubconnect.activity.SplashActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

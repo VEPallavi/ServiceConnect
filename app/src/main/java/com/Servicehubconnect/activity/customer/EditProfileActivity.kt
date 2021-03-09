@@ -1,5 +1,7 @@
 package com.Servicehubconnect.activity.customer
 
+import `in`.mayanknagwanshi.countrypicker.CountrySelectActivity
+import `in`.mayanknagwanshi.countrypicker.bean.CountryData
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
@@ -20,16 +22,22 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import androidx.lifecycle.lifecycleScope
 import com.Servicehubconnect.R
 import com.Servicehubconnect.helper.AppPreference
 import com.Servicehubconnect.helper.RealPathUtil
 import com.Servicehubconnect.helper.Utils
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.gson.Gson
 import com.rilixtech.widget.countrycodepicker.CountryCodePicker
-import kotlinx.android.synthetic.main.activity_signup.*
+import id.zelory.compressor.Compressor
+import id.zelory.compressor.constraint.quality
+import id.zelory.compressor.constraint.resolution
+import id.zelory.compressor.constraint.size
 import kotlinx.android.synthetic.main.customer_activity_edit_profile.*
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
+import kotlinx.coroutines.launch
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
@@ -78,7 +86,10 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu
         ivBack.setOnClickListener(this)
         iv_image_picker.setOnClickListener(this)
         tv_countryCodePicker.setOnClickListener {
-            tv_countryCodePicker.setText(countryCodePicker?.selectedCountryCode)
+
+            val intent = Intent(this, CountrySelectActivity::class.java)
+            startActivityForResult(intent, 1213)
+
         }
 
     }
@@ -108,33 +119,60 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu
             try {
                 //val selectedFilePath = RealPathUtil.getPath(this@ProfileActivity, uri)
 
-                val compressedImage = compressImage(imageFilePath)
+                var file: File
+                file = File(imageFilePath)
+                compressFile(file)
+        //        val compressedImage = compressImage(imageFilePath)
 
                   Glide.with(this)
-                   .load(compressedImage)
-                   .apply(RequestOptions().placeholder(R.drawable.ic_launcher_background).error(R.drawable.ic_launcher_background))
+                   .load(file.absolutePath)
+                   .apply(RequestOptions().placeholder(R.drawable.dummy).error(R.drawable.dummy))
                    .into(iv_profile_image)
-                uploadImage(compressedImage)
+              //  uploadImage(compressedImage)
 
             } catch (e: IOException) {
                 e.printStackTrace()
             }
 
 
-        } else if (requestCode == GALLERY_REQUEST && resultCode == Activity.RESULT_OK) run {
+        }
+
+        else if (requestCode == GALLERY_REQUEST && resultCode == Activity.RESULT_OK) run {
             val uri = data!!.getData()
             try {
                 val selectedFilePath = RealPathUtil.getPath(this@EditProfileActivity, uri)
 
-                val compressedImage = compressImage(selectedFilePath)
+                var file: File
+                file = File(selectedFilePath)
+                compressFile(file)
+
+            //    val compressedImage = compressImage(selectedFilePath)
                   Glide.with(this)
-                   .load(compressedImage)
-                   .apply(RequestOptions().placeholder(R.drawable.ic_launcher_background).error(R.drawable.ic_launcher_background))
+                   .load(file.absolutePath)
+                   .apply(RequestOptions().placeholder(R.drawable.dummy).error(R.drawable.dummy))
                    .into(iv_profile_image)
-                uploadImage(compressedImage)
+              //  uploadImage(compressedImage)
 
             } catch (e: IOException) {
                 e.printStackTrace()
+            }
+        }
+
+
+        if (requestCode === 1213 && resultCode === Activity.RESULT_OK) {
+            val countryData = data!!.getSerializableExtra(CountrySelectActivity.RESULT_COUNTRY_DATA) as CountryData
+            Log.e("@@@@@@@@@@", "" + Gson().toJson(countryData))
+            tv_countryCodePicker.setText(countryData.countryISD)
+        }
+
+    }
+
+    private fun compressFile(file: File) {
+        lifecycleScope.launch {
+            val compressedImageFile = Compressor.compress(this@EditProfileActivity, file){
+                resolution(1024, 720)
+                quality(65)
+                size(2_097_152)
             }
         }
     }
@@ -144,18 +182,35 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu
     }
 
 
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if (grantResults.size > 0) {
+
+            var CameraPermission = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+            var readExternalStorage = grantResults[1] == PackageManager.PERMISSION_GRANTED;
+            var writeExternalStorage = grantResults[2] == PackageManager.PERMISSION_GRANTED;
+
+            if (CameraPermission && readExternalStorage && writeExternalStorage) {
+                openImagePickerMenu()
+
+            } else {
+                Utils.showToast(this, getString(R.string.msg_incomplete_permission))
+            }
+        }
+    }
+
+
+
     fun checkPermission(): Boolean {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
-            if ((ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) && (ContextCompat.checkSelfPermission(
-                            this,
-                            Manifest.permission.READ_EXTERNAL_STORAGE
-                    ) == PackageManager.PERMISSION_GRANTED) && (ContextCompat.checkSelfPermission(
-                            this,
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE
-                    ) == PackageManager.PERMISSION_GRANTED)
-            ) {
+            if ((ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED)
+                    && (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+                    && (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED))
+            {
                 return true
+
             } else {
                 return false
             }
@@ -193,9 +248,6 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu
         ActivityCompat.requestPermissions(this, permissions, 123);
     }
 
-
-
-
     fun compressImage(imageUri: String): String {
 
         var filePath = getRealPathFromURI(imageUri)
@@ -203,15 +255,11 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu
 
         var options = BitmapFactory.Options()
 
-        //      by setting this field as true, the actual bitmap pixels are not loaded in the memory. Just the bounds are loaded. If
-        //      you try the use the bitmap here, you will get null.
         options.inJustDecodeBounds = true
         var bmp = BitmapFactory.decodeFile(filePath, options)
 
         var actualHeight = options.outHeight
         var actualWidth = options.outWidth
-
-        //      max Height and width values of the compressed image is taken as 816x612
 
         val maxHeight = 816.0f
         val maxWidth = 612.0f
@@ -220,8 +268,6 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu
 
 
         var maxRatio = maxWidth / maxHeight
-
-        //      width and height values are set maintaining the aspect ratio of the image
 
         if (actualHeight > maxHeight || actualWidth > maxWidth) {
             if (imgRatio < maxRatio) {
@@ -235,28 +281,21 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu
             } else {
                 actualHeight = maxHeight.toInt()
                 actualWidth = maxWidth.toInt()
-
             }
         }
 
-        //      setting inSampleSize value allows to load a scaled down version of the original image
-
         options.inSampleSize = calculateInSampleSize(options, actualWidth, actualHeight)
 
-        //      inJustDecodeBounds set to false to load the actual bitmap
         options.inJustDecodeBounds = false
 
-        //      this options allow android to claim the bitmap memory if it runs low on memory
         options.inPurgeable = true
         options.inInputShareable = true
         options.inTempStorage = ByteArray(16 * 1024)
 
         try {
-            //          load the bitmap from its path
             bmp = BitmapFactory.decodeFile(filePath, options)
         } catch (exception: OutOfMemoryError) {
             exception.printStackTrace()
-
         }
 
         try {
@@ -277,14 +316,11 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu
         canvas.setMatrix(scaleMatrix)
         canvas.drawBitmap(bmp, middleX - bmp.width / 2, middleY - bmp.height / 2, Paint(Paint.FILTER_BITMAP_FLAG))
 
-        //      check the rotation of the image and display it properly
         val exif: ExifInterface
         try {
             exif = ExifInterface(filePath)
 
-            val orientation = exif.getAttributeInt(
-                    ExifInterface.TAG_ORIENTATION, 0
-            )
+            val orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, 0)
             Log.d("EXIF", "Exif: $orientation")
             val matrix = Matrix()
             if (orientation == 6) {
@@ -310,8 +346,6 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu
         val filename = getFilename()
         try {
             out = FileOutputStream(filename)
-
-            //          write the compressed bitmap at the destination specified by filename.
             scaledBitmap!!.compress(Bitmap.CompressFormat.JPEG, 80, out)
 
         } catch (e: FileNotFoundException) {
@@ -319,8 +353,9 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu
         }
 
         return filename
-
     }
+
+
 
     fun calculateInSampleSize(options: BitmapFactory.Options, reqWidth: Int, reqHeight: Int): Int {
         var height = options.outHeight;
@@ -409,8 +444,7 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu
             R.id.item_gallery -> {
 
                 try {
-                    val galleryIntent =
-                            Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                    val galleryIntent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
                     galleryIntent.type = "image/*"
                     startActivityForResult(galleryIntent, GALLERY_REQUEST)
                 } catch (e: Exception) {
@@ -425,3 +459,5 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener, PopupMenu
 
 
 }
+
+

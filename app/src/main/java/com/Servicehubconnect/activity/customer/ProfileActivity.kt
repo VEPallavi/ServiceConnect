@@ -31,15 +31,15 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener{
         tv_title.text = "Profile"
 
 
-//        tv_name.setText(appPreference!!.getCustomerName())
-//        tv_phoneNumber.setText(appPreference!!.getCustomerCountryCode()+appPreference!!.getCustomerMobileNo())
-//        tv_emailId.setText(appPreference!!.getCustomerEmailID())
-//        if(!appPreference!!.getCustomerProfilePic().equals("") && appPreference!!.getCustomerProfilePic()!= null){
-//            Glide.with(this)
-//                    .load(appPreference!!.getCustomerProfilePic())
-//                    .apply(RequestOptions().placeholder(R.drawable.dummy).error(R.drawable.dummy))
-//                    .into(civ_profileImage)
-//        }
+        tv_name.setText(appPreference!!.getCustomerName())
+        tv_phoneNumber.setText(appPreference!!.getCustomerCountryCode()+appPreference!!.getCustomerMobileNo())
+        tv_emailId.setText(appPreference!!.getCustomerEmailID())
+        if(!appPreference!!.getCustomerProfilePic().equals("") && appPreference!!.getCustomerProfilePic()!= null){
+            Glide.with(this)
+                    .load(appPreference!!.getCustomerProfilePic())
+                    .apply(RequestOptions().placeholder(R.drawable.dummy).error(R.drawable.dummy))
+                    .into(civ_profileImage)
+        }
 
 
     }
@@ -56,8 +56,8 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener{
                 finish()
             }
             R.id.tv_update_profile ->{
-//                var intent = Intent(this, EditProfileActivity::class.java)
-//                startActivity(intent)
+                var intent = Intent(this, EditProfileActivity::class.java)
+                startActivity(intent)
             }
         }
     }

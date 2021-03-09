@@ -32,7 +32,7 @@
 
 
 
-
+    <string name="msg_incomplete_permission">Please allow all permissions requires to select profile image</string>
     <string name="msg_no_internet">Please check your internet connection and try again.</string>
     <string name="msg_common_error">Oops something went wrong.</string>
     <string name="msg_invalid_email">Please enter a valid email id.</string>

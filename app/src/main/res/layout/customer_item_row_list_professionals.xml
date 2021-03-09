@@ -276,7 +276,7 @@
         android:drawableLeft="@drawable/background_check"
         android:drawablePadding="@dimen/_5sdp"
         android:alpha=".9"
-        android:text="Background Check"
+        android:text="Background check/Reference"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
@@ -294,7 +294,7 @@
         android:textColor="@color/colorBlack"
         app:layout_constraintLeft_toRightOf="@+id/tv_backgroundCheck"
         app:layout_constraintTop_toBottomOf="@+id/tv_commentsCount"
-        android:text="Yes/Cleared" />
+        android:text="" />
 
     <TextView
         android:id="@+id/tv_tradeLicence"
@@ -324,7 +324,7 @@
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
         android:textColor="@color/colorBlack"
-        android:text="Yes/Cleared" />
+        android:text="" />
 
     <TextView
         android:id="@+id/tv_insurance"
@@ -354,7 +354,7 @@
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
         android:textColor="@color/colorBlack"
-        android:text="Yes/Cleared" />
+        android:text="" />
 
 
     <TextView
@@ -385,7 +385,7 @@
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
         android:textColor="@color/colorBlack"
-        android:text="Yes/Cleared"
+        android:text=""
         />
 
 
@@ -417,7 +417,7 @@
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
         android:textColor="@color/colorBlack"
-        android:text="Yes/Cleared" />
+        android:text="" />
 
     <TextView
         android:id="@+id/tv_commercial_insured"
@@ -447,7 +447,7 @@
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
         android:textColor="@color/colorBlack"
-        android:text="Yes/Cleared" />
+        android:text="" />
 
 
     <TextView
