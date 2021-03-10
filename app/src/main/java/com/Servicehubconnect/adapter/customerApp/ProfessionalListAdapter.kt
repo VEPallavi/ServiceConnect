@@ -50,7 +50,7 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
         var tv_cost: TextView
         var tv_backgroundCheck_yes_no: TextView
         var tv_tradeLicence_yes_no: TextView
-        var tv_insurance_yes_no: TextView
+        var tv_insured_yes_no: TextView
         var tv_certificate_yes_no: TextView
         var tv_driving_licence_yes_no: TextView
         var tvCommercialInsured: TextView
@@ -75,7 +75,7 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
             tv_cost = view.findViewById(R.id.tv_cost)
             tv_backgroundCheck_yes_no = view.findViewById(R.id.tv_backgroundCheck_yes_no)
             tv_tradeLicence_yes_no = view.findViewById(R.id.tv_tradeLicence_yes_no)
-            tv_insurance_yes_no = view.findViewById(R.id.tv_insurance_yes_no)
+            tv_insured_yes_no = view.findViewById(R.id.tv_insured_yes_no)
             tv_certificate_yes_no = view.findViewById(R.id.tv_certificate_yes_no)
             tv_driving_licence_yes_no = view.findViewById(R.id.tv_driving_licence_yes_no)
             tvCommercialInsured = view.findViewById(R.id.tv_commercial_insured_yes_no)
@@ -96,6 +96,10 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
             tv_businessName.setText(dataModal.getBussinessName())
             tv_city.setText(dataModal.getLocalCity())
             tv_ratingValue.setText(""+dataModal.getRatingAverage())
+
+            if(dataModal.getCustomerInstructions() != null){
+                tv_instruction.setText(dataModal.getCustomerInstructions())
+            }
 
 
 
@@ -152,54 +156,63 @@ class ProfessionalListAdapter(var mContext: Context, var professionalList: Array
 
 
 
+            tv_backgroundCheck_yes_no.setText(dataModal.getBackgroundCheck())
+            tv_tradeLicence_yes_no.setText(dataModal.getTradeLicence())
+            tv_insured_yes_no.setText(dataModal.getInsured())
+            tv_certificate_yes_no.setText(dataModal.getCertificateCheck())
+            tv_driving_licence_yes_no.setText(dataModal.getDriverLicence())
+            tvCommercialInsured.setText(dataModal.getCommercialInsurance())
 
 
-            if(dataModal.getBackgroundCheck() == true){
-                tv_backgroundCheck_yes_no.setText("Yes/Cleared")
-            }
-            else{
-                tv_backgroundCheck_yes_no.setText("N/A")
-            }
+
+//            if(dataModal.getBackgroundCheck() == true){
+//                tv_backgroundCheck_yes_no.setText("Yes/Cleared")
+//            }
+//            else{
+//                tv_backgroundCheck_yes_no.setText("N/A")
+//            }
+//
+//
+//            if(dataModal.getTradeLicence() == true){
+//                tv_tradeLicence_yes_no.setText("Yes/Cleared")
+//            }
+//            else{
+//                tv_tradeLicence_yes_no.setText("N/A")
+//            }
+//
+//
+//            if(dataModal.getInsured() == true){
+//                tv_insured_yes_no.setText("Yes/Cleared")
+//            }
+//            else{
+//                tv_insured_yes_no.setText("N/A")
+//            }
+//
+//
+//            if(dataModal.getCertificateCheck() == true){
+//                tv_certificate_yes_no.setText("Yes/Cleared")
+//            }
+//            else{
+//                tv_certificate_yes_no.setText("N/A")
+//            }
+//
+//
+//            if(dataModal.getDriverLicence() == true){
+//                tv_driving_licence_yes_no.setText("Yes/Cleared")
+//            }
+//            else{
+//                tv_driving_licence_yes_no.setText("N/A")
+//            }
+//
+//
+//            if(dataModal.getCommercialInsurance() == true){
+//                tvCommercialInsured.setText("Yes/Cleared")
+//            }
+//            else{
+//                tvCommercialInsured.setText("N/A")
+//            }
 
 
-            if(dataModal.getTradeLicence() == true){
-                tv_tradeLicence_yes_no.setText("Yes/Cleared")
-            }
-            else{
-                tv_tradeLicence_yes_no.setText("N/A")
-            }
-
-
-            if(dataModal.getInsurance() == true){
-                tv_insurance_yes_no.setText("Yes/Cleared")
-            }
-            else{
-                tv_insurance_yes_no.setText("N/A")
-            }
-
-
-            if(dataModal.getCertificateCheck() == true){
-                tv_certificate_yes_no.setText("Yes/Cleared")
-            }
-            else{
-                tv_certificate_yes_no.setText("N/A")
-            }
-
-
-            if(dataModal.getDriverLicence() == true){
-                tv_driving_licence_yes_no.setText("Yes/Cleared")
-            }
-            else{
-                tv_driving_licence_yes_no.setText("N/A")
-            }
-
-
-            if(dataModal.getCommercialInsurance() == true){
-                tvCommercialInsured.setText("Yes/Cleared")
-            }
-            else{
-                tvCommercialInsured.setText("N/A")
-            }
 
             tv_purpose.setText(dataModal.getProfessionalPurpose())
             tv_cost.setText(""+ dataModal.getBussinessInfo()?.getCurrencySymbol()+ dataModal.getMinCost())

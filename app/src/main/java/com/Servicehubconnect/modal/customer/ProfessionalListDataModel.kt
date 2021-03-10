@@ -74,21 +74,29 @@ class ProfessionalListDataModel {
     @Expose
     private var mobileNo: String? = null
 
+
+    @SerializedName("customer_instructions")
+    @Expose
+    private var customer_instructions: String? = null
+
+
+
+
     @SerializedName("backgroundCheck")
     @Expose
-    private var backgroundCheck: Boolean? = null
+    private var backgroundCheck: String? = null
 
     @SerializedName("certificate_check")
     @Expose
-    private var certificateCheck: Boolean? = null
+    private var certificateCheck: String? = null
 
     @SerializedName("commercial_insurance")
     @Expose
-    private var commercialInsurance: Boolean? = null
+    private var commercialInsurance: String? = null
 
     @SerializedName("driver_licence")
     @Expose
-    private var driverLicence: Boolean? = null
+    private var driverLicence: String? = null
 
     @SerializedName("insurance")
     @Expose
@@ -97,11 +105,11 @@ class ProfessionalListDataModel {
 
     @SerializedName("insured")
     @Expose
-    private var insured: Boolean? = null
+    private var insured: String? = null
 
     @SerializedName("tradeLicence")
     @Expose
-    private var tradeLicence: Boolean? = null
+    private var tradeLicence: String? = null
 
 
     @SerializedName("min_cost")
@@ -176,7 +184,13 @@ class ProfessionalListDataModel {
     }
 
 
+    fun getCustomerInstructions(): String? {
+        return customer_instructions
+    }
 
+    fun setCustomerInstructions(customer_instructions: String?) {
+        this.customer_instructions = customer_instructions
+    }
 
 
 
@@ -249,35 +263,35 @@ class ProfessionalListDataModel {
         this.mobileNo = mobileNo
     }
 
-    fun getBackgroundCheck(): Boolean? {
+    fun getBackgroundCheck(): String? {
         return backgroundCheck
     }
 
-    fun setBackgroundCheck(backgroundCheck: Boolean?) {
+    fun setBackgroundCheck(backgroundCheck: String?) {
         this.backgroundCheck = backgroundCheck
     }
 
-    fun getCertificateCheck(): Boolean? {
+    fun getCertificateCheck(): String? {
         return certificateCheck
     }
 
-    fun setCertificateCheck(certificateCheck: Boolean?) {
+    fun setCertificateCheck(certificateCheck: String?) {
         this.certificateCheck = certificateCheck
     }
 
-    fun getCommercialInsurance(): Boolean? {
+    fun getCommercialInsurance(): String? {
         return commercialInsurance
     }
 
-    fun setCommercialInsurance(commercialInsurance: Boolean?) {
+    fun setCommercialInsurance(commercialInsurance: String?) {
         this.commercialInsurance = commercialInsurance
     }
 
-    fun getDriverLicence(): Boolean? {
+    fun getDriverLicence(): String? {
         return driverLicence
     }
 
-    fun setDriverLicence(driverLicence: Boolean?) {
+    fun setDriverLicence(driverLicence: String?) {
         this.driverLicence = driverLicence
     }
 
@@ -290,21 +304,21 @@ class ProfessionalListDataModel {
     }
 
 
-    fun getInsured(): Boolean? {
+    fun getInsured(): String? {
         return insured
     }
 
-    fun setInsured(insured: Boolean?) {
+    fun setInsured(insured: String?) {
         this.insured = insured
     }
 
 
 
-    fun getTradeLicence(): Boolean? {
+    fun getTradeLicence(): String? {
         return tradeLicence
     }
 
-    fun setTradeLicence(tradeLicence: Boolean?) {
+    fun setTradeLicence(tradeLicence: String?) {
         this.tradeLicence = tradeLicence
     }
 

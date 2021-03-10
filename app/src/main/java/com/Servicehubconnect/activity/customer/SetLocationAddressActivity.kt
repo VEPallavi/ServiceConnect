@@ -183,8 +183,7 @@ class SetLocationAddressActivity : AppCompatActivity(), View.OnClickListener, On
                             }
                         })
             } else {
-                Toast.makeText(this, "Please turn on" + " your location...", Toast.LENGTH_LONG)
-                        .show()
+                Toast.makeText(this, "Please turn on" + " your location...", Toast.LENGTH_LONG).show()
                 val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
                 startActivity(intent)
             }

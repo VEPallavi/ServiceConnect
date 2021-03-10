@@ -23,7 +23,7 @@ class SupportViewModel : ViewModel(){
         var token = preference!!.getAuthToken()
 
         var apiService = ApiClient.getClient().create(ApiService::class.java)
-        var call = apiService.getSupportData("Bearer " +token)
+        var call = apiService.getSupportData()
 
         Utils.showProgressDialog(mContext)
 

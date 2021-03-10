@@ -173,8 +173,8 @@ class HomeActivityCustomer : AppCompatActivity(), NavigationView.OnNavigationIte
 //                replaceFragment(mFragment)
             }
             8 -> {
-//                var intent = Intent(this, SupportActivity::class.java)
-//                startActivity(intent)
+                var intent = Intent(this, SupportActivity::class.java)
+                startActivity(intent)
             }
             9-> {
                var intent = Intent(this, SettingActivity::class.java)

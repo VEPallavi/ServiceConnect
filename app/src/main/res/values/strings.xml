@@ -128,6 +128,10 @@
     <string name="txt_no_extras_selected">No Extras Selected</string>
     <string name="txt_item_total">Item Total</string>
     <string name="txt_add_item">Add Item</string>
+    <string name="txt_address">Address</string>
+    <string name="txt_phone_number">Phone number</string>
+    <string name="txt_support">Support</string>
+    <string name="txt_email">Email</string>
 
 
 </resources>
