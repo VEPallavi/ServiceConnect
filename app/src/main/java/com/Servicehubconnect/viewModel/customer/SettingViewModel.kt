@@ -28,8 +28,7 @@ class SettingViewModel : ViewModel(){
         var call = apiService.logOutUser("Bearer "+ token)
 
         Utils.showProgressDialog(mContext)
-
-
+        
         call.enqueue(object : retrofit2.Callback<JsonObject>{
             override fun onFailure(call: Call<JsonObject>, t: Throwable) {
                Utils.hideProgressDialog()

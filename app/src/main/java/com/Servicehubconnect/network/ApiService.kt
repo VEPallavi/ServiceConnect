@@ -154,16 +154,10 @@ interface ApiService {
     ): Call<JsonObject>
 
 
-    @POST(ApiList.LOGOUT_URL)
-    @FormUrlEncoded
+    @GET(ApiList.LOGOUT_URL)
     fun logOutUser(
             @Header("Authorization") token: String
     ): Call<JsonObject>
-
-
-
-
-
 
 
 }

@@ -23,7 +23,7 @@ class ApiList {
         const val GET_RATING_COMMENTS_URL ="user/get-my-comments"
         const val GET_EXTRA_PACKAGE_LIST_URL ="user/get-extra-product"
         const val GET_CONTACT_SUPPORT_DETAILS_URL = "user/get-contact-support-details"
-        const val LOGOUT_URL = "/user/logout"
+        const val LOGOUT_URL = "user/logout"
 
     }
 
