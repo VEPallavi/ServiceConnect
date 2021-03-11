@@ -287,14 +287,19 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
                     }
 
                 }
+
                 else {
                     if(it.has("status") && it.get("status").asString.equals("0")){
-                        Utils.showToast(this, it.get("message").asString)
+                        if(it.has("message") && !it.get("message").isJsonNull){
+                            Utils.showToast(this, it.get("message").asString)
+                        }
+                        else {
+                            Utils.showToast(this, resources.getString(R.string.msg_common_error))
+                        }
                     }
                 }
             }
         })
-
 
     }
 

@@ -4,20 +4,29 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.Servicehubconnect.R
 import com.Servicehubconnect.activity.LoginActivity
 import com.Servicehubconnect.activity.WebViewActivity
 import com.Servicehubconnect.helper.AppPreference
+import com.Servicehubconnect.helper.Utils
+import com.Servicehubconnect.viewModel.customer.SettingViewModel
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.customer_activity_setting.*
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
 
 
 class SettingActivity : AppCompatActivity(), View.OnClickListener{
+    var viewModel: SettingViewModel?= null
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.customer_activity_setting)
+        viewModel = ViewModelProviders.of(this).get(SettingViewModel::class.java)
 
         initViews()
         setOnClickListener()
@@ -80,18 +89,43 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener{
 
             R.id.tv_sign_out ->{
 
-                AppPreference.getInstance(this).setAppType("")
-                AppPreference.getInstance(this).setAuthToken("")
-                AppPreference.getInstance(this).setCustomerUserID("")
-                AppPreference.getInstance(this).setCustomerName("")
+                if(checkValidation()){
+                    hitApiLogOut()
+                }
 
-                val intent = Intent(this, LoginActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                startActivity(intent)
-                finish()
             }
-
         }
+    }
+
+    private fun hitApiLogOut() {
+
+        viewModel!!.logOutUser(this).observe(this, Observer {
+
+            if(it!= null){
+
+                if(it.has("status") && it.get("status").asString.equals("200")){
+
+                    if(it.has("message") && !it.get("message").isJsonNull){
+                        Utils.showToast(this, it.get("message").asString)
+
+                        AppPreference.getInstance(this).setAppType("")
+                        AppPreference.getInstance(this).setAuthToken("")
+                        AppPreference.getInstance(this).setCustomerUserID("")
+                        AppPreference.getInstance(this).setCustomerName("")
+
+                        val intent = Intent(this, LoginActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
+                        finish()
+                    }
+                }
+                else{
+                    Utils.showToast(this, resources.getString(R.string.msg_common_error))
+                }
+            }
+        })
+
+
     }
 
     private fun shareLink() {
@@ -100,6 +134,18 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener{
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, urlToShare)
         startActivity(intent)
+    }
+
+
+
+
+    private fun checkValidation(): Boolean {
+
+        if (!Utils.isInternetAvailable(this)) {
+            Utils.showToast(this, resources.getString(R.string.msg_no_internet))
+            return false
+        }
+        return true
     }
 
 
