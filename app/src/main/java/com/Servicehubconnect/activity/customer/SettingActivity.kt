@@ -22,6 +22,7 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener{
     var viewModel: SettingViewModel?= null
 
 
+    
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
