@@ -33,6 +33,8 @@
             android:layout_marginBottom="@dimen/_10sdp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_10sdp"
             android:scrollbars= "vertical"/>
 
     </androidx.core.widget.NestedScrollView>

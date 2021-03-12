@@ -12,6 +12,7 @@ import com.Servicehubconnect.activity.WebViewActivity
 import com.Servicehubconnect.helper.AppPreference
 import com.Servicehubconnect.helper.Utils
 import com.Servicehubconnect.viewModel.customer.SettingViewModel
+import com.google.gson.JsonObject
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.customer_activity_setting.*
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
@@ -69,6 +70,10 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener{
                 startActivity(intent)
             }
             R.id.tv_aboutUs ->{
+
+                var intent = Intent(this, AboutUsActivity::class.java)
+                startActivity(intent)
+
 //                var intent = Intent(this, WebViewActivity::class.java)
 //                intent.putExtra("screenType", "About Us")
 //                intent.putExtra("url","https://www.google.com/")
@@ -81,6 +86,11 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener{
 //                startActivity(intent)
             }
             R.id.tv_term_condition ->{
+
+                var intent = Intent(this, SettingTermAndConditionActivity::class.java)
+                startActivity(intent)
+
+
 //                var intent = Intent(this, WebViewActivity::class.java)
 //                intent.putExtra("screenType", "Term & Condition")
 //                intent.putExtra("url","https://www.google.com/")
@@ -96,6 +106,7 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener{
             }
         }
     }
+
 
     private fun hitApiLogOut() {
 

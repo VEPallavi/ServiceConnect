@@ -154,10 +154,20 @@ interface ApiService {
     ): Call<JsonObject>
 
 
+    @GET(ApiList.ABOUT_US_URL)
+    fun aboutUs(
+    ): Call<JsonObject>
+
+    @GET(ApiList.SETTINGS_TERM_AND_CONDITION_URL)
+    fun termAndCondition(
+    ): Call<JsonObject>
+
     @GET(ApiList.LOGOUT_URL)
     fun logOutUser(
             @Header("Authorization") token: String
     ): Call<JsonObject>
+
+
 
 
 }

@@ -97,10 +97,16 @@
         <activity android:name="com.Servicehubconnect.activity.customer.ProfessionalListActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.customer.OrderProductsAndServicesKotlinActivity"
-            android:screenOrientation="portrait"/>
+<!--        <activity android:name=".activity.customer.OrderProductsAndServicesKotlinActivity"-->
+<!--            android:screenOrientation="portrait"/>-->
 
         <activity android:name="com.Servicehubconnect.activity.customer.LicenceListActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.customer.AboutUsActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.customer.SettingTermAndConditionActivity"
             android:screenOrientation="portrait"/>
 
         <activity android:name="com.Servicehubconnect.activity.customer.CommentListActivity"
