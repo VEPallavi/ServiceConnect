@@ -158,7 +158,12 @@ interface ApiService {
     fun aboutUs(
     ): Call<JsonObject>
 
-    @GET(ApiList.SETTINGS_TERM_AND_CONDITION_URL)
+    @GET(ApiList.PRIVACY_POLICY_URL)
+    fun privacyPolicy(
+    ): Call<JsonObject>
+
+
+    @GET(ApiList.TERM_AND_CONDITION_URL)
     fun termAndCondition(
     ): Call<JsonObject>
 

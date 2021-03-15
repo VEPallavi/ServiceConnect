@@ -24,7 +24,6 @@ class ApiList {
         const val GET_EXTRA_PACKAGE_LIST_URL ="user/get-extra-product"
         const val GET_CONTACT_SUPPORT_DETAILS_URL = "user/get-contact-support-details"
         const val ABOUT_US_URL ="user/get-about-us"
-        const val SETTINGS_TERM_AND_CONDITION_URL = "user/terms-condition"
         const val LOGOUT_URL = "user/logout"
 
     }

@@ -164,6 +164,10 @@
             android:screenOrientation="portrait"/>
 
 
+        <activity android:name=".activity.customer.SettingPrivacyPolicyActivity"
+            android:screenOrientation="portrait"/>
+
+
 
 
 

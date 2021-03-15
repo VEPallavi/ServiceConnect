@@ -63,8 +63,8 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener{
             //    shareLink()
             }
             R.id.tv_change_password ->{
-//                var intent = Intent(this, ChangePasswordActivity::class.java)
-//                startActivity(intent)
+                var intent = Intent(this, ChangePasswordActivity::class.java)
+                startActivity(intent)
             }
             R.id.tv_contact_support ->{
                 var intent = Intent(this, ContactSupportActivity::class.java)
@@ -81,6 +81,9 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener{
 //                startActivity(intent)
             }
             R.id.tv_privacy_policy ->{
+
+                var intent = Intent(this, SettingPrivacyPolicyActivity::class.java)
+                startActivity(intent)
 //                var intent = Intent(this, WebViewActivity::class.java)
 //                intent.putExtra("screenType", "Privacy Policy")
 //                intent.putExtra("url","https://www.google.com/")

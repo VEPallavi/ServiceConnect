@@ -42,7 +42,7 @@ class StoreItemDetailsListCategoryInfo{
 
     @SerializedName("price")
     @Expose
-    private var price: Int? = null
+    private var price: String? = null
 
     @SerializedName("extraId")
     @Expose
@@ -54,7 +54,7 @@ class StoreItemDetailsListCategoryInfo{
 
     @SerializedName("extraInfo")
     @Expose
-    private var extraInfo: ArrayList<ExtraPackageListForServiceAndProductModel?>? = null
+    private var extraInfo: ExtraPackageDetailsResponseModel?= null
 
     @SerializedName("isExtraPackage")
     @Expose
@@ -164,11 +164,11 @@ class StoreItemDetailsListCategoryInfo{
         this.image = image
     }
 
-    fun getPrice(): Int? {
+    fun getPrice(): String? {
         return price
     }
 
-    fun setPrice(price: Int?) {
+    fun setPrice(price: String?) {
         this.price = price
     }
 
@@ -188,11 +188,11 @@ class StoreItemDetailsListCategoryInfo{
         this.isSize = isSize
     }
 
-    fun getExtraInfo(): ArrayList<ExtraPackageListForServiceAndProductModel?>? {
+    fun getExtraPackageDetailsResponseModel(): ExtraPackageDetailsResponseModel? {
         return extraInfo
     }
 
-    fun setExtraInfo(extraInfo: ArrayList<ExtraPackageListForServiceAndProductModel?>?) {
+    fun setExtraPackageDetailsResponseModel(extraInfo: ExtraPackageDetailsResponseModel) {
         this.extraInfo = extraInfo
     }
 

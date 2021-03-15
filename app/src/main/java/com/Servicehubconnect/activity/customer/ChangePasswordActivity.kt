@@ -6,12 +6,14 @@ import android.text.method.PasswordTransformationMethod
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.Servicehubconnect.R
+import com.Servicehubconnect.viewModel.customer.ChangePasswordViewModel
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.customer_activity_change_password.*
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
 
 
 class ChangePasswordActivity : AppCompatActivity(), View.OnClickListener{
+    var viewModel: ChangePasswordViewModel?= null
     var showOldPassword: Boolean = false
     var showNewPassword: Boolean = false
     var showConfirmNewPassword: Boolean = false
@@ -31,6 +33,7 @@ class ChangePasswordActivity : AppCompatActivity(), View.OnClickListener{
         iv_old_password_toggle.setOnClickListener(this)
         iv_new_password_toggle.setOnClickListener(this)
         iv_confirm_new_password_toggle.setOnClickListener(this)
+        tv_save.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -71,7 +74,18 @@ class ChangePasswordActivity : AppCompatActivity(), View.OnClickListener{
               ed_confirm_new_password.setSelection(ed_confirm_new_password.text!!.length)
               showConfirmNewPassword = !showConfirmNewPassword
           }
+
+          R.id.tv_save ->{
+
+              hitApiChangePassword()
+          }
+
+
       }
+    }
+
+    private fun hitApiChangePassword() {
+
     }
 
 

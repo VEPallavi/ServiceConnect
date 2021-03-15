@@ -6,7 +6,10 @@ package com.Servicehubconnect.modal.customer.OrderServiceAndProduct
  */
 
 data class SizePriceForExtraProduct (
+        var index: Int,
         var size: String,
-        var price: Int
+        var price: String,
+        var duration: Int,
+        var unit: String
 
 )

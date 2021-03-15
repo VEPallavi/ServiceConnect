@@ -1,18 +1,11 @@
 package com.Servicehubconnect.modal.customer.OrderServiceAndProduct
 
 import com.google.gson.annotations.Expose
-
 import com.google.gson.annotations.SerializedName
 
 
+public class ExtraPackageDetailsModel {
 
-
-/**
- * Create By Rahul Mangal
- * Project SignupLibrary Screen
- */
-
-class ExtraPackageListForServiceAndProductModel {
 
     @SerializedName("_id")
     @Expose
@@ -22,13 +15,34 @@ class ExtraPackageListForServiceAndProductModel {
     @Expose
     private var extraService: String? = null
 
+    @SerializedName("extraProduct")
+    @Expose
+    private var extraProduct: String? = null
+
     @SerializedName("size_price_duration")
     @Expose
     private var sizePriceDurationForExtraService: ArrayList<SizePriceDurationForExtraService?>? = null
 
+
+    @SerializedName("size_price")
+    @Expose
+    private var sizePriceForExtraProduct: ArrayList<SizePriceForExtraProduct?>? = null
+
+
     @SerializedName("description")
     @Expose
     private var description: String? = null
+
+
+    @SerializedName("price")
+    @Expose
+    private var price: String? = null
+
+
+    @SerializedName("duration")
+    @Expose
+    private var duration: Int? = null
+
 
     private var selected = false
 
@@ -42,13 +56,26 @@ class ExtraPackageListForServiceAndProductModel {
     @Expose
     private var businessId: String? = null
 
-    @SerializedName("extraProduct")
-    @Expose
-    private var extraProduct: String? = null
 
-    @SerializedName("size_price")
-    @Expose
-    private var sizePriceForExtraProduct: ArrayList<SizePriceForExtraProduct?>? = null
+
+    fun getDuration(): Int? {
+        return duration
+    }
+
+    fun setDuration(duration: Int?) {
+        this.duration = duration
+    }
+
+
+    fun getPrice(): String? {
+        return price
+    }
+
+    fun setPrice(price: String?) {
+        this.price = price
+    }
+
+
 
 
     fun getId(): String? {
@@ -127,9 +154,5 @@ class ExtraPackageListForServiceAndProductModel {
     fun setSizePrice(sizePrice: ArrayList<SizePriceForExtraProduct?>?) {
         this.sizePriceForExtraProduct = sizePrice
     }
-
-
-
-
 
 }
