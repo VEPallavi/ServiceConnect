@@ -36,6 +36,14 @@ class StoreItemDetailsListCategoryInfo{
     @Expose
     private var businessId: String? = null
 
+
+    @SerializedName("duration")
+    @Expose
+    private var duration: Int?= null
+
+
+
+
     @SerializedName("image")
     @Expose
     private var image: String? = null
@@ -155,6 +163,22 @@ class StoreItemDetailsListCategoryInfo{
     fun setBusinessId(businessId: String?) {
         this.businessId = businessId
     }
+
+
+
+
+    fun getDuration(): Int? {
+        return duration
+    }
+
+    fun setDuration(duration: Int?) {
+        this.duration = duration
+    }
+
+
+
+
+
 
     fun getImage(): String? {
         return image

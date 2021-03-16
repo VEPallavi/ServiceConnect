@@ -5,9 +5,15 @@ import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import com.Servicehubconnect.R
+import com.Servicehubconnect.helper.Utils
 import com.Servicehubconnect.viewModel.customer.ChangePasswordViewModel
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.ed_password
+import kotlinx.android.synthetic.main.activity_signup.*
 import kotlinx.android.synthetic.main.customer_activity_change_password.*
 import kotlinx.android.synthetic.main.toolbar_layout_subcategories.*
 
@@ -22,6 +28,7 @@ class ChangePasswordActivity : AppCompatActivity(), View.OnClickListener{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.customer_activity_change_password)
+        viewModel = ViewModelProviders.of(this).get(ChangePasswordViewModel::class.java)
 
         tv_title.text = "Change Password"
         setOnClickListener()
@@ -76,17 +83,64 @@ class ChangePasswordActivity : AppCompatActivity(), View.OnClickListener{
           }
 
           R.id.tv_save ->{
-
-              hitApiChangePassword()
+              if(checkValidations()){
+                  hitApiChangePassword()
+              }
           }
-
-
       }
     }
 
     private fun hitApiChangePassword() {
 
+        viewModel!!.changePassword(this, ed_old_password.text.toString(), ed_new_password.text.toString()).observe(this, Observer {
+
+            if(it!= null){
+
+                if(it.has("status") && it.get("status").asString.equals("1")){
+
+                    if(it.has("message") && !it.get("message").isJsonNull){
+
+                        Utils.showToast(this, it.get("message").asString)
+
+                    }
+
+                }
+                else {
+
+                }
+            }
+        })
     }
+
+
+
+
+
+
+    private fun checkValidations(): Boolean {
+        if (!Utils.isInternetAvailable(this)) {
+            Utils.showToast(this, resources.getString(R.string.msg_no_internet))
+            return false
+        }
+        else if(ed_old_password.text.length == 0){
+            Utils.showToast(this, "Please enter the old password.")
+            return false
+        }
+        else if (ed_new_password.text!!.length == 0) {
+            Utils.showToast(this, "Please enter the new password.")
+            return false
+        }
+        else if (ed_new_password.text!!.length < 6) {
+            Utils.showToast(this, resources.getString(R.string.msg_invalid_pass))
+            return false
+        }
+        else if(!(ed_confirm_new_password.text.toString()).equals(ed_new_password.text.toString())){
+            Utils.showToast(this, resources.getString(R.string.msg_not_same_pass))
+            return false
+        }
+        return true
+    }
+
 
 
 }

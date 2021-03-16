@@ -16,6 +16,7 @@ import com.Servicehubconnect.R;
 import com.Servicehubconnect.activity.customer.OrderProductsAndServicesActivity;
 import com.Servicehubconnect.callback.AddItemListener;
 import com.Servicehubconnect.helper.AppConstants;
+import com.Servicehubconnect.helper.Utils;
 import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.StoreItemDetailsListCategoryInfo;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -78,6 +79,9 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
             holder.tv_price.setText(currencySymbol +""+storeItemDetailsList.get(position).getPrice());
             holder.tv_descp.setText(storeItemDetailsList.get(position).getDescription());
 
+             holder.tv_serviceTime.setVisibility(View.VISIBLE);
+            holder.tv_serviceTime.setText(Utils.Companion.ConvertSecondToHHMMSSString(storeItemDetailsList.get(position).getDuration()));
+
              Glide.with(activity)
                      .load(storeItemDetailsList.get(position).getImage().toString())
                      .apply(new RequestOptions().placeholder(R.drawable.dummy).error(R.drawable.dummy))
@@ -122,6 +126,7 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
             holder.tv_name.setText(storeItemDetailsList.get(position).getName());
             holder.tv_price.setText(currencySymbol +""+storeItemDetailsList.get(position).getPrice());
             holder.tv_descp.setText(storeItemDetailsList.get(position).getDescription());
+            holder.tv_serviceTime.setVisibility(View.GONE);
 
              Glide.with(activity)
                      .load(storeItemDetailsList.get(position).getImage().toString())
@@ -421,6 +426,7 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
         ImageView iv_business_image;
         TextView tv_price, tv_name;
         TextView tv_descp;
+        TextView tv_serviceTime;
         TextView tv_add;
         ConstraintLayout cl_item_minus_count_plus, cl_add_product;
         ImageView iv_minus;
@@ -446,6 +452,7 @@ public class ServiceAndProductOrderMenuAdapter extends RecyclerView.Adapter<Serv
             iv_minus = view.findViewById(R.id.iv_minus);
             tv_item_count = view.findViewById(R.id.tv_item_count);
             iv_plus = view.findViewById(R.id.iv_plus);
+            tv_serviceTime = view.findViewById(R.id.tv_serviceTime);
 
 
 //            cl_add_service = view.findViewById(R.id.cl_add_service);

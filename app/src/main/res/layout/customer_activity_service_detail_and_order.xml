@@ -25,468 +25,452 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/colorWhite"
-        android:padding="@dimen/_10sdp"
-        android:id="@+id/cl_main">
-
-
-        <FrameLayout
-            android:id="@+id/fl_business_pic"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_120sdp"
+            android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@color/colorWhite"
+            android:padding="@dimen/_10sdp"
+            android:id="@+id/cl_main">
 
-            <ImageView
-                android:id="@+id/iv_business_pic"
+
+            <FrameLayout
+                android:id="@+id/fl_business_pic"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_120sdp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/dummy" />
+                app:layout_constraintTop_toTopOf="parent">
 
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_happyHours"
-                android:layout_width="@dimen/_120sdp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:paddingLeft="@dimen/_10sdp"
-                android:paddingRight="@dimen/_10sdp"
-                android:paddingTop="@dimen/_3sdp"
-                android:paddingBottom="@dimen/_3sdp"
-                android:background="@color/colorPrimary"
-                android:visibility="visible"
-                >
-
-                <TextView
-                    android:id="@+id/tv_happyHours"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
+                <ImageView
+                    android:id="@+id/iv_business_pic"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_120sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/fl_discount"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/_10sdp"
-                    android:text="Happy Hours"/>
-
-                <TextView
-                    android:id="@+id/tv_happy_hours_open_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_happyHours"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/tv_happy_hours_close_time"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/_8sdp"
-                    android:text="00:00 am"/>
-
-                <TextView
-                    android:id="@+id/tv_happy_hours_close_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_happyHours"
-                    app:layout_constraintRight_toLeftOf="@+id/fl_discount"
-                    app:layout_constraintLeft_toRightOf="@+id/tv_happy_hours_open_time"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/_8sdp"
-                    android:text="- 00:00 am"/>
-
-                <FrameLayout
-                    android:id="@+id/fl_discount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent">
+                    android:scaleType="fitXY"
+                    android:src="@drawable/dummy" />
 
-                    <ImageView
-                        android:layout_width="@dimen/_25sdp"
-                        android:layout_height="@dimen/_25sdp"
-                        android:src="@drawable/offer_icon" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_happyHours"
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:paddingBottom="@dimen/_3sdp"
+                    android:background="@color/colorPrimary"
+                    android:visibility="visible"
+                    >
 
                     <TextView
-                        android:id="@+id/tv_discount_percentage"
+                        android:id="@+id/tv_happyHours"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:layout_gravity="center"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@+id/fl_discount"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="Happy Hours"/>
+
+                    <TextView
+                        android:id="@+id/tv_happy_hours_open_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_happyHours"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@+id/tv_happy_hours_close_time"
+                        android:textColor="@color/colorWhite"
                         android:textSize="@dimen/_8sdp"
-                        android:textColor="@color/colorBlack"
-                        android:text="00%" />
+                        android:text="00:00 am"/>
 
-                </FrameLayout>
+                    <TextView
+                        android:id="@+id/tv_happy_hours_close_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_happyHours"
+                        app:layout_constraintRight_toLeftOf="@+id/fl_discount"
+                        app:layout_constraintLeft_toRightOf="@+id/tv_happy_hours_open_time"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_8sdp"
+                        android:text="- 00:00 am"/>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <FrameLayout
+                        android:id="@+id/fl_discount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent">
 
-        </FrameLayout>
+                        <ImageView
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:src="@drawable/offer_icon" />
 
+                        <TextView
+                            android:id="@+id/tv_discount_percentage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:textSize="@dimen/_8sdp"
+                            android:textColor="@color/colorBlack"
+                            android:text="00%" />
 
-        <TextView
-            android:id="@+id/tv_professionName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fl_business_pic"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginLeft="@dimen/_5sdp"
-            android:textSize="@dimen/_12sdp"
-            android:textStyle="bold"
-            android:textColor="@color/colorBlack"
-            android:text="Profession Name" />
+                    </FrameLayout>
 
-        <TextView
-            android:id="@+id/tv_businessName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_3sdp"
-            android:text="Business Name"
-            android:textColor="@color/colorBlack"
-            android:textStyle="bold"
-            android:textSize="@dimen/_10sdp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_professionName" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/tv_address"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_businessName"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginLeft="@dimen/_5sdp"
-            android:drawableLeft="@drawable/location_icon"
-            android:drawablePadding="@dimen/_5sdp"
-            android:textSize="@dimen/_10sdp"
-            android:textColor="@color/colorBlack"
-            android:text="Address"
-            android:visibility="gone"/>
-
-        <TextView
-            android:id="@+id/tv_ratingValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/tv_ratingCount"
-            app:layout_constraintTop_toBottomOf="@+id/tv_address"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginLeft="@dimen/_5sdp"
-            android:drawableLeft="@drawable/star_icon_on"
-            android:gravity="bottom"
-            android:textStyle="bold"
-            android:drawablePadding="@dimen/_5sdp"
-            android:textSize="@dimen/_10sdp"
-            android:textColor="@color/colorPrimary"
-            android:text="0" />
-
-        <TextView
-            android:id="@+id/tv_ratingCount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toRightOf="@+id/tv_ratingValue"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_ratingValue"
-            android:textSize="@dimen/_8sdp"
-            android:textColor="@color/dark_grey"
-            android:textStyle="bold"
-            android:text=" (0.0k Ratings)" />
-
-        <TextView
-            android:id="@+id/tv_commentsCount"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_ratingValue"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginLeft="@dimen/_5sdp"
-            android:drawableLeft="@drawable/comment_icon"
-            android:drawablePadding="@dimen/_5sdp"
-            android:textSize="@dimen/_10sdp"
-            android:textStyle="bold"
-            android:textColor="@color/colorBlack"
-            android:text="0 Comments" />
-
-        <TextView
-            android:id="@+id/txt_openTime"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_commentsCount"
-            android:layout_marginLeft="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:textColor="@color/dark_grey"
-            android:textSize="@dimen/_10sdp"
-            android:textStyle="bold"
-            android:text="@string/txt_open_time"/>
-
-        <TextView
-            android:id="@+id/tv_open_and_close_time"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_openTime"
-            android:layout_marginLeft="@dimen/_5sdp"
-            android:textSize="@dimen/_10sdp"
-            android:textStyle="bold"
-            android:textColor="@color/colorBlack"
-            android:text="00:00 Am - 00:00Pm"/>
-
-        <TextView
-            android:id="@+id/txt_description"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_open_and_close_time"
-            android:layout_marginLeft="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:textSize="@dimen/_10sdp"
-            android:textStyle="bold"
-            android:textColor="@color/dark_grey"
-            android:text="Description"/>
-
-        <TextView
-            android:id="@+id/tv_description"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_description"
-            android:layout_marginLeft="@dimen/_5sdp"
-            android:textSize="@dimen/_10sdp"
-            android:textColor="@color/colorBlack"
-            android:textStyle="bold"
-            android:text="ecnevevshegveruhbvgefvsucdhbdyvbced cydcw"/>
-
-        <TextView
-            android:id="@+id/tv_licence"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/tv_description"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginLeft="@dimen/_5sdp"
-            android:paddingTop="@dimen/_3sdp"
-            android:paddingBottom="@dimen/_3sdp"
-            android:paddingLeft="@dimen/_15sdp"
-            android:paddingRight="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/_10sdp"
-            android:visibility="gone"
-            android:background="@drawable/edittext_rounded_rect_blue"
-            android:text="Licence"/>
-
-        <TextView
-            android:id="@+id/tv_comment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/tv_description"
-            app:layout_constraintRight_toRightOf="parent"
-            android:padding="@dimen/_5sdp"
-            android:drawableLeft="@drawable/comment_icon"
-            android:drawableRight="@drawable/next_arrow_icon"
-            android:drawablePadding="@dimen/_3sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/_10sdp"
-            android:textStyle="bold"
-            android:text="0 Comment" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </FrameLayout>
 
 
-
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cl_main"
-            android:layout_marginTop="@dimen/_350sdp"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            app:layout_constraintBottom_toTopOf="@+id/cl_product_service_count"
-            >
-
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:background="@color/colorWhite">
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/activities_tabs"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_35sdp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:tabTextColor="@color/colorBlack"
-            app:tabIndicatorHeight="@dimen/_3sdp"
-            android:background="@color/colorWhite"
-            app:tabSelectedTextColor="@color/colorPrimary"
-            app:tabIndicatorColor="@color/dark_grey"
-            app:tabTextAppearance="@style/OrderServiceProductTab"
-            android:elevation="5dp"
-            app:tabMode="scrollable"
-            app:tabGravity="fill"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </com.google.android.material.tabs.TabLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_viewPager"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="@dimen/_35sdp"
-            android:layout_marginBottom="@dimen/_40sdp"
-            app:layout_constraintTop_toBottomOf="@+id/activities_tabs"
-            app:layout_constraintBottom_toTopOf="parent"
-            android:visibility="visible">
-
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/viewPager"
+            <TextView
+                android:id="@+id/tv_professionName"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_height="wrap_content"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@+id/fl_business_pic"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlack"
+                android:text="Profession Name" />
+
+            <TextView
+                android:id="@+id/tv_businessName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:text="Business Name"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:textSize="@dimen/_10sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_professionName" />
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_businessName"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:drawableLeft="@drawable/location_icon"
+                android:drawablePadding="@dimen/_5sdp"
+                android:textSize="@dimen/_10sdp"
+                android:textColor="@color/colorBlack"
+                android:text="Address"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/tv_ratingValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/tv_ratingCount"
+                app:layout_constraintTop_toBottomOf="@+id/tv_address"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:drawableLeft="@drawable/star_icon_on"
+                android:gravity="bottom"
+                android:textStyle="bold"
+                android:drawablePadding="@dimen/_5sdp"
+                android:textSize="@dimen/_10sdp"
+                android:textColor="@color/colorPrimary"
+                android:text="0" />
+
+            <TextView
+                android:id="@+id/tv_ratingCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@+id/tv_ratingValue"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_ratingValue"
+                android:textSize="@dimen/_8sdp"
+                android:textColor="@color/dark_grey"
+                android:textStyle="bold"
+                android:text=" (0.0k Ratings)" />
+
+            <TextView
+                android:id="@+id/tv_commentsCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_ratingValue"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:drawableLeft="@drawable/comment_icon"
+                android:drawablePadding="@dimen/_5sdp"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlack"
+                android:text="0 Comments" />
+
+            <TextView
+                android:id="@+id/txt_openTime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_commentsCount"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textColor="@color/dark_grey"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                android:text="@string/txt_open_time"/>
+
+            <TextView
+                android:id="@+id/tv_open_and_close_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_openTime"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlack"
+                android:text="00:00 Am - 00:00Pm"/>
+
+            <TextView
+                android:id="@+id/txt_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_open_and_close_time"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                android:textColor="@color/dark_grey"
+                android:text="Description"/>
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_description"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:textSize="@dimen/_10sdp"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:text="ecnevevshegveruhbvgefvsucdhbdyvbced cydcw"/>
+
+            <TextView
+                android:id="@+id/tv_licence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tv_description"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:paddingTop="@dimen/_3sdp"
+                android:paddingBottom="@dimen/_3sdp"
+                android:paddingLeft="@dimen/_15sdp"
+                android:paddingRight="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_10sdp"
+                android:visibility="gone"
+                android:background="@drawable/edittext_rounded_rect_blue"
+                android:text="Licence"/>
+
+            <TextView
+                android:id="@+id/tv_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tv_description"
+                app:layout_constraintRight_toRightOf="parent"
+                android:padding="@dimen/_5sdp"
+                android:drawableLeft="@drawable/comment_icon"
+                android:drawableRight="@drawable/next_arrow_icon"
+                android:drawablePadding="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                android:text="0 Comment" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </androidx.core.widget.NestedScrollView>
-
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_product_service_count"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_10sdp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl_main"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:visibility="visible"
-            android:background="@drawable/login_rounded_rect">
+            android:background="@color/colorWhite">
 
-            <TextView
-                android:id="@+id/tv_product_item_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:paddingTop="@dimen/_3sdp"
-                android:textColor="@color/colorWhite"
-                android:text="0 Product |"/>
-
-
-            <TextView
-                android:id="@+id/tv_product_select_bill_amount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toRightOf="@+id/tv_product_item_count"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:paddingTop="@dimen/_3sdp"
-                android:textColor="@color/colorWhite"
-                android:text="$00.00"/>
-
-
-
-            <TextView
-                android:id="@+id/tv_service_item_count"
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/activities_tabs"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/tv_product_item_count"
+                android:layout_height="@dimen/_35sdp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                android:paddingTop="@dimen/_3sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:textSize="@dimen/_10sdp"
-                android:textColor="@color/colorWhite"
-                android:text="0 Service |"/>
-
-
-
-            <TextView
-                android:id="@+id/tv_service_select_bill_amount"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/tv_product_item_count"
-                app:layout_constraintLeft_toRightOf="@+id/tv_service_item_count"
-                android:paddingTop="@dimen/_3sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:textSize="@dimen/_10sdp"
-                android:textColor="@color/colorWhite"
-                android:text="$00.00"/>
-
-
-
-            <TextView
-                android:id="@+id/txt_total_service_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/tv_service_item_count"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:paddingTop="@dimen/_3sdp"
-                android:paddingBottom="@dimen/_5sdp"
-                android:textSize="@dimen/_10sdp"
-                android:textColor="@color/colorWhite"
-                android:text="Total service time | "/>
-
-
-            <TextView
-                android:id="@+id/tv_total_service_time"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/tv_service_item_count"
-                app:layout_constraintLeft_toRightOf="@+id/txt_total_service_time"
                 app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginRight="@dimen/_25sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:paddingTop="@dimen/_3sdp"
-                android:paddingBottom="@dimen/_5sdp"
-                android:textSize="@dimen/_10sdp"
-                android:textColor="@color/colorWhite"
-                android:text="00 min"/>
+                app:tabTextColor="@color/colorBlack"
+                app:tabIndicatorHeight="@dimen/_3sdp"
+                android:background="@color/colorWhite"
+                app:tabSelectedTextColor="@color/colorPrimary"
+                app:tabIndicatorColor="@color/dark_grey"
+                app:tabTextAppearance="@style/OrderServiceProductTab"
+                android:elevation="5dp"
+                app:tabMode="scrollable"
+                app:tabGravity="fill"
+                app:layout_constraintTop_toTopOf="parent">
 
+            </com.google.android.material.tabs.TabLayout>
 
-
-            <TextView
-                android:id="@+id/tv_order"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_viewPager"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:padding="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_35sdp"
+                android:layout_marginBottom="@dimen/_40sdp"
+                app:layout_constraintTop_toBottomOf="@+id/activities_tabs"
+                app:layout_constraintBottom_toTopOf="@+id/cl_product_service_count"
+                android:visibility="visible">
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_product_service_count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:drawableRight="@drawable/cancel_icon"
-                android:drawablePadding="@dimen/_5sdp"
-                android:paddingRight="@dimen/_5sdp"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/_12sdp"
-                android:text="Order"/>
+                android:visibility="visible"
+                android:background="@drawable/login_rounded_rect">
+
+                <TextView
+                    android:id="@+id/tv_product_item_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:textColor="@color/colorWhite"
+                    android:text="0 Product |"/>
+
+
+                <TextView
+                    android:id="@+id/tv_product_select_bill_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/tv_product_item_count"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:textColor="@color/colorWhite"
+                    android:text="$00.00"/>
+
+
+
+                <TextView
+                    android:id="@+id/tv_service_item_count"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_product_item_count"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:textSize="@dimen/_10sdp"
+                    android:textColor="@color/colorWhite"
+                    android:text="0 Service |"/>
+
+
+
+                <TextView
+                    android:id="@+id/tv_service_select_bill_amount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_product_item_count"
+                    app:layout_constraintLeft_toRightOf="@+id/tv_service_item_count"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:textSize="@dimen/_10sdp"
+                    android:textColor="@color/colorWhite"
+                    android:text="$00.00"/>
+
+
+
+                <TextView
+                    android:id="@+id/txt_total_service_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_service_item_count"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:textSize="@dimen/_10sdp"
+                    android:textColor="@color/colorWhite"
+                    android:text="Total service time | "/>
+
+
+                <TextView
+                    android:id="@+id/tv_total_service_time"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_service_item_count"
+                    app:layout_constraintLeft_toRightOf="@+id/txt_total_service_time"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginRight="@dimen/_25sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:textSize="@dimen/_10sdp"
+                    android:textColor="@color/colorWhite"
+                    android:text="00 min"/>
+
+
+
+                <TextView
+                    android:id="@+id/tv_order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:padding="@dimen/_8sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:drawableRight="@drawable/cancel_icon"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:paddingRight="@dimen/_5sdp"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_12sdp"
+                    android:text="Order"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

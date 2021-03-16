@@ -167,6 +167,25 @@ interface ApiService {
     fun termAndCondition(
     ): Call<JsonObject>
 
+
+    @POST(ApiList.CHANGE_PASSWORD_URL)
+    @FormUrlEncoded
+    fun changePassword(
+            @Header("Authorization") token: String,
+            @Field("old_password") old_password: String,
+            @Field("new_password") new_password: String
+    ): Call<JsonObject>
+
+    @POST(ApiList.REFER_FRIENDS_URL)
+    @FormUrlEncoded
+    fun getReferFriends(
+
+    ): Call<JsonObject>
+
+
+
+
+
     @GET(ApiList.LOGOUT_URL)
     fun logOutUser(
             @Header("Authorization") token: String

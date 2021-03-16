@@ -6,7 +6,6 @@ import android.app.ProgressDialog
 import android.content.Context
 import android.content.res.Resources
 import android.net.ConnectivityManager
-import android.os.Build
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.inputmethod.InputMethodManager
@@ -16,9 +15,6 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.regex.Pattern
-
-
-
 
 
 class Utils {
@@ -208,6 +204,37 @@ class Utils {
 
             return _24HourDtFinal
 
+        }
+
+
+        fun ConvertSecondToHHMMSSString(secondTime: Int): String{
+            var timeString = ""
+
+                val tot_seconds = secondTime
+                val hours = tot_seconds / 3600
+                val minutes = tot_seconds % 3600 / 60
+                val seconds = tot_seconds % 60
+
+                timeString = String.format("%02d h %02d m %02d s ", hours, minutes, seconds)
+
+            return if(hours ==0){
+                String.format("%02d m %02d s ", minutes, seconds)
+            }
+            else if(minutes == 0){
+                String.format("%02d h %02d s ", hours, seconds)
+            }
+            else if(hours == 0 && minutes == 0){
+                 String.format("%02d s ", seconds)
+            }
+            else if(minutes == 0 && seconds == 0){
+                 String.format("%02d h ", hours)
+            }
+            else if(hours == 0 && seconds == 0){
+                String.format("%02d m ", minutes)
+            }
+            else {
+                timeString
+            }
         }
 
 

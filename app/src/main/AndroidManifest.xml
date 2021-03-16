@@ -198,6 +198,7 @@
         <activity android:name=".activity.servicePerson.PrivacyPolicyActivityProfessional"
             android:screenOrientation="portrait"/>
 
+
     </application>
 
 </manifest>

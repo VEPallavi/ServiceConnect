@@ -143,32 +143,10 @@ class HomeActivityCustomer : AppCompatActivity(), NavigationView.OnNavigationIte
                 startActivity(intent)
             }
             6 -> {
-//                var intent = Intent(this, ReferFriendsActivity::class.java)
-//                startActivity(intent)
+                var intent = Intent(this, ReferFriendsActivity::class.java)
+                startActivity(intent)
             }
             7 -> {
-
-//                var intent = Intent(this, OrderProductsAndServicesActivity::class.java)
-//                intent.putExtra("professionalId", "6021313a7d13b63440d048bd")
-//                intent.putExtra("bussinessId", "602a6069f29a483523fb1bfe")
-//                startActivity(intent)
-
-
-//                val tz: TimeZone = TimeZone.getDefault()
-//                System.out.println("TimeZone   " + tz.getDisplayName(false, TimeZone.SHORT).toString() + " Timezone id :: " + tz.getID())
-
-
-//                val tz = TimeZone.getDefault()
-//                val now = Date()
-////Import part : x.0 for double number
-////Import part : x.0 for double number
-//                val offsetFromUtc = tz.getOffset(now.time) / 3600000.0
-//                val m2tTimeZoneIs: String = offsetFromUtc.toString()
-
-                val cal = Calendar.getInstance()
-                val tz = cal.timeZone
-
-                System.out.println("TimeZone   "  + " Timezone id :: " + tz)
 //                mFragment = NotificationFragment()
 //                replaceFragment(mFragment)
             }

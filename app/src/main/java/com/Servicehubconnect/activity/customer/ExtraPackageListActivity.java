@@ -179,7 +179,8 @@ public class ExtraPackageListActivity extends AppCompatActivity {
 
     private void setData() {
         if (storeItemDetailsModel != null) {
-            extraId = storeItemDetailsModel.getExtraId();
+           // extraId = storeItemDetailsModel.getExtraId();
+            extraId = storeItemDetailsModel.getId();
             category_type = category_type;
             txt_item_name.setText(storeItemDetailsModel.getName());
         }
