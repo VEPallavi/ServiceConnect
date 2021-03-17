@@ -19,12 +19,12 @@ class ExtraPackageListViewModel : ViewModel(){
 
 
 
-    fun getExtraPackageList(mContext: Context, extraId: String, category_type: String): MutableLiveData<JsonObject>{
+    fun getExtraPackageList(mContext: Context, Id: String, category_type: String): MutableLiveData<JsonObject>{
         extraPackageListResult= MutableLiveData()
 
 
         var apiService = ApiClient.getClient().create(ApiService::class.java)
-        var call = apiService.getExtraPackageList(extraId, category_type)
+        var call = apiService.getExtraPackageList(Id, category_type)
 
         Utils.showProgressDialog(mContext)
 

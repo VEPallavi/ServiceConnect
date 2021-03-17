@@ -33,6 +33,7 @@ import com.Servicehubconnect.modal.customer.OrderServiceAndProduct.StoreItemDeta
 import com.Servicehubconnect.viewModel.customer.ExtraPackageListViewModel;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
@@ -51,7 +52,7 @@ public class ExtraPackageListActivity extends AppCompatActivity {
 
     ExtraPackageListViewModel viewModel;
 
-    String extraId;
+    String Id;
     String category_type;
     double sizePrice;
     private StoreItemDetailsListCategoryInfo storeItemDetailsModel;
@@ -110,7 +111,7 @@ public class ExtraPackageListActivity extends AppCompatActivity {
 
     private void getExtraPackages() {
 
-        viewModel.getExtraPackageList(this, extraId, category_type).observe(this, new Observer<JsonObject>() {
+        viewModel.getExtraPackageList(this, Id, category_type).observe(this, new Observer<JsonObject>() {
             @Override
             public void onChanged(JsonObject it) {
 
@@ -118,15 +119,25 @@ public class ExtraPackageListActivity extends AppCompatActivity {
 
                     if (it.has("status") && it.get("status").getAsString().equals("200")) {
 
-                        if (it.has("extraInfo") && it.get("extraInfo") instanceof JsonArray) {
 
-                            Type type = new TypeToken<ArrayList<ExtraPackageListModel>>() {}.getType();
-                            ArrayList<ExtraPackageListModel> dataList = new Gson().fromJson(it.get("extraInfo"), type);
+                        if (it.has("extraInfo") && it.get("extraInfo") instanceof JsonObject) {
 
-                            if (dataList.size() > 0) {
-                                extraServiceAndProductList.addAll(dataList);
-                                setExtraPackageData();
-                            }
+                            Gson gson = new Gson();
+                            JsonElement json = it.get("extraInfo");
+
+                            extraPackageDetailsResponseModel = gson.fromJson(json, ExtraPackageDetailsResponseModel.class);
+                            setExtraPackageData();
+
+
+
+
+//                            Type type = new TypeToken<ArrayList<ExtraPackageListModel>>() {}.getType();
+//                            ArrayList<ExtraPackageListModel> dataList = new Gson().fromJson(it.get("extraInfo"), type);
+//
+//                            if (dataList.size() > 0) {
+//                                extraServiceAndProductList.addAll(dataList);
+//                                setExtraPackageData();
+//                            }
                         }
                     }
                 }
@@ -180,7 +191,7 @@ public class ExtraPackageListActivity extends AppCompatActivity {
     private void setData() {
         if (storeItemDetailsModel != null) {
            // extraId = storeItemDetailsModel.getExtraId();
-            extraId = storeItemDetailsModel.getId();
+            Id = storeItemDetailsModel.getId();
             category_type = category_type;
             txt_item_name.setText(storeItemDetailsModel.getName());
         }
@@ -453,7 +464,7 @@ public class ExtraPackageListActivity extends AppCompatActivity {
     private ExtraPackageDetailsResponseModel getClonedExtraPackageDetailsResponseMode() {
         ExtraPackageDetailsResponseModel extraPackageDetailsSelectModel = new ExtraPackageDetailsResponseModel();
 
-        String strJson = new Gson().toJson(extraSelectedServiceAndProductList);
+        String strJson = new Gson().toJson(extraPackageDetailsResponseModel);
 
         extraPackageDetailsSelectModel = new Gson().fromJson(strJson, ExtraPackageDetailsResponseModel.class);
 

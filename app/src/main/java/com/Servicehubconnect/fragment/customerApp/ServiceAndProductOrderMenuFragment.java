@@ -152,12 +152,12 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                 }
                 else if (storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
 
-               // StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+                      StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
 
-              //  showSizePopup(vStoreItemDetailsListModel , false, categoryType, position);
+                      showSizePopup(vStoreItemDetailsListModel , false, categoryType, position);
 
 
-                    addListToFinalHashMap(storeItemDetailsListModel, categoryType, position);
+                 //   addListToFinalHashMap(storeItemDetailsListModel, categoryType, position);
 
                 }
                 else if (!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
@@ -168,22 +168,22 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
                     positionSelectedItem = position;
                     isAdd = true;
+//
+//                Intent i = new Intent(activity, ExtraPackageListActivity.class);
+//
+//                i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
+//
+//                i.putExtra(AppConstants.CATEGORY_TYPE, categoryType);
+//
+//              //  i.putExtra(AppConstants.ITEM_ID, vStoreItemDetailsListModel.getStoreCategoriesItemId());
+//
+//                i.putExtra(AppConstants.SIZE_PRICE , vStoreItemDetailsListModel.getPrice().toString());
+//
+//                startActivityForResult(i, 1);
 
-                Intent i = new Intent(activity, ExtraPackageListActivity.class);
-
-                i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
-
-                i.putExtra(AppConstants.CATEGORY_TYPE, categoryType);
-
-              //  i.putExtra(AppConstants.ITEM_ID, vStoreItemDetailsListModel.getStoreCategoriesItemId());
-
-                i.putExtra(AppConstants.SIZE_PRICE , vStoreItemDetailsListModel.getPrice().toString());
-
-                startActivityForResult(i, 1);
 
 
-
-                 //   addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+                     addListToFinalHashMap(storeItemDetailsListModel, categoryType, position);
 
                 }
             }
@@ -344,18 +344,21 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
                 else if (storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
 
-                    StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+//                    StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+//
+//                    showSizePopup(vStoreItemDetailsListModel , false, categoryType, position);
 
-                    showSizePopup(vStoreItemDetailsListModel , false, categoryType, position);
+                    addListToFinalHashMap(storeItemDetailsListModel, categoryType, position);
+
                 }
 
                 else if (storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
-                    StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+//                    StoreItemDetailsListCategoryInfo vStoreItemDetailsListModel = getClonedvStoreItemDetailsListModelObject(storeItemDetailsListModel);
+//
+//                    showSizePopup(vStoreItemDetailsListModel , false, categoryType, position);
 
-                    showSizePopup(vStoreItemDetailsListModel , false, categoryType, position);
 
-
-                  //  addListToFinalHashMap(storeItemDetailsListModel, categoryType);
+                    addListToFinalHashMap(storeItemDetailsListModel, categoryType, position);
                 }
 
                 else if (!storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
@@ -366,17 +369,20 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
                     positionSelectedItem = position;
                     isAdd = true;
 
-                    Intent i = new Intent(activity, ExtraPackageListActivity.class);
+//                    Intent i = new Intent(activity, ExtraPackageListActivity.class);
+//
+//                    i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
+//
+//                    i.putExtra(AppConstants.CATEGORY_TYPE, categoryType);
+//
+//                    i.putExtra(AppConstants.ITEM_ID, vStoreItemDetailsListModel.getId());
+//
+//                    i.putExtra(AppConstants.SIZE_PRICE , vStoreItemDetailsListModel.getPrice());
+//
+//                    startActivityForResult(i, 1);
 
-                    i.putExtra(AppConstants.STORE_ITEM_DETAILS, strJsonStoreItemDetailsLModel);
 
-                    i.putExtra(AppConstants.CATEGORY_TYPE, categoryType);
-
-                    i.putExtra(AppConstants.ITEM_ID, vStoreItemDetailsListModel.getId());
-
-                    i.putExtra(AppConstants.SIZE_PRICE , vStoreItemDetailsListModel.getPrice());
-
-                    startActivityForResult(i, 1);
+                    addListToFinalHashMap(storeItemDetailsListModel, categoryType, position);
 
 
 
@@ -1206,31 +1212,42 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
                     else if (storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
 
-                        for (int k = 0; k < storeItemDetailsListModel.getSizePriceDuration().size(); k++) {
 
-                            if (storeItemDetailsListModel.getSizePriceDuration().get(k).isSelected()) {
-                                totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getSizePriceDuration().get(k).getPrice().toString());
 
-                                totalTimeTakenForService = totalTimeTakenForService + Integer.parseInt(storeItemDetailsListModel.getSizePriceDuration().get(k).getDuration());
+//                        for (int k = 0; k < storeItemDetailsListModel.getSizePriceDuration().size(); k++) {
+//
+//                            if (storeItemDetailsListModel.getSizePriceDuration().get(k).isSelected()) {
+//                                totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getSizePriceDuration().get(k).getPrice().toString());
+//
+//                                totalTimeTakenForService = totalTimeTakenForService + Integer.parseInt(storeItemDetailsListModel.getSizePriceDuration().get(k).getDuration());
+//
+//                                break;
+//                            }
+//                        }
 
-                                break;
-                            }
-                        }
+
+                        totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getPrice());
+
+                        totalTimeTakenForService = totalTimeTakenForService + storeItemDetailsListModel.getDuration();
+
                     }
 
 
                     else if (storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
 
-                        for (int k = 0; k < storeItemDetailsListModel.getSizePriceDuration().size(); k++) {
+//                        for (int k = 0; k < storeItemDetailsListModel.getSizePriceDuration().size(); k++) {
+//
+//                            if (storeItemDetailsListModel.getSizePriceDuration().get(k).isSelected()) {
+//                                totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getSizePriceDuration().get(k).getPrice().toString());
+//
+//                                totalTimeTakenForService = totalTimeTakenForService + Integer.parseInt(storeItemDetailsListModel.getSizePriceDuration().get(k).getDuration());
+//
+//                                break;
+//                            }
+//                        }
 
-                            if (storeItemDetailsListModel.getSizePriceDuration().get(k).isSelected()) {
-                                totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getSizePriceDuration().get(k).getPrice().toString());
 
-                                totalTimeTakenForService = totalTimeTakenForService + Integer.parseInt(storeItemDetailsListModel.getSizePriceDuration().get(k).getDuration());
 
-                                break;
-                            }
-                        }
 
                         // TODO
 
@@ -1244,6 +1261,10 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 //                                }
 //                            }
 //                        }
+
+
+                        totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getPrice());
+                        totalTimeTakenForService = totalTimeTakenForService + storeItemDetailsListModel.getDuration();
 
                     }
 
@@ -1260,8 +1281,8 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 //                                }
 //                            }
 //                        }
-
-                        totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getPrice().toString());
+                        totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getPrice());
+                        totalTimeTakenForService = totalTimeTakenForService + storeItemDetailsListModel.getDuration();
 
                     }
 
@@ -1324,27 +1345,30 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 
                     else if (storeItemDetailsListModel.getIsSize() && !storeItemDetailsListModel.getIsExtraPackage()) {
 
-                        for (int k = 0; k < storeItemDetailsListModel.getSizePrice().size(); k++) {
+//                        for (int k = 0; k < storeItemDetailsListModel.getSizePrice().size(); k++) {
+//
+//                            if (storeItemDetailsListModel.getSizePrice().get(k).isSelected()) {
+//                                totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getSizePrice().get(k).getPrice().toString());
+//
+//                                break;
+//                            }
+//                        }
 
-                            if (storeItemDetailsListModel.getSizePrice().get(k).isSelected()) {
-                                totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getSizePrice().get(k).getPrice().toString());
+                        totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getPrice());
 
-                                break;
-                            }
-                        }
                     }
 
 
                     else if (storeItemDetailsListModel.getIsSize() && storeItemDetailsListModel.getIsExtraPackage()) {
 
-                        for (int k = 0; k < storeItemDetailsListModel.getSizePrice().size(); k++) {
-
-                            if (storeItemDetailsListModel.getSizePrice().get(k).isSelected()) {
-                                totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getSizePrice().get(k).getPrice().toString());
-
-                                break;
-                            }
-                        }
+//                        for (int k = 0; k < storeItemDetailsListModel.getSizePrice().size(); k++) {
+//
+//                            if (storeItemDetailsListModel.getSizePrice().get(k).isSelected()) {
+//                                totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getSizePrice().get(k).getPrice().toString());
+//
+//                                break;
+//                            }
+//                        }
 
                                    // TODO
 
@@ -1358,6 +1382,9 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 //                                }
 //                            }
 //                        }
+
+
+                        totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getPrice());
 
                     }
 
@@ -1376,7 +1403,7 @@ public class ServiceAndProductOrderMenuFragment extends Fragment {
 //                            }
 //                        }
 
-                        totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getPrice().toString());
+                        totalAmount = totalAmount + convertStrToDouble(storeItemDetailsListModel.getPrice());
                     }
 
 

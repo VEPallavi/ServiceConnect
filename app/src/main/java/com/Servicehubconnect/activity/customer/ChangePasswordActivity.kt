@@ -96,7 +96,7 @@ class ChangePasswordActivity : AppCompatActivity(), View.OnClickListener{
 
             if(it!= null){
 
-                if(it.has("status") && it.get("status").asString.equals("1")){
+                if(it.has("status") && it.get("status").asString.equals("200")){
 
                     if(it.has("message") && !it.get("message").isJsonNull){
 
